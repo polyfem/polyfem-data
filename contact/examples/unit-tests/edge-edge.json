@@ -1,0 +1,64 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "time_steps": 200,
+
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": false
+    },
+    "line_search": "bisection",
+    "project_to_psd": true,
+    "solver_type": "Eigen::CholmodSupernodalLLT",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "meshes": [{
+        "mesh": "../../meshes/simple/tet/tet-perp-edges.msh",
+        "position": [0, 0.5, 0],
+        "body_id": 1
+    }, {
+        "mesh": "../../meshes/simple/tet/tet-perp-edges.msh",
+        "position": [0, -0.5, 0],
+        "body_id": 2,
+        "boundary_id": 1
+    }],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "id": 1,
+        "E": 1e5,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "id": 2,
+        "E": 1e5,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+
+    "boundary_sidesets": [{
+        "id": 1,
+        "axis": -2,
+        "position": 0
+    }],
+
+    "export": {
+        "paraview": "sol.vtu",
+        "body_ids": true,
+        "material_params": true
+    },
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}
