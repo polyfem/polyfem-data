@@ -9,8 +9,8 @@
         }],
         "rhs": [0, 9.81, 0]
     },
-    "tend": 5,
-    "time_steps": 200,
+    "tend": 3,
+    "time_steps": 120,
 
     "solver_params": {
         "gradNorm": 1e-5,
@@ -22,31 +22,47 @@
 
     "has_collision": true,
     "dhat": 1e-3,
+    "coeff_friction": 0.1,
 
     "meshes": [{
-        "mesh": "../../meshes/simple/tet/tet-pyramid.msh",
-        "position": [0, 0.5, 0],
-        "rotation": [0, 0, 180],
+        "mesh": "../../meshes/simple/mat/mat40x40.msh",
+        "position": [0, 1.01, 0],
+        "rotation": [90, 0, -45],
+        "rotation_mode": "zyx",
+        "scale": 1,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/tet/tet-pyramid.msh",
-        "position": [0, -0.5, 0],
-        "rotation": [0, 0, 180],
-        "body_id": 2,
+        "mesh": "../../meshes/simple/mat/mat40x40.msh",
+        "position": [0, 0, 0],
+        "rotation": [90, 0, 45],
+        "rotation_mode": "zyx",
+        "scale": 1,
+        "body_id": 2
+    }, {
+        "#mesh": "../../meshes/simple/plane.obj",
+        "mesh": "../../meshes/simple/cube.msh",
+        "position": [0, -0.56, 0],
+        "scale": [2, 0.01, 2],
+        "body_id": 3,
         "boundary_id": 1
     }],
     "normalize_mesh": false,
 
     "body_params": [{
         "id": 1,
-        "E": 1e5,
+        "E": 1e4,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1e3
     }, {
         "id": 2,
-        "E": 1e5,
+        "E": 1e8,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 2e3
+    }, {
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
     }],
 
     "export": {

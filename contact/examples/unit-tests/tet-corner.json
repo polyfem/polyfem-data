@@ -45,7 +45,7 @@
     }, {
         "#mesh": "../../meshes/simple/plane.obj",
         "mesh": "../../meshes/simple/cube.msh",
-        "position": [0.5, -0.51, 0.5],
+        "position": [0.5, -0.505001, 0.5],
         "scale": [5, 0.01, 5],
         "body_id": 2,
         "boundary_id": 1
@@ -62,12 +62,6 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
-    }],
-
-    "boundary_sidesets": [{
-        "id": 1,
-        "axis": -2,
-        "position": 1
     }],
 
     "export": {

@@ -72,12 +72,6 @@
         "rho": 7750
     }],
 
-    "boundary_sidesets": [{
-        "id": 1,
-        "axis": -2,
-        "position": -0.115
-    }],
-
     "export": {
         "paraview": "sol.vtu",
         "body_ids": true,

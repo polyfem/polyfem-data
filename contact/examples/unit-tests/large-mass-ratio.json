@@ -12,13 +12,13 @@
     "tend": 3,
     "time_steps": 120,
 
-    "#solver_params": {
-        "gradNorm": 1e-2,
+    "solver_params": {
+        "gradNorm": 1e-5,
         "useGradNorm": false
     },
     "line_search": "bisection",
     "project_to_psd": true,
-    "#solver_type": "Hypre",
+    "solver_type": "Eigen::CholmodSupernodalLLT",
 
     "has_collision": true,
     "dhat": 1e-3,
@@ -65,12 +65,6 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
-    }],
-
-    "boundary_sidesets": [{
-        "id": 1,
-        "axis": -2,
-        "position": -0.24
     }],
 
     "export": {

@@ -55,7 +55,7 @@ def create_parser():
         help="path to IPC binary")
     parser.add_argument(
         "-i", "--input", metavar="path/to/input", type=pathlib.Path,
-        dest="input", default=None, help="path to input json(s)", nargs="+")
+        dest="input", default=None, help="path to input txt(s)", nargs="+")
     parser.add_argument(
         "-o", "--output", metavar="path/to/output.csv", type=pathlib.Path,
         dest="output", default=pathlib.Path("polyfem-vs-ipc.csv"),
@@ -160,6 +160,8 @@ def main():
                     print(f"Uploaded video to {df_row['IPC Video']}")
 
             # Get running time from info.txt
+            if not (output / "ipc" / "info.txt").exists():
+                continue
             with open(output / "ipc" / "info.txt") as info:
                 lines = info.readlines()
                 df_row["IPC Runtime"] = float(lines[5].strip().split()[0])

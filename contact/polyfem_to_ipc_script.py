@@ -51,9 +51,11 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
                 scale = [scale] * 3
 
         if "rotation" in mesh:
+            rotation_mode = mesh.get("rotation_mode", "xyz")
             rotation = (
-                Rotation.from_euler("xyz", mesh["rotation"], degrees=True)
-                .as_euler("zyx", degrees=True)[::-1])
+                Rotation.from_euler(
+                    rotation_mode, mesh["rotation"], degrees=True)
+                .as_euler("zyx", degrees=True))
         else:
             rotation = [0, 0, 0]
 
@@ -114,7 +116,7 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         time {max_time:g} {timestep:g}
         {gravity}
 
-        CCDMethod TightInclusion
+        # CCDMethod TightInclusion
 
         shapes input {len(shapes):d}
         {{}}
