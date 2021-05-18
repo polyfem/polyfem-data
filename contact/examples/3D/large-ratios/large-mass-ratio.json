@@ -26,20 +26,20 @@
 
     "meshes": [{
         "name": "large-cube",
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.45, 0],
         "scale": 1,
         "body_id": 1
     }, {
         "name": "small-cube",
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, -0.15, 0],
         "scale": 0.1,
         "body_id": 2
     }, {
         "name": "ground",
-        "#mesh": "../../meshes/simple/plane.obj",
-        "mesh": "../../meshes/simple/cube.msh",
+        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, -0.25, 0],
         "scale": [2, 0.01, 2],
         "body_id": 3,

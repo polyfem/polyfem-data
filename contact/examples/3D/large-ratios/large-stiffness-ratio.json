@@ -25,22 +25,22 @@
     "coeff_friction": 0.1,
 
     "meshes": [{
-        "mesh": "../../meshes/simple/mat/mat40x40.msh",
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
         "position": [0, 1.01, 0],
         "rotation": [90, 0, -45],
         "rotation_mode": "zyx",
         "scale": 1,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/mat/mat40x40.msh",
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
         "position": [0, 0, 0],
         "rotation": [90, 0, 45],
         "rotation_mode": "zyx",
         "scale": 1,
         "body_id": 2
     }, {
-        "#mesh": "../../meshes/simple/plane.obj",
-        "mesh": "../../meshes/simple/cube.msh",
+        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, -0.56, 0],
         "scale": [2, 0.01, 2],
         "body_id": 3,

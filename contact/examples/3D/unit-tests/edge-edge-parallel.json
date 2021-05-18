@@ -24,12 +24,12 @@
     "dhat": 1e-3,
 
     "meshes": [{
-        "mesh": "../../meshes/simple/tet/tet-perp-edges.msh",
+        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
         "position": [0, 0.5, 0],
         "rotation": [0, 90, 0],
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/tet/tet-perp-edges.msh",
+        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
         "position": [0, -0.5, 0],
         "body_id": 2,
         "boundary_id": 1

@@ -35,7 +35,7 @@
     "dhat": 1e-3,
 
     "meshes": [{
-        "mesh": "../../meshes/simple/mat/mat40x40.msh",
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
         "position": [0, 0, 0],
         "rotation": [90, 0, 0],
         "body_id": 1

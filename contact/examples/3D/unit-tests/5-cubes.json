@@ -24,33 +24,33 @@
     "dhat": 1e-3,
 
     "meshes": [{
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.00, 0],
         "scale": 0.2,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.205, 0],
         "scale": 0.2,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.410, 0],
         "scale": 0.2,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.615, 0],
         "scale": 0.2,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/simple/cube.msh",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0.820, 0],
         "scale": 0.2,
         "body_id": 1
     }, {
-        "#mesh": "../../meshes/simple/plane.obj",
-        "mesh": "../../meshes/simple/cube.msh",
+        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, -0.12, 0],
         "scale": [2, 0.01, 2],
         "body_id": 2,
