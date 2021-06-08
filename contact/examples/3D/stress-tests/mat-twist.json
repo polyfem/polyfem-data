@@ -1,0 +1,62 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [
+                "x",
+                "y * cos((-0.4 * pi) * t) - z * sin((-0.4 * pi) * t) - y",
+                "y * sin((-0.4 * pi) * t) + z * cos((-0.4 * pi) * t) - z"
+            ]
+        }, {
+            "id": 3,
+            "value": [
+                "x",
+                "y * cos((0.4 * pi) * t) - z * sin((0.4 * pi) * t) - y",
+                "y * sin((0.4 * pi) * t) + z * cos((0.4 * pi) * t) - z"
+            ]
+        }],
+        "rhs": [0, 0, 0]
+    },
+    "tend": 100,
+    "dt": 0.04,
+
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": false
+    },
+    "line_search": "bisection",
+    "project_to_psd": true,
+    "solver_type": "Eigen::CholmodSupernodalLLT",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "meshes": [{
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+        "position": [0, 0, 0],
+        "rotation": [90, 0, 0],
+        "body_id": 1
+    }],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "id": 1,
+        "E": 2e4,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+
+    "boundary_id_threshold": 1e-5,
+
+    "export": {
+        "paraview": "sol.vtu",
+        "body_ids": true,
+        "material_params": true
+    },
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}

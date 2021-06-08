@@ -1,0 +1,83 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "time_steps": 200,
+
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": false
+    },
+    "line_search": "bisection",
+    "project_to_psd": true,
+    "solver_type": "Eigen::CholmodSupernodalLLT",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "meshes": [{
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.00, 0],
+        "scale": 0.2,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.205, 0],
+        "scale": 0.2,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.410, 0],
+        "scale": 0.2,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.615, 0],
+        "scale": 0.2,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.820, 0],
+        "scale": 0.2,
+        "body_id": 1
+    }, {
+        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, -0.12, 0],
+        "scale": [2, 0.01, 2],
+        "body_id": 2,
+        "boundary_id": 1
+    }],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "name": "cubes",
+        "id": 1,
+        "E": 1e5,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "plane",
+        "id": 2,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+
+    "export": {
+        "paraview": "sol.vtu",
+        "body_ids": true,
+        "material_params": true
+    },
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}

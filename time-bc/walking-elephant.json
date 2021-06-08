@@ -1,0 +1,88 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [
+                "0.5 * cos((2 * pi) * t) - 0.5",
+                "max(0, 0.5 * sin((2 * pi) * t))",
+                0
+            ]
+        }, {
+            "id": 2,
+            "value": [0, 0, 0]
+        }, {
+            "id": 3,
+            "value": [0, 0, 0]
+        }, {
+            "id": 4,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "dt": 0.025,
+
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": false
+    },
+    "line_search": "bisection",
+    "project_to_psd": true,
+    "solver_type": "Eigen::CholmodSupernodalLLT",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "meshes": [{
+        "mesh": "little-elephant.msh",
+        "rotation": [0, -90, 0],
+        "body_id": 1
+    }],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "name": "silicone_rubber",
+        "id": 1,
+        "E": 2.55e7,
+        "nu": 0.48,
+        "rho": 1700
+    }],
+
+    "boundary_sidesets": [{
+        "id": 1,
+        "box": [
+            [-0.7, -0.02, 0.15],
+            [0.3, 0.02, 1.15]
+        ]
+    }, {
+        "id": 2,
+        "box": [
+            [-0.7, -0.02, -1.15],
+            [0.3, 0.02, -0.15]
+        ]
+    }, {
+        "id": 3,
+        "box": [
+            [1.05, -0.02, 0.15],
+            [2.05, 0.03, 1.15]
+        ]
+    }, {
+        "id": 4,
+        "box": [
+            [1.05, -0.02, -1.15],
+            [2.05, 0.03, -0.15]
+        ]
+    }],
+
+    "export": {
+        "paraview": "sol.vtu",
+        "body_ids": true,
+        "material_params": true
+    },
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}
