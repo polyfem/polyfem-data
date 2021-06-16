@@ -124,7 +124,7 @@ def main():
         "Scene", "IPC Video", "PolyFEM Video", "IPC Runtime", "PolyFEM Runtime",
         "IPC Iterations", "PolyFEM Iterations",
         "IPC Linear Solve Time", "PolyFEM Linear Solve Time",
-        "IPC CCD Time",  "PolyFEM CCD Time"])
+        "IPC CCD Time",  "PolyFEM CCD Time", "PolyFEM BCCD Time", "PolyFEM NCCD Time", "PolyFEM Ass Time"])
 
     combined_polyfem_profile = pandas.DataFrame()
     combined_polyfem_profile_filename = append_stem(
@@ -158,6 +158,8 @@ def main():
                         ["rclone", "link", f"{remote_path}/{video_name}"],
                         capture_output=True, text=True).stdout.strip()
                     print(f"Uploaded video to {df_row['IPC Video']}")
+            else:
+                df_row["IPC Video"] = "None"
 
             # Get running time from info.txt
             if not (output / "ipc" / "info.txt").exists():
@@ -185,13 +187,16 @@ def main():
         if not args.no_polyfem:
             polyfem_script = polyfem_examples_dir / rel.with_suffix(".json")
             print(f"Running {polyfem_script} in PolyFEM")
-            subprocess.run([str(args.polyfem_bin),
-                            "-j", str(polyfem_script),
-                            # "-o", str(output),
-                            "--log_level", str(args.loglevel),
-                            "--solver", "Eigen::CholmodSupernodalLLT"]
-                           + [] if args.with_viewer else ["--ngui"]
-                           + args.polyfem_args.split())
+            tmp = [str(args.polyfem_bin),
+                   "-j", str(polyfem_script),
+                   # "-o", str(output),
+                   "--log_level", str(args.loglevel),
+                   "--solver", "Eigen::CholmodSupernodalLLT",
+                   "--output", str(output / "sim.json")]
+            print(" ".join(tmp))
+            tmp += ([] if args.with_viewer else ["--cmd"]) + \
+                args.polyfem_args.split()
+            subprocess.run(tmp)
 
             # Render the PolyFEM sim
             if not args.no_video:
@@ -209,37 +214,37 @@ def main():
                         ["rclone", "link", f"{remote_path}/{video_name}"],
                         capture_output=True, text=True).stdout.strip()
                     print(f"Uploaded video to {df_row['PolyFEM Video']}")
+            else:
+                df_row["PolyFEM Video"] = "None"
 
-            # with open(output / "sim.json") as sim:
-            #     sim_dict = json.load(sim)
-            #     df_row["PolyFEM Runtime"] = sum(
-            #         sim_dict["stats"]["step_timings"])
-            #     df_row["PolyFEM Iterations"] = sum(
-            #         sim_dict["stats"]["solver_iterations"])
-            #
-            # log_dirs = list(filter(lambda p: p.is_dir(), output.glob("log*")))
-            # if log_dirs:
-            #     profiler_dir = max(log_dirs, key=os.path.getmtime)
-            #     profiler_df = pandas.read_csv(
-            #         profiler_dir / "summary.csv", header=1, index_col=0,
-            #         skipinitialspace=True)
-            #     df_row["PolyFEM Linear Solve Time"] = (
-            #         profiler_df.percentage_time.get(
-            #             "NewtonSolver::compute_direction:linear_solve", 0))
-            #     df_row["PolyFEM CCD Time"] = profiler_df.percentage_time.get(
-            #         "DistanceBarrierConstraint::compute_earliest_toi", 0)
-            #
-            #     polyfem_profile = pandas.DataFrame(
-            #         index=profiler_df.index.values)
-            #     polyfem_profile[df_row["Scene"]
-            #                     ] = profiler_df["percentage_time"]
-            #     combined_polyfem_profile = pandas.concat(
-            #         [combined_polyfem_profile, polyfem_profile], axis=1)
-            #     combined_polyfem_profile.to_csv(
-            #         combined_polyfem_profile_filename)
-            # else:
-            #     print("Profiling not enabled")
-            print("PolyFEM profiling not enabled")
+            with open(output / "sim.json") as sim:
+                sim_dict = json.load(sim)
+                df_row["PolyFEM Runtime"] = sum(
+                    [(
+                        f["info"]["time_assembly"] +
+                        f["info"]["time_linesearch"] +
+                        f["info"]["time_inverting"] +
+                        f["info"]["time_grad"] +
+                        f["info"]["time_obj_fun"] +
+                        f["info"]["time_constrain_set_update"]
+                    )*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                # sum([t["info"] for sim_dict["solver_info"]["step_timings"])
+                df_row["PolyFEM Iterations"] = sum(
+                    [f["info"]["iterations"] for f in sim_dict["solver_info"]])
+
+                df_row["PolyFEM Linear Solve Time"] = sum(
+                    [f["info"]["time_inverting"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+
+                df_row["PolyFEM CCD Time"] = sum(
+                    [(f["info"]["time_ccd"]+f["info"]["time_broad_phase_ccd"])*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+
+                df_row["PolyFEM BCCD Time"] = sum(
+                    [f["info"]["time_broad_phase_ccd"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                df_row["PolyFEM NCCD Time"] = sum(
+                    [f["info"]["time_ccd"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+
+                df_row["PolyFEM Ass Time"] = sum(
+                    [f["info"]["time_assembly"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
         #######################################################################
         df.loc[df_row["Scene"]] = df_row

@@ -116,7 +116,7 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         time {max_time:g} {timestep:g}
         {gravity}
 
-        # CCDMethod TightInclusion
+        CCDMethod TightInclusion
 
         shapes input {len(shapes):d}
         {{}}
