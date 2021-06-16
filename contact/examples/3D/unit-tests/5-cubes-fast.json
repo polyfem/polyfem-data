@@ -112,6 +112,7 @@
             "rho": 7750
         }
     ],
+    "quadrature_order": 1,
     "save_time_sequence": false,
     "save_solve_sequence_debug": false,
     "vismesh_rel_area": 10000000

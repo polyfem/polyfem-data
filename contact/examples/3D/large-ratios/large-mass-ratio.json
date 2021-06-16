@@ -1,78 +1,107 @@
 {
     "problem": "GenericTensor",
     "tensor_formulation": "NeoHookean",
+    "quadrature_order": 1,
     "problem_params": {
         "is_time_dependent": true,
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "tend": 3,
     "time_steps": 120,
-
     "solver_params": {
         "gradNorm": 1e-5,
         "useGradNorm": false
     },
     "line_search": "bisection",
     "project_to_psd": true,
-    "solver_type": "Eigen::CholmodSupernodalLLT",
-
     "has_collision": true,
     "dhat": 1e-3,
     "coeff_friction": 0.5,
-
-    "meshes": [{
-        "name": "large-cube",
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0, 0.45, 0],
-        "scale": 1,
-        "body_id": 1
-    }, {
-        "name": "small-cube",
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0, -0.15, 0],
-        "scale": 0.1,
-        "body_id": 2
-    }, {
-        "name": "ground",
-        "#mesh": "../../../meshes/3D/simple/plane.obj",
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0, -0.25, 0],
-        "scale": [2, 0.01, 2],
-        "body_id": 3,
-        "boundary_id": 1
-    }],
+    "meshes": [
+        {
+            "name": "large-cube",
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "position": [
+                0,
+                0.45,
+                0
+            ],
+            "scale": 1,
+            "body_id": 1
+        },
+        {
+            "name": "small-cube",
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "position": [
+                0,
+                -0.15,
+                0
+            ],
+            "scale": 0.1,
+            "body_id": 2
+        },
+        {
+            "name": "ground",
+            "#mesh": "../../../meshes/3D/simple/plane.obj",
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "position": [
+                0,
+                -0.25,
+                0
+            ],
+            "scale": [
+                2,
+                0.01,
+                2
+            ],
+            "body_id": 3,
+            "boundary_id": 1
+        }
+    ],
     "normalize_mesh": false,
-
-    "body_params": [{
-        "name": "large-cube",
-        "id": 1,
-        "E": 1e8,
-        "nu": 0.4,
-        "rho": 1e4
-    }, {
-        "name": "small-cube",
-        "id": 2,
-        "E": 1e6,
-        "nu": 0.4,
-        "rho": 1e3
-    }, {
-        "name": "ground",
-        "id": 3,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }],
-
+    "body_params": [
+        {
+            "name": "large-cube",
+            "id": 1,
+            "E": 1e8,
+            "nu": 0.4,
+            "rho": 1e4
+        },
+        {
+            "name": "small-cube",
+            "id": 2,
+            "E": 1e6,
+            "nu": 0.4,
+            "rho": 1e3
+        },
+        {
+            "name": "ground",
+            "id": 3,
+            "E": 2e11,
+            "nu": 0.3,
+            "rho": 7750
+        }
+    ],
     "export": {
         "paraview": "sol.vtu",
         "body_ids": true,
         "material_params": true
     },
-    "save_time_sequence": true,
+    "save_time_sequence": false,
     "save_solve_sequence_debug": false,
     "vismesh_rel_area": 10000000
 }
