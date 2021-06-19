@@ -14,8 +14,9 @@ def get_time_stamp():
 
 
 # NOTE: Change these to automatically find the bins
-polyfem_root = pathlib.Path(__file__).parents[2] / "polyfem"
-ipc_root = pathlib.Path(__file__).parents[3] / "collisions" / "ipc"
+polyfem_root = pathlib.Path(
+    "/Users/teseo/Documents/scuola/polyfem/polyfem/bin_rel.nosync")
+ipc_root = pathlib.Path("/Users/teseo/data/collisions/IPC/bin_rel")
 
 
 def find_bin(root, bin_name):
