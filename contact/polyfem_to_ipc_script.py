@@ -18,7 +18,10 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         raise Exception("Normalize mesh not supported!")
 
     max_time = polyfem_json["tend"]
-    timestep = max_time / polyfem_json["time_steps"]
+    if "dt" in polyfem_json:
+        timestep = polyfem_json["dt"]
+    else:
+        timestep = max_time / polyfem_json["time_steps"]
 
     dhat = polyfem_json.get("dhat", 1e-3)
 
