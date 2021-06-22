@@ -1,0 +1,304 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "tend": 5,
+    "dt": 0.01,
+    "mu": 0.5,
+    "body_params": [
+        {
+            "name": "cubes",
+            "id": 1,
+            "E": 2e11,
+            "nu": 0.3,
+            "rho": 1000
+        },
+        {
+            "name": "supports",
+            "id": 2,
+            "E": 1e6,
+            "nu": 0.3,
+            "rho": 1000
+        }
+    ],
+    "has_collision": true,
+    "dhat": 1e-3,
+    "meshes": [
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.01.msh",
+            "body_id": 1,
+            "position": [
+                -1.2,
+                -1.2,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.02.msh",
+            "body_id": 1,
+            "position": [
+                -1.1,
+                -1.1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.03.msh",
+            "body_id": 1,
+            "position": [
+                -1,
+                -1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.04.msh",
+            "body_id": 1,
+            "position": [
+                -0.9,
+                -0.9,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.05.msh",
+            "body_id": 1,
+            "position": [
+                -0.8,
+                -0.8,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.06.msh",
+            "body_id": 1,
+            "position": [
+                -0.7,
+                -0.7,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.07.msh",
+            "body_id": 1,
+            "position": [
+                -0.6,
+                -0.6,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.08.msh",
+            "body_id": 1,
+            "position": [
+                -0.5,
+                -0.5,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.09.msh",
+            "body_id": 1,
+            "position": [
+                -0.4,
+                -0.4,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.10.msh",
+            "body_id": 1,
+            "position": [
+                -0.3,
+                -0.3,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.11.msh",
+            "body_id": 1,
+            "position": [
+                -0.2,
+                -0.2,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.12.msh",
+            "body_id": 1,
+            "position": [
+                -0.1,
+                -0.1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.13.msh",
+            "body_id": 1,
+            "position": [
+                0,
+                0,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.14.msh",
+            "body_id": 1,
+            "position": [
+                0.1,
+                -0.1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.15.msh",
+            "body_id": 1,
+            "position": [
+                0.2,
+                -0.2,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.16.msh",
+            "body_id": 1,
+            "position": [
+                0.3,
+                -0.3,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.17.msh",
+            "body_id": 1,
+            "position": [
+                0.4,
+                -0.4,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.18.msh",
+            "body_id": 1,
+            "position": [
+                0.5,
+                -0.5,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.19.msh",
+            "body_id": 1,
+            "position": [
+                0.6,
+                -0.6,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.20.msh",
+            "body_id": 1,
+            "position": [
+                0.7,
+                -0.7,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.21.msh",
+            "body_id": 1,
+            "position": [
+                0.8,
+                -0.8,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.22.msh",
+            "body_id": 1,
+            "position": [
+                0.9,
+                -0.9,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.23.msh",
+            "body_id": 1,
+            "position": [
+                1,
+                -1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.24.msh",
+            "body_id": 1,
+            "position": [
+                1.1,
+                -1.1,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.25.msh",
+            "body_id": 1,
+            "position": [
+                1.2,
+                -1.2,
+                0
+            ]
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "position": [
+                -36,
+                -6.4,
+                0
+            ],
+            "scale": [
+                10,
+                10,
+                10
+            ],
+            "body_id": 2,
+            "boundary_id": 2
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "position": [
+                36,
+                -6.4,
+                0
+            ],
+            "scale": [
+                10,
+                10,
+                10
+            ],
+            "body_id": 2,
+            "boundary_id": 2
+        }
+    ],
+    "normalize_mesh": false,
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+}
