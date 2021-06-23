@@ -14,9 +14,13 @@ def get_time_stamp():
 
 
 # NOTE: Change these to automatically find the bins
-polyfem_root = pathlib.Path(
-    "/Users/teseo/Documents/scuola/polyfem/polyfem/bin_rel.nosync")
-ipc_root = pathlib.Path("/Users/teseo/data/collisions/IPC/bin_rel")
+if(pathlib.Path("/Users/teseo").exists()):
+    polyfem_root = pathlib.Path(
+        "/Users/teseo/Documents/scuola/polyfem/polyfem/bin_rel.nosync")
+    ipc_root = pathlib.Path("/Users/teseo/data/collisions/IPC/bin_rel")
+else:
+    polyfem_root = pathlib.Path(__file__).parents[2] / "polyfem"
+    ipc_root = pathlib.Path(__file__).parents[3] / "collisions" / "ipc"
 
 
 def find_bin(root, bin_name):
@@ -114,7 +118,8 @@ def main():
     remote_storage = None  # get_remote_storage()
 
     ipc_scripts_dir = pathlib.Path(__file__).resolve().parent / "ipc-scripts"
-    polyfem_examples_dir = pathlib.Path(__file__).resolve().parent / "examples"
+    polyfem_examples_dir = (
+        pathlib.Path(__file__).resolve().parent / "examples" / "3D")
 
     render_bin = args.polyfem_bin.parent / "tools" / "render_simulation"
     if not args.no_video and not render_bin.exists():
@@ -171,10 +176,8 @@ def main():
                 print("IPC finished (total_runtime={:g}s)".format(
                     df_row["IPC Runtime"]))
                 df_row["IPC Iterations"] = int(lines[1].strip().split()[1])
-                df_row["IPC Linear Solve Time"] = sum([
-                    float(lines[9].strip().split()[0]) for i in (9, 10, 11)])
                 lin_solve_time = sum([
-                    float(lines[9].strip().split()[0]) for i in (9, 10, 11)])
+                    float(lines[i].strip().split()[0]) for i in (9, 10, 11)])
                 # df_row["IPC Linear Solve Time"] = (
                 #     f"{lin_solve_time / df_row['IPC Runtime'] * 100:g}%")
                 df_row["IPC Linear Solve Time"] = lin_solve_time
@@ -228,24 +231,24 @@ def main():
                         f["info"]["time_grad"] +
                         f["info"]["time_obj_fun"] +
                         f["info"]["time_constrain_set_update"]
-                    )*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    ) * f["info"]["iterations"] for f in sim_dict["solver_info"]])
                 # sum([t["info"] for sim_dict["solver_info"]["step_timings"])
                 df_row["PolyFEM Iterations"] = sum(
                     [f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM Linear Solve Time"] = sum(
-                    [f["info"]["time_inverting"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_inverting"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM CCD Time"] = sum(
-                    [(f["info"]["time_ccd"]+f["info"]["time_broad_phase_ccd"])*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [(f["info"]["time_ccd"] + f["info"]["time_broad_phase_ccd"]) * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM BCCD Time"] = sum(
-                    [f["info"]["time_broad_phase_ccd"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_broad_phase_ccd"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
                 df_row["PolyFEM NCCD Time"] = sum(
-                    [f["info"]["time_ccd"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_ccd"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM Ass Time"] = sum(
-                    [f["info"]["time_assembly"]*f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_assembly"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
         #######################################################################
         df.loc[df_row["Scene"]] = df_row
