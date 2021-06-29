@@ -12,15 +12,14 @@ import pandas
 def get_time_stamp():
     return datetime.now().strftime("%Y-%b-%d-%H-%M-%S")
 
+current_parents = pathlib.Path(__file__).parents
 
-# NOTE: Change these to automatically find the bins
-if(pathlib.Path("/Users/teseo").exists()):
-    polyfem_root = pathlib.Path(
-        "/Users/teseo/Documents/scuola/polyfem/polyfem/bin_rel.nosync")
-    ipc_root = pathlib.Path("/Users/teseo/data/collisions/IPC/bin_rel")
-else:
+if len(current_parents) > 3 and pathlib.Path(current_parents[2] / "polyfem").exists() and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists():
     polyfem_root = pathlib.Path(__file__).parents[2] / "polyfem"
     ipc_root = pathlib.Path(__file__).parents[3] / "collisions" / "ipc"
+else:
+    polyfem_root = pathlib.Path(__file__)
+    ipc_root = pathlib.Path(__file__)
 
 
 def find_bin(root, bin_name):
@@ -119,7 +118,7 @@ def main():
 
     ipc_scripts_dir = pathlib.Path(__file__).resolve().parent / "ipc-scripts"
     polyfem_examples_dir = (
-        pathlib.Path(__file__).resolve().parent / "examples" / "3D")
+        pathlib.Path(__file__).resolve().parent / "examples")
 
     render_bin = args.polyfem_bin.parent / "tools" / "render_simulation"
     if not args.no_video and not render_bin.exists():
