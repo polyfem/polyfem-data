@@ -195,6 +195,7 @@ def main():
                    # "-o", str(output),
                    "--log_level", str(args.loglevel),
                    "--solver", "Eigen::CholmodSupernodalLLT",
+                   "--lump_mass_mat",
                    "--output", str(output / "sim.json")]
             print(" ".join(tmp))
             tmp += ([] if args.with_viewer else ["--cmd"]) + \
