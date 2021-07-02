@@ -101,9 +101,9 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         else:
             disabled_shapes.append(f"# {shape_line}")
 
-    mu = polyfem_json.get("coeff_friction", 0)  # TODO
-    epsv = 1e-3  # TODO
-    friction_iterations = 1  # TODO
+    mu = polyfem_json.get("mu", 0)
+    epsv = polyfem_json.get("epsv", 1e-3)
+    friction_iterations = polyfem_json.get("friction_iterations", 1)
 
     gravity = ""
     if sum(polyfem_json["problem_params"].get("rhs", [0, 0, 0])) == 0:
