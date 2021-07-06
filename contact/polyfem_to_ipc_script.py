@@ -47,7 +47,7 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         position = mesh.get("position", [0, 0, 0])
 
         if "dimensions" in mesh:
-            raise Exception("Dimensions not implemented!")
+            raise NotImplementedError("Dimensions not implemented!")
         else:
             scale = mesh.get("scale", [1, 1, 1])
             if isinstance(scale, int) or isinstance(scale, float):
@@ -63,15 +63,18 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
             rotation = [0, 0, 0]
 
         bc_id = mesh.get("boundary_id", 0)
-        is_static = (bc_id in dirichlet_bc
-                     and sum(dirichlet_bc[bc_id]["value"]) == 0)
+        is_static = False
+        if bc_id in dirichlet_bc:
+            is_static = sum(dirichlet_bc[bc_id]["value"]) == 0
+            if not is_static:
+                raise NotImplementedError(
+                    "Non-static DBC are not implemented!")
 
         # linear_velocity = mesh.get("linear_velocity", [0, 0, 0])
         # angular_velocity = mesh.get("angular_velocity", [0, 0, 0])
         # force = mesh.get("force", [0, 0, 0])
         # if "force" in mesh:
-        #     nbc = ("  NBC -1e300 -1e300 -1e300  1e300 1e300 1e300 "
-        #            " {:g} {:g} {:g}".format(*mesh["force"]))
+        #     nbc = ("  NBC 0 0 0  1 1 1  {:g} {:g} {:g}".format(*mesh["force"]))
         # else:
         nbc = ""
         # if "torque" in mesh:

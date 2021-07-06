@@ -21,7 +21,7 @@
     "solver_type": "Eigen::CholmodSupernodalLLT",
 
     "has_collision": true,
-    "dhat": 1e-5,
+    "dhat": 1e-6,
 
     "meshes": [{
         "mesh": "../../../meshes/2D/simple/triangle/right.obj",
@@ -32,18 +32,18 @@
         "position": [-0.5000005, 0],
         "body_id": 2,
         "boundary_id": 1,
-        "enabled": false
+        "enabled": true
     }, {
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [1.5000005, 0],
         "body_id": 2,
         "boundary_id": 1,
-        "enabled": false
+        "enabled": true
     }, {
         "#mesh": "../../../meshes/2D/simple/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [0.5, -0.505001, 0.5],
-        "scale": [5, 1, 5],
+        "scale": [5, 0.01],
         "body_id": 2,
         "boundary_id": 1
     }],
