@@ -1,0 +1,69 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "problem_params": {
+        "is_time_dependent": true,
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81]
+    },
+    "tend": 2.5,
+    "dt": 0.025,
+
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": false
+    },
+    "line_search": "bisection",
+    "project_to_psd": true,
+    "solver_type": "Eigen::CholmodSupernodalLLT",
+
+    "has_collision": true,
+    "dhat": 1e-3,
+    "mu": 0.49,
+    "eps_v": 1e-5,
+    "friction_iterations": -1,
+    "friction_convergence_tol": 1e-2,
+
+    "meshes": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, 0],
+        "rotation": -26.565,
+        "scale": 1,
+        "body_id": 1
+    }, {
+        "#mesh": "../../../meshes/2D/simple/line.obj",
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [2, -1.566],
+        "rotation": -26.565,
+        "dimensions": [10, 0.01],
+        "body_id": 2,
+        "boundary_id": 1
+    }],
+    "normalize_mesh": false,
+
+    "body_params": [{
+        "name": "cube",
+        "id": 1,
+        "E": 1e9,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "plane",
+        "id": 2,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+
+    "export": {
+        "body_ids": true,
+        "material_params": true
+    },
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000
+
+}
