@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<febio_spec version="2.5">
+	<Globals>
+		<Constants>
+			<T>0</T>
+			<R>0</R>
+			<Fc>0</Fc>
+		</Constants>
+	</Globals>
+	<Material>
+		<material id="1" name="Material1" type="neo-Hookean">
+			<density>1000</density>
+			<E>200000</E>
+			<v>0.3</v>
+		</material>
+	</Material>
+	<Geometry>
+		<Nodes name="Object1">
+			<node id="1"> -5.0000000e-01, -5.0000000e-01,  0.0000000e+00</node>
+			<node id="2"> -5.0000000e-01, -5.0000000e-01,  1.0000000e+00</node>
+			<node id="3"> -5.0000000e-01,  5.0000000e-01,  0.0000000e+00</node>
+			<node id="4"> -5.0000000e-01,  5.0000000e-01,  1.0000000e+00</node>
+			<node id="5">  5.0000000e-01, -5.0000000e-01,  0.0000000e+00</node>
+			<node id="6">  5.0000000e-01, -5.0000000e-01,  1.0000000e+00</node>
+			<node id="7">  5.0000000e-01,  5.0000000e-01,  0.0000000e+00</node>
+			<node id="8">  5.0000000e-01,  5.0000000e-01,  1.0000000e+00</node>
+		</Nodes>
+		<Nodes name="Object2">
+			<node id="9"> -5.0000000e-01,  6.0000000e-01,  0.0000000e+00</node>
+			<node id="10"> -5.0000000e-01,  6.0000000e-01,  1.0000000e+00</node>
+			<node id="11"> -5.0000000e-01,  1.6000000e+00,  0.0000000e+00</node>
+			<node id="12"> -5.0000000e-01,  1.6000000e+00,  1.0000000e+00</node>
+			<node id="13">  5.0000000e-01,  6.0000000e-01,  0.0000000e+00</node>
+			<node id="14">  5.0000000e-01,  6.0000000e-01,  1.0000000e+00</node>
+			<node id="15">  5.0000000e-01,  1.6000000e+00,  0.0000000e+00</node>
+			<node id="16">  5.0000000e-01,  1.6000000e+00,  1.0000000e+00</node>
+		</Nodes>
+		<Elements type="tet4" mat="1" name="Part1">
+			<elem id="1">     5,     7,     3,     8</elem>
+			<elem id="2">     1,     5,     3,     8</elem>
+			<elem id="3">     1,     8,     3,     4</elem>
+			<elem id="4">     5,     6,     8,     1</elem>
+			<elem id="5">     2,     4,     6,     1</elem>
+			<elem id="6">     6,     4,     8,     1</elem>
+		</Elements>
+		<Elements type="tet4" mat="1" name="Part2">
+			<elem id="7">    13,    15,    11,    16</elem>
+			<elem id="8">     9,    13,    11,    16</elem>
+			<elem id="9">     9,    16,    11,    12</elem>
+			<elem id="10">    13,    14,    16,     9</elem>
+			<elem id="11">    10,    12,    14,     9</elem>
+			<elem id="12">    14,    12,    16,     9</elem>
+		</Elements>
+		<NodeSet name="FixedDisplacement1">
+			<node id="11"/>
+			<node id="12"/>
+			<node id="15"/>
+			<node id="16"/>
+		</NodeSet>
+		<NodeSet name="PrescribedDisplacement1">
+			<node id="1"/>
+			<node id="2"/>
+			<node id="5"/>
+			<node id="6"/>
+		</NodeSet>
+		<NodeSet name="FixedDisplacement2">
+			<node id="1"/>
+			<node id="2"/>
+			<node id="5"/>
+			<node id="6"/>
+		</NodeSet>
+		<Surface name="SlidingElasticContact1_master">
+			<tri3 id="1">     2,     6,     4</tri3>
+			<tri3 id="2">     6,     8,     4</tri3>
+		</Surface>
+		<Surface name="SlidingElasticContact1_slave">
+			<tri3 id="1">     2,     6,     4</tri3>
+			<tri3 id="2">     6,     8,     4</tri3>
+		</Surface>
+		<SurfacePair name="SlidingElasticContact1">
+			<master surface="SlidingElasticContact1_master"/>
+			<slave surface="SlidingElasticContact1_slave"/>
+		</SurfacePair>
+	</Geometry>
+	<Boundary>
+		<fix bc="x,y,z" node_set="FixedDisplacement1"/>
+		<fix bc="x,z" node_set="FixedDisplacement2"/>
+		<prescribe bc="y" node_set="PrescribedDisplacement1">
+			<scale lc="1">0.15</scale>
+			<relative>0</relative>
+		</prescribe>
+	</Boundary>
+	<Contact>
+		<contact type="sliding-elastic" name="SlidingElasticContact1" surface_pair="SlidingElasticContact1">
+			<laugon>0</laugon>
+			<tolerance>0.2</tolerance>
+			<gaptol>0</gaptol>
+			<penalty>1</penalty>
+			<auto_penalty>0</auto_penalty>
+			<two_pass>0</two_pass>
+			<search_tol>0.01</search_tol>
+			<symmetric_stiffness>0</symmetric_stiffness>
+			<search_radius>1</search_radius>
+			<seg_up>0</seg_up>
+			<tension>0</tension>
+			<minaug>0</minaug>
+			<maxaug>10</maxaug>
+			<fric_coeff>0</fric_coeff>
+			<smooth_aug>0</smooth_aug>
+			<node_reloc>0</node_reloc>
+			<flip_primary>0</flip_primary>
+			<flip_secondary>0</flip_secondary>
+			<knmult>0</knmult>
+			<update_penalty>0</update_penalty>
+			<shell_bottom_primary>0</shell_bottom_primary>
+			<shell_bottom_secondary>0</shell_bottom_secondary>
+		</contact>
+	</Contact>
+	<LoadData>
+		<loadcurve id="1" type="smooth">
+			<point>0,0</point>
+			<point>1,1</point>
+		</loadcurve>
+	</LoadData>
+	<Output>
+		<plotfile type="febio"/>
+	</Output>
+</febio_spec>
