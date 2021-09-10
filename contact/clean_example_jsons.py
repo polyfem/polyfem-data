@@ -8,7 +8,12 @@ class CustomJSONEncoder(json.JSONEncoder):
     """ Hacked JSONEncoder to output pretty float reprs. """
     @staticmethod
     def pretty_float_repr(x):
-        return re.sub(r"e(\+?)(\-?)0*", r"e\2", f"{x:g}")
+        r1 = f"{x:g}"
+        r2 = f"{x:.16g}"
+        r = r1 if float(r1) == x else r2
+        r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r.replace("+", ""))
+        assert(float(r) == x)
+        return r
 
     def iterencode(self, o, _one_shot=False):
         from json.encoder import encode_basestring_ascii, INFINITY, _make_iterencode
@@ -18,7 +23,7 @@ class CustomJSONEncoder(json.JSONEncoder):
             markers, self.default, _encoder, self.indent,
             CustomJSONEncoder.pretty_float_repr,
             self.key_separator, self.item_separator, self.sort_keys,
-            self.skipkeys, _one_shot)
+            self.skipkeys, _one_shot, _intstr=CustomJSONEncoder.pretty_float_repr)
         return _iterencode(o, 0)
 
 
