@@ -9,37 +9,49 @@
     },
     "tend": 5,
     "dt": 0.025,
-    "dhat": 1e-6,
+    "dhat": 0.0001,
+    "mu": 0.9,
+    "eps_v": 1e-5,
+    "friction_iterations": 1,
+    "friction_convergence_tol": 0.01,
     "meshes": [{
-        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-        "position": [0, 0.6],
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0.2, 6],
+        "scale": 0.4,
         "body_id": 1
     }, {
         "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [-0.5, 0],
-        "body_id": 2,
-        "boundary_id": 1,
-        "enabled": true
+        "position": [0.5, 9],
+        "scale": 0.4,
+        "body_id": 1
     }, {
         "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [1.5, 0],
-        "body_id": 2,
-        "boundary_id": 1,
-        "enabled": true
+        "position": [0, 0],
+        "rotation": 60,
+        "dimensions": [0.5, 0.05],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [1.515, 0],
+        "rotation": 60,
+        "dimensions": [0.5, 0.05],
+        "body_id": 1
     }, {
         "#mesh": "../../../meshes/2D/simple/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0.5, -0.505001, 0.5],
-        "scale": [5, 0.01],
+        "position": [0, -0.5],
+        "dimensions": [4, 0.01],
         "body_id": 2,
         "boundary_id": 1
     }],
     "body_params": [{
+        "name": "card",
         "id": 1,
-        "E": 100000,
+        "E": 1e8,
         "nu": 0.4,
         "rho": 1000
     }, {
+        "name": "plane",
         "id": 2,
         "E": 2e11,
         "nu": 0.3,

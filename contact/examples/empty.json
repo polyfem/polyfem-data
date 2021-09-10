@@ -1,9 +1,6 @@
 {
-    "problem": "GenericTensor",
-    "tensor_formulation": "NeoHookean",
-    "quadrature_order": 1,
+    "default_params": "defaults.json",
     "problem_params": {
-        "is_time_dependent": true,
         "dirichlet_boundary": [{
             "id": 1,
             "value": [0, 0, 0]
@@ -12,14 +9,6 @@
     },
     "tend": 5,
     "time_steps": 200,
-    "solver_params": {
-        "gradNorm": 1e-5,
-        "useGradNorm": false
-    },
-    "line_search": "bisection",
-    "project_to_psd": true,
-    "has_collision": true,
-    "dhat": 1e-3,
     "meshes": [{
         "#mesh": "../meshes/3D/simple/plane.obj",
         "mesh": "../meshes/3D/simple/cube.msh",
@@ -28,7 +17,6 @@
         "body_id": 2,
         "boundary_id": 1
     }],
-    "normalize_mesh": false,
     "body_params": [{
         "name": "silicone_rubber",
         "id": 1,
@@ -41,13 +29,5 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
-    }],
-    "export": {
-        "paraview": "sol.vtu",
-        "body_ids": true,
-        "material_params": true
-    },
-    "save_time_sequence": false,
-    "save_solve_sequence_debug": false,
-    "vismesh_rel_area": 10000000
+    }]
 }

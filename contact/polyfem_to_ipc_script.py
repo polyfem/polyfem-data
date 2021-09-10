@@ -65,10 +65,13 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         bc_id = mesh.get("boundary_id", 0)
         is_static = False
         if bc_id in dirichlet_bc:
-            is_static = sum(dirichlet_bc[bc_id]["value"]) == 0
-            if not is_static:
-                raise NotImplementedError(
-                    "Non-static DBC are not implemented!")
+            try:
+                is_static = sum(dirichlet_bc[bc_id]["value"]) == 0
+            except:
+                is_static = False
+            # if not is_static:
+            #     raise NotImplementedError(
+            #         "Non-static DBC are not implemented!")
 
         # linear_velocity = mesh.get("linear_velocity", [0, 0, 0])
         # angular_velocity = mesh.get("angular_velocity", [0, 0, 0])
@@ -154,7 +157,6 @@ def main():
         pathlib.Path(__file__).resolve().parent / "examples")
 
     for input in args.input:
-        print(f"Converting {input}")
         assert(input.exists())
 
         try:
@@ -164,6 +166,8 @@ def main():
             output.parent.mkdir(parents=True, exist_ok=True)
         except:
             output = input.with_suffix(".txt")
+
+        print(f"Converting {input} → {output}")
 
         with open(input) as input_file:
             polyfem_json = json.load(input_file)

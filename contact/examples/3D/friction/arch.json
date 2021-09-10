@@ -1,8 +1,6 @@
 {
-    "problem": "GenericTensor",
-    "tensor_formulation": "NeoHookean",
+    "default_params": "../../defaults.json",
     "problem_params": {
-        "is_time_dependent": true,
         "dirichlet_boundary": [{
             "id": 2,
             "value": [0, 0, 0]
@@ -13,7 +11,7 @@
     "dt": 0.01,
     "mu": 0.5,
     "eps_v": 1e-5,
-    "friction_iterations": -1,
+    "friction_iterations": 10,
     "body_params": [{
         "name": "cubes",
         "id": 1,
@@ -27,8 +25,7 @@
         "nu": 0.2,
         "rho": 2300
     }],
-    "has_collision": true,
-    "dhat": 5e-8,
+    "dhat": 1e-6,
     "meshes": [{
         "mesh": "../../../meshes/3D/arch/largeArch.01.msh",
         "body_id": 1,
@@ -141,9 +138,5 @@
         "scale": [10, 10, 10],
         "body_id": 2,
         "boundary_id": 2
-    }],
-    "normalize_mesh": false,
-    "save_time_sequence": true,
-    "save_solve_sequence_debug": false,
-    "vismesh_rel_area": 10000000
+    }]
 }
