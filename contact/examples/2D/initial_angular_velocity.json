@@ -1,0 +1,26 @@
+{
+    "default_params": "../defaults.json",
+    "problem_params": {
+        "initial_velocity": [{
+            "id": 1,
+            "value": [
+                "deg2rad(180) * y",
+                "deg2rad(180) * x"
+            ]
+        }],
+        "rhs": [0, 0]
+    },
+    "tend": 5,
+    "dt": 0.04,
+    "meshes": [{
+        "mesh": "../../meshes/2D/simple/square.obj",
+        "body_id": 1
+    }],
+    "body_params": [{
+        "name": "silicone_rubber",
+        "id": 1,
+        "E": 2.55e7,
+        "nu": 0.48,
+        "rho": 1700
+    }]
+}

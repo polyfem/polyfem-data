@@ -1,0 +1,142 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 2,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81]
+    },
+    "tend": 20,
+    "dt": 0.01,
+    "mu": 0.5,
+    "eps_v": 1e-5,
+    "friction_iterations": 1,
+    "body_params": [{
+        "name": "cubes",
+        "id": 1,
+        "E": 2e10,
+        "nu": 0.2,
+        "rho": 2300
+    }, {
+        "name": "supports",
+        "id": 2,
+        "E": 2e10,
+        "nu": 0.2,
+        "rho": 2300
+    }],
+    "dhat": 1e-3,
+    "meshes": [{
+        "mesh": "../../../meshes/2D/arch/largeArch.01.obj",
+        "body_id": 1,
+        "position": [-1.2, -1.2]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.02.obj",
+        "body_id": 1,
+        "position": [-1.1, -1.1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.03.obj",
+        "body_id": 1,
+        "position": [-1, -1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.04.obj",
+        "body_id": 1,
+        "position": [-0.9, -0.9]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.05.obj",
+        "body_id": 1,
+        "position": [-0.8, -0.8]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.06.obj",
+        "body_id": 1,
+        "position": [-0.7, -0.7]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.07.obj",
+        "body_id": 1,
+        "position": [-0.6, -0.6]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.08.obj",
+        "body_id": 1,
+        "position": [-0.5, -0.5]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.09.obj",
+        "body_id": 1,
+        "position": [-0.4, -0.4]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.10.obj",
+        "body_id": 1,
+        "position": [-0.3, -0.3]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.11.obj",
+        "body_id": 1,
+        "position": [-0.2, -0.2]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.12.obj",
+        "body_id": 1,
+        "position": [-0.1, -0.1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.13.obj",
+        "body_id": 1,
+        "position": [0, 0]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.14.obj",
+        "body_id": 1,
+        "position": [0.1, -0.1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.15.obj",
+        "body_id": 1,
+        "position": [0.2, -0.2]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.16.obj",
+        "body_id": 1,
+        "position": [0.3, -0.3]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.17.obj",
+        "body_id": 1,
+        "position": [0.4, -0.4]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.18.obj",
+        "body_id": 1,
+        "position": [0.5, -0.5]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.19.obj",
+        "body_id": 1,
+        "position": [0.6, -0.6]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.20.obj",
+        "body_id": 1,
+        "position": [0.7, -0.7]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.21.obj",
+        "body_id": 1,
+        "position": [0.8, -0.8]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.22.obj",
+        "body_id": 1,
+        "position": [0.9, -0.9]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.23.obj",
+        "body_id": 1,
+        "position": [1, -1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.24.obj",
+        "body_id": 1,
+        "position": [1.1, -1.1]
+    }, {
+        "mesh": "../../../meshes/2D/arch/largeArch.25.obj",
+        "body_id": 1,
+        "position": [1.2, -1.2]
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [-36, -6.4],
+        "scale": [10, 10],
+        "body_id": 2,
+        "boundary_id": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [36, -6.4],
+        "scale": [10, 10],
+        "body_id": 2,
+        "boundary_id": 2
+    }]
+}

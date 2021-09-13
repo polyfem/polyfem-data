@@ -1,0 +1,48 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81]
+    },
+    "tend": 3,
+    "time_steps": 120,
+    "coeff_friction": 0.1,
+    "meshes": [{
+        "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
+        "position": [0, 0.51],
+        "rotation": 0,
+        "scale": 1,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
+        "position": [0, 0, 0],
+        "rotation": 90,
+        "scale": 1,
+        "body_id": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, -0.56, 0],
+        "scale": [2, 0.01],
+        "body_id": 3,
+        "boundary_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 10000,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "id": 2,
+        "E": 1e8,
+        "nu": 0.4,
+        "rho": 2000
+    }, {
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }]
+}

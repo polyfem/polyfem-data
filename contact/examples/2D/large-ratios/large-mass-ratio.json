@@ -1,0 +1,52 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81]
+    },
+    "tend": 3,
+    "time_steps": 120,
+    "mu": 0.1,
+    "meshes": [{
+        "name": "large-cube",
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, 0.45],
+        "scale": 1,
+        "body_id": 1
+    }, {
+        "name": "small-cube",
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, -0.15],
+        "scale": 0.1,
+        "body_id": 2
+    }, {
+        "name": "ground",
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, -0.25],
+        "scale": [2, 0.01],
+        "body_id": 3,
+        "boundary_id": 1
+    }],
+    "body_params": [{
+        "name": "large-cube",
+        "id": 1,
+        "E": 1e8,
+        "nu": 0.4,
+        "rho": 10000
+    }, {
+        "name": "small-cube",
+        "id": 2,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "ground",
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }]
+}
