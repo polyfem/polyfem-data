@@ -11,7 +11,7 @@
         "gradNorm": 1e-5,
         "useGradNorm": false
     },
-    "solver_type": "Eigen::CholmodSupernodalLLT",
+    "solver_type": "Eigen::SimplicialLDLT",
     "line_search": "bisection",
     "project_to_psd": true,
     "lump_mass_mat": true,
