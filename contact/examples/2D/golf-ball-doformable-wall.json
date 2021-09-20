@@ -3,31 +3,31 @@
     "problem_params": {
         "dirichlet_boundary": [{
             "id": 1,
-            "value": [0, 0, 0]
+            "value": [0, 0]
         }],
         "initial_velocity": [{
             "id": 1,
-            "value": [67, 0, 0]
+            "value": [67, 0]
         }],
-        "rhs": [0, 0, 0]
+        "rhs": [0, 0]
     },
     "tend": 4e-3,
     "dt": 2e-5,
-    "time_integrator": "implict_newmark",
-    "time_integrator_params": {
+    "#time_integrator": "implict_newmark",
+    "#time_integrator_params": {
         "damping_stiffness": 4e-16
     },
     "dhat": 0.0000692820323,
     "meshes": [{
-        "mesh": "../../meshes/3D/simple/sphere/sphere19K.msh",
+        "mesh": "../../meshes/2D/simple/circle/circle9K.obj",
         "scale": 0.04,
         "body_id": 1
     }, {
-        "mesh": "../../meshes/3D/simple/cube.msh",
-        "position": [0.105, 0, 0],
-        "dimensions": [0.01, 0.4, 0.4],
-        "body_id": 2,
-        "boundary_id": 1
+        "mesh": "../../meshes/2D/simple/bar/bar792.obj",
+        "position": [0.10125, 0],
+        "dimensions": [0.2, 0.0025],
+        "rotation": 90,
+        "body_id": 2
     }],
     "body_params": [{
         "id": 1,
@@ -39,5 +39,10 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
+    }],
+    "boundary_sidesets": [{
+        "id": 1,
+        "axis": 1,
+        "position": 0.1025
     }]
 }

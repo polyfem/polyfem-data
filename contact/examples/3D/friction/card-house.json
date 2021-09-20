@@ -1,0 +1,93 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "dt": 0.025,
+    "dhat": 0.0001,
+    "mu": 0.9,
+    "eps_v": 1e-5,
+    "friction_iterations": 2,
+    "friction_convergence_tol": 0.01,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [0, 0, 0],
+        "rotation": [0, 0, 60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [0.515, 0, 0],
+        "rotation": [0, 0, -60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [1.03, 0, 0],
+        "rotation": [0, 0, 60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [1.545, 0, 0],
+        "rotation": [0, 0, -60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [0.78, 0.445, 0],
+        "rotation": 0,
+        "scale": [1.1, 1, 1.1],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [0.515, 0.89, 0],
+        "rotation": [0, 0, 60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "position": [1.03, 0.89, 0],
+        "rotation": [0, 0, -60],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0.2, 6, -0.2],
+        "rotation": 0,
+        "scale": 0.4,
+        "body_id": 2,
+        "enabled": true
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0.5, 9, -0.3],
+        "rotation": 0,
+        "scale": 0.4,
+        "body_id": 2,
+        "enabled": true
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0.7725, -0.4515, 0],
+        "dimensions": [5, 0.013, 5],
+        "body_id": 3,
+        "boundary_id": 1
+    }],
+    "body_params": [{
+        "name": "card",
+        "id": 1,
+        "E": 1e8,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "cube",
+        "id": 2,
+        "E": 1e8,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "plane",
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }]
+}

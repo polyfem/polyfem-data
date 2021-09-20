@@ -1,0 +1,45 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [
+                "rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x",
+                "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"
+            ]
+        }],
+        "rhs": [0, 9.81]
+    },
+    "tend": 1,
+    "dt": 0.01,
+    "dhat": 1e-3,
+    "epsv": 4e-03,
+    "mu": 0.5,
+    "friction_iterations": 10,
+    "has_collision": true,
+    "meshes": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, 0.5055],
+        "body_id": 1,
+        "enabled": true
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, 0],
+        "scale": [4, 0.01],
+        "body_id": 2,
+        "boundary_id": 1,
+        "enabled": true
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }, {
+        "id": 2,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+    "save_solve_sequence_debug": true
+}

@@ -12,36 +12,70 @@
     "dhat": 0.0001,
     "mu": 0.9,
     "eps_v": 1e-5,
-    "friction_iterations": 1,
+    "friction_iterations": 2,
     "friction_convergence_tol": 0.01,
     "meshes": [{
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [0, 0],
+        "rotation": 60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [0.515, 0],
+        "rotation": -60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [1.03, 0],
+        "rotation": 60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [1.545, 0],
+        "rotation": -60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [0.78, 0.445],
+        "rotation": 0,
+        "dimensions": [1.1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [0.515, 0.89],
+        "rotation": 60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "position": [1.03, 0.89],
+        "rotation": -60,
+        "dimensions": [1, 0.013],
+        "body_id": 1
+    }, {
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [0.2, 6],
+        "rotation": 0,
         "scale": 0.4,
-        "body_id": 1
+        "body_id": 2,
+        "enabled": true
     }, {
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [0.5, 9],
+        "rotation": 0,
         "scale": 0.4,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0],
-        "rotation": 60,
-        "dimensions": [0.5, 0.05],
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [1.515, 0],
-        "rotation": 60,
-        "dimensions": [0.5, 0.05],
-        "body_id": 1
+        "body_id": 2,
+        "enabled": true
     }, {
         "#mesh": "../../../meshes/2D/simple/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, -0.5],
-        "dimensions": [4, 0.01],
-        "body_id": 2,
+        "position": [0.7725, -0.4515],
+        "dimensions": [4, 0.013],
+        "body_id": 3,
         "boundary_id": 1
     }],
     "body_params": [{
@@ -51,8 +85,14 @@
         "nu": 0.4,
         "rho": 1000
     }, {
-        "name": "plane",
+        "name": "squares",
         "id": 2,
+        "E": 1e8,
+        "nu": 0.4,
+        "rho": 1000
+    }, {
+        "name": "plane",
+        "id": 3,
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
