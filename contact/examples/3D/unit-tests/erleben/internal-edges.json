@@ -1,0 +1,26 @@
+{
+    "default_params": "../../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "dt": 0.025,
+    "meshes": [{
+        "mesh": "../../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.05, 0],
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../../meshes/3D/simple/erleben/internal-edges.obj",
+        "position": [0, -1, 0]
+    }],
+    "export": {
+        "time_sequence": "internal-edges.pvd"
+    }
+}

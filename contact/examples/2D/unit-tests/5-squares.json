@@ -1,10 +1,6 @@
 {
     "default_params": "../../defaults.json",
     "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
         "rhs": [0, 9.81]
     },
     "tend": 5,
@@ -34,25 +30,15 @@
         "position": [0, 0.82],
         "scale": 0.2,
         "body_id": 1
-    }, {
-        "#mesh": "../../../meshes/2D/simple/line.obj",
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, -0.12],
-        "scale": [2, 0.01],
-        "body_id": 2,
-        "boundary_id": 1
     }],
     "body_params": [{
-        "name": "cubes",
         "id": 1,
         "E": 100000,
         "nu": 0.4,
         "rho": 1000
-    }, {
-        "name": "plane",
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/2D/simple/line.obj",
+        "position": [0, -0.315]
     }]
 }

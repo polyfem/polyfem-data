@@ -1,0 +1,71 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 6,
+    "dt": 0.04,
+    "time_integrator": "implict_newmark",
+    "time_integrator_params": {
+        "damping_stiffness": 4e-16
+    },
+    "dhat": 0.0000692820323,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+        "position": [0.5, 1, 0.1],
+        "rotation": [0, 0, 0.05],
+        "scale": 1.2,
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 20000,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.2, -0.1, -0.7],
+        "rotation": [0, 0, 90]
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.4, -0.1, -0.7],
+        "rotation": [0, 0, 90]
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.6, -0.1, -0.7],
+        "rotation": [0, 0, 90]
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.8, -0.1, -0.7],
+        "rotation": [0, 0, 90]
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.1, -0.1, 0.3],
+        "rotation": [0, 180, 90],
+        "rotation_mode": "zyx"
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.3, -0.1, 0.3],
+        "rotation": [0, 180, 90],
+        "rotation_mode": "zyx"
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.5, -0.1, 0.3],
+        "rotation": [0, 180, 90],
+        "rotation_mode": "zyx"
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.7, -0.1, 0.3],
+        "rotation": [0, 180, 90],
+        "rotation_mode": "zyx"
+    }, {
+        "mesh": "../../../meshes/3D/simple/triangle.obj",
+        "position": [0.9, -0.1, 0.3],
+        "rotation": [0, 180, 90],
+        "rotation_mode": "zyx"
+    }],
+    "export": {
+        "time_sequence": "mat-knives.pvd"
+    }
+}

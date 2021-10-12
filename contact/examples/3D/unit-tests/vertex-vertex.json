@@ -1,10 +1,6 @@
 {
     "default_params": "../../defaults.json",
     "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }],
         "rhs": [0, 9.81, 0]
     },
     "tend": 3,
@@ -13,28 +9,21 @@
         "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
         "position": [0, 1.1, 0],
         "body_id": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
-        "position": [0, 0, 0],
-        "body_id": 2,
-        "boundary_id": 1
-    }, {
-        "#mesh": "../../../meshes/3D/simple/plane.obj",
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0.5, -0.006, 0.5],
-        "scale": [5, 0.01, 5],
-        "body_id": 2,
-        "boundary_id": 1
     }],
     "body_params": [{
         "id": 1,
         "E": 100000,
         "nu": 0.4,
         "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh"
     }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }]
+        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "position": [0.5, 0, 0.5],
+        "dimensions": [5, 0, 5]
+    }],
+    "export": {
+        "time_sequence": "vertex-vertex.pvd"
+    }
 }

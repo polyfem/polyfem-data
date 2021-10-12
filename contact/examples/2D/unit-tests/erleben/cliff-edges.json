@@ -1,0 +1,26 @@
+{
+    "default_params": "../../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81]
+    },
+    "tend": 2.5,
+    "dt": 0.025,
+    "meshes": [{
+        "mesh": "../../../../meshes/2D/simple/square.obj",
+        "position": [0, 0.05],
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../../meshes/2D/simple/erleben/cliff.obj",
+        "position": [0, -1]
+    }],
+    "export": {
+        "time_sequence": "cliff-edges.pvd"
+    }
+}

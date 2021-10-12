@@ -29,5 +29,6 @@
     "quadrature_order": 1,
     "save_time_sequence": true,
     "save_solve_sequence_debug": false,
-    "vismesh_rel_area": 10000000
+    "vismesh_rel_area": 10000000,
+    "output": "sim.json"
 }

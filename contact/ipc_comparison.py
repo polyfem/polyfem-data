@@ -12,6 +12,7 @@ import pandas
 def get_time_stamp():
     return datetime.now().strftime("%Y-%b-%d-%H-%M-%S")
 
+
 current_parents = pathlib.Path(__file__).parents
 
 if len(current_parents) > 3 and pathlib.Path(current_parents[2] / "polyfem").exists() and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists():
@@ -98,10 +99,10 @@ def parse_arguments():
         args.input = [pathlib.Path(__file__).resolve().parent / "ipc-scripts"]
     input_scripts = []
     for input_file in args.input:
-        if input_file.is_file() and input_file.suffix == ".txt":
+        if input_file.is_file() and input_file.suffix == ".json":
             input_scripts.append(input_file.resolve())
         elif input_file.is_dir():
-            for script_file in input_file.glob('**/*.txt'):
+            for script_file in input_file.glob('**/*.json'):
                 input_scripts.append(script_file.resolve())
     args.input = input_scripts
     return args
@@ -136,7 +137,7 @@ def main():
         args.output, "-polyfem-profile")
 
     for script in args.input:
-        rel = script.relative_to(ipc_scripts_dir)
+        rel = script.relative_to(polyfem_examples_dir)
         output = "output" / rel.parent / rel.stem
         df_row = {"Scene": str(rel.parent / rel.stem)}
         #######################################################################
@@ -192,12 +193,9 @@ def main():
             print(f"Running {polyfem_script} in PolyFEM")
             tmp = [str(args.polyfem_bin),
                    "-j", str(polyfem_script),
-                   # "-o", str(output),
+                   "-o", str(output),
                    "--log_level", str(args.loglevel),
-                   "--solver", "Eigen::CholmodSupernodalLLT",
-                   "--lump_mass_mat",
-                   "--output", str(output / "sim.json")]
-            print(" ".join(tmp))
+                   "--solver", "Eigen::CholmodSupernodalLLT"]
             tmp += ([] if args.with_viewer else ["--cmd"]) + \
                 args.polyfem_args.split()
             subprocess.run(tmp)
@@ -226,7 +224,7 @@ def main():
                 df_row["PolyFEM Runtime"] = sum(
                     [(
                         f["info"]["time_assembly"] +
-                        f["info"]["time_linesearch"] +
+                        f["info"]["time_line_search"] +
                         f["info"]["time_inverting"] +
                         f["info"]["time_grad"] +
                         f["info"]["time_obj_fun"] +

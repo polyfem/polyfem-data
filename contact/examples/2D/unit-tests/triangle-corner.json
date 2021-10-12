@@ -1,10 +1,6 @@
 {
     "default_params": "../../defaults.json",
     "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
         "rhs": [0, 9.81]
     },
     "tend": 5,
@@ -14,35 +10,21 @@
         "mesh": "../../../meshes/2D/simple/triangle/right.obj",
         "position": [0, 0.6],
         "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [-0.5000005, 0],
-        "body_id": 2,
-        "boundary_id": 1,
-        "enabled": true
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [1.5000005, 0],
-        "body_id": 2,
-        "boundary_id": 1,
-        "enabled": true
-    }, {
-        "#mesh": "../../../meshes/2D/simple/line.obj",
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0.5, -0.505001, 0.5],
-        "scale": [5, 0.01],
-        "body_id": 2,
-        "boundary_id": 1
     }],
     "body_params": [{
         "id": 1,
         "E": 100000,
         "nu": 0.4,
         "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [-0.5000005, 0]
     }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [1.5000005, 0]
+    }, {
+        "mesh": "../../../meshes/2D/simple/line.obj",
+        "position": [0.5, -0.5]
     }]
 }

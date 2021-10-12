@@ -1,0 +1,36 @@
+{
+    "default_params": "../../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["10*t", 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 1,
+    "dt": 0.025,
+    "meshes": [{
+        "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
+        "position": [-4.9, 2.0001, 0],
+        "rotation": [0, 0, 180],
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+    "boundary_sidesets": [{
+        "id": 1,
+        "axis": 2,
+        "position": 2
+    }],
+    "obstacles": [{
+        "mesh": "../../../../meshes/3D/simple/plane.obj",
+        "position": [0, -1, 0]
+    }],
+    "export": {
+        "time_sequence": "sliding-spike.pvd"
+    }
+}

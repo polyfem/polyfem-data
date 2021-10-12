@@ -1,0 +1,36 @@
+{
+    "default_params": "../../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["t", 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5.0,
+    "dt": 0.025,
+    "meshes": [{
+        "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
+        "position": [0, 2.0001, 0],
+        "rotation": [0, 0, 180],
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "boundary_sidesets": [{
+        "id": 1,
+        "axis": 2,
+        "position": 2
+    }],
+    "obstacles": [{
+        "mesh": "../../../../meshes/3D/simple/erleben/hole.obj",
+        "position": [0, -1, 0]
+    }],
+    "export": {
+        "time_sequence": "spike-in-hole.pvd"
+    }
+}

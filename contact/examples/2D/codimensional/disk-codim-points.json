@@ -1,0 +1,26 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81]
+    },
+    "tend": 8,
+    "dt": 0.04,
+    "meshes": [{
+        "mesh": "../../../meshes/2D/simple/circle/circle588.obj",
+        "position": [0, 3],
+        "scale": 5,
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e5,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/2D/codimensional/point-plane.obj"
+    }],
+    "export": {
+        "time_sequence": "disk-codim-points.pvd"
+    }
+}
