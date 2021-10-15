@@ -180,4 +180,6 @@ Temporary Items
 contact/ipc-scripts
 contact/output
 contact/meshes/3D/squishy-ball
-contact/polyfem-vs-ipc.csv
+**/polyfem-vs-ipc.csv
+**/solver-benchmark.csv
+**/step.obj

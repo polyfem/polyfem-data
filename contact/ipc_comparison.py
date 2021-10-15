@@ -12,14 +12,18 @@ import pandas
 def get_time_stamp():
     return datetime.now().strftime("%Y-%b-%d-%H-%M-%S")
 
+current_parents = pathlib.Path(__file__).resolve().parents
 
-current_parents = pathlib.Path(__file__).parents
-
-if len(current_parents) > 3 and pathlib.Path(current_parents[2] / "polyfem").exists() and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists():
-    polyfem_root = pathlib.Path(__file__).parents[2] / "polyfem"
-    ipc_root = pathlib.Path(__file__).parents[3] / "collisions" / "ipc"
+# Find the path to PolyFEM
+if len(current_parents) > 2 and pathlib.Path(current_parents[2] / "polyfem").exists():
+    polyfem_root = current_parents[2] / "polyfem"
 else:
     polyfem_root = pathlib.Path(__file__)
+
+# Find the path to IPC
+if len(current_parents) > 3 and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists():
+    ipc_root = current_parents[3] / "collisions" / "ipc"
+else:
     ipc_root = pathlib.Path(__file__)
 
 
@@ -78,8 +82,9 @@ def create_parser():
         "--no-video", action="store_true", default=False,
         help="do not render a video of the sim")
     parser.add_argument(
-        "--loglevel", default=3, type=int, choices=range(7),
-        help="set log level 0=trace, 1=debug, 2=info, 3=warn, 4=error, 5=critical, 6=off")
+        "--loglevel", default="info", 
+        choices=["trace", "debug", "info", "warn", "error", "critical", "off"],
+        help="set log level {trace, debug, info, warn, error, critical, off}")
     parser.add_argument(
         "--polyfem-args", default="", help=f"arguments to PolyFEM_bin")
     parser.add_argument(
@@ -130,7 +135,7 @@ def main():
         "Scene", "IPC Video", "PolyFEM Video", "IPC Runtime", "PolyFEM Runtime",
         "IPC Iterations", "PolyFEM Iterations",
         "IPC Linear Solve Time", "PolyFEM Linear Solve Time",
-        "IPC CCD Time",  "PolyFEM CCD Time", "PolyFEM BCCD Time", "PolyFEM NCCD Time", "PolyFEM Ass Time"])
+        "IPC CCD Time",  "PolyFEM CCD Time", "PolyFEM BCCD Time", "PolyFEM NCCD Time", "PolyFEM Assembly Time"])
 
     combined_polyfem_profile = pandas.DataFrame()
     combined_polyfem_profile_filename = append_stem(
@@ -146,7 +151,8 @@ def main():
             print(f"Running {script} in IPC")
             subprocess.run([args.ipc_bin, "10" if args.with_viewer else "100",
                             script.resolve(), "-o", output / "ipc",
-                            "--logLevel", str(args.loglevel)])
+                            "--logLevel", str(args.loglevel), 
+                            "--numThreads", "32"])
 
             # Render the IPC sim
             if not args.no_video:
@@ -195,7 +201,9 @@ def main():
                    "-j", str(polyfem_script),
                    "-o", str(output),
                    "--log_level", str(args.loglevel),
-                   "--solver", "Eigen::CholmodSupernodalLLT"]
+                   "--solver", "Eigen::CholmodSupernodalLLT",
+                   "--max_threads", "32",
+                   "--log_file", str(output / "log.txt")]
             tmp += ([] if args.with_viewer else ["--cmd"]) + \
                 args.polyfem_args.split()
             subprocess.run(tmp)
@@ -245,7 +253,7 @@ def main():
                 df_row["PolyFEM NCCD Time"] = sum(
                     [f["info"]["time_ccd"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
-                df_row["PolyFEM Ass Time"] = sum(
+                df_row["PolyFEM Assembly Time"] = sum(
                     [f["info"]["time_assembly"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
         #######################################################################

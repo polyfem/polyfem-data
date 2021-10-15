@@ -8,6 +8,7 @@
 
     "nl_solver": "newton",
     "solver_params": {
+        "mtype": 2,
         "gradNorm": 1e-5,
         "useGradNorm": false
     },
