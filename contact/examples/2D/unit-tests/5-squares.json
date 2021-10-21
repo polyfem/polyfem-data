@@ -40,5 +40,8 @@
     "obstacles": [{
         "mesh": "../../../meshes/2D/simple/line.obj",
         "position": [0, -0.315]
-    }]
+    }],
+    "export": {
+        "time_sequence": "5-squares.pvd"
+    }
 }

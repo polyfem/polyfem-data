@@ -30,5 +30,8 @@
         "E": 100000,
         "nu": 0.4,
         "rho": 1000
-    }]
+    }],
+    "export": {
+        "time_sequence": "edge-edge.pvd"
+    }
 }

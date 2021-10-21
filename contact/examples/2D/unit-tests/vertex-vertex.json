@@ -36,5 +36,8 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
-    }]
+    }],
+    "export": {
+        "time_sequence": "vertex-vertex.pvd"
+    }
 }

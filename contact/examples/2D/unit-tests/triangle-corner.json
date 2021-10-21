@@ -26,5 +26,8 @@
     }, {
         "mesh": "../../../meshes/2D/simple/line.obj",
         "position": [0.5, -0.5]
-    }]
+    }],
+    "export": {
+        "time_sequence": "triangle-corner.pvd"
+    }
 }
