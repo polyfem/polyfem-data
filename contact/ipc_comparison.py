@@ -1,5 +1,4 @@
-import sys
-import os
+"""Compare PolyFEM and IPC."""
 import pathlib
 import argparse
 import subprocess
@@ -10,24 +9,29 @@ import pandas
 
 
 def get_time_stamp():
+    """Get a formatted time stamp."""
     return datetime.now().strftime("%Y-%b-%d-%H-%M-%S")
+
 
 current_parents = pathlib.Path(__file__).resolve().parents
 
 # Find the path to PolyFEM
-if len(current_parents) > 2 and pathlib.Path(current_parents[2] / "polyfem").exists():
+if (len(current_parents) > 2
+        and pathlib.Path(current_parents[2] / "polyfem").exists()):
     polyfem_root = current_parents[2] / "polyfem"
 else:
     polyfem_root = pathlib.Path(__file__)
 
 # Find the path to IPC
-if len(current_parents) > 3 and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists():
+if (len(current_parents) > 3
+        and pathlib.Path(current_parents[3] / "collisions" / "ipc").exists()):
     ipc_root = current_parents[3] / "collisions" / "ipc"
 else:
     ipc_root = pathlib.Path(__file__)
 
 
 def find_bin(root, bin_name):
+    """Find a binary file with the name bin_name in a build subdirectory."""
     build_dir = root / "build"
     for sub_dir in "", "release", "debug":
         bin = build_dir / sub_dir / bin_name
@@ -55,11 +59,11 @@ def create_parser():
     parser = argparse.ArgumentParser(
         description="Run a comparison between PolyFEM and IPC.")
     parser.add_argument(
-        "--polyfem-bin", metavar=f"path/to/PolyFEM_bin",
+        "--polyfem-bin", metavar="path/to/PolyFEM_bin",
         type=pathlib.Path, default=find_bin(polyfem_root, "PolyFEM_bin"),
         help="path to PolyFEM binary")
     parser.add_argument(
-        "--ipc-bin", metavar=f"path/to/IPC_bin",
+        "--ipc-bin", metavar="path/to/IPC_bin",
         type=pathlib.Path, default=find_bin(ipc_root, "IPC_bin"),
         help="path to IPC binary")
     parser.add_argument(
@@ -82,11 +86,11 @@ def create_parser():
         "--no-video", action="store_true", default=False,
         help="do not render a video of the sim")
     parser.add_argument(
-        "--loglevel", default="info", 
+        "--loglevel", default="info",
         choices=["trace", "debug", "info", "warn", "error", "critical", "off"],
         help="set log level {trace, debug, info, warn, error, critical, off}")
     parser.add_argument(
-        "--polyfem-args", default="", help=f"arguments to PolyFEM_bin")
+        "--polyfem-args", default="", help="arguments to PolyFEM_bin")
     parser.add_argument(
         "--with-viewer", action="store_true", default=False,
         help="run simulation through the viewer")
@@ -97,9 +101,10 @@ def parse_arguments():
     parser = create_parser()
     args = parser.parse_args()
     if not args.no_ipc and (args.ipc_bin is None or not args.ipc_bin.exists()):
-        parser.exit(1, f"IPC binary not found!\n")
-    if not args.no_polyfem and (args.polyfem_bin is None or not args.polyfem_bin.exists()):
-        parser.exit(1, f"PolyFEM binary not found!\n")
+        parser.exit(1, "IPC binary not found!\n")
+    if (not args.no_polyfem and
+            (args.polyfem_bin is None or not args.polyfem_bin.exists())):
+        parser.exit(1, "PolyFEM binary not found!\n")
     if args.input is None:
         args.input = [pathlib.Path(__file__).resolve().parent / "ipc-scripts"]
     input_scripts = []
@@ -128,18 +133,16 @@ def main():
 
     render_bin = args.polyfem_bin.parent / "tools" / "render_simulation"
     if not args.no_video and not render_bin.exists():
-        print("Unable to find 'render_simulation' executable, disabling rendering.")
+        print("Unable to find 'render_simulation' executable, disabling "
+              "rendering.")
         args.no_video = True
 
     df = pandas.DataFrame(columns=[
-        "Scene", "IPC Video", "PolyFEM Video", "IPC Runtime", "PolyFEM Runtime",
-        "IPC Iterations", "PolyFEM Iterations",
+        "Scene", "IPC Video", "PolyFEM Video", "IPC Runtime",
+        "PolyFEM Runtime", "IPC Iterations", "PolyFEM Iterations",
         "IPC Linear Solve Time", "PolyFEM Linear Solve Time",
-        "IPC CCD Time",  "PolyFEM CCD Time", "PolyFEM BCCD Time", "PolyFEM NCCD Time", "PolyFEM Assembly Time"])
-
-    combined_polyfem_profile = pandas.DataFrame()
-    combined_polyfem_profile_filename = append_stem(
-        args.output, "-polyfem-profile")
+        "IPC CCD Time",  "PolyFEM CCD Time", "PolyFEM BCCD Time",
+        "PolyFEM NCCD Time", "PolyFEM Assembly Time"])
 
     for script in args.input:
         rel = script.relative_to(polyfem_examples_dir)
@@ -151,7 +154,7 @@ def main():
             print(f"Running {script} in IPC")
             subprocess.run([args.ipc_bin, "10" if args.with_viewer else "100",
                             script.resolve(), "-o", output / "ipc",
-                            "--logLevel", str(args.loglevel), 
+                            "--logLevel", str(args.loglevel),
                             "--numThreads", "32"])
 
             # Render the IPC sim
@@ -237,24 +240,33 @@ def main():
                         f["info"]["time_grad"] +
                         f["info"]["time_obj_fun"] +
                         f["info"]["time_constrain_set_update"]
-                    ) * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    ) * f["info"]["iterations"]
+                        for f in sim_dict["solver_info"]])
                 # sum([t["info"] for sim_dict["solver_info"]["step_timings"])
                 df_row["PolyFEM Iterations"] = sum(
                     [f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM Linear Solve Time"] = sum(
-                    [f["info"]["time_inverting"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_inverting"] * f["info"]["iterations"]
+                     for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM CCD Time"] = sum(
-                    [(f["info"]["time_ccd"] + f["info"]["time_broad_phase_ccd"]) * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [(f["info"]["time_ccd"]
+                      + f["info"]["time_broad_phase_ccd"])
+                     * f["info"]["iterations"]
+                     for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM BCCD Time"] = sum(
-                    [f["info"]["time_broad_phase_ccd"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_broad_phase_ccd"]
+                     * f["info"]["iterations"]
+                     for f in sim_dict["solver_info"]])
                 df_row["PolyFEM NCCD Time"] = sum(
-                    [f["info"]["time_ccd"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_ccd"] * f["info"]["iterations"]
+                     for f in sim_dict["solver_info"]])
 
                 df_row["PolyFEM Assembly Time"] = sum(
-                    [f["info"]["time_assembly"] * f["info"]["iterations"] for f in sim_dict["solver_info"]])
+                    [f["info"]["time_assembly"] * f["info"]["iterations"]
+                     for f in sim_dict["solver_info"]])
 
         #######################################################################
         df.loc[df_row["Scene"]] = df_row

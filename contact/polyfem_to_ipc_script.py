@@ -26,9 +26,10 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
     dhat = polyfem_json.get("dhat", 1e-3)
 
     meshes = polyfem_json["meshes"]
+    obstacles = polyfem_json.get("obstacles", [])
 
     dirichlet_bc = {}
-    for bc in polyfem_json["problem_params"]["dirichlet_boundary"]:
+    for bc in polyfem_json["problem_params"].get("dirichlet_boundary", []):
         dirichlet_bc[bc["id"]] = bc
 
     materials = {}
@@ -37,7 +38,7 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
 
     shapes = []
     disabled_shapes = []
-    for mesh in meshes:
+    for i, mesh in enumerate(meshes + obstacles):
         mesh_path = pathlib.Path(mesh["mesh"])
         if not mesh_path.is_absolute():
             mesh_path = input_path.resolve().parent / mesh_path
@@ -72,6 +73,8 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
             # if not is_static:
             #     raise NotImplementedError(
             #         "Non-static DBC are not implemented!")
+        elif i >= len(meshes):
+            is_static = True
 
         # linear_velocity = mesh.get("linear_velocity", [0, 0, 0])
         # angular_velocity = mesh.get("angular_velocity", [0, 0, 0])
@@ -95,7 +98,8 @@ def polyfem_to_ipc_script(polyfem_json, input_path, output_path):
         #         "initVel {:g} {:g} {:g}  {:g} {:g} {:g}".format(
         #             *linear_velocity, *angular_velocity))
 
-        mat = materials[mesh.get("body_id", 0)]
+        mat = materials.get(mesh.get("body_id", 0),
+                            dict(rho=8050, nu=0.3, E=2e11))
         rho = mat["rho"]
         E = mat["E"]
         nu = mat["nu"]

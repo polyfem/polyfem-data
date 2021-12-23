@@ -1,0 +1,35 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81]
+    },
+    "tend": 5,
+    "dt": 0.025,
+    "#time_steps": 1,
+    "mu": 0.15,
+    "eps_v": 1e-5,
+    "friction_iterations": -1,
+    "friction_convergence_tol": 0.01,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/table.msh",
+        "position": [-3.4468271355, 0.6087686218, 0],
+        "rotation": [0, 0, -10],
+        "scale": 1,
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e7,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "position": [0, 0, 0],
+        "rotation": [0, 0, -10],
+        "dimensions": [10, 0, 10]
+    }],
+    "export": {
+        "time_sequence": "stick-slip.pvd"
+    }
+}
