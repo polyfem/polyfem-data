@@ -239,7 +239,7 @@ def main():
                         f["info"]["time_inverting"] +
                         f["info"]["time_grad"] +
                         f["info"]["time_obj_fun"] +
-                        f["info"]["time_constrain_set_update"]
+                        f["info"]["time_constraint_set_update"]
                     ) * f["info"]["iterations"]
                         for f in sim_dict["solver_info"]])
                 # sum([t["info"] for sim_dict["solver_info"]["step_timings"])

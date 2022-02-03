@@ -128,7 +128,7 @@ def main():
                         f["info"]["time_inverting"] +
                         f["info"]["time_grad"] +
                         f["info"]["time_obj_fun"] +
-                        f["info"]["time_constrain_set_update"]
+                        f["info"]["time_constraint_set_update"]
                     ) * f["info"]["iterations"] for f in sim_dict["solver_info"]])
 
                 df_row["Iterations"] = sum(
