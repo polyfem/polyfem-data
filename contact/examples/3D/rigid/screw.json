@@ -1,0 +1,27 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 5,
+    "dt": 0.01,
+    "dhat": 1e-4,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/screw/screw.msh",
+        "scale": 0.01,
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 200e9,
+        "nu": 0.28,
+        "rho": 8050
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/screw/nut.stl",
+        "scale": 0.01
+    }],
+    "export": {
+        "time_sequence": "screw.pvd"
+    }
+}

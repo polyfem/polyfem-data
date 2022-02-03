@@ -7,7 +7,7 @@
     "dt": 0.025,
     "#time_steps": 1,
     "mu": 0.15,
-    "eps_v": 1e-5,
+    "epsv": 1e-5,
     "friction_iterations": -1,
     "friction_convergence_tol": 0.01,
     "meshes": [{

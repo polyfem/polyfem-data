@@ -1,38 +1,6 @@
 {
     "default_params": "../../defaults.json",
     "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [
-                0,
-                "rotate_2D_x(y + 1, z, t * pi / 2) - (y + 1)",
-                "rotate_2D_y(y + 1, z, t * pi / 2) - z"
-            ]
-        }, {
-            "id": 2,
-            "value": [
-                0,
-                "rotate_2D_x(y + 1, z - 1, -t * pi / 2) - (y + 1)",
-                "rotate_2D_y(y + 1, z - 1, -t * pi / 2) - (z - 1)"
-            ]
-        }, {
-            "id": 3,
-            "value": [
-                "rotate_2D_x(x, y + 2, -t * pi / 2) - x",
-                "rotate_2D_y(x, y + 2, -t * pi / 2) - (y + 2)",
-                0
-            ]
-        }, {
-            "id": 4,
-            "value": [
-                "rotate_2D_x(x - 1, y + 2, t * pi / 2) - (x - 1)",
-                "rotate_2D_y(x - 1, y + 2, t * pi / 2) - (y + 2)",
-                0
-            ]
-        }, {
-            "id": 5,
-            "value": [0, 0, 0]
-        }],
         "rhs": [0, 9.81, 0]
     },
     "tend": 10,
@@ -44,72 +12,60 @@
     "has_collision": true,
     "meshes": [{
         "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
-        "position": [0.5, 0.5, 0.5],
+        "position": [0, 0.5, 0],
         "scale": 2,
         "body_id": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.msh",
-        "position": [1, -1, 0],
-        "scale": 4,
-        "body_id": 2,
-        "boundary_id": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.msh",
-        "position": [1, -1, 1],
-        "scale": 4,
-        "body_id": 3,
-        "boundary_id": 2
-    }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.msh",
-        "position": [0, -2, 1],
-        "rotation": [0, 90, 0],
-        "scale": 4,
-        "body_id": 4,
-        "boundary_id": 3
-    }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.msh",
-        "position": [1, -2, 1],
-        "rotation": [0, 90, 0],
-        "scale": 4,
-        "body_id": 5,
-        "boundary_id": 4
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0.5, -5, 0.5],
-        "scale": [8, 0.02, 8],
-        "body_id": 6,
-        "boundary_id": 5
     }],
     "body_params": [{
         "id": 1,
         "E": 1e4,
         "nu": 0.4,
         "rho": 1000
-    }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }, {
-        "id": 3,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }, {
-        "id": 4,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }, {
-        "id": 5,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }, {
-        "id": 6,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
     }],
-    "save_solve_sequence_debug": true
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "position": [0, -1, -0.5],
+        "scale": 4,
+        "displacement": [
+            0,
+            "rotate_2D_x(y + 1, z + 0.5, t * pi / 2) - (y + 1)",
+            "rotate_2D_y(y + 1, z + 0.5, t * pi / 2) - (z + 0.5)"
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "position": [0, -1, 0.5],
+        "scale": 4,
+        "displacement": [
+            0,
+            "rotate_2D_x(y + 1, z - 0.5, -t * pi / 2) - (y + 1)",
+            "rotate_2D_y(y + 1, z - 0.5, -t * pi / 2) - (z - 0.5)"
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "position": [-0.5, -2, 0],
+        "scale": 4,
+        "rotation": [0, 90, 0],
+        "displacement": [
+            "rotate_2D_x(x + 0.5, y + 2, -t * pi / 2) - (x + 0.5)",
+            "rotate_2D_y(x + 0.5, y + 2, -t * pi / 2) - (y + 2)",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "position": [0.5, -2, 0],
+        "scale": 4,
+        "rotation": [0, 90, 0],
+        "displacement": [
+            "rotate_2D_x(x - 0.5, y + 2, t * pi / 2) - (x - 0.5)",
+            "rotate_2D_y(x - 0.5, y + 2, t * pi / 2) - (y + 2)",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "dimensions": [8, 0, 8],
+        "position": [0, -5, 0]
+    }],
+    "export": {
+        "time_sequence": "ball-rollers.pvd"
+    }
 }
