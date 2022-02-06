@@ -35,7 +35,7 @@ def find_bin(root, bin_name):
 
 def create_parser():
     parser = argparse.ArgumentParser(
-        description="Run a comparison between PolyFEM and IPC.")
+        description="Run a 3D unit tests.")
     parser.add_argument(
         "--polyfem-bin", metavar="path/to/PolyFEM_bin",
         type=pathlib.Path, default=find_bin(polyfem_root, "PolyFEM_bin"),
