@@ -18,7 +18,7 @@
         "rho": 8050
     }],
     "obstacles": [{
-        "mesh": "../../../meshes/3D/screw/nut.stl",
+        "mesh": "../../../meshes/3D/screw/nut.obj",
         "scale": 0.01
     }],
     "export": {
