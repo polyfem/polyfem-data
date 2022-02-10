@@ -3,9 +3,9 @@
     "problem_params": {
         "dirichlet_boundary": [{
             "id": 1,
-            "value": [0, 0]
+            "value": [0, 0, 0]
         }],
-        "rhs": [0, 9.81]
+        "rhs": [0, 9.81, 0]
     },
     "tend": 2.5,
     "dt": 0.025,
