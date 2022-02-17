@@ -5,19 +5,19 @@
             "id": 1,
             "value": [0, 0, 0]
         }],
-        "rhs": [0, 9.81, 0], 
+        "rhs": [0, 9.81, 0],
         "is_time_dependent": false
     },
     "tend": 5,
     "time_steps": 200,
-    "n_ref": 3, 
+    "n_refs": 0,
     "meshes": [{
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, 0, 0],
         "body_id": 1
     }, {
         "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0, 0.6, 0],
+        "position": [0, 1.1, 0],
         "body_id": 1
     }],
     "body_params": [{
