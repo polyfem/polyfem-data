@@ -1,0 +1,37 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0], 
+        "is_time_dependent": false
+    },
+    "tend": 5,
+    "time_steps": 200,
+    "n_ref": 3, 
+    "meshes": [{
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0, 0],
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "position": [0, 0.6, 0],
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 100000,
+        "nu": 0.4,
+        "rho": 1000
+    }],
+    "boundary_sidesets": [{
+        "id": 1,
+        "axis": -2,
+        "position": -0.499
+    }],
+    "export": {
+        "time_sequence": "static-cubes.pvd"
+    }
+}

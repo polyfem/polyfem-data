@@ -1,0 +1,41 @@
+{
+    "default_params": "../defaults.json",
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "initial_velocity": [{
+            "id": 1,
+            "value": [67, 0, 0]
+        }],
+        "rhs": [0, 0, 0]
+    },
+    "discr_order": 1,
+    "n_refs": 1, 
+    "tend": 4e-3,
+    "dt": 2e-5,
+    "dhat": 0.0000692820323,
+    "meshes": [{
+        "mesh": "../../meshes/3D/simple/sphere/sphere1K.msh",
+        "scale": 0.04,
+        "body_id": 1
+    }, {
+        "mesh": "../../meshes/3D/simple/cube.msh",
+        "position": [0.105, 0, 0],
+        "dimensions": [0.01, 0.4, 0.4],
+        "body_id": 2,
+        "boundary_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e7,
+        "nu": 0.45,
+        "rho": 1150
+    }, {
+        "id": 2,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }]
+}
