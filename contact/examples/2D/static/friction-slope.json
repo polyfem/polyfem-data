@@ -1,0 +1,70 @@
+{
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+    "n_refs": 0,
+    "discr_order": 1,
+    "iso_parametric": true,
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81],
+        "is_time_dependent": false
+    },
+    "dhat": 1e-3,
+    "solver_type": "Eigen::PardisoLDLT",
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": true,
+        "nl_iterations": 300
+    },
+    "project_to_psd": true,
+    "line_search": "bisection",
+
+    "meshes": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "position": [0, 0],
+        "scale": [5, 0.02],
+        "rotation": -30,
+        "body_id": 1,
+        "boundary_id": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square1K.msh",
+        "position": [0.2600, 0.4503],
+        "scale": 1.0,
+        "rotation": -30,
+        "body_id": 2,
+        "boundary_id": 2
+    }],
+
+    "body_params": [{
+        "name": "cube_top",
+        "id": 1,
+        "E": 7e7,
+        "nu": 0.48,
+        "rho": 1240
+    }, {
+        "name": "cube_bottom",
+        "id": 2,
+        "E": 7e7,
+        "nu": 0.48,
+        "rho": 1240
+    }],
+
+    "has_collision": true,
+    "mu": 0.6,
+    "normalize_mesh": false,
+    "barrier_stiffness": 1e9,
+    "friction_iterations": -1,
+    "friction_convergence_tol": 0.01,
+
+    "export": {
+        "paraview": "sol.vtu",
+        "material_params": true
+    },
+    "save_time_sequence": false,
+    "save_nl_solve_sequence": false,
+    "save_solve_sequence_debug": true,
+    "damping_weight": 10
+}
