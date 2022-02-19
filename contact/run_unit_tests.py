@@ -23,10 +23,12 @@ else:
     polyfem_root = pathlib.Path(__file__)
 
 
-def find_bin(root, bin_name):
+def find_bin(root, bin_name, debug=False):
     """Find a binary file with the name bin_name in a build subdirectory."""
+    if pathlib.Path(bin_name).exists():
+        return pathlib.Path(bin_name).resolve()
     build_dir = root / "build"
-    for sub_dir in "", "release", "debug":
+    for sub_dir in ["debug" if debug else "release", ""]:
         bin = build_dir / sub_dir / bin_name
         if bin.is_file():
             return bin.resolve()
@@ -38,8 +40,7 @@ def create_parser():
         description="Run a 3D unit tests.")
     parser.add_argument(
         "--polyfem-bin", metavar="path/to/PolyFEM_bin",
-        type=pathlib.Path, default=find_bin(polyfem_root, "PolyFEM_bin"),
-        help="path to PolyFEM binary")
+        type=pathlib.Path, default=None, help="path to PolyFEM binary")
     parser.add_argument(
         "-o", "--output", metavar="path/to/output.csv", type=pathlib.Path,
         dest="output", default=pathlib.Path("polyfem-unit-tests.csv"),
@@ -49,12 +50,16 @@ def create_parser():
         choices=[
             "trace", "debug", "info", "warning", "error", "critical", "off"],
         help="set log level {trace, debug, info, warning, error, critical, off}")
+    parser.add_argument(
+        "--debug", default=False, action="store_true", help="run with debugger")
     return parser
 
 
 def parse_arguments():
     parser = create_parser()
     args = parser.parse_args()
+    if args.polyfem_bin is None:
+        args.polyfem_bin = find_bin(polyfem_root, "PolyFEM_bin", args.debug)
     if args.polyfem_bin is None or not args.polyfem_bin.exists():
         parser.exit(1, "PolyFEM binary not found!\n")
     return args
@@ -87,9 +92,10 @@ def main():
                "-j", str(test),
                "-o", str(output),
                "--log_level", str(args.loglevel),
-               "--solver", "Eigen::CholmodSupernodalLLT",
                "--log_file", str(output / "log.txt"),
                "--ngui"]
+        if args.debug:
+            tmp = "lldb --".split() + tmp
         try:
             subprocess.run(tmp, check=True)
         except subprocess.CalledProcessError:
