@@ -5,6 +5,9 @@ import json
 
 import numpy
 import plotly.graph_objects as go
+import plotly.express as px
+import plotly.io as pio
+pio.kaleido.scope.mathjax = None
 
 current_parents = pathlib.Path(__file__).resolve().parents
 
@@ -46,10 +49,27 @@ def plot_sim_json(sim_json, output):
 
     print(f"extra_time={sim_dict['time_solving'] - total_time}s")
 
+    colors = px.colors.qualitative.Plotly
+    assert(len(colors) >= len(timings) - 1)  # misc is fixed to grey
+    ordered_colors = {
+        "Compute + Assemble Hessian": colors[1],
+        "BP CCD": colors[0],
+        "NP CCD": colors[2],
+        f"Linear Solve<br>({sim_dict['solver_type']})": colors[3],
+        "Compute Gradient": colors[5],
+        "Compute Objective": colors[6],
+        "Constraint Set Update": colors[4],
+        f"Line-Search Constraint Set Update<br>(n/iter={line_search_iterations:.1f})": colors[9],
+        "Inversion Checking": colors[7],
+        "Classical Line-Search": colors[8],
+        "Misc.": "#AAAAAA",
+    }
+
     fig = go.Figure(go.Pie(
         labels=list(timings.keys()),
         values=list(timings.values()),
         texttemplate='%{label}<br>%{percent}<br>%{value:.2f}s',
+        marker=dict(colors=list(ordered_colors.values()))
     ))
 
     scale = 1.25
@@ -71,6 +91,8 @@ def plot_sim_json(sim_json, output):
 
     fig.write_image(output)
     print(f"Results written to {output}")
+
+    return fig
 
 
 def create_parser():
