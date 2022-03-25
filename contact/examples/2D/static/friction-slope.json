@@ -16,6 +16,7 @@
     "solver_type": "Eigen::PardisoLDLT",
     "solver_params": {
         "gradNorm": 1e-5,
+        "fDelta": 1e-15,
         "useGradNorm": true,
         "nl_iterations": 300
     },
@@ -56,7 +57,7 @@
     "mu": 0.6,
     "normalize_mesh": false,
     "barrier_stiffness": 1e9,
-    "friction_iterations": -1,
+    "friction_iterations": 10,
     "friction_convergence_tol": 0.01,
 
     "export": {
@@ -66,5 +67,5 @@
     "save_time_sequence": false,
     "save_nl_solve_sequence": false,
     "save_solve_sequence_debug": true,
-    "damping_weight": 10
+    "lagged_damping_weight": 10
 }

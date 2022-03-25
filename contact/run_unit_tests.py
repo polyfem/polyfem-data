@@ -102,6 +102,7 @@ def main():
                "-o", str(output),
                "--log_level", str(args.loglevel),
                "--log_file", str(output / "log.txt"),
+               "--bp", "STQ",
                "--ngui"]
         if args.debug:
             tmp = "lldb --".split() + tmp
