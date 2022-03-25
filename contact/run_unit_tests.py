@@ -7,6 +7,8 @@ from datetime import datetime
 
 import pandas
 
+from plot_sim_json import plot_sim_json, sum_times
+
 
 def get_time_stamp():
     """Get a formatted time stamp."""
@@ -20,7 +22,7 @@ if (len(current_parents) > 2
         and pathlib.Path(current_parents[2] / "polyfem").exists()):
     polyfem_root = current_parents[2] / "polyfem"
 else:
-    polyfem_root = pathlib.Path(__file__)
+    polyfem_root = pathlib.Path(__file__).parent
 
 
 def find_bin(root, bin_name, debug=False):
@@ -62,6 +64,8 @@ def parse_arguments():
         args.polyfem_bin = find_bin(polyfem_root, "PolyFEM_bin", args.debug)
     if args.polyfem_bin is None or not args.polyfem_bin.exists():
         parser.exit(1, "PolyFEM binary not found!\n")
+    else:
+        args.polyfem_bin = args.polyfem_bin.resolve()
     return args
 
 
@@ -75,13 +79,18 @@ def main():
     examples_dir = (
         pathlib.Path(__file__).resolve().parent / "examples")
 
-    df = pandas.DataFrame(columns=[
-        "Scene", "Success", "Runtime", "Iterations", "Linear Solve Time",
-        "BP CCD Time", "NP CCD Time", "Assembly Time"])
+    df = pandas.DataFrame(
+        columns=["Scene", "Success", "Runtime", "Iterations"])
 
-    for test in (examples_dir / "3D" / "unit-tests").rglob("*.json"):
+    unit_tests = list((examples_dir / "3D" / "unit-tests").rglob("*.json"))
+    unit_tests += list(
+        (examples_dir / "3D" / "friction").rglob("high-school*.json"))
+    unit_tests.append(
+        examples_dir / "3D" / "large-ratios" / "large-mass-ratio.json")
+
+    for test in unit_tests:
         rel = test.relative_to(examples_dir)
-        output = "output" / rel.parent / rel.stem
+        output = args.output.parent / "output" / rel.parent / rel.stem
         df_row = {"Scene": str(rel.parent / rel.stem)}
 
         #######################################################################
@@ -106,36 +115,10 @@ def main():
         if df_row["Success"]:
             with open(output / "sim.json") as sim:
                 sim_dict = json.load(sim)
-                df_row["Runtime"] = sum(
-                    [(
-                        f["info"]["time_assembly"] +
-                        f["info"]["time_line_search"] +
-                        f["info"]["time_inverting"] +
-                        f["info"]["time_grad"] +
-                        f["info"]["time_obj_fun"] +
-                        f["info"]["time_constraint_set_update"]
-                    ) * f["info"]["iterations"]
-                        for f in sim_dict["solver_info"]])
-
-                df_row["Iterations"] = sum(
-                    [f["info"]["iterations"] for f in sim_dict["solver_info"]])
-
-                df_row["Linear Solve Time"] = sum(
-                    [f["info"]["time_inverting"] * f["info"]["iterations"]
-                     for f in sim_dict["solver_info"]])
-
-                df_row["BP CCD Time"] = sum(
-                    [f["info"]["time_broad_phase_ccd"]
-                     * f["info"]["iterations"]
-                     for f in sim_dict["solver_info"]])
-
-                df_row["NP CCD Time"] = sum(
-                    [f["info"]["time_ccd"] * f["info"]["iterations"]
-                     for f in sim_dict["solver_info"]])
-
-                df_row["Assembly Time"] = sum(
-                    [f["info"]["time_assembly"] * f["info"]["iterations"]
-                     for f in sim_dict["solver_info"]])
+            df_row["Runtime"] = sum_times(sim_dict, "total_time", is_avg=False)
+            df_row["Iterations"] = sum_times(
+                sim_dict, "iterations", is_avg=False)
+            plot_sim_json(output / "sim.json", output / "sim.png")
 
         #######################################################################
         df.loc[df_row["Scene"]] = df_row
