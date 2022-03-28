@@ -40,5 +40,10 @@
         "E": 2e11,
         "nu": 0.3,
         "rho": 7750
-    }]
+    }],
+    "export": {
+        "surface": true,
+        "contact_forces": true,
+        "friction_forces": true
+    }
 }

@@ -43,6 +43,8 @@
         "dimensions": [2, 0, 2]
     }],
     "export": {
+        "velocity": true,
+        "acceleration": true,
         "time_sequence": "5-cubes.pvd"
     }
 }

@@ -13,7 +13,7 @@
         "useGradNorm": false
     },
     "solver_type": "Eigen::PardisoLDLT",
-    "line_search": "bisection",
+    "line_search": "backtracking",
     "project_to_psd": true,
     "lump_mass_matrix": true,
 

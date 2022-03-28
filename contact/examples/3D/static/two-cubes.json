@@ -33,6 +33,7 @@
     "export": {
         "body_ids": false
     },
-    "save_time_sequence": false,
+    "mu": 0.5,
+    "friction_iterations": 10,
     "save_nl_solve_sequence": false
 }

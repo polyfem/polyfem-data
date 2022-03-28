@@ -59,6 +59,9 @@
     "barrier_stiffness": 1e9,
     "friction_iterations": 10,
     "friction_convergence_tol": 0.01,
+    "lagged_damping_weight": 10,
+
+    "normalize_mesh": false,
 
     "export": {
         "paraview": "sol.vtu",
