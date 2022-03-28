@@ -1,0 +1,87 @@
+{
+
+    "problem": "GenericTensor",
+    "tensor_formulation": "NeoHookean",
+
+    "problem_params": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["-t", 0, 0]
+        }, {
+            "id": 3,
+            "value": ["t", 0, 0]
+        }],
+        "rhs": [0, 0, 0],
+        "is_time_dependent": true
+    },
+
+    "bodies_discr_order": [{
+            "body_id": 1,
+            "discr": 1
+        },
+        {
+            "body_id": 2,
+            "discr": 2
+        },
+        {
+            "body_id": 3,
+            "discr": 1
+        }
+    ],
+
+    "dt": 0.0025,
+    "time_steps": 20,
+
+    "nl_solver": "newton",
+    "solver_params": {
+        "gradNorm": 1e-5,
+        "useGradNorm": true
+    },
+    "solver_type": "Eigen::PardisoLDLT",
+    "line_search": "backtracking",
+    "project_to_psd": true,
+    "lump_mass_matrix": true,
+
+    "has_collision": true,
+    "dhat": 1e-3,
+
+    "mesh": "cubes_v41.msh",
+    "normalize_mesh": false,
+
+    "#params": {
+        "E": 2.55e7,
+        "nu": 0.48,
+        "density": 1700
+    },
+
+    "body_params": [{
+        "name": "steel",
+        "id": 1,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }, {
+        "name": "silicone_rubber",
+        "id": 2,
+        "E": 2.55e7,
+        "nu": 0.48,
+        "rho": 1700
+    }, {
+        "name": "steel",
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750
+    }],
+
+    "export": {
+        "paraview": "sol.vtu",
+        "body_ids": true,
+        "material_params": true
+    },
+    "quadrature_order": 1,
+    "save_time_sequence": true,
+    "save_solve_sequence_debug": false,
+    "vismesh_rel_area": 10000000,
+    "output": "sim.json"
+}

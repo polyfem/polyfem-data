@@ -1,0 +1,9 @@
+{
+    "operation": "union",
+    "left": {
+        "operation": "union",
+        "left": "left_box.obj",
+        "right": "middle_box.obj"
+    },
+    "right": "right_box.obj"
+}

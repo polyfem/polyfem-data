@@ -186,3 +186,5 @@ contact/*.pdf
 **/step.obj
 
 **/*.bak
+
+multi-material/output
