@@ -1,0 +1,53 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 15,
+    "dt": 0.01,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/creatures/alien.msh",
+        "position": [0, -1.05, 0],
+        "rotation": [0, 0, 0],
+        "scale": 0.45,
+        "body_id": 1
+    }, {
+        "mesh": "../../../meshes/3D/creatures/gargoyle.msh",
+        "position": [1.2, 0.2, -0.1],
+        "rotation": [-90, 0, 0],
+        "scale": 0.22,
+        "body_id": 2
+    }, {
+        "mesh": "../../../meshes/3D/creatures/monkey.msh",
+        "position": [-0.03, 1.05, 0],
+        "rotation": [-90, 0, 0],
+        "scale": 0.012,
+        "body_id": 3
+    }, {
+        "mesh": "../../../meshes/3D/creatures/octocat.msh",
+        "position": [0, 1.9, 0],
+        "rotation": [-90, 0, 0],
+        "scale": 0.01,
+        "body_id": 4
+    }],
+    "params": {
+        "E": 5e4,
+        "nu": 0.4,
+        "density": 1000
+    },
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "position": [-1, 2.25, -1],
+        "rotation": [0, 0, 0],
+        "scale": 2,
+        "displacement": [0, "max(-0.3 * t, -3.79)", 0]
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/coneBox.obj",
+        "position": [0, -2, 0],
+        "rotation": [0, 0, -90],
+        "scale": 1.15
+    }],
+    "export": {
+        "time_sequence": "squeeze-out.pvd"
+    }
+}
