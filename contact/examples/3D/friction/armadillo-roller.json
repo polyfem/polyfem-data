@@ -1,0 +1,78 @@
+{
+    "default_params": "../../defaults.json",
+    "problem_params": {
+        "rhs": [0, 9.81, 0]
+    },
+    "tend": 10,
+    "dt": 0.025,
+    "dhat": 1e-4,
+    "epsv": 1e-3,
+    "mu": 0.5,
+    "friction_iterations": 1,
+    "has_collision": true,
+    "meshes": [{
+        "mesh": "../../../meshes/3D/creatures/armadillo/armadillo_verschoor.msh",
+        "position": [0, 0, 0],
+        "scale": 1,
+        "body_id": 1
+    }],
+    "body_params": [{
+        "id": 1,
+        "E": 1e5,
+        "nu": 0.2,
+        "rho": 1000
+    }],
+    "obstacles": [{
+        "mesh": "../../../meshes/3D/simple/verschoor/roller0.obj",
+        "displacement": [
+            "rotate_2D_x(x + 2.0/3.0, y - 1, -4 * t) - 2.0/3.0 - x",
+            "rotate_2D_y(x + 2.0/3.0, y - 1, -4 * t) + 1 - y",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/verschoor/roller1.obj",
+        "displacement": [
+            "rotate_2D_x(x + 13.0/60.0, y - 1, -2 * t) - 13.0/60.0 - x",
+            "rotate_2D_y(x + 13.0/60.0, y - 1, -2 * t) + 1 - y",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/verschoor/roller2.obj",
+        "displacement": [
+            "rotate_2D_x(x - 13.0/60.0, y - 1, 2 * t) + 13.0/60.0 - x",
+            "rotate_2D_y(x - 13.0/60.0, y - 1, 2 * t) + 1 - y",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/verschoor/roller3.obj",
+        "displacement": [
+            "rotate_2D_x(x - 2.0/3.0, y - 1, 4 * t) + 2.0/3.0 - x",
+            "rotate_2D_y(x - 2.0/3.0, y - 1, 4 * t) + 1 - y",
+            0
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/verschoor/roller4.obj",
+        "displacement": [
+            0,
+            "rotate_2D_x(y - 19.0/30.0, z + 13.0/60.0, 2 * t) + 19.0/30.0 - y",
+            "rotate_2D_y(y - 19.0/30.0, z + 13.0/60.0, 2 * t) - 13.0/60.0 - z"
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/verschoor/roller5.obj",
+        "displacement": [
+            0,
+            "rotate_2D_x(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 19.0/30.0 - y",
+            "rotate_2D_y(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 13.0/60.0 - z"
+        ]
+    }, {
+        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "dimensions": [8, 0, 8],
+        "position": [0, 0.2, 0]
+    }],
+    "export": {
+        "volume": false,
+        "surface": true,
+        "friction_forces": true,
+        "time_sequence": "armadillo-rollers.pvd"
+    }
+}
