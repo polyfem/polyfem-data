@@ -24,7 +24,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "position": [0, 0, 0],
         "rotation": [0, 0, -10],
         "dimensions": [10, 0, 10]

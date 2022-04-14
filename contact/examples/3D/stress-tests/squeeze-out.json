@@ -36,7 +36,7 @@
         "density": 1000
     },
     "obstacles": [{
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1, 2.25, -1],
         "rotation": [0, 0, 0],
         "scale": 2,

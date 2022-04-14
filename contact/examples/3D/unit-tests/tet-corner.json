@@ -28,7 +28,7 @@
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [1.5, 0, 0.5]
     }, {
-        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "position": [0.5, -0.5, 0.5],
         "dimensions": [5, 0, 5]
     }],

@@ -20,7 +20,7 @@
         "scale": 1,
         "body_id": 1
     }, {
-        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "#mesh": "../../../meshes/3D/obstacles/plane.obj",
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [2, -1.566, 0],
         "rotation": [0, 0, -26.565],

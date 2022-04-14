@@ -27,7 +27,7 @@
         "position": 2
     }],
     "obstacles": [{
-        "mesh": "../../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../../meshes/3D/obstacles/plane.obj",
         "position": [0, -1, 0]
     }],
     "export": {

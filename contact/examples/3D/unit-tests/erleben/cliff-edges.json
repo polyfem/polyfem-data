@@ -17,7 +17,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/cliff.obj",
+        "mesh": "../../../../meshes/3D/obstacles/erleben/cliff.obj",
         "position": [0, -1, 0]
     }],
     "export": {

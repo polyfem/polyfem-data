@@ -30,37 +30,37 @@
         "density": 1000
     },
     "obstacles": [{
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1, 1.5, -1.5],
         "rotation": [0, 0, -90],
         "scale": 3,
         "displacement": ["-smooth_abs(t - 0.95, 5) + 0.95", 0, 0]
     }, {
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [1, 1.5, -1.5],
         "rotation": [0, 0, -90],
         "scale": 3,
         "displacement": ["smooth_abs(t - 0.95, 5) - 0.95", 0, 0]
     }, {
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1.5, -1, -1.5],
         "rotation": [0, 0, 0],
         "scale": 3,
         "displacement": [0, "-smooth_abs(t - 0.95, 5) + 0.95", 0]
     }, {
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1.5, 1, -1.5],
         "rotation": [0, 0, 0],
         "scale": 3,
         "displacement": [0, "smooth_abs(t - 0.95, 5) - 0.95", 0]
     }, {
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1.5, 1.5, -1],
         "rotation": [90, 0, 0],
         "scale": 3,
         "displacement": [0, 0, "-smooth_abs(t - 0.95, 5) + 0.95"]
     }, {
-        "mesh": "../../../meshes/3D/simple/unit-plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
         "position": [-1.5, 1.5, 1],
         "rotation": [90, 0, 0],
         "scale": 3,

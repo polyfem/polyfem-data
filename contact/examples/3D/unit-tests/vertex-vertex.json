@@ -19,7 +19,7 @@
     "obstacles": [{
         "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh"
     }, {
-        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "position": [0.5, 0, 0.5],
         "dimensions": [5, 0, 5]
     }],

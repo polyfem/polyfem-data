@@ -17,7 +17,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/internal-edges.obj",
+        "mesh": "../../../../meshes/3D/obstacles/erleben/internal-edges.obj",
         "position": [0, -1, 0]
     }],
     "export": {

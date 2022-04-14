@@ -24,7 +24,7 @@
         "body_id": 2
     }, {
         "name": "ground",
-        "#mesh": "../../../meshes/3D/simple/plane.obj",
+        "#mesh": "../../../meshes/3D/obstacles/plane.obj",
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "position": [0, -0.25, 0],
         "scale": [2, 0.01, 2],

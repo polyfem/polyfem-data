@@ -27,7 +27,7 @@
         "position": 2
     }],
     "obstacles": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/hole.obj",
+        "mesh": "../../../../meshes/3D/obstacles/erleben/hole.obj",
         "position": [0, -1, 0]
     }],
     "export": {

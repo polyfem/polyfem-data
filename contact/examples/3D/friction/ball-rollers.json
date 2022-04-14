@@ -23,7 +23,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
         "position": [0, -1, -0.5],
         "scale": 4,
         "displacement": [
@@ -32,7 +32,7 @@
             "rotate_2D_y(y + 1, z + 0.5, t * pi / 2) - (z + 0.5)"
         ]
     }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
         "position": [0, -1, 0.5],
         "scale": 4,
         "displacement": [
@@ -41,7 +41,7 @@
             "rotate_2D_y(y + 1, z - 0.5, -t * pi / 2) - (z - 0.5)"
         ]
     }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
         "position": [-0.5, -2, 0],
         "scale": 4,
         "rotation": [0, 90, 0],
@@ -51,7 +51,7 @@
             0
         ]
     }, {
-        "mesh": "../../../meshes/3D/simple/cylinder.obj",
+        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
         "position": [0.5, -2, 0],
         "scale": 4,
         "rotation": [0, 90, 0],
@@ -61,7 +61,7 @@
             0
         ]
     }, {
-        "mesh": "../../../meshes/3D/simple/plane.obj",
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "dimensions": [8, 0, 8],
         "position": [0, -5, 0]
     }],

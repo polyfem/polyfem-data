@@ -18,7 +18,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/spike.obj",
+        "mesh": "../../../../meshes/3D/obstacles/erleben/spike.obj",
         "position": [0, -3, 0]
     }],
     "export": {
