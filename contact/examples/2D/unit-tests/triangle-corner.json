@@ -24,7 +24,7 @@
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [1.5000005, 0]
     }, {
-        "mesh": "../../../meshes/2D/simple/line.obj",
+        "mesh": "../../../meshes/2D/obstacles/line.obj",
         "position": [0.5, -0.5]
     }],
     "export": {

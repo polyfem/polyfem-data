@@ -38,7 +38,7 @@
         "rho": 1000
     }],
     "obstacles": [{
-        "mesh": "../../../meshes/2D/simple/line.obj",
+        "mesh": "../../../meshes/2D/obstacles/line.obj",
         "position": [0, -0.315]
     }],
     "export": {

@@ -20,7 +20,7 @@
         "scale": 1,
         "body_id": 1
     }, {
-        "#mesh": "../../../meshes/2D/simple/line.obj",
+        "#mesh": "../../../meshes/2D/obstacles/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [2, -1.566],
         "rotation": -26.565,

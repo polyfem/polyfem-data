@@ -19,7 +19,7 @@
         "body_id": 2,
         "boundary_id": 1
     }, {
-        "#mesh": "../../meshes/simple/line.obj",
+        "#mesh": "../../meshes/2D/obstacles/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [0.5, -0.006],
         "scale": [5, 0.01],

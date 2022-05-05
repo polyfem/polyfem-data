@@ -71,7 +71,7 @@
         "body_id": 2,
         "enabled": true
     }, {
-        "#mesh": "../../../meshes/2D/simple/line.obj",
+        "#mesh": "../../../meshes/2D/obstacles/line.obj",
         "mesh": "../../../meshes/2D/simple/square.obj",
         "position": [0.7725, -0.4515],
         "dimensions": [4, 0.013],
