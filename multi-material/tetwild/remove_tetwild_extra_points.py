@@ -1,9 +1,14 @@
+#!/usr/local/bin/python
+
 import sys
+import pathlib
 
 import numpy
 import meshio
 
-mesh = meshio.read(sys.arv[1])
+in_path = pathlib.Path(sys.argv[1])
+
+mesh = meshio.read(in_path)
 
 points = mesh.points
 
@@ -24,4 +29,4 @@ for k, v in point_map.items():
 mesh.points = points
 mesh.cells[0].data = tets
 
-meshio.write("clean-mesh.msh", mesh, file_format="gmsh22")
+meshio.write(in_path.parent / "clean-mesh.msh", mesh, file_format="gmsh22")
