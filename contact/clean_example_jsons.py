@@ -9,7 +9,7 @@ class CustomJSONEncoder(json.JSONEncoder):
     @staticmethod
     def pretty_float_repr(x):
         r1 = f"{x:g}"
-        r2 = f"{x:.16g}"
+        r2 = f"{x:.17g}"
         r = r1 if float(r1) == x else r2
         r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r.replace("+", ""))
         assert(float(r) == x)
@@ -65,6 +65,7 @@ def clean_json(in_path):
     opts = jsbeautifier.default_options()
     opts.end_with_newline = False
     res = jsbeautifier.beautify(
+        # json.dumps(reduced_params), opts)
         json.dumps(reduced_params, cls=CustomJSONEncoder), opts)
 
     with open(in_path, 'w') as f:
