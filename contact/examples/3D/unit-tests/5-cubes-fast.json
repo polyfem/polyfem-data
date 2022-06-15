@@ -1,5 +1,5 @@
 {
-    "common": "../../defaults.json",
+    "common": "../../common.json",
     "authen_t1": {
         "err_h1": 0.0007848,
         "err_h1_semi": 1.078074762552977e-18,

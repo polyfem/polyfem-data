@@ -1,5 +1,5 @@
 {
-    "common": "../../defaults.json",
+    "common": "../../common.json",
     "geometry": [
         {
             "mesh": "../../../meshes/3D/simple/sphere/sphere19K.msh",

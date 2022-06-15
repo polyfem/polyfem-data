@@ -28,7 +28,7 @@ class CustomJSONEncoder(json.JSONEncoder):
 
 
 root_path = pathlib.Path(__file__).resolve().parent / "examples"
-defaults_path = root_path / "defaults.json"
+defaults_path = root_path / "common.json"
 
 
 def diff_dicts(d1, d2):
@@ -48,7 +48,7 @@ def diff_dicts(d1, d2):
 
 def clean_json(in_path):
     relative_defaults_path = (
-        "../" * (len(in_path.relative_to(root_path).parents) - 1)) + "defaults.json"
+        "../" * (len(in_path.relative_to(root_path).parents) - 1)) + defaults_path.name
 
     with open(in_path) as f:
         params = json.load(f)
@@ -56,10 +56,10 @@ def clean_json(in_path):
     with open(defaults_path) as f:
         default_params = json.load(f)
 
-    if "default_params" in params:
-        del params["default_params"]
+    if "common" in params:
+        del params["common"]
 
-    reduced_params = {"default_params": relative_defaults_path,
+    reduced_params = {"common": relative_defaults_path,
                       **diff_dicts(params, default_params)}
 
     opts = jsbeautifier.default_options()
