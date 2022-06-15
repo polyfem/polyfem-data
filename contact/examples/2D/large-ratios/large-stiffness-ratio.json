@@ -56,13 +56,13 @@
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 100000000.0,
+        "E": 1e8,
         "nu": 0.4,
         "rho": 2000,
         "type": "NeoHookean"
     }, {
         "id": 3,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"

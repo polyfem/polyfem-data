@@ -7,7 +7,7 @@
         "err_linf": 0.006131250000000001,
         "err_linf_grad": 0.006131250000000001,
         "err_lp": 0.005522193293954336,
-        "margin": 1e-08
+        "margin": 1e-8
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",

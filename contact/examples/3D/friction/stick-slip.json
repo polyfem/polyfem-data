@@ -7,7 +7,7 @@
         "err_linf": 0.00543021687881022,
         "err_linf_grad": 0.00543021687881022,
         "err_lp": 0.005385578048518811,
-        "margin": 1e-08
+        "margin": 1e-8
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/table.msh",
@@ -31,7 +31,7 @@
         "dt": 0.025
     },
     "contact": {
-        "epsv": 1e-05,
+        "epsv": 1e-5,
         "friction_coefficient": 0.15
     },
     "solver": {
@@ -45,7 +45,7 @@
     },
     "materials": [{
         "id": 1,
-        "E": 10000000.0,
+        "E": 1e7,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"

@@ -9,10 +9,11 @@ class CustomJSONEncoder(json.JSONEncoder):
     @staticmethod
     def pretty_float_repr(x):
         r1 = f"{x:g}"
-        r2 = f"{x:.17g}"
+        r2 = f"{x:.16g}"
         r = r1 if float(r1) == x else r2
-        r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r.replace("+", ""))
-        assert(float(r) == x)
+        r = r.replace("+", "")
+        r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r)
+        # assert(float(r) == x)
         return r
 
     def iterencode(self, o, _one_shot=False):
@@ -89,8 +90,8 @@ def main():
     for path in root_path.glob("**/*.json"):
         if path != defaults_path:
             print(path)
-            # clean_json(path)
-            beautify_json(path)
+            clean_json(path)
+            # beautify_json(path)
 
 
 if __name__ == "__main__":

@@ -182,7 +182,7 @@
     },
     "contact": {
         "dhat": 0.001,
-        "epsv": 1e-05,
+        "epsv": 1e-5,
         "friction_coefficient": 0.5
     },
     "solver": {
@@ -199,13 +199,13 @@
     },
     "materials": [{
         "id": 1,
-        "E": 20000000000.0,
+        "E": 2e10,
         "nu": 0.2,
         "rho": 2300,
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 20000000000.0,
+        "E": 2e10,
         "nu": 0.2,
         "rho": 2300,
         "type": "NeoHookean"

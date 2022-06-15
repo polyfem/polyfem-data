@@ -26,7 +26,7 @@
         "transformation": {
             "translation": [0.26, 0.4503],
             "rotation": -30,
-            "scale": 1.0
+            "scale": 1
         },
         "volume_selection": 2,
         "surface_selection": 2,
@@ -52,14 +52,14 @@
                 "method": "backtracking"
             },
             "f_delta": 1e-15,
-            "grad_norm": 1e-05,
+            "grad_norm": 1e-5,
             "max_iterations": 300,
             "use_grad_norm": true
         },
         "contact": {
             "friction_iterations": 10,
             "friction_convergence_tol": 0.01,
-            "barrier_stiffness": 1000000000.0,
+            "barrier_stiffness": 1e9,
             "lagged_damping_weight": 10
         }
     },
@@ -72,13 +72,13 @@
     },
     "materials": [{
         "id": 1,
-        "E": 70000000.0,
+        "E": 7e7,
         "nu": 0.48,
         "rho": 1240,
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 70000000.0,
+        "E": 7e7,
         "nu": 0.48,
         "rho": 1240,
         "type": "NeoHookean"

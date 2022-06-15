@@ -72,7 +72,7 @@
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 50000.0,
+        "E": 50000,
         "nu": 0.4,
         "density": 1000
     },

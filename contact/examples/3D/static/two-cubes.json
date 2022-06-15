@@ -43,7 +43,7 @@
     "solver": {
         "contact": {
             "friction_iterations": 10,
-            "barrier_stiffness": 1000000000.0
+            "barrier_stiffness": 1e9
         }
     },
     "boundary_conditions": {

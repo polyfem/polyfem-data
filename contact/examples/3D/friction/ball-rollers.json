@@ -91,7 +91,7 @@
     },
     "materials": [{
         "id": 1,
-        "E": 10000.0,
+        "E": 10000,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"

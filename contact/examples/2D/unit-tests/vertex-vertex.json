@@ -7,7 +7,7 @@
         "err_linf": 0.006131250000000001,
         "err_linf_grad": 0.006131250000000001,
         "err_lp": 0.005622381039898642,
-        "margin": 1e-08
+        "margin": 1e-8
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/triangle/right.obj",
@@ -50,7 +50,7 @@
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"

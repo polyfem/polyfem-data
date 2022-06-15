@@ -74,25 +74,25 @@
     },
     "materials": [{
         "id": 1,
-        "E": 10000.0,
+        "E": 10000,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
     }, {
         "id": 3,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
     }, {
         "id": 4,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"

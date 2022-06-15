@@ -56,13 +56,13 @@
     },
     "materials": [{
         "id": 1,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
     }, {
         "id": 2,
-        "E": 200000000000.0,
+        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
