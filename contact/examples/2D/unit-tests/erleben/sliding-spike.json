@@ -29,7 +29,7 @@
             ]
         },
         {
-            "mesh": "../../../../meshes/2D/simple/line.obj",
+            "mesh": "../../../../meshes/2D/obstacles/line.obj",
             "is_obstacle": true,
             "transformation": {
                 "translation": [
