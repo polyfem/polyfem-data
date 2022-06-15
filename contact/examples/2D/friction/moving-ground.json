@@ -9,35 +9,23 @@
         "err_lp": 0.0009810037476677064,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0,
-                    0.5075
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, 0.5075]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0,
-                    0
-                ],
-                "scale": [
-                    4,
-                    0.01
-                ]
-            },
-            "volume_selection": 2,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, 0],
+            "scale": [4, 0.01]
+        },
+        "volume_selection": 2,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 1,
         "dt": 0.01
@@ -54,47 +42,31 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    "4 * t^2",
-                    0
-                ]
-            }
-        ]
+        "rhs": [0, 9.81],
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["4 * t^2", 0]
+        }]
     },
     "initial_conditions": {
-        "velocity": [
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "velocity": [{
             "id": 1,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ],
+            "value": [0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }],
     "output": {
         "paraview": {
             "options": {

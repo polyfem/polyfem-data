@@ -9,40 +9,28 @@
         "err_lp": 0.010127791238103588,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../meshes/2D/simple/square.obj",
-            "volume_selection": 1
-        }
-    ],
+    "geometry": [{
+        "mesh": "../../meshes/2D/simple/square.obj",
+        "volume_selection": 1
+    }],
     "time": {
         "tend": 5,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            0
-        ]
+        "rhs": [0, 0]
     },
     "initial_conditions": {
-        "velocity": [
-            {
-                "id": 1,
-                "value": [
-                    "deg2rad(180) * y",
-                    "deg2rad(180) * x"
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "velocity": [{
             "id": 1,
-            "E": 25500000.0,
-            "nu": 0.48,
-            "rho": 1700,
-            "type": "NeoHookean"
-        }
-    ]
+            "value": ["deg2rad(180) * y", "deg2rad(180) * x"]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 25500000.0,
+        "nu": 0.48,
+        "rho": 1700,
+        "type": "NeoHookean"
+    }]
 }

@@ -9,35 +9,23 @@
         "err_lp": 0.0075133522517355665,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0,
-                    0.5055
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, 0.5055]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0,
-                    0
-                ],
-                "scale": [
-                    4,
-                    0.01
-                ]
-            },
-            "volume_selection": 2,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, 0],
+            "scale": [4, 0.01]
+        },
+        "volume_selection": 2,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 1,
         "dt": 0.01
@@ -54,36 +42,25 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    "rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x",
-                    "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ],
+            "value": ["rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x", "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }],
     "output": {
         "advanced": {
             "save_solve_sequence_debug": true

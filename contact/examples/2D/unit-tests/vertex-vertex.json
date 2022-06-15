@@ -9,81 +9,52 @@
         "err_lp": 0.005622381039898642,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-            "transformation": {
-                "translation": [
-                    0,
-                    1.1,
-                    0
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
+        "transformation": {
+            "translation": [0, 1.1, 0]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-            "transformation": {
-                "translation": [
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "volume_selection": 2,
-            "surface_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
+        "transformation": {
+            "translation": [0, 0, 0]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "transformation": {
-                "translation": [
-                    0.5,
-                    -0.006
-                ],
-                "scale": [
-                    5,
-                    0.01
-                ]
-            },
-            "volume_selection": 2,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 2,
+        "surface_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "transformation": {
+            "translation": [0.5, -0.006],
+            "scale": [5, 0.01]
+        },
+        "volume_selection": 2,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 3,
         "dt": 0.025
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 100000,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ],
+            "value": [0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 100000,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }],
     "output": {
         "paraview": {
             "file_name": "vertex-vertex.pvd"

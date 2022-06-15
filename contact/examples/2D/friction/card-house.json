@@ -9,154 +9,89 @@
         "err_lp": 0.0054884623779852815,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    0,
-                    0
-                ],
-                "rotation": 60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [0, 0],
+            "rotation": 60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    0.515,
-                    0
-                ],
-                "rotation": -60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [0.515, 0],
+            "rotation": -60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    1.03,
-                    0
-                ],
-                "rotation": 60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [1.03, 0],
+            "rotation": 60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    1.545,
-                    0
-                ],
-                "rotation": -60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [1.545, 0],
+            "rotation": -60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    0.78,
-                    0.445
-                ],
-                "rotation": 0,
-                "dimensions": [
-                    1.1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [0.78, 0.445],
+            "rotation": 0,
+            "dimensions": [1.1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    0.515,
-                    0.89
-                ],
-                "rotation": 60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [0.515, 0.89],
+            "rotation": 60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
-            "transformation": {
-                "translation": [
-                    1.03,
-                    0.89
-                ],
-                "rotation": -60,
-                "dimensions": [
-                    1,
-                    0.013
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar40.obj",
+        "transformation": {
+            "translation": [1.03, 0.89],
+            "rotation": -60,
+            "dimensions": [1, 0.013]
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0.2,
-                    6
-                ],
-                "rotation": 0,
-                "scale": 0.4
-            },
-            "volume_selection": 2
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0.2, 6],
+            "rotation": 0,
+            "scale": 0.4
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0.5,
-                    9
-                ],
-                "rotation": 0,
-                "scale": 0.4
-            },
-            "volume_selection": 2
+        "volume_selection": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0.5, 9],
+            "rotation": 0,
+            "scale": 0.4
         },
-        {
-            "mesh": "../../../meshes/2D/simple/square.obj",
-            "transformation": {
-                "translation": [
-                    0.7725,
-                    -0.4515
-                ],
-                "dimensions": [
-                    4,
-                    0.013
-                ]
-            },
-            "volume_selection": 3,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "transformation": {
+            "translation": [0.7725, -0.4515],
+            "dimensions": [4, 0.013]
+        },
+        "volume_selection": 3,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 5,
         "dt": 0.025
@@ -173,41 +108,29 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 100000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 100000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 3,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ]
+            "value": [0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 100000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 100000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 3,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }]
 }

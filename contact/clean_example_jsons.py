@@ -72,11 +72,25 @@ def clean_json(in_path):
         f.write(res)
 
 
+def beautify_json(in_path):
+    with open(in_path, "r") as f:
+        contents = f.read().replace("\n", "")
+
+    opts = jsbeautifier.default_options()
+    opts.end_with_newline = False
+
+    res = jsbeautifier.beautify(contents, opts)
+
+    with open(in_path, 'w') as f:
+        f.write(res)
+
+
 def main():
     for path in root_path.glob("**/*.json"):
         if path != defaults_path:
             print(path)
-            clean_json(path)
+            # clean_json(path)
+            beautify_json(path)
 
 
 if __name__ == "__main__":

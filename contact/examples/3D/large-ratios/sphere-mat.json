@@ -9,99 +9,64 @@
         "err_lp": 0.004887597780816104,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/sphere/sphere1K.msh",
-            "transformation": {
-                "translation": [
-                    0,
-                    1,
-                    0
-                ],
-                "rotation": [
-                    90,
-                    0,
-                    45
-                ],
-                "rotation_mode": "zyx"
-            },
-            "volume_selection": 1,
-            "surface_selection": [
-                {
-                    "id": 1,
-                    "axis": -1,
-                    "position": -1
-                },
-                {
-                    "id": 2,
-                    "axis": 1,
-                    "position": 1
-                }
-            ]
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/sphere/sphere1K.msh",
+        "transformation": {
+            "translation": [0, 1, 0],
+            "rotation": [90, 0, 45],
+            "rotation_mode": "zyx"
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-            "transformation": {
-                "scale": 2
-            },
-            "volume_selection": 2,
-            "surface_selection": [
-                {
-                    "id": 1,
-                    "axis": -1,
-                    "position": -1
-                },
-                {
-                    "id": 2,
-                    "axis": 1,
-                    "position": 1
-                }
-            ]
-        }
-    ],
+        "volume_selection": 1,
+        "surface_selection": [{
+            "id": 1,
+            "axis": -1,
+            "position": -1
+        }, {
+            "id": 2,
+            "axis": 1,
+            "position": 1
+        }]
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+        "transformation": {
+            "scale": 2
+        },
+        "volume_selection": 2,
+        "surface_selection": [{
+            "id": 1,
+            "axis": -1,
+            "position": -1
+        }, {
+            "id": 2,
+            "axis": 1,
+            "position": 1
+        }]
+    }],
     "time": {
         "tend": 2.5,
         "dt": 0.01
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    "-min(t,0.28)",
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 2,
-                "value": [
-                    "min(t,0.28)",
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81, 0],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 100000000.0,
-            "nu": 0.4,
-            "rho": 2000,
-            "type": "NeoHookean"
-        },
-        {
+            "value": ["-min(t,0.28)", 0, 0]
+        }, {
             "id": 2,
-            "E": 1000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        }
-    ]
+            "value": ["min(t,0.28)", 0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 100000000.0,
+        "nu": 0.4,
+        "rho": 2000,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 1000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }]
 }

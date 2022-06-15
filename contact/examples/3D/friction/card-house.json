@@ -9,163 +9,80 @@
         "err_lp": 0.005078986773401084,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    0,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    60
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [0, 0, 0],
+            "rotation": [0, 0, 60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    0.515,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    -60
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [0.515, 0, 0],
+            "rotation": [0, 0, -60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    1.03,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    60
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [1.03, 0, 0],
+            "rotation": [0, 0, 60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    1.545,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    -60
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [1.545, 0, 0],
+            "rotation": [0, 0, -60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    0.78,
-                    0.445,
-                    0
-                ],
-                "scale": [
-                    1.1,
-                    1,
-                    1.1
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [0.78, 0.445, 0],
+            "scale": [1.1, 1, 1.1]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    0.515,
-                    0.89,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    60
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [0.515, 0.89, 0],
+            "rotation": [0, 0, 60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
-            "transformation": {
-                "translation": [
-                    1.03,
-                    0.89,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    -60
-                ]
-            },
-            "volume_selection": 1
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/mat/mat20x20.msh",
+        "transformation": {
+            "translation": [1.03, 0.89, 0],
+            "rotation": [0, 0, -60]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0.2,
-                    6,
-                    -0.2
-                ],
-                "scale": 0.4
-            },
-            "volume_selection": 2
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "enabled": true,
+        "transformation": {
+            "translation": [0.2, 6, -0.2],
+            "scale": 0.4
         },
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "enabled": true,
-            "transformation": {
-                "translation": [
-                    0.5,
-                    9,
-                    -0.3
-                ],
-                "scale": 0.4
-            },
-            "volume_selection": 2
+        "volume_selection": 2
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "enabled": true,
+        "transformation": {
+            "translation": [0.5, 9, -0.3],
+            "scale": 0.4
         },
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "transformation": {
-                "translation": [
-                    0.7725,
-                    -0.4515,
-                    0
-                ],
-                "dimensions": [
-                    5,
-                    0.013,
-                    5
-                ]
-            },
-            "volume_selection": 3,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 2
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "transformation": {
+            "translation": [0.7725, -0.4515, 0],
+            "dimensions": [5, 0.013, 5]
+        },
+        "volume_selection": 3,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 5,
         "dt": 0.025
@@ -182,43 +99,29 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81, 0],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 100000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 100000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 3,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ]
+            "value": [0, 0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 100000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 100000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 3,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }]
 }

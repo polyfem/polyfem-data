@@ -9,47 +9,24 @@
         "err_lp": 0.00029553795480480506,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "transformation": {
-                "translation": [
-                    0,
-                    0,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    -26.565
-                ],
-                "scale": 1
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "transformation": {
+            "translation": [0, 0, 0],
+            "rotation": [0, 0, -26.565],
+            "scale": 1
         },
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "transformation": {
-                "translation": [
-                    2,
-                    -1.566,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    -26.565
-                ],
-                "dimensions": [
-                    10,
-                    0.01,
-                    10
-                ]
-            },
-            "volume_selection": 2,
-            "surface_selection": 1
-        }
-    ],
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "transformation": {
+            "translation": [2, -1.566, 0],
+            "rotation": [0, 0, -26.565],
+            "dimensions": [10, 0.01, 10]
+        },
+        "volume_selection": 2,
+        "surface_selection": 1
+    }],
     "time": {
         "tend": 2.5,
         "dt": 0.025
@@ -65,36 +42,23 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81, 0],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 1000000000.0,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ]
+            "value": [0, 0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 1000000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 200000000000.0,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }]
 }
