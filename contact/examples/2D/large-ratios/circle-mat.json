@@ -1,45 +1,70 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
+    "common": "../../common.json",
+    "authen_t1": {
+        "err_h1": 0.0030447488819672127,
+        "err_h1_semi": 0.0028036738714820983,
+        "err_l2": 0.0011873957118876484,
+        "err_linf": 0.009831667237282014,
+        "err_linf_grad": 0.009831667237282014,
+        "err_lp": 0.004477396123517282,
+        "margin": 1e-08
+    },
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
+        "transformation": {
+            "translation": [0, 1]
+        },
+        "volume_selection": 1,
+        "surface_selection": [{
+            "id": 1,
+            "axis": -1,
+            "position": -1
+        }, {
+            "id": 2,
+            "axis": 1,
+            "position": 1
+        }]
+    }, {
+        "mesh": "../../../meshes/2D/simple/bar/bar198.obj",
+        "transformation": {
+            "scale": 2
+        },
+        "volume_selection": 2,
+        "surface_selection": [{
+            "id": 1,
+            "axis": -1,
+            "position": -1
+        }, {
+            "id": 2,
+            "axis": 1,
+            "position": 1
+        }]
+    }],
+    "time": {
+        "tend": 2.5,
+        "dt": 0.01
+    },
+    "boundary_conditions": {
+        "rhs": [0, 9.81],
         "dirichlet_boundary": [{
             "id": 1,
             "value": ["-min(t, 0.28)", 0]
         }, {
             "id": 2,
             "value": ["min(t, 0.28)", 0]
-        }],
-        "rhs": [0, 9.81]
+        }]
     },
-    "tend": 2.5,
-    "dt": 0.01,
-    "meshes": [{
-        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
-        "position": [0, 1],
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/bar/bar198.obj",
-        "scale": 2,
-        "body_id": 2
-    }],
-    "body_params": [{
+    "materials": [{
         "id": 1,
         "E": 1e8,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     }, {
         "id": 2,
         "E": 1e6,
         "nu": 0.4,
-        "rho": 1000
-    }],
-    "boundary_sidesets": [{
-        "id": 1,
-        "axis": -1,
-        "position": -1
-    }, {
-        "id": 2,
-        "axis": 1,
-        "position": 1
-    }],
-    "boundary_id_threshold": 1e-5
+        "rho": 1000,
+        "type": "NeoHookean"
+    }]
 }

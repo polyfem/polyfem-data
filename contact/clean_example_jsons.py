@@ -11,8 +11,9 @@ class CustomJSONEncoder(json.JSONEncoder):
         r1 = f"{x:g}"
         r2 = f"{x:.16g}"
         r = r1 if float(r1) == x else r2
-        r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r.replace("+", ""))
-        assert(float(r) == x)
+        r = r.replace("+", "")
+        r = re.sub(r"e(-?)0+([1-9])", r"e\1\2", r)
+        # assert(float(r) == x)
         return r
 
     def iterencode(self, o, _one_shot=False):
@@ -28,7 +29,7 @@ class CustomJSONEncoder(json.JSONEncoder):
 
 
 root_path = pathlib.Path(__file__).resolve().parent / "examples"
-defaults_path = root_path / "defaults.json"
+defaults_path = root_path / "common.json"
 
 
 def diff_dicts(d1, d2):
@@ -48,7 +49,7 @@ def diff_dicts(d1, d2):
 
 def clean_json(in_path):
     relative_defaults_path = (
-        "../" * (len(in_path.relative_to(root_path).parents) - 1)) + "defaults.json"
+        "../" * (len(in_path.relative_to(root_path).parents) - 1)) + defaults_path.name
 
     with open(in_path) as f:
         params = json.load(f)
@@ -56,16 +57,30 @@ def clean_json(in_path):
     with open(defaults_path) as f:
         default_params = json.load(f)
 
-    if "default_params" in params:
-        del params["default_params"]
+    if "common" in params:
+        del params["common"]
 
-    reduced_params = {"default_params": relative_defaults_path,
+    reduced_params = {"common": relative_defaults_path,
                       **diff_dicts(params, default_params)}
 
     opts = jsbeautifier.default_options()
     opts.end_with_newline = False
     res = jsbeautifier.beautify(
+        # json.dumps(reduced_params), opts)
         json.dumps(reduced_params, cls=CustomJSONEncoder), opts)
+
+    with open(in_path, 'w') as f:
+        f.write(res)
+
+
+def beautify_json(in_path):
+    with open(in_path, "r") as f:
+        contents = f.read().replace("\n", "")
+
+    opts = jsbeautifier.default_options()
+    opts.end_with_newline = False
+
+    res = jsbeautifier.beautify(contents, opts)
 
     with open(in_path, 'w') as f:
         f.write(res)
@@ -76,6 +91,7 @@ def main():
         if path != defaults_path:
             print(path)
             clean_json(path)
+            # beautify_json(path)
 
 
 if __name__ == "__main__":

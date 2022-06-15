@@ -1,52 +1,68 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
+    "common": "../../common.json",
+    "authen_t1": {
+        "err_h1": 0.0061618299901997475,
+        "err_h1_semi": 1.3521758143198888e-18,
+        "err_l2": 0.0061618299901997475,
+        "err_linf": 0.006131250000000001,
+        "err_linf_grad": 0.006131250000000001,
+        "err_lp": 0.006138880740296109,
+        "margin": 1e-08
+    },
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "transformation": {
+            "translation": [0, 0.45],
+            "scale": 1
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "transformation": {
+            "translation": [0, -0.15],
+            "scale": 0.1
+        },
+        "volume_selection": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "transformation": {
+            "translation": [0, -0.25],
+            "scale": [2, 0.01]
+        },
+        "volume_selection": 3,
+        "surface_selection": 1
+    }],
+    "time": {
+        "tend": 3,
+        "time_steps": 120
+    },
+    "contact": {
+        "friction_coefficient": 0.1
+    },
+    "boundary_conditions": {
+        "rhs": [0, 9.81],
         "dirichlet_boundary": [{
             "id": 1,
             "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        }]
     },
-    "tend": 3,
-    "time_steps": 120,
-    "mu": 0.1,
-    "meshes": [{
-        "name": "large-cube",
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0.45],
-        "scale": 1,
-        "body_id": 1
-    }, {
-        "name": "small-cube",
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, -0.15],
-        "scale": 0.1,
-        "body_id": 2
-    }, {
-        "name": "ground",
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, -0.25],
-        "scale": [2, 0.01],
-        "body_id": 3,
-        "boundary_id": 1
-    }],
-    "body_params": [{
-        "name": "large-cube",
+    "materials": [{
         "id": 1,
         "E": 1e8,
         "nu": 0.4,
-        "rho": 10000
+        "rho": 10000,
+        "type": "NeoHookean"
     }, {
-        "name": "small-cube",
         "id": 2,
         "E": 1e6,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     }, {
-        "name": "ground",
         "id": 3,
         "E": 2e11,
         "nu": 0.3,
-        "rho": 7750
+        "rho": 7750,
+        "type": "NeoHookean"
     }]
 }

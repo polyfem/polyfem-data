@@ -1,27 +1,45 @@
 {
-    "default_params": "../../../defaults.json",
-    "problem_params": {
+    "common": "../../../common.json",
+    "authen_t1": {
+        "err_h1": 0.0049145315409639,
+        "err_h1_semi": 0.0027086908427087115,
+        "err_l2": 0.004100684599643696,
+        "err_linf": 0.003348194955072059,
+        "err_linf_grad": 0.003348194955072059,
+        "err_lp": 0.003522265955132792,
+        "margin": 1e-08
+    },
+    "geometry": [{
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "transformation": {
+            "translation": [0, 3.0001],
+            "rotation": 180
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [0, -3]
+        }
+    }],
+    "time": {
+        "tend": 1.25,
+        "dt": 0.025
+    },
+    "boundary_conditions": {
         "rhs": [0, 9.81]
     },
-    "tend": 1.25,
-    "dt": 0.025,
-    "meshes": [{
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "position": [0, 3.0001],
-        "rotation": 180,
-        "body_id": 1
-    }],
-    "body_params": [{
+    "materials": [{
         "id": 1,
         "E": 1e6,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     }],
-    "obstacles": [{
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "position": [0, -3]
-    }],
-    "export": {
-        "time_sequence": "spikes.pvd"
+    "output": {
+        "paraview": {
+            "file_name": "spikes.pvd"
+        }
     }
 }

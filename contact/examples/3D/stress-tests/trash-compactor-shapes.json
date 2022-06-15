@@ -1,69 +1,123 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "rhs": [0, 0, 0]
+    "common": "../../common.json",
+    "authen_t1": {
+        "err_h1": 0.002616635297764766,
+        "err_h1_semi": 0.002616360735871997,
+        "err_l2": 3.7904898045601806e-05,
+        "err_linf": 0.0051378561626343015,
+        "err_linf_grad": 0.0051378561626343015,
+        "err_lp": 0.0011461527869635222,
+        "margin": 1e-08
     },
-    "tend": 2.5,
-    "dt": 0.01,
-    "meshes": [{
+    "geometry": [{
         "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
-        "position": [-0.48, 0, 0],
-        "rotation": [0, 0, 0],
-        "scale": 1,
-        "body_id": 1
+        "transformation": {
+            "translation": [-0.48, 0, 0],
+            "rotation": [0, 0, 0],
+            "scale": 1
+        },
+        "volume_selection": 1
     }, {
         "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "position": [0.04, 0, 0],
-        "rotation": [0, 0, 90],
-        "scale": 1,
-        "body_id": 2
+        "transformation": {
+            "translation": [0.04, 0, 0],
+            "rotation": [0, 0, 90],
+            "scale": 1
+        },
+        "volume_selection": 2
     }, {
         "mesh": "../../../meshes/3D/creatures/bunny.msh",
-        "position": [0.63, 0, 0],
-        "rotation": [0, 0, 0],
-        "scale": 0.3,
-        "body_id": 3
+        "transformation": {
+            "translation": [0.63, 0, 0],
+            "rotation": [0, 0, 0],
+            "scale": 0.3
+        },
+        "volume_selection": 3
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [-1, 1.5, -1.5],
+            "rotation": [0, 0, -90],
+            "scale": 3
+        },
+        "surface_selection": 1000
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [1, 1.5, -1.5],
+            "rotation": [0, 0, -90],
+            "scale": 3
+        },
+        "surface_selection": 1001
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [-1.5, -1, -1.5],
+            "rotation": [0, 0, 0],
+            "scale": 3
+        },
+        "surface_selection": 1002
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [-1.5, 1, -1.5],
+            "rotation": [0, 0, 0],
+            "scale": 3
+        },
+        "surface_selection": 1003
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [-1.5, 1.5, -1],
+            "rotation": [90, 0, 0],
+            "scale": 3
+        },
+        "surface_selection": 1004
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [-1.5, 1.5, 1],
+            "rotation": [90, 0, 0],
+            "scale": 3
+        },
+        "surface_selection": 1005
     }],
-    "params": {
+    "boundary_conditions": {
+        "obstacle_displacements": [{
+            "id": 1000,
+            "value": ["-smooth_abs(t - 0.95, 5) + 0.95", 0, 0]
+        }, {
+            "id": 1001,
+            "value": ["smooth_abs(t - 0.95, 5) - 0.95", 0, 0]
+        }, {
+            "id": 1002,
+            "value": [0, "-smooth_abs(t - 0.95, 5) + 0.95", 0]
+        }, {
+            "id": 1003,
+            "value": [0, "smooth_abs(t - 0.95, 5) - 0.95", 0]
+        }, {
+            "id": 1004,
+            "value": [0, 0, "-smooth_abs(t - 0.95, 5) + 0.95"]
+        }, {
+            "id": 1005,
+            "value": [0, 0, "smooth_abs(t - 0.95, 5) - 0.95"]
+        }],
+        "rhs": [0, 0, 0]
+    },
+    "time": {
+        "tend": 2.5,
+        "dt": 0.01
+    },
+    "materials": {
+        "type": "NeoHookean",
         "E": 10000,
         "nu": 0.4,
         "density": 1000
-    },
-    "obstacles": [{
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [-1, 1.5, -1.5],
-        "rotation": [0, 0, -90],
-        "scale": 3,
-        "displacement": ["-smooth_abs(t - 0.95, 5) + 0.95", 0, 0]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [1, 1.5, -1.5],
-        "rotation": [0, 0, -90],
-        "scale": 3,
-        "displacement": ["smooth_abs(t - 0.95, 5) - 0.95", 0, 0]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [-1.5, -1, -1.5],
-        "rotation": [0, 0, 0],
-        "scale": 3,
-        "displacement": [0, "-smooth_abs(t - 0.95, 5) + 0.95", 0]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [-1.5, 1, -1.5],
-        "rotation": [0, 0, 0],
-        "scale": 3,
-        "displacement": [0, "smooth_abs(t - 0.95, 5) - 0.95", 0]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [-1.5, 1.5, -1],
-        "rotation": [90, 0, 0],
-        "scale": 3,
-        "displacement": [0, 0, "-smooth_abs(t - 0.95, 5) + 0.95"]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "position": [-1.5, 1.5, 1],
-        "rotation": [90, 0, 0],
-        "scale": 3,
-        "displacement": [0, 0, "smooth_abs(t - 0.95, 5) - 0.95"]
-    }]
+    }
 }

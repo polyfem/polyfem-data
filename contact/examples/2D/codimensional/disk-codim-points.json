@@ -1,26 +1,42 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
+    "common": "../../common.json",
+    "authen_t1": {
+        "err_h1": 0.06949523082238417,
+        "err_h1_semi": 7.081743739098577e-17,
+        "err_l2": 0.06949523082238417,
+        "err_linf": 0.015696000000000005,
+        "err_linf_grad": 0.015696000000000005,
+        "err_lp": 0.022768294119120517,
+        "margin": 1e-08
+    },
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/circle/circle588.obj",
+        "transformation": {
+            "translation": [0, 3],
+            "scale": 5
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/codimensional/point-plane.obj",
+        "is_obstacle": true
+    }],
+    "time": {
+        "tend": 8,
+        "dt": 0.04
+    },
+    "boundary_conditions": {
         "rhs": [0, 9.81]
     },
-    "tend": 8,
-    "dt": 0.04,
-    "meshes": [{
-        "mesh": "../../../meshes/2D/simple/circle/circle588.obj",
-        "position": [0, 3],
-        "scale": 5,
-        "body_id": 1
-    }],
-    "body_params": [{
+    "materials": [{
         "id": 1,
-        "E": 1e5,
+        "E": 100000,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     }],
-    "obstacles": [{
-        "mesh": "../../../meshes/2D/codimensional/point-plane.obj"
-    }],
-    "export": {
-        "time_sequence": "disk-codim-points.pvd"
+    "output": {
+        "paraview": {
+            "file_name": "disk-codim-points.pvd"
+        }
     }
 }

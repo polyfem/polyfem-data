@@ -1,78 +1,105 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
+    "common": "../../common.json",
+    "authen_t1": {
+        "err_h1": 0.02233153064415264,
+        "err_h1_semi": 0.021987216050737217,
+        "err_l2": 0.003906352678513812,
+        "err_linf": 0.005964273278623088,
+        "err_linf_grad": 0.005964273278623088,
+        "err_lp": 0.004370632626860944,
+        "margin": 1e-08
+    },
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, 0.5],
+            "scale": 2
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
+        "transformation": {
+            "translation": [-0.5, -1],
+            "scale": 0.8
+        },
+        "volume_selection": 2,
+        "surface_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0.5, -1],
+            "scale": 0.8
+        },
+        "volume_selection": 3,
+        "surface_selection": 2
+    }, {
+        "mesh": "../../../meshes/2D/simple/square.obj",
+        "enabled": true,
+        "transformation": {
+            "translation": [0, -4.01],
+            "scale": [8, 0.02]
+        },
+        "volume_selection": 4,
+        "surface_selection": 3
+    }],
+    "time": {
+        "tend": 10,
+        "dt": 0.01
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001,
+        "epsv": 0.004,
+        "friction_coefficient": 0.5
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": 1
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [0, 9.81],
         "dirichlet_boundary": [{
             "id": 1,
-            "value": [
-                "rotate_2D_x(x + 0.5, y + 1, -t * pi / 2) - (x + 0.5)",
-                "rotate_2D_y(x + 0.5, y + 1, -t * pi / 2) - (y + 1)"
-            ]
+            "value": ["rotate_2D_x(x + 0.5, y + 1, -t * pi / 2) - (x + 0.5)", "rotate_2D_y(x + 0.5, y + 1, -t * pi / 2) - (y + 1)"]
         }, {
             "id": 2,
-            "value": [
-                "rotate_2D_x(x - 0.5, y + 1, t * pi / 2) - (x - 0.5)",
-                "rotate_2D_y(x - 0.5, y + 1, t * pi / 2) - (y + 1)"
-            ]
+            "value": ["rotate_2D_x(x - 0.5, y + 1, t * pi / 2) - (x - 0.5)", "rotate_2D_y(x - 0.5, y + 1, t * pi / 2) - (y + 1)"]
         }, {
             "id": 3,
             "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        }]
     },
-    "tend": 10,
-    "dt": 0.01,
-    "dhat": 1e-3,
-    "epsv": 4e-03,
-    "mu": 0.5,
-    "friction_iterations": 1,
-    "has_collision": true,
-    "meshes": [{
-        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
-        "position": [0, 0.5],
-        "scale": 2,
-        "body_id": 1,
-        "enabled": true
-    }, {
-        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
-        "position": [-0.5, -1],
-        "scale": 0.8,
-        "body_id": 2,
-        "boundary_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
-        "position": [0.5, -1],
-        "scale": 0.8,
-        "body_id": 3,
-        "boundary_id": 2,
-        "enabled": true
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, -4.01],
-        "scale": [8, 0.02],
-        "body_id": 4,
-        "boundary_id": 3,
-        "enabled": true
-    }],
-    "body_params": [{
+    "materials": [{
         "id": 1,
-        "E": 1e4,
+        "E": 10000,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     }, {
         "id": 2,
         "E": 2e11,
         "nu": 0.3,
-        "rho": 7750
+        "rho": 7750,
+        "type": "NeoHookean"
     }, {
         "id": 3,
         "E": 2e11,
         "nu": 0.3,
-        "rho": 7750
+        "rho": 7750,
+        "type": "NeoHookean"
     }, {
         "id": 4,
         "E": 2e11,
         "nu": 0.3,
-        "rho": 7750
+        "rho": 7750,
+        "type": "NeoHookean"
     }],
-    "save_solve_sequence_debug": true
+    "output": {
+        "advanced": {
+            "save_solve_sequence_debug": true
+        }
+    }
 }
