@@ -1,35 +1,87 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "rhs": [0, 9.81, 0]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.009047511552362407,
+        "err_h1_semi": 0.004102887328804837,
+        "err_l2": 0.008063732439588007,
+        "err_linf": 0.00543021687881022,
+        "err_linf_grad": 0.00543021687881022,
+        "err_lp": 0.005385578048518811,
+        "margin": 1e-08
     },
-    "tend": 5,
-    "dt": 0.025,
-    "#time_steps": 1,
-    "mu": 0.15,
-    "epsv": 1e-5,
-    "friction_iterations": -1,
-    "friction_convergence_tol": 0.01,
-    "meshes": [{
-        "mesh": "../../../meshes/3D/table.msh",
-        "position": [-3.4468271355, 0.6087686218, 0],
-        "rotation": [0, 0, -10],
-        "scale": 1,
-        "body_id": 1
-    }],
-    "body_params": [{
-        "id": 1,
-        "E": 1e7,
-        "nu": 0.4,
-        "rho": 1000
-    }],
-    "obstacles": [{
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "position": [0, 0, 0],
-        "rotation": [0, 0, -10],
-        "dimensions": [10, 0, 10]
-    }],
-    "export": {
-        "time_sequence": "stick-slip.pvd"
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/table.msh",
+            "transformation": {
+                "translation": [
+                    -3.4468271355,
+                    0.6087686218,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -10
+                ],
+                "scale": 1
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -10
+                ],
+                "dimensions": [
+                    10,
+                    0,
+                    10
+                ]
+            }
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.025
+    },
+    "contact": {
+        "epsv": 1e-05,
+        "friction_coefficient": 0.15
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": -1,
+            "friction_convergence_tol": 0.01
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "stick-slip.pvd"
+        }
     }
 }

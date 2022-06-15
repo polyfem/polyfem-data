@@ -1,47 +1,103 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "rhs": [0, 9.81]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.0027419783574091174,
+        "err_h1_semi": 3.024152492843178e-18,
+        "err_l2": 0.0027419783574091174,
+        "err_linf": 0.006131250000000001,
+        "err_linf_grad": 0.006131250000000001,
+        "err_lp": 0.005013924316954636,
+        "margin": 1e-08
     },
-    "tend": 5,
-    "dt": 0.025,
-    "meshes": [{
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0],
-        "scale": 0.2,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0.205],
-        "scale": 0.2,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0.41],
-        "scale": 0.2,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0.615],
-        "scale": 0.2,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "position": [0, 0.82],
-        "scale": 0.2,
-        "body_id": 1
-    }],
-    "body_params": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000
-    }],
-    "obstacles": [{
-        "mesh": "../../../meshes/2D/obstacles/line.obj",
-        "position": [0, -0.315]
-    }],
-    "export": {
-        "time_sequence": "5-squares.pvd"
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.205
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.41
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.615
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.82
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/line.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.315
+                ]
+            }
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.025
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "5-squares.pvd"
+        }
     }
 }

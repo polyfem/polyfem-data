@@ -1,38 +1,79 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.004034589395957487,
+        "err_h1_semi": 9.389264259316393e-19,
+        "err_l2": 0.004034589395957487,
+        "err_linf": 0.006131250000000001,
+        "err_linf_grad": 0.006131250000000001,
+        "err_lp": 0.005522193293954336,
+        "margin": 1e-08
     },
-    "tend": 5,
-    "dt": 0.025,
-    "meshes": [{
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "position": [0, 0.5, 0],
-        "rotation": 180,
-        "body_id": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "position": [0, -0.5, 0],
-        "rotation": 180,
-        "body_id": 2,
-        "boundary_id": 1
-    }],
-    "body_params": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000
-    }, {
-        "id": 2,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000
-    }],
-    "export": {
-        "time_sequence": "vertex-edge.pvd"
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5,
+                    0
+                ],
+                "rotation": 180
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.5,
+                    0
+                ],
+                "rotation": 180
+            },
+            "volume_selection": 2,
+            "surface_selection": 1
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.025
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "vertex-edge.pvd"
+        }
     }
 }

@@ -1,44 +1,100 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.0002960802052806786,
+        "err_h1_semi": 1.847242389217241e-05,
+        "err_l2": 0.00029550339679028506,
+        "err_linf": 0.00029797946318147655,
+        "err_linf_grad": 0.00029797946318147655,
+        "err_lp": 0.00029553795480480506,
+        "margin": 1e-08
     },
-    "tend": 2.5,
-    "dt": 0.025,
-    "mu": 0.5,
-    "epsv": 1e-5,
-    "friction_iterations": -1,
-    "friction_convergence_tol": 0.01,
-    "meshes": [{
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [0, 0, 0],
-        "rotation": [0, 0, -26.565],
-        "scale": 1,
-        "body_id": 1
-    }, {
-        "#mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [2, -1.566, 0],
-        "rotation": [0, 0, -26.565],
-        "dimensions": [10, 0.01, 10],
-        "body_id": 2,
-        "boundary_id": 1
-    }],
-    "body_params": [{
-        "name": "cube",
-        "id": 1,
-        "E": 1e9,
-        "nu": 0.4,
-        "rho": 1000
-    }, {
-        "name": "plane",
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750
-    }]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -26.565
+                ],
+                "scale": 1
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    2,
+                    -1.566,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -26.565
+                ],
+                "dimensions": [
+                    10,
+                    0.01,
+                    10
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 1
+        }
+    ],
+    "time": {
+        "tend": 2.5,
+        "dt": 0.025
+    },
+    "contact": {
+        "epsv": 1e-05,
+        "friction_coefficient": 0.5
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": -1,
+            "friction_convergence_tol": 0.01
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 1000000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ]
 }

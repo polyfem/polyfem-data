@@ -1,88 +1,173 @@
 {
-    "problem": "GenericTensor",
-    "tensor_formulation": "NeoHookean",
-    "problem_params": {
-        "is_time_dependent": true,
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [
-                "0.5 * cos((2 * pi) * t) - 0.5",
-                "max(0, 0.5 * sin((2 * pi) * t))",
-                0
+    "authen_t1": {
+        "err_h1": 0.09628022080137726,
+        "err_h1_semi": 0.07103685187918943,
+        "err_l2": 0.0649895883404108,
+        "err_linf": 0.07857729205587498,
+        "err_linf_grad": 0.07857729205587498,
+        "err_lp": 0.06450984330602882,
+        "margin": 1e-08
+    },
+    "geometry": [
+        {
+            "mesh": "little-elephant.msh",
+            "transformation": {
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ]
+            },
+            "volume_selection": 1,
+            "advanced": {
+                "normalize_mesh": false
+            },
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            -0.7,
+                            -0.02,
+                            0.15
+                        ],
+                        [
+                            0.3,
+                            0.02,
+                            1.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 2,
+                    "box": [
+                        [
+                            -0.7,
+                            -0.02,
+                            -1.15
+                        ],
+                        [
+                            0.3,
+                            0.02,
+                            -0.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 3,
+                    "box": [
+                        [
+                            1.05,
+                            -0.02,
+                            0.15
+                        ],
+                        [
+                            2.05,
+                            0.03,
+                            1.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 4,
+                    "box": [
+                        [
+                            1.05,
+                            -0.02,
+                            -1.15
+                        ],
+                        [
+                            2.05,
+                            0.03,
+                            -0.15
+                        ]
+                    ]
+                }
             ]
-        }, {
-            "id": 2,
-            "value": [0, 0, 0]
-        }, {
-            "id": 3,
-            "value": [0, 0, 0]
-        }, {
-            "id": 4,
-            "value": [0, 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.025
     },
-    "tend": 5,
-    "dt": 0.025,
-
-    "solver_params": {
-        "gradNorm": 1e-5,
-        "useGradNorm": false
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001
     },
-    "line_search": "bisection",
-    "project_to_psd": true,
-    "solver_type": "Eigen::CholmodSupernodalLLT",
-
-    "has_collision": true,
-    "dhat": 1e-3,
-
-    "meshes": [{
-        "mesh": "little-elephant.msh",
-        "rotation": [0, -90, 0],
-        "body_id": 1
-    }],
-    "normalize_mesh": false,
-
-    "body_params": [{
-        "name": "silicone_rubber",
-        "id": 1,
-        "E": 2.55e7,
-        "nu": 0.48,
-        "rho": 1700
-    }],
-
-    "boundary_sidesets": [{
-        "id": 1,
-        "box": [
-            [-0.7, -0.02, 0.15],
-            [0.3, 0.02, 1.15]
-        ]
-    }, {
-        "id": 2,
-        "box": [
-            [-0.7, -0.02, -1.15],
-            [0.3, 0.02, -0.15]
-        ]
-    }, {
-        "id": 3,
-        "box": [
-            [1.05, -0.02, 0.15],
-            [2.05, 0.03, 1.15]
-        ]
-    }, {
-        "id": 4,
-        "box": [
-            [1.05, -0.02, -1.15],
-            [2.05, 0.03, -0.15]
-        ]
-    }],
-
-    "export": {
-        "paraview": "sol.vtu",
-        "body_ids": true,
-        "material_params": true
+    "solver": {
+        "linear": {
+            "solver": "Eigen::CholmodSupernodalLLT"
+        },
+        "nonlinear": {
+            "line_search": {
+                "method": "backtracking"
+            },
+            "grad_norm": 1e-05,
+            "use_grad_norm": false
+        }
     },
-    "save_time_sequence": true,
-    "save_solve_sequence_debug": false,
-    "vismesh_rel_area": 10000000
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "0.5 * cos((2 * pi) * t) - 0.5",
+                    "max(0, 0.5 * sin((2 * pi) * t))",
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 4,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 25500000.0,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "sim.pvd",
+            "options": {
+                "material": true,
+                "body_ids": true
+            },
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": true
+        }
+    }
 }

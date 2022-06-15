@@ -1,27 +1,56 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "rhs": [0, 9.81, 0]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 7.019666221502326e-05,
+        "err_h1_semi": 6.935196070744382e-05,
+        "err_l2": 1.0857114357104396e-05,
+        "err_linf": 0.0006789890912973878,
+        "err_linf_grad": 0.0035409646182804687,
+        "err_lp": 0.00021198144425384067,
+        "margin": 1e-08
     },
-    "tend": 5,
-    "dt": 0.01,
-    "dhat": 1e-4,
-    "meshes": [{
-        "mesh": "../../../meshes/3D/screw/screw.msh",
-        "scale": 0.01,
-        "body_id": 1
-    }],
-    "body_params": [{
-        "id": 1,
-        "E": 200e9,
-        "nu": 0.28,
-        "rho": 8050
-    }],
-    "obstacles": [{
-        "mesh": "../../../meshes/3D/screw/nut.obj",
-        "scale": 0.01
-    }],
-    "export": {
-        "time_sequence": "screw.pvd"
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/screw/screw.msh",
+            "transformation": {
+                "scale": 0.01
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/screw/nut.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "scale": 0.01
+            }
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.01
+    },
+    "contact": {
+        "dhat": 0.0001
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 200000000000.0,
+            "nu": 0.28,
+            "rho": 8050,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "screw.pvd"
+        }
     }
 }

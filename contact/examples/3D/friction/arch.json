@@ -1,142 +1,370 @@
 {
-    "default_params": "../../defaults.json",
-    "problem_params": {
-        "dirichlet_boundary": [{
-            "id": 2,
-            "value": [0, 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+    "common": "../../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.09884032442821285,
+        "err_h1_semi": 5.50692937251335e-18,
+        "err_l2": 0.09884032442821285,
+        "err_linf": 0.0009810000000000003,
+        "err_linf_grad": 0.0009810000000000003,
+        "err_lp": 0.003108030672382194,
+        "margin": 1e-08
     },
-    "tend": 20,
-    "dt": 0.01,
-    "mu": 0.5,
-    "epsv": 1e-5,
-    "friction_iterations": 10,
-    "body_params": [{
-        "name": "cubes",
-        "id": 1,
-        "E": 2e10,
-        "nu": 0.2,
-        "rho": 2300
-    }, {
-        "name": "supports",
-        "id": 2,
-        "E": 2e10,
-        "nu": 0.2,
-        "rho": 2300
-    }],
-    "dhat": 1e-6,
-    "meshes": [{
-        "mesh": "../../../meshes/3D/arch/largeArch.01.msh",
-        "body_id": 1,
-        "position": [-1.2, -1.2, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.02.msh",
-        "body_id": 1,
-        "position": [-1.1, -1.1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.03.msh",
-        "body_id": 1,
-        "position": [-1, -1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.04.msh",
-        "body_id": 1,
-        "position": [-0.9, -0.9, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.05.msh",
-        "body_id": 1,
-        "position": [-0.8, -0.8, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.06.msh",
-        "body_id": 1,
-        "position": [-0.7, -0.7, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.07.msh",
-        "body_id": 1,
-        "position": [-0.6, -0.6, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.08.msh",
-        "body_id": 1,
-        "position": [-0.5, -0.5, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.09.msh",
-        "body_id": 1,
-        "position": [-0.4, -0.4, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.10.msh",
-        "body_id": 1,
-        "position": [-0.3, -0.3, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.11.msh",
-        "body_id": 1,
-        "position": [-0.2, -0.2, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.12.msh",
-        "body_id": 1,
-        "position": [-0.1, -0.1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.13.msh",
-        "body_id": 1,
-        "position": [0, 0, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.14.msh",
-        "body_id": 1,
-        "position": [0.1, -0.1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.15.msh",
-        "body_id": 1,
-        "position": [0.2, -0.2, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.16.msh",
-        "body_id": 1,
-        "position": [0.3, -0.3, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.17.msh",
-        "body_id": 1,
-        "position": [0.4, -0.4, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.18.msh",
-        "body_id": 1,
-        "position": [0.5, -0.5, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.19.msh",
-        "body_id": 1,
-        "position": [0.6, -0.6, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.20.msh",
-        "body_id": 1,
-        "position": [0.7, -0.7, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.21.msh",
-        "body_id": 1,
-        "position": [0.8, -0.8, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.22.msh",
-        "body_id": 1,
-        "position": [0.9, -0.9, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.23.msh",
-        "body_id": 1,
-        "position": [1, -1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.24.msh",
-        "body_id": 1,
-        "position": [1.1, -1.1, 0]
-    }, {
-        "mesh": "../../../meshes/3D/arch/largeArch.25.msh",
-        "body_id": 1,
-        "position": [1.2, -1.2, 0]
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [-36, -6.4, 0],
-        "scale": [10, 10, 10],
-        "body_id": 2,
-        "boundary_id": 2
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "position": [36, -6.4, 0],
-        "scale": [10, 10, 10],
-        "body_id": 2,
-        "boundary_id": 2
-    }]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.01.msh",
+            "transformation": {
+                "translation": [
+                    -1.2,
+                    -1.2,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.02.msh",
+            "transformation": {
+                "translation": [
+                    -1.1,
+                    -1.1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.03.msh",
+            "transformation": {
+                "translation": [
+                    -1,
+                    -1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.04.msh",
+            "transformation": {
+                "translation": [
+                    -0.9,
+                    -0.9,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.05.msh",
+            "transformation": {
+                "translation": [
+                    -0.8,
+                    -0.8,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.06.msh",
+            "transformation": {
+                "translation": [
+                    -0.7,
+                    -0.7,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.07.msh",
+            "transformation": {
+                "translation": [
+                    -0.6,
+                    -0.6,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.08.msh",
+            "transformation": {
+                "translation": [
+                    -0.5,
+                    -0.5,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.09.msh",
+            "transformation": {
+                "translation": [
+                    -0.4,
+                    -0.4,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.10.msh",
+            "transformation": {
+                "translation": [
+                    -0.3,
+                    -0.3,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.11.msh",
+            "transformation": {
+                "translation": [
+                    -0.2,
+                    -0.2,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.12.msh",
+            "transformation": {
+                "translation": [
+                    -0.1,
+                    -0.1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.13.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.14.msh",
+            "transformation": {
+                "translation": [
+                    0.1,
+                    -0.1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.15.msh",
+            "transformation": {
+                "translation": [
+                    0.2,
+                    -0.2,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.16.msh",
+            "transformation": {
+                "translation": [
+                    0.3,
+                    -0.3,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.17.msh",
+            "transformation": {
+                "translation": [
+                    0.4,
+                    -0.4,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.18.msh",
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.5,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.19.msh",
+            "transformation": {
+                "translation": [
+                    0.6,
+                    -0.6,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.20.msh",
+            "transformation": {
+                "translation": [
+                    0.7,
+                    -0.7,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.21.msh",
+            "transformation": {
+                "translation": [
+                    0.8,
+                    -0.8,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.22.msh",
+            "transformation": {
+                "translation": [
+                    0.9,
+                    -0.9,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.23.msh",
+            "transformation": {
+                "translation": [
+                    1,
+                    -1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.24.msh",
+            "transformation": {
+                "translation": [
+                    1.1,
+                    -1.1,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/arch/largeArch.25.msh",
+            "transformation": {
+                "translation": [
+                    1.2,
+                    -1.2,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    -36,
+                    -6.4,
+                    0
+                ],
+                "scale": [
+                    10,
+                    10,
+                    10
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 2
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    36,
+                    -6.4,
+                    0
+                ],
+                "scale": [
+                    10,
+                    10,
+                    10
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 2
+        }
+    ],
+    "time": {
+        "tend": 20,
+        "dt": 0.01
+    },
+    "contact": {
+        "dhat": 1e-06,
+        "epsv": 1e-05,
+        "friction_coefficient": 0.5
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": 10
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 20000000000.0,
+            "nu": 0.2,
+            "rho": 2300,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 20000000000.0,
+            "nu": 0.2,
+            "rho": 2300,
+            "type": "NeoHookean"
+        }
+    ]
 }

@@ -1,26 +1,48 @@
 {
-    "default_params": "../defaults.json",
-    "problem_params": {
-        "initial_velocity": [{
-            "id": 1,
-            "value": [
-                "deg2rad(180) * y",
-                "deg2rad(180) * x"
-            ]
-        }],
-        "rhs": [0, 0]
+    "common": "../defaults.json",
+    "authen_t1": {
+        "err_h1": 0.06216394816056551,
+        "err_h1_semi": 0.06133338646729747,
+        "err_l2": 0.010127791238103588,
+        "err_linf": 0.010127791238103593,
+        "err_linf_grad": 0.06141132598513007,
+        "err_lp": 0.010127791238103588,
+        "margin": 1e-08
     },
-    "tend": 5,
-    "dt": 0.04,
-    "meshes": [{
-        "mesh": "../../meshes/2D/simple/square.obj",
-        "body_id": 1
-    }],
-    "body_params": [{
-        "name": "silicone_rubber",
-        "id": 1,
-        "E": 2.55e7,
-        "nu": 0.48,
-        "rho": 1700
-    }]
+    "geometry": [
+        {
+            "mesh": "../../meshes/2D/simple/square.obj",
+            "volume_selection": 1
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.04
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            0
+        ]
+    },
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    "deg2rad(180) * y",
+                    "deg2rad(180) * x"
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 25500000.0,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        }
+    ]
 }
