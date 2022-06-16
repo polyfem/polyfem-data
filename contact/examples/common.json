@@ -1,9 +1,4 @@
 {
-    "space": {
-        "advanced": {
-            "quadrature_order": 1
-        }
-    },
     "contact": {
         "enabled": true,
         "dhat": 0.001
