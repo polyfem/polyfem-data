@@ -8,29 +8,20 @@
         "err_lp": 0.003958554862104012,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "cubes_v41.msh"
-        }
-    ],
+    "geometry": [{
+        "mesh": "cubes_v41.msh"
+    }],
     "space": {
-        "discr_order": [
-            {
-                "id": 1,
-                "order": 1
-            },
-            {
-                "id": 2,
-                "order": 2
-            },
-            {
-                "id": 3,
-                "order": 1
-            }
-        ],
-        "advanced": {
-            "quadrature_order": 1
-        }
+        "discr_order": [{
+            "id": 1,
+            "order": 1
+        }, {
+            "id": 2,
+            "order": 2
+        }, {
+            "id": 3,
+            "order": 1
+        }]
     },
     "time": {
         "dt": 0.0025,
@@ -57,53 +48,34 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            0,
-            0
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    "-t",
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 3,
-                "value": [
-                    "t",
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 0, 0],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 25500000.0,
-            "nu": 0.48,
-            "rho": 1700,
-            "type": "NeoHookean"
-        },
-        {
+            "value": ["-t", 0, 0]
+        }, {
             "id": 3,
-            "E": 200000000000.0,
-            "nu": 0.3,
-            "rho": 7750,
-            "type": "NeoHookean"
-        }
-    ],
+            "value": ["t", 0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }, {
+        "id": 2,
+        "E": 2.55e7,
+        "nu": 0.48,
+        "rho": 1700,
+        "type": "NeoHookean"
+    }, {
+        "id": 3,
+        "E": 2e11,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }],
     "output": {
         "json": "sim.json",
         "paraview": {
@@ -112,7 +84,7 @@
                 "material": true,
                 "body_ids": true
             },
-            "vismesh_rel_area": 10000000
+            "vismesh_rel_area": 1e8
         },
         "advanced": {
             "save_solve_sequence_debug": false,
