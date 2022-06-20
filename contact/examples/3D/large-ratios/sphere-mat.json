@@ -16,16 +16,7 @@
             "rotation": [90, 0, 45],
             "rotation_mode": "zyx"
         },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "axis": -1,
-            "position": -1
-        }, {
-            "id": 2,
-            "axis": 1,
-            "position": 1
-        }]
+        "volume_selection": 1
     }, {
         "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
         "transformation": {
@@ -34,11 +25,11 @@
         "volume_selection": 2,
         "surface_selection": [{
             "id": 1,
-            "axis": -1,
+            "axis": "-x",
             "position": -1
         }, {
             "id": 2,
-            "axis": 1,
+            "axis": "x",
             "position": 1
         }]
     }],
