@@ -9,73 +9,44 @@
         "err_lp": 0.02050518649064451,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",
-            "transformation": {
-                "translation": [
-                    0,
-                    2.0001,
-                    0
-                ],
-                "rotation": [
-                    0,
-                    0,
-                    180
-                ]
-            },
-            "volume_selection": 1,
-            "surface_selection": [
-                {
-                    "id": 1,
-                    "axis": 2,
-                    "position": 2
-                }
-            ]
+    "geometry": [{
+        "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",
+        "transformation": {
+            "translation": [0, 2.0001, 0],
+            "rotation": [0, 0, 180]
         },
-        {
-            "mesh": "../../../../meshes/3D/obstacles/erleben/crack.obj",
-            "is_obstacle": true,
-            "surface_selection": 0,
-            "transformation": {
-                "translation": [
-                    0,
-                    -1,
-                    0
-                ]
-            }
+        "volume_selection": 1,
+        "surface_selection": [{
+            "id": 1,
+            "axis": 2,
+            "position": 2
+        }]
+    }, {
+        "mesh": "../../../../meshes/3D/obstacles/erleben/crack.obj",
+        "is_obstacle": true,
+        "surface_selection": 0,
+        "transformation": {
+            "translation": [0, -1, 0]
         }
-    ],
+    }],
     "time": {
         "tend": 6,
         "dt": 0.025
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ],
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    "t",
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": [
-        {
+        "rhs": [0, 9.81, 0],
+        "dirichlet_boundary": [{
             "id": 1,
-            "E": 1e6,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        }
-    ],
+            "value": ["t", 0, 0]
+        }]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
     "output": {
         "paraview": {
             "file_name": "wedge-in-crack.pvd"

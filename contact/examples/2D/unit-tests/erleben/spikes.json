@@ -9,49 +9,35 @@
         "err_lp": 0.003522265955132792,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-            "transformation": {
-                "translation": [
-                    0,
-                    3.0001
-                ],
-                "rotation": 180
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "transformation": {
+            "translation": [0, 3.0001],
+            "rotation": 180
         },
-        {
-            "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-            "is_obstacle": true,
-            "surface_selection": 0,
-            "transformation": {
-                "translation": [
-                    0,
-                    -3
-                ]
-            }
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "is_obstacle": true,
+        "surface_selection": 0,
+        "transformation": {
+            "translation": [0, -3]
         }
-    ],
+    }],
     "time": {
         "tend": 1.25,
         "dt": 0.025
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ]
+        "rhs": [0, 9.81]
     },
-    "materials": [
-        {
-            "id": 1,
-            "E": 1e6,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        }
-    ],
+    "materials": [{
+        "id": 1,
+        "E": 1e6,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
     "output": {
         "paraview": {
             "file_name": "spikes.pvd"

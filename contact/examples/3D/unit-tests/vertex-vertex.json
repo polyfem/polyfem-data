@@ -9,61 +9,39 @@
         "err_lp": 0.004900948268995801,
         "margin": 1e-08
     },
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
-            "transformation": {
-                "translation": [
-                    0,
-                    1.1,
-                    0
-                ]
-            },
-            "volume_selection": 1
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
+        "transformation": {
+            "translation": [0, 1.1, 0]
         },
-        {
-            "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
-            "is_obstacle": true,
-            "surface_selection": 0
-        },
-        {
-            "mesh": "../../../meshes/3D/obstacles/plane.obj",
-            "is_obstacle": true,
-            "surface_selection": 0,
-            "transformation": {
-                "translation": [
-                    0.5,
-                    0,
-                    0.5
-                ],
-                "dimensions": [
-                    5,
-                    0,
-                    5
-                ]
-            }
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
+        "is_obstacle": true,
+        "surface_selection": 0
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
+        "is_obstacle": true,
+        "surface_selection": 0,
+        "transformation": {
+            "translation": [0.5, 0, 0.5],
+            "dimensions": [5, 0, 5]
         }
-    ],
+    }],
     "time": {
         "tend": 3,
         "time_steps": 120
     },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ]
+        "rhs": [0, 9.81, 0]
     },
-    "materials": [
-        {
-            "id": 1,
-            "E": 100000,
-            "nu": 0.4,
-            "rho": 1000,
-            "type": "NeoHookean"
-        }
-    ],
+    "materials": [{
+        "id": 1,
+        "E": 100000,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
     "output": {
         "paraview": {
             "file_name": "vertex-vertex.pvd"
