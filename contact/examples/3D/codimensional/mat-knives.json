@@ -9,97 +9,203 @@
         "err_lp": 0.009191115118749404,
         "margin": 1e-08
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "transformation": {
-            "translation": [0.5, 1, 0.1],
-            "rotation": [0, 0, 0.05],
-            "scale": 1.2
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0.5,
+                    1,
+                    0.1
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0.05
+                ],
+                "scale": 1.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.2, -0.1, -0.7],
-            "rotation": [0, 0, 90]
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.2,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.4,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.6,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.8,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.1,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.3,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.7,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.9,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
         }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.4, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.6, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.8, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.1, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.3, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.5, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.7, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.9, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }],
+    ],
     "time": {
         "tend": 6,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 20000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 20000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "mat-knives.pvd"

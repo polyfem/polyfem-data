@@ -9,41 +9,81 @@
         "err_lp": 0.005175746592480598,
         "margin": 1e-08
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/creatures/dolphin.msh",
-        "transformation": {
-            "translation": [0.4547526249, 0.5227239301, -0.02286748313],
-            "rotation": [0, 0, 40],
-            "scale": 0.008394050297
-        },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "relative": true,
-            "box": [
-                [0.97, 0, 0],
-                [1, 1, 1]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/creatures/dolphin.msh",
+            "transformation": {
+                "translation": [
+                    0.4547526249,
+                    0.5227239301,
+                    -0.02286748313
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    40
+                ],
+                "scale": 0.008394050297
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "relative": true,
+                    "box": [
+                        [
+                            0.97,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            1
+                        ]
+                    ]
+                }
             ]
-        }]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/funnel.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [1.76, 0.86, 0.42],
-            "rotation": [0, 0, 90],
-            "scale": 1.5
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/funnel.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    1.76,
+                    0.86,
+                    0.42
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": 1.5
+            }
         }
-    }],
+    ],
     "time": {
         "tend": 32,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [0, 0, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["min(0.5*t, 10)", 0, 0]
-        }]
+        "rhs": [
+            0,
+            0,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "min(0.5*t, 10)",
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "materials": {
         "type": "NeoHookean",

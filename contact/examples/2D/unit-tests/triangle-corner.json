@@ -9,31 +9,51 @@
         "err_lp": 0.005622381039898642,
         "margin": 1e-8
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-        "transformation": {
-            "translation": [0, 0.6]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/right.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.6
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [-0.5000005, 0]
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    -0.5000005,
+                    0
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    1.5000005,
+                    0
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/2D/obstacles/line.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.5
+                ]
+            }
         }
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [1.5000005, 0]
-        }
-    }, {
-        "mesh": "../../../meshes/2D/obstacles/line.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0.5, -0.5]
-        }
-    }],
+    ],
     "time": {
         "tend": 5,
         "dt": 0.025
@@ -42,15 +62,20 @@
         "dhat": 1e-6
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81]
+        "rhs": [
+            0,
+            9.81
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "triangle-corner.pvd"
