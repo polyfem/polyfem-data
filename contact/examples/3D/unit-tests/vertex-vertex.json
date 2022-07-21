@@ -23,7 +23,8 @@
         },
         {
             "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
-            "is_obstacle": true
+            "is_obstacle": true,
+            "surface_selection": 0
         },
         {
             "mesh": "../../../meshes/3D/obstacles/plane.obj",
