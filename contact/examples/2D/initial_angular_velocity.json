@@ -23,7 +23,7 @@
     "initial_conditions": {
         "velocity": [{
             "id": 1,
-            "value": ["deg2rad(180) * y", "deg2rad(180) * x"]
+            "value": ["deg2rad(180) * y", "-deg2rad(180) * x"]
         }]
     },
     "materials": [{
