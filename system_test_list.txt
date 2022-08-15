@@ -68,8 +68,8 @@ contact/examples/3D/stress-tests/mat-twist.json
 time-bc/walking-elephant.json
 standard/laplace.json
 standard/helmholtz.json
-#standard/hooke.json
-#standard/saint_venant.json
+standard/hooke.json
+standard/saint_venant.json
 
 
 
