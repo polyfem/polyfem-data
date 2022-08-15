@@ -1,0 +1,14 @@
+{
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.vtu",
+            "surface": true,
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": false
+        }
+    }
+}
