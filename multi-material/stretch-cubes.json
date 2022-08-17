@@ -9,7 +9,16 @@
         "margin": 1e-08
     },
     "geometry": [{
-        "mesh": "cubes_v41.msh"
+        "mesh": "cubes_v41.msh",
+        "surface_selection": [{
+            "id": 1,
+            "box": [[0, 0, 0], [0.001, 1, 1]],
+            "relative": true
+        }, {
+            "id": 3,
+            "box": [[0.999, 0, 0], [1, 1, 1]],
+            "relative": true
+        }]
     }],
     "space": {
         "discr_order": [{
