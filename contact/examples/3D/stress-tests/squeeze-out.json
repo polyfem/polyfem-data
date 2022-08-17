@@ -74,7 +74,7 @@
         "type": "NeoHookean",
         "E": 50000,
         "nu": 0.4,
-        "density": 1000
+        "rho": 1000
     },
     "output": {
         "paraview": {

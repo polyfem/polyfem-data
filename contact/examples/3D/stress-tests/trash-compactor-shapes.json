@@ -118,6 +118,6 @@
         "type": "NeoHookean",
         "E": 10000,
         "nu": 0.4,
-        "density": 1000
+        "rho": 1000
     }
 }
