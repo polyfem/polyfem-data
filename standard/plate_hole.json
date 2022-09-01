@@ -1,0 +1,26 @@
+{
+    "geometry": {
+        "mesh": "plate_hole.obj"
+    },
+
+    "materials": {
+        "type": "Laplacian"
+    },
+
+    "preset_problem": {
+        "type": "Franke"
+    },
+
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
+
+    "output": {
+        "json": "stats.json",
+        "paraview": {
+            "file_name": "result.vtu"
+        }
+    }
+}
