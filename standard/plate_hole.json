@@ -1,6 +1,30 @@
 {
     "geometry": {
-        "mesh": "plate_hole.obj"
+        "mesh": "plate_hole.obj",
+        "surface_selection": [{
+            "axis": "-X",
+            "position": 0.00001,
+            "relative": true,
+            "id": 1
+        }, {
+            "axis": "X",
+            "position": 0.99999,
+            "relative": true,
+            "id": 3
+        }, {
+            "axis": "-Y",
+            "position": 0.00001,
+            "relative": true,
+            "id": 2
+        }, {
+            "axis": "Y",
+            "position": 0.99999,
+            "relative": true,
+            "id": 4
+        }],
+        "advanced": {
+            "normalize_mesh": true
+        }
     },
 
     "materials": {
