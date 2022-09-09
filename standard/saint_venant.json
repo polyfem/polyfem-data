@@ -6,8 +6,7 @@
         "err_l2": 0.057506886185179025,
         "err_linf": 0.08715449368572215,
         "err_linf_grad": 0.12946698246569577,
-        "err_lp": 0.06871066363322727,
-        "margin": 1e-08
+        "err_lp": 0.06871066363322727
     },
     "geometry": {
         "mesh": "../contact/meshes/3D/simple/cube.msh",

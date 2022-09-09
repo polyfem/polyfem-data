@@ -6,8 +6,7 @@
         "err_l2": 0.018760256589635736,
         "err_linf": 0.018760256589635736,
         "err_linf_grad": 0.018760256589635736,
-        "err_lp": 0.018760256589635736,
-        "margin": 1e-08
+        "err_lp": 0.018760256589635736
     },
     "geometry": [{
         "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",

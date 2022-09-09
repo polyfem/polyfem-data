@@ -6,8 +6,7 @@
         "err_l2": 3.7904898045601806e-05,
         "err_linf": 0.0051378561626343015,
         "err_linf_grad": 0.0051378561626343015,
-        "err_lp": 0.0011461527869635222,
-        "margin": 1e-08
+        "err_lp": 0.0011461527869635222
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",

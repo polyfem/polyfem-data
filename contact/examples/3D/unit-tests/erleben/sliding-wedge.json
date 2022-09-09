@@ -6,8 +6,7 @@
         "err_l2": 0.4329247329129756,
         "err_linf": 0.24996603119050254,
         "err_linf_grad": 0.24996603119050254,
-        "err_lp": 0.28674241202347917,
-        "margin": 1e-08
+        "err_lp": 0.28674241202347917
     },
     "geometry": [{
         "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",

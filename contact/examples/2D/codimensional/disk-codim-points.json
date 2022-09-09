@@ -6,8 +6,7 @@
         "err_l2": 0.06949523082238417,
         "err_linf": 0.015696000000000005,
         "err_linf_grad": 0.015696000000000005,
-        "err_lp": 0.022768294119120517,
-        "margin": 1e-08
+        "err_lp": 0.022768294119120517
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/circle/circle588.obj",
