@@ -46,5 +46,16 @@
         "paraview": {
             "file_name": "result.vtu"
         }
+    },
+
+    "tests": {
+        "err_h1": 1.4410372057910945,
+        "err_h1_semi": 1.367678000796818,
+        "err_l2": 0.45392192567733985,
+        "err_linf": 1.219455751815834,
+        "err_linf_grad": 2.107682760051048,
+        "err_lp": 0.8015837026571194,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
