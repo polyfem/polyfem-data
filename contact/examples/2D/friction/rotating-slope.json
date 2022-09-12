@@ -1,13 +1,14 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
+    "tests": {
         "err_h1": 0.010276426420612198,
         "err_h1_semi": 0.007761858496363097,
         "err_l2": 0.0067348713915480534,
         "err_linf": 0.010471900576151019,
         "err_linf_grad": 0.022214186308712015,
         "err_lp": 0.0075133522517355665,
-        "margin": 1e-08
+        "margin": 1e-05,
+        "time_steps": 1
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/square.obj",

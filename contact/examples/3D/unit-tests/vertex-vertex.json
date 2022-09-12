@@ -1,13 +1,14 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
-        "err_h1": 0.0025030723309065607,
-        "err_h1_semi": 5.158808786522795e-19,
-        "err_l2": 0.0025030723309065607,
-        "err_linf": 0.006131250000000001,
-        "err_linf_grad": 0.006131250000000001,
-        "err_lp": 0.004900948268995801,
-        "margin": 1e-08
+    "tests": {
+        "err_h1": 3.8582380242108925,
+        "err_h1_semi": 0.3900039717659797,
+        "err_l2": 3.8384759414998983,
+        "err_linf": 9.402307446624004,
+        "err_linf_grad": 9.402307446624004,
+        "err_lp": 7.515632604297368,
+        "margin": 1e-05,
+        "time_steps": "all"
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",

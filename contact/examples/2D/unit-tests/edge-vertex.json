@@ -1,13 +1,14 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
-        "err_h1": 0.004034589395957487,
-        "err_h1_semi": 1.6189113294684022e-18,
-        "err_l2": 0.004034589395957487,
-        "err_linf": 0.006131250000000002,
-        "err_linf_grad": 0.006131250000000002,
-        "err_lp": 0.0055221932939543365,
-        "margin": 1e-08
+    "tests": {
+        "err_h1": 0.09501261314782072,
+        "err_h1_semi": 0.019639881342938797,
+        "err_l2": 0.09296059228518674,
+        "err_linf": 0.141269550755186,
+        "err_linf_grad": 0.141269550755186,
+        "err_lp": 0.12723633285549105,
+        "margin": 1e-05,
+        "time_steps": "all"
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",

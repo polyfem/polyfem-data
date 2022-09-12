@@ -1,13 +1,12 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
+    "tests": {
         "err_h1": 0.09884032442821285,
         "err_h1_semi": 5.50692937251335e-18,
         "err_l2": 0.09884032442821285,
         "err_linf": 0.0009810000000000003,
         "err_linf_grad": 0.0009810000000000003,
-        "err_lp": 0.003108030672382194,
-        "margin": 1e-8
+        "err_lp": 0.003108030672382194
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/arch/largeArch.01.msh",

@@ -1,13 +1,12 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
+    "tests": {
         "err_h1": 0.007133678232766632,
         "err_h1_semi": 0.0071244835257094265,
         "err_l2": 0.00036207681580493627,
         "err_linf": 0.023712280682136825,
         "err_linf_grad": 0.2689484814720979,
-        "err_lp": 0.006623505526544393,
-        "margin": 1e-08
+        "err_lp": 0.006623505526544393
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",

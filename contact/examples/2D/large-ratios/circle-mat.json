@@ -1,13 +1,12 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
+    "tests": {
         "err_h1": 0.0030447488819672127,
         "err_h1_semi": 0.0028036738714820983,
         "err_l2": 0.0011873957118876484,
         "err_linf": 0.009831667237282014,
         "err_linf_grad": 0.009831667237282014,
-        "err_lp": 0.004477396123517282,
-        "margin": 1e-08
+        "err_lp": 0.004477396123517282
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",

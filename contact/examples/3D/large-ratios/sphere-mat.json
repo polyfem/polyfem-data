@@ -1,13 +1,12 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
+    "tests": {
         "err_h1": 0.003912417148775568,
         "err_h1_semi": 0.00368966323599769,
         "err_l2": 0.0013013044036505053,
         "err_linf": 0.00976040252211573,
         "err_linf_grad": 0.0249494268754931,
-        "err_lp": 0.004887597780816104,
-        "margin": 1e-08
+        "err_lp": 0.004887597780816104
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/sphere/sphere1K.msh",

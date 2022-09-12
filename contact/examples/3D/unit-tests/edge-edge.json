@@ -1,13 +1,14 @@
 {
     "common": "../../common.json",
-    "authen_t1": {
-        "err_h1": 0.0021048256200155466,
-        "err_h1_semi": 6.571120987629917e-20,
-        "err_l2": 0.0021048256200155466,
-        "err_linf": 0.006131250000000002,
-        "err_linf_grad": 0.006131250000000002,
-        "err_lp": 0.004693164737281975,
-        "margin": 1e-08
+    "tests": {
+        "err_h1": 0.4707944896436344,
+        "err_h1_semi": 0.44524028695801415,
+        "err_l2": 0.15299849132705667,
+        "err_linf": 0.4456768252099135,
+        "err_linf_grad": 1.2969623152872691,
+        "err_lp": 0.34114328404468053,
+        "margin": 1e-05,
+        "time_steps": "all"
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
