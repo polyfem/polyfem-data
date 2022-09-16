@@ -1,11 +1,14 @@
 {
+    "common": "../../common.json",
     "tests": {
-        "err_h1": 0.010050239102799433,
-        "err_h1_semi": 0.0004508067847403865,
-        "err_l2": 0.010040123468676608,
-        "err_linf": 0.01020198893178893,
-        "err_linf_grad": 0.01020198893178893,
-        "err_lp": 0.01004148346008609
+        "err_h1": 0.010050239102141636,
+        "err_h1_semi": 0.00045080677554384794,
+        "err_l2": 0.010040123468431077,
+        "err_linf": 0.010201988930102934,
+        "err_linf_grad": 0.010201988930102934,
+        "err_lp": 0.010041483459810978,
+        "margin": 1e-05,
+        "time_steps": "static"
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/square.obj",
@@ -14,52 +17,32 @@
             "rotation": -30,
             "scale": [5, 0.02]
         },
-        "volume_selection": 1,
-        "surface_selection": 1,
-        "n_refs": 0,
-        "advanced": {
-            "normalize_mesh": false
-        }
+        "surface_selection": 1
     }, {
         "mesh": "../../../meshes/2D/simple/square1K.msh",
         "transformation": {
             "translation": [0.26, 0.4503],
             "rotation": -30,
             "scale": 1
-        },
-        "volume_selection": 2,
-        "surface_selection": 2,
-        "n_refs": 0,
-        "advanced": {
-            "normalize_mesh": false
         }
     }],
-    "space": {
-        "discr_order": 1
-    },
     "contact": {
-        "enabled": true,
-        "dhat": 0.001,
         "friction_coefficient": 0.6
     },
     "solver": {
-        "linear": {
-            "solver": "Eigen::PardisoLDLT"
-        },
         "nonlinear": {
-            "line_search": {
-                "method": "backtracking"
-            },
-            "f_delta": 1e-15,
-            "grad_norm": 1e-5,
+            "f_delta": 1e-5,
             "max_iterations": 300,
             "use_grad_norm": true
         },
         "contact": {
-            "friction_iterations": 10,
+            "friction_iterations": -1,
             "friction_convergence_tol": 0.01,
-            "barrier_stiffness": 1e9,
-            "lagged_damping_weight": 10
+            "barrier_stiffness": 1e9
+        },
+        "advanced": {
+            "lagged_regularization_weight": 10,
+            "lagged_regularization_iterations": 1
         }
     },
     "boundary_conditions": {
@@ -69,25 +52,15 @@
             "value": [0, 0]
         }]
     },
-    "materials": [{
-        "id": 1,
+    "materials": {
+        "type": "NeoHookean",
         "E": 7e7,
         "nu": 0.48,
-        "rho": 1240,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 7e7,
-        "nu": 0.48,
-        "rho": 1240,
-        "type": "NeoHookean"
-    }],
+        "rho": 1240
+    },
     "output": {
         "paraview": {
-            "file_name": "sol.vtu",
-            "options": {
-                "material": true
-            }
+            "file_name": "sol.vtu"
         },
         "advanced": {
             "save_solve_sequence_debug": true,
