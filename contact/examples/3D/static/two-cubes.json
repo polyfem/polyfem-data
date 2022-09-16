@@ -7,7 +7,7 @@
         "err_linf": 0.363572892749418,
         "err_linf_grad": 0.363572892749418,
         "err_lp": 0.34597083446480065,
-        "margin": 1e-05,
+        "margin": 1.1e-04,
         "time_steps": "static"
     },
     "geometry": [{
