@@ -1,0 +1,40 @@
+{
+    "geometry": [{
+        "mesh": "../contact/meshes/2D/simple/square1K.msh",
+        "surface_selection": [{
+            "id": 7,
+            "box": [
+                [-10, -10],
+                [10, 10]
+            ]
+        }]
+    }],
+    "space": {
+        "discr_order": 2,
+        "pressure_discr_order": 1,
+        "advanced": {
+            "bc_method": "sample"
+        }
+    },
+    "materials": {
+        "type": "Stokes",
+        "viscosity": 100
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLDLT"
+        }
+    },
+    "output": {
+        "paraview": {
+            "file_name": "debug.vtu"
+        },
+        "advanced": {
+            "save_time_sequence": true
+        }
+    },
+    "preset_problem": {
+        "type": "Kovnaszy",
+        "viscosity": 100
+    }
+}
