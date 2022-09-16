@@ -1,13 +1,13 @@
 {
     "common": "../../common.json",
     "tests": {
-        "err_h1": 0.38489502385445007,
-        "err_h1_semi": 0.15755591248506307,
-        "err_l2": 0.35116992158913163,
-        "err_linf": 0.363572892749418,
-        "err_linf_grad": 0.363572892749418,
-        "err_lp": 0.34597083446480065,
-        "margin": 2e-04,
+        "err_h1": 0.38486161936804236,
+        "err_h1_semi": 0.15754081477532272,
+        "err_l2": 0.3511400827910699,
+        "err_linf": 0.36368705172872545,
+        "err_linf_grad": 0.36368705172872545,
+        "err_lp": 0.34594351437833654,
+        "margin": 1e-05,
         "time_steps": "static"
     },
     "geometry": [{
@@ -32,6 +32,9 @@
         "friction_coefficient": 0.5
     },
     "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        },
         "nonlinear": {
             "use_grad_norm": true
         },
