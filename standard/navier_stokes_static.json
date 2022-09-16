@@ -2,19 +2,28 @@
     "geometry": [{
         "mesh": "../contact/meshes/2D/simple/square1K.msh",
         "surface_selection": [{
-            "id": 7,
             "box": [
                 [-10, -10],
                 [10, 10]
-            ]
+            ],
+            "id": 7
         }]
     }],
-    "space": {
-        "discr_order": 2,
-        "pressure_discr_order": 1
-    },
     "materials": {
         "type": "NavierStokes",
+        "viscosity": 0.1
+    },
+    "output": {
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": false
+        },
+        "paraview": {
+            "file_name": "sol.vtu"
+        }
+    },
+    "preset_problem": {
+        "type": "Kovnaszy",
         "viscosity": 0.1
     },
     "solver": {
@@ -22,17 +31,18 @@
             "solver": "Eigen::PardisoLU"
         }
     },
-    "output": {
-        "paraview": {
-            "file_name": "sol.vtu"
-        },
-        "advanced": {
-            "save_solve_sequence_debug": false,
-            "save_time_sequence": false
-        }
+    "space": {
+        "discr_order": 2,
+        "pressure_discr_order": 1
     },
-    "preset_problem": {
-        "type": "Kovnaszy",
-        "viscosity": 0.1
+    "tests": {
+        "err_h1": 0.0112252524664846,
+        "err_h1_semi": 0.01122513021193468,
+        "err_l2": 5.238951641235595e-05,
+        "err_linf": 0.0002996079930362536,
+        "err_linf_grad": 0.0032762600408288707,
+        "err_lp": 0.00012725848571590626,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
