@@ -1,12 +1,14 @@
 {
     "common": "../common.json",
     "tests": {
-        "err_h1": 0.0,
-        "err_h1_semi": 0.0,
-        "err_l2": 0.0,
-        "err_linf": 0.0,
-        "err_linf_grad": 0.0,
-        "err_lp": 0.0
+        "err_h1": 7.752288753399487e-06,
+        "err_h1_semi": 1.6815150273094812e-18,
+        "err_l2": 7.752288753399487e-06,
+        "err_linf": 0.0013400000000000005,
+        "err_linf_grad": 0.0013400000000000005,
+        "err_lp": 0.00036956095775385935,
+        "margin": 1e-05,
+        "time_steps": 1
     },
     "geometry": [{
         "mesh": "../../meshes/3D/simple/sphere/sphere19K.msh",
@@ -55,5 +57,19 @@
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
-    }]
+    }],
+    "solver": {
+        "nonlinear": {
+            "f_delta": 1e-15,
+            "grad_norm": 1e-7,
+            "use_grad_norm": true
+        }
+    },
+    "output": {
+        "paraview": {
+            "options": {
+                "velocity": true
+            }
+        }
+    }
 }
