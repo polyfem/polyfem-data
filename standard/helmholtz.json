@@ -1,25 +1,27 @@
 {
     "common": "common.json",
-    "tests": {
-        "err_h1": 0.7209672274896765,
-        "err_h1_semi": 0.6753907704968626,
-        "err_l2": 0.2522717785282476,
-        "err_linf": 0.4768965612567843,
-        "err_linf_grad": 0.9195472186899893,
-        "err_lp": 0.36300437667772717
-    },
     "geometry": {
-        "mesh": "../contact/meshes/3D/simple/cube.msh",
-        "n_refs": 1,
-        "surface_selection": 1,
         "advanced": {
             "normalize_mesh": true
-        }
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 1,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Helmholtz"
     },
     "preset_problem": {
         "type": "Franke"
     },
-    "materials": {
-        "type": "Helmholtz"
+    "tests": {
+        "err_h1": 0.49161574246620626,
+        "err_h1_semi": 0.4420483530040666,
+        "err_l2": 0.21512622305751422,
+        "err_linf": 0.4095922639915758,
+        "err_linf_grad": 0.4095922639915758,
+        "err_lp": 0.31052564088040235,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
