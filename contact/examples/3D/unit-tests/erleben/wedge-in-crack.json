@@ -1,49 +1,35 @@
 {
-    "common": "../../../common.json",
-    "tests": {
-        "err_h1": 10.099514669794287,
-        "err_h1_semi": 0.4154103823972663,
-        "err_l2": 10.090967782110226,
-        "err_linf": 5.871896374536823,
-        "err_linf_grad": 5.871896374536823,
-        "err_lp": 6.685796070665918,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["t", 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
     },
+    "common": "../../../common.json",
     "geometry": [{
         "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",
-        "transformation": {
-            "translation": [0, 2.0001, 0],
-            "rotation": [0, 0, 180]
-        },
-        "volume_selection": 1,
         "surface_selection": [{
-            "id": 1,
             "axis": 2,
+            "id": 1,
             "position": 2
-        }]
+        }],
+        "transformation": {
+            "rotation": [0, 0, 180],
+            "translation": [0, 2.0001, 0]
+        },
+        "volume_selection": 1
     }, {
-        "mesh": "../../../../meshes/3D/obstacles/erleben/crack.obj",
         "is_obstacle": true,
+        "mesh": "../../../../meshes/3D/obstacles/erleben/crack.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [0, -1, 0]
         }
     }],
-    "time": {
-        "tend": 6,
-        "dt": 0.025
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["t", 0, 0]
-        }]
-    },
     "materials": [{
+        "E": 1000000.0,
         "id": 1,
-        "E": 1e6,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -52,5 +38,19 @@
         "paraview": {
             "file_name": "wedge-in-crack.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 10.495877502318569,
+        "err_h1_semi": 0.14149828272682075,
+        "err_l2": 10.49492366716702,
+        "err_linf": 6.08890232348792,
+        "err_linf_grad": 6.08890232348792,
+        "err_lp": 6.951436411790922,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.025,
+        "tend": 6
     }
 }

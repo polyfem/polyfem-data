@@ -1,63 +1,44 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": ["rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x", "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"]
+        }],
+        "rhs": [0, 9.81]
+    },
     "common": "../../common.json",
-    "tests": {
-        "err_h1": 0.010276426420612198,
-        "err_h1_semi": 0.007761858496363097,
-        "err_l2": 0.0067348713915480534,
-        "err_linf": 0.010471900576151019,
-        "err_linf_grad": 0.022214186308712015,
-        "err_lp": 0.0075133522517355665,
-        "margin": 1e-05,
-        "time_steps": 1
+    "contact": {
+        "dhat": 0.001,
+        "enabled": true,
+        "epsv": 0.004,
+        "friction_coefficient": 0.5
     },
     "geometry": [{
-        "mesh": "../../../meshes/2D/simple/square.obj",
         "enabled": true,
+        "mesh": "../../../meshes/2D/simple/square.obj",
         "transformation": {
             "translation": [0, 0.5055]
         },
         "volume_selection": 1
     }, {
+        "enabled": true,
         "mesh": "../../../meshes/2D/simple/square.obj",
-        "enabled": true,
+        "surface_selection": 1,
         "transformation": {
-            "translation": [0, 0],
-            "scale": [4, 0.01]
+            "scale": [4, 0.01],
+            "translation": [0, 0]
         },
-        "volume_selection": 2,
-        "surface_selection": 1
+        "volume_selection": 2
     }],
-    "time": {
-        "tend": 1,
-        "dt": 0.01
-    },
-    "contact": {
-        "enabled": true,
-        "dhat": 0.001,
-        "epsv": 0.004,
-        "friction_coefficient": 0.5
-    },
-    "solver": {
-        "contact": {
-            "friction_iterations": 10
-        }
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x", "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"]
-        }]
-    },
     "materials": [{
+        "E": 200000000000.0,
         "id": 1,
-        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
     }, {
+        "E": 200000000000.0,
         "id": 2,
-        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
@@ -66,5 +47,24 @@
         "advanced": {
             "save_solve_sequence_debug": true
         }
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": 10
+        }
+    },
+    "tests": {
+        "err_h1": 0.010343658931253982,
+        "err_h1_semi": 0.007803245195696107,
+        "err_l2": 0.006789745540295005,
+        "err_linf": 0.010471900576151022,
+        "err_linf_grad": 0.022214186308711182,
+        "err_lp": 0.007542650731670084,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.01,
+        "tend": 1
     }
 }

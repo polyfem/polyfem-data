@@ -1,13 +1,5 @@
 {
     "common": "../../common.json",
-    "tests": {
-        "err_h1": 0.003310931678074189,
-        "err_h1_semi": 0.0033072890125980634,
-        "err_l2": 0.0001552673952357394,
-        "err_linf": 0.020000000000000004,
-        "err_linf_grad": 0.020000000000000004,
-        "err_lp": 0.005175746647427654
-    },
     "geometry": [{
         "mesh": "../../../meshes/3D/creatures/dolphin.msh",
         "transformation": {
