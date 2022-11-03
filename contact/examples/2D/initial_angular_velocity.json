@@ -1,26 +1,12 @@
 {
-    "common": "../common.json",
-    "tests": {
-        "err_h1": 2.8539574628704343,
-        "err_h1_semi": 2.8151264280555663,
-        "err_l2": 0.46918694987920906,
-        "err_linf": 0.4691869498792094,
-        "err_linf_grad": 2.8151264280555663,
-        "err_lp": 0.46918694987920906,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "rhs": [0, 0]
     },
+    "common": "../common.json",
     "geometry": [{
         "mesh": "../../meshes/2D/simple/square.obj",
         "volume_selection": 1
     }],
-    "time": {
-        "tend": 5,
-        "dt": 0.04
-    },
-    "boundary_conditions": {
-        "rhs": [0, 0]
-    },
     "initial_conditions": {
         "velocity": [{
             "id": 1,
@@ -28,10 +14,24 @@
         }]
     },
     "materials": [{
+        "E": 25500000.0,
         "id": 1,
-        "E": 2.55e7,
         "nu": 0.48,
         "rho": 1700,
         "type": "NeoHookean"
-    }]
+    }],
+    "tests": {
+        "err_h1": 2.829987010810233,
+        "err_h1_semi": 2.791482615464702,
+        "err_l2": 0.4652432577834789,
+        "err_linf": 0.4652432577834883,
+        "err_linf_grad": 2.791482615464702,
+        "err_lp": 0.4652432577834789,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.04,
+        "tend": 5
+    }
 }

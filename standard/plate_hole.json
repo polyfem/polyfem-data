@@ -1,42 +1,37 @@
 {
     "geometry": {
-        "mesh": "plate_hole.obj",
-        "surface_selection": {
-            "threshold": 1e-7
-        },
         "advanced": {
             "normalize_mesh": true
+        },
+        "mesh": "plate_hole.obj",
+        "surface_selection": {
+            "threshold": 1e-07
         }
     },
-
     "materials": {
         "type": "Laplacian"
     },
-
-    "preset_problem": {
-        "type": "Franke"
-    },
-
-    "solver": {
-        "linear": {
-            "solver": "Eigen::SparseLU"
-        }
-    },
-
     "output": {
         "json": "stats.json",
         "paraview": {
             "file_name": "result.vtu"
         }
     },
-
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
     "tests": {
-        "err_h1": 1.4410372057910945,
-        "err_h1_semi": 1.367678000796818,
-        "err_l2": 0.45392192567733985,
-        "err_linf": 1.219455751815834,
-        "err_linf_grad": 2.107682760051048,
-        "err_lp": 0.8015837026571194,
+        "err_h1": 1.4412220861657246,
+        "err_h1_semi": 1.367867995582461,
+        "err_l2": 0.45393639236472677,
+        "err_linf": 1.219543545271008,
+        "err_linf_grad": 2.1079887645186983,
+        "err_lp": 0.801623671841037,
         "margin": 1e-05,
         "time_steps": "static"
     }
