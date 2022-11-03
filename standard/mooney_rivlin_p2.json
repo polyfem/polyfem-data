@@ -1,0 +1,73 @@
+{
+    "common": "common.json",
+    "space": {
+        "discr_order": 2
+    },
+    "geometry": {
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 3,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ],
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    -0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0.1,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": {
+        "type": "MooneyRivlin",
+        "c1": 12000000,
+        "c2": 0.45,
+        "k": 1
+    }
+}
