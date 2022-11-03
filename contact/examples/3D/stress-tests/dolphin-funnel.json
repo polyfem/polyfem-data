@@ -1,51 +1,61 @@
 {
-    "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/3D/creatures/dolphin.msh",
-        "transformation": {
-            "translation": [0.4547526249, 0.5227239301, -0.02286748313],
-            "rotation": [0, 0, 40],
-            "scale": 0.008394050297
-        },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "relative": true,
-            "box": [
-                [0.97, 0, 0],
-                [1, 1, 1]
-            ]
-        }]
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/funnel.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [1.76, 0.86, 0.42],
-            "rotation": [0, 0, 90],
-            "scale": 1.5
-        }
-    }],
-    "time": {
-        "tend": 32,
-        "dt": 0.04
-    },
     "boundary_conditions": {
-        "rhs": [0, 0, 0],
         "dirichlet_boundary": [{
             "id": 1,
             "value": ["min(0.5*t, 10)", 0, 0]
-        }]
+        }],
+        "rhs": [0, 0, 0]
     },
+    "common": "../../common.json",
+    "geometry": [{
+        "mesh": "../../../meshes/3D/creatures/dolphin.msh",
+        "surface_selection": [{
+            "box": [
+                [0.97, 0, 0],
+                [1, 1, 1]
+            ],
+            "id": 1,
+            "relative": true
+        }],
+        "transformation": {
+            "rotation": [0, 0, 40],
+            "scale": 0.008394050297,
+            "translation": [0.4547526249, 0.5227239301, -0.02286748313]
+        },
+        "volume_selection": 1
+    }, {
+        "is_obstacle": true,
+        "mesh": "../../../meshes/3D/obstacles/funnel.obj",
+        "surface_selection": 0,
+        "transformation": {
+            "rotation": [0, 0, 90],
+            "scale": 1.5,
+            "translation": [1.76, 0.86, 0.42]
+        }
+    }],
     "materials": {
-        "type": "NeoHookean",
         "E": 10000,
         "nu": 0.4,
-        "rho": 1000
+        "rho": 1000,
+        "type": "NeoHookean"
     },
     "output": {
         "paraview": {
             "file_name": "dolphin-funnel.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.0033157046729972634,
+        "err_h1_semi": 0.0033120672321831765,
+        "err_l2": 0.0001552679233916641,
+        "err_linf": 0.020000000000000004,
+        "err_linf_grad": 0.020000000000000004,
+        "err_lp": 0.005175746527481961,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.04,
+        "tend": 32
     }
 }
