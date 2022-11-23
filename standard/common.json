@@ -4,6 +4,9 @@
         "paraview": {
             "file_name": "sim.vtu",
             "surface": true,
+            "options": {
+                "material": true
+            },
             "vismesh_rel_area": 10000000
         },
         "advanced": {
