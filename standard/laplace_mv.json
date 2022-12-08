@@ -1,0 +1,25 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../square_poly.obj",
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "space": {
+        "poly_basis_type": "MeanValue"
+    },
+    "output": {
+        "paraview": {
+            "surface": false,
+            "high_order_mesh": false
+        }
+    }
+}
