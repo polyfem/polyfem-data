@@ -1,0 +1,112 @@
+{
+    "common": "../../common.json",
+    "tests": {
+        "err_h1": 0.011772000000000001,
+        "err_h1_semi": 2.0125905048027033e-17,
+        "err_l2": 0.011772000000000001,
+        "err_linf": 0.05886000000000001,
+        "err_linf_grad": 0.05886000000000001,
+        "err_lp": 0.0393620543509122,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube-hex.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube-hex.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.205,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube-hex.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.41,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube-hex.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.615,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube-hex.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.82,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.315,
+                    0
+                ],
+                "dimensions": [
+                    2,
+                    0,
+                    2
+                ]
+            }
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "time_steps": 200
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ]
+}
