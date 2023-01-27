@@ -36,7 +36,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
-            "use_grad_norm": true
+            "use_grad_norm": 1e-5
         },
         "contact": {
             "friction_iterations": -1,

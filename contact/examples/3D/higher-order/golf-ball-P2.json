@@ -69,8 +69,7 @@
     "solver": {
         "nonlinear": {
             "f_delta": 1e-15,
-            "grad_norm": 1e-7,
-            "use_grad_norm": true
+            "grad_norm": 1e-7
         }
     },
     "output": {
