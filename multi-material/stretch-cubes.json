@@ -54,8 +54,7 @@
                 "method": "backtracking"
             },
             "solver": "newton",
-            "grad_norm": 1e-05,
-            "use_grad_norm": true
+            "grad_norm": 1e-05
         },
         "advanced": {
             "lump_mass_matrix": true

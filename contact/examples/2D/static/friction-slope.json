@@ -33,7 +33,7 @@
         "nonlinear": {
             "f_delta": 1e-5,
             "max_iterations": 300,
-            "use_grad_norm": true
+            "grad_norm": 1e-05
         },
         "contact": {
             "friction_iterations": -1,

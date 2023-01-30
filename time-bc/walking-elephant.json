@@ -55,8 +55,7 @@
             "line_search": {
                 "method": "backtracking"
             },
-            "grad_norm": 1e-05,
-            "use_grad_norm": false
+            "x_delta": 1e-05
         }
     },
     "boundary_conditions": {
