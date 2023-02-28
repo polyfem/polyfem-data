@@ -1,70 +1,19 @@
 {
-    "common": "common.json",
-    "geometry": {
-        "mesh": "../contact/meshes/3D/simple/cube.msh",
-        "n_refs": 2,
-        "surface_selection": [
-            {
-                "id": 1,
-                "box": [
-                    [
-                        0,
-                        0,
-                        0
-                    ],
-                    [
-                        0.001,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            },
-            {
-                "id": 3,
-                "box": [
-                    [
-                        0.999,
-                        0,
-                        0
-                    ],
-                    [
-                        1,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            }
-        ],
-        "advanced": {
-            "normalize_mesh": true
-        }
-    },
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    -0.1,
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 3,
-                "value": [
-                    0.1,
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
+    "common": "elastic_common.json",
     "materials": {
-        "type": "MooneyRivlin",
-        "c1": 12000000,
-        "c2": 0.45,
-        "k": 1
+        "c1": 7692,
+        "c2": -5000,
+        "k": 11540.0,
+        "type": "MooneyRivlin"
+    },
+    "tests": {
+        "err_h1": 0.21897484187164773,
+        "err_h1_semi": 0.21098323315010037,
+        "err_l2": 0.05861788722091161,
+        "err_linf": 0.08902061771284299,
+        "err_linf_grad": 0.21290820501980048,
+        "err_lp": 0.07355739070532011,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }

@@ -1,0 +1,20 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "c": 32900,
+        "id": 1,
+        "k": 1e5,
+        "m": 6.82,
+        "type": "IncompressibleOgden"
+    },
+    "tests": {
+        "err_h1": 0.2470961409891267,
+        "err_h1_semi": 0.2386331248762429,
+        "err_l2": 0.06411501075035261,
+        "err_linf": 0.09348641914727594,
+        "err_linf_grad": 0.24313124786056461,
+        "err_lp": 0.0765870307403943,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

@@ -9,7 +9,8 @@
         "surface_selection": 1
     },
     "materials": {
-        "type": "Helmholtz"
+        "type": "Helmholtz",
+        "k": 1
     },
     "preset_problem": {
         "type": "Franke"

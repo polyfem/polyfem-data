@@ -1,73 +1,27 @@
 {
-    "common": "common.json",
+    "common": "elastic_common.json",
+    "materials": {
+        "c1": 7692,
+        "c2": -5000,
+        "k": 11540.0,
+        "type": "MooneyRivlin"
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::BiCGSTAB"
+        }
+    },
     "space": {
         "discr_order": 2
     },
-    "geometry": {
-        "mesh": "../contact/meshes/3D/simple/cube.msh",
-        "n_refs": 2,
-        "surface_selection": [
-            {
-                "id": 1,
-                "box": [
-                    [
-                        0,
-                        0,
-                        0
-                    ],
-                    [
-                        0.001,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            },
-            {
-                "id": 3,
-                "box": [
-                    [
-                        0.999,
-                        0,
-                        0
-                    ],
-                    [
-                        1,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            }
-        ],
-        "advanced": {
-            "normalize_mesh": true
-        }
-    },
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    -0.1,
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 3,
-                "value": [
-                    0.1,
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
-    "materials": {
-        "type": "MooneyRivlin",
-        "c1": 12000000,
-        "c2": 0.45,
-        "k": 1
+    "tests": {
+        "err_h1": 0.22029399403573727,
+        "err_h1_semi": 0.21192059888109785,
+        "err_l2": 0.06015898584662372,
+        "err_linf": 0.0943386050171957,
+        "err_linf_grad": 0.2175364988206757,
+        "err_lp": 0.07672409914768358,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
