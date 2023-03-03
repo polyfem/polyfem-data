@@ -10,16 +10,26 @@
     "materials": {
         "type": "Laplacian"
     },
+    "output": {
+        "paraview": {
+            "high_order_mesh": false,
+            "surface": false
+        }
+    },
     "preset_problem": {
         "type": "Franke"
     },
     "space": {
         "poly_basis_type": "MeanValue"
     },
-    "output": {
-        "paraview": {
-            "surface": false,
-            "high_order_mesh": false
-        }
+    "tests": {
+        "err_h1": 1.6540303895424924,
+        "err_h1_semi": 1.5771731661004211,
+        "err_l2": 0.49833857332426384,
+        "err_linf": 1.2195962606673452,
+        "err_linf_grad": 1.785019180590712,
+        "err_lp": 0.8034261164918883,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }

@@ -13,5 +13,15 @@
     },
     "preset_problem": {
         "type": "Franke"
+    },
+    "tests": {
+        "err_h1": 1.649794074748314,
+        "err_h1_semi": 1.5729161191663248,
+        "err_l2": 0.4977503100364613,
+        "err_linf": 1.2156775913322222,
+        "err_linf_grad": 1.3434124444370272,
+        "err_lp": 0.801683723697116,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }

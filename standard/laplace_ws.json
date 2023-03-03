@@ -10,16 +10,26 @@
     "materials": {
         "type": "Laplacian"
     },
+    "output": {
+        "paraview": {
+            "high_order_mesh": false,
+            "surface": false
+        }
+    },
     "preset_problem": {
         "type": "Franke"
     },
     "space": {
         "poly_basis_type": "Wachspress"
     },
-    "output": {
-        "paraview": {
-            "surface": false,
-            "high_order_mesh": false
-        }
+    "tests": {
+        "err_h1": 1.6563248485081148,
+        "err_h1_semi": 1.5794144721148218,
+        "err_l2": 0.49886063089773625,
+        "err_linf": 1.2217761820082085,
+        "err_linf_grad": 1.9057423341403714,
+        "err_lp": 0.804576768330383,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }

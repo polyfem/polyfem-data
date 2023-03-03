@@ -1,69 +1,23 @@
 {
-    "common": "common.json",
-    "geometry": {
-        "mesh": "../contact/meshes/3D/simple/cube.msh",
-        "n_refs": 2,
-        "point_selection": [
-            {
-                "id": 1,
-                "box": [
-                    [
-                        0,
-                        0,
-                        0
-                    ],
-                    [
-                        0.001,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            },
-            {
-                "id": 3,
-                "box": [
-                    [
-                        0.999,
-                        0,
-                        0
-                    ],
-                    [
-                        1,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            }
-        ],
-        "advanced": {
-            "normalize_mesh": true
-        }
-    },
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "value": [
-                    -0.1,
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 3,
-                "value": [
-                    0.1,
-                    0,
-                    0
-                ]
-            }
-        ]
-    },
+    "common": "elastic_common.json",
     "materials": {
-        "type": "LinearElasticity",
         "E": 20000,
-        "nu": 0.4
+        "nu": 0.4,
+        "type": "LinearElasticity"
+    },
+    "patch": [{
+        "from": "/geometry/surface_selection",
+        "op": "move",
+        "path": "/geometry/point_selection"
+    }],
+    "tests": {
+        "err_h1": 0.26074180684349124,
+        "err_h1_semi": 0.25216787640623484,
+        "err_l2": 0.06631479431302151,
+        "err_linf": 0.09359774151614587,
+        "err_linf_grad": 0.25537694534475,
+        "err_lp": 0.07736183749953159,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
