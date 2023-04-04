@@ -1,5 +1,35 @@
 {
+    "boundary_conditions": {
+        "rhs": [0, 9.81, 0]
+    },
     "common": "../../common.json",
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
+        "transformation": {
+            "rotation": [0, 90, 0],
+            "translation": [0, 0.5, 0]
+        },
+        "volume_selection": 1
+    }, {
+        "is_obstacle": true,
+        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
+        "surface_selection": 0,
+        "transformation": {
+            "translation": [0, -0.5, 0]
+        }
+    }],
+    "materials": [{
+        "E": 100000,
+        "id": 1,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
+    "output": {
+        "paraview": {
+            "file_name": "edge-edge-parallel.pvd"
+        }
+    },
     "tests": {
         "err_h1": 1.317701200181063,
         "err_h1_semi": 0.11469992005066816,
@@ -10,38 +40,8 @@
         "margin": 1e-05,
         "time_steps": "all"
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
-        "transformation": {
-            "translation": [0, 0.5, 0],
-            "rotation": [0, 90, 0]
-        },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/tet/tet-perp-edges.msh",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -0.5, 0]
-        }
-    }],
     "time": {
         "tend": 1,
         "time_steps": 40
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
-    },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
-    "output": {
-        "paraview": {
-            "file_name": "edge-edge-parallel.pvd"
-        }
     }
 }

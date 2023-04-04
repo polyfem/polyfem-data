@@ -1,5 +1,62 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
     "common": "../../common.json",
+    "contact": {
+        "epsv": 1e-05,
+        "friction_coefficient": 0.49
+    },
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "transformation": {
+            "rotation": [0, 0, -26.565],
+            "scale": 1,
+            "translation": [0, 0, 0]
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/simple/cube.msh",
+        "surface_selection": 1,
+        "transformation": {
+            "dimensions": [10, 0.01, 10],
+            "rotation": [0, 0, -26.565],
+            "translation": [2, -1.566, 0]
+        },
+        "volume_selection": 2
+    }],
+    "materials": [{
+        "E": 1000000000.0,
+        "id": 1,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "E": 200000000000.0,
+        "id": 2,
+        "nu": 0.3,
+        "rho": 7750,
+        "type": "NeoHookean"
+    }],
+    "output": {
+        "paraview": {
+            "options": {
+                "contact_forces": true,
+                "friction_forces": true
+            },
+            "surface": true
+        }
+    },
+    "solver": {
+        "contact": {
+            "friction_convergence_tol": 0.01,
+            "friction_iterations": -1
+        }
+    },
     "tests": {
         "err_h1": 0.00032283720545185846,
         "err_h1_semi": 1.817316594840349e-05,
@@ -10,65 +67,8 @@
         "margin": 1e-05,
         "time_steps": 1
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0, 0],
-            "rotation": [0, 0, -26.565],
-            "scale": 1
-        },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [2, -1.566, 0],
-            "rotation": [0, 0, -26.565],
-            "dimensions": [10, 0.01, 10]
-        },
-        "volume_selection": 2,
-        "surface_selection": 1
-    }],
     "time": {
-        "tend": 2.5,
-        "dt": 0.025
-    },
-    "contact": {
-        "epsv": 1e-5,
-        "friction_coefficient": 0.49
-    },
-    "solver": {
-        "contact": {
-            "friction_iterations": -1,
-            "friction_convergence_tol": 0.01
-        }
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }]
-    },
-    "materials": [{
-        "id": 1,
-        "E": 1e9,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
-    "output": {
-        "paraview": {
-            "surface": true,
-            "options": {
-                "contact_forces": true,
-                "friction_forces": true
-            }
-        }
+        "dt": 0.025,
+        "tend": 2.5
     }
 }
