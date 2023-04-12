@@ -1,15 +1,8 @@
 {
-    "common": "../../common.json",
-    "tests": {
-        "err_h1": 3.858224814556494,
-        "err_h1_semi": 0.3900155286600366,
-        "err_l2": 3.8384614895897453,
-        "err_linf": 9.40227204681832,
-        "err_linf_grad": 9.40227204681832,
-        "err_lp": 7.515604307846172,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "rhs": [0, 9.81, 0]
     },
+    "common": "../../common.json",
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
         "transformation": {
@@ -17,28 +10,21 @@
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
         "is_obstacle": true,
+        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
         "surface_selection": 0
     }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "is_obstacle": true,
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
         "surface_selection": 0,
         "transformation": {
-            "translation": [0.5, 0, 0.5],
-            "dimensions": [5, 0, 5]
+            "dimensions": [5, 0, 5],
+            "translation": [0.5, 0, 0.5]
         }
     }],
-    "time": {
-        "tend": 3,
-        "time_steps": 120
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
-    },
     "materials": [{
-        "id": 1,
         "E": 100000,
+        "id": 1,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -47,5 +33,19 @@
         "paraview": {
             "file_name": "vertex-vertex.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 2.5528939923890692,
+        "err_h1_semi": 1.1207943212054459,
+        "err_l2": 2.29370613329821,
+        "err_linf": 5.618409646472831,
+        "err_linf_grad": 5.618409646472831,
+        "err_lp": 4.491014887892407,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "tend": 3,
+        "time_steps": 120
     }
 }

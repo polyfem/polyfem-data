@@ -1,15 +1,8 @@
 {
-    "common": "../../../common.json",
-    "tests": {
-        "err_h1": 0.3342415447655944,
-        "err_h1_semi": 0.00616354166292145,
-        "err_l2": 0.3341847109032074,
-        "err_linf": 0.33420006401421576,
-        "err_linf_grad": 0.33420006401421576,
-        "err_lp": 0.33418471301936203,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "rhs": [0, 9.81]
     },
+    "common": "../../../common.json",
     "geometry": [{
         "mesh": "../../../../meshes/2D/simple/square.obj",
         "transformation": {
@@ -17,23 +10,16 @@
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../../meshes/2D/simple/erleben/internal-edges.obj",
         "is_obstacle": true,
+        "mesh": "../../../../meshes/2D/simple/erleben/internal-edges.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [0, -1]
         }
     }],
-    "time": {
-        "tend": 5,
-        "dt": 0.025
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81]
-    },
     "materials": [{
-        "id": 1,
         "E": 1e6,
+        "id": 1,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -42,5 +28,19 @@
         "paraview": {
             "file_name": "internal-edges.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.11909601943001669,
+        "err_h1_semi": 0.006173498969799235,
+        "err_l2": 0.11893590607778964,
+        "err_linf": 0.11924187086205079,
+        "err_linf_grad": 0.11924187086205079,
+        "err_lp": 0.11893827330168122,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.025,
+        "tend": 5
     }
 }
