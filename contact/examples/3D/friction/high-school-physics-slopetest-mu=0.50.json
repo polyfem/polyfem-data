@@ -30,13 +30,13 @@
         "volume_selection": 2
     }],
     "materials": [{
-        "E": 1e9,
+        "E": 1000000000.0,
         "id": 1,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
     }, {
-        "E": 2e11,
+        "E": 200000000000.0,
         "id": 2,
         "nu": 0.3,
         "rho": 7750,

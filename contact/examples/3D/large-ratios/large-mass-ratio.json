@@ -1,69 +1,69 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0, 0]
+        }],
+        "rhs": [0, 9.81, 0]
+    },
     "common": "../../common.json",
-    "tests": {
-        "err_h1": 0.18488883107818999,
-        "err_h1_semi": 0.05224833225849234,
-        "err_l2": 0.17735273224189602,
-        "err_linf": 0.18075932125188476,
-        "err_linf_grad": 0.18075932125188476,
-        "err_lp": 0.17746349165762593,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "contact": {
+        "friction_coefficient": 0.5
     },
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "transformation": {
-            "translation": [0, 0.45, 0],
-            "scale": 1
+            "scale": 1,
+            "translation": [0, 0.45, 0]
         },
         "volume_selection": 1
     }, {
         "mesh": "../../../meshes/3D/simple/cube.msh",
         "transformation": {
-            "translation": [0, -0.15, 0],
-            "scale": 0.1
+            "scale": 0.1,
+            "translation": [0, -0.15, 0]
         },
         "volume_selection": 2
     }, {
         "mesh": "../../../meshes/3D/simple/cube.msh",
+        "surface_selection": 1,
         "transformation": {
-            "translation": [0, -0.25, 0],
-            "scale": [2, 0.01, 2]
+            "scale": [2, 0.01, 2],
+            "translation": [0, -0.25, 0]
         },
-        "volume_selection": 3,
-        "surface_selection": 1
+        "volume_selection": 3
     }],
-    "time": {
-        "tend": 3,
-        "time_steps": 120
-    },
-    "contact": {
-        "friction_coefficient": 0.5
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }]
-    },
     "materials": [{
+        "E": 100000000.0,
         "id": 1,
-        "E": 1e8,
         "nu": 0.4,
         "rho": 10000,
         "type": "NeoHookean"
     }, {
+        "E": 1000000.0,
         "id": 2,
-        "E": 1e6,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
     }, {
+        "E": 200000000000.0,
         "id": 3,
-        "E": 2e11,
         "nu": 0.3,
         "rho": 7750,
         "type": "NeoHookean"
-    }]
+    }],
+    "tests": {
+        "err_h1": 0.1848889122826706,
+        "err_h1_semi": 0.05224819820562189,
+        "err_l2": 0.17735285638899392,
+        "err_linf": 0.18075942367186254,
+        "err_linf_grad": 0.18075942367186254,
+        "err_lp": 0.17746361401100133,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "tend": 3,
+        "time_steps": 120
+    }
 }
