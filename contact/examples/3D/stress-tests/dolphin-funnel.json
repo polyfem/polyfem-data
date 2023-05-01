@@ -1,6 +1,7 @@
 {
     "boundary_conditions": {
         "dirichlet_boundary": [{
+            "dimension": [true, false, false],
             "id": 1,
             "value": ["min(0.5*t, 10)", 0, 0]
         }],
@@ -44,13 +45,21 @@
             "file_name": "dolphin-funnel.pvd"
         }
     },
+    "solver": {
+        "augmented_lagrangian": {
+            "max_solver_iters": 100
+        },
+        "nonlinear": {
+            "max_iterations": 10000
+        }
+    },
     "tests": {
-        "err_h1": 0.003310912907800817,
-        "err_h1_semi": 0.0033072702215976328,
-        "err_l2": 0.00015526739637028707,
-        "err_linf": 0.020000000000000004,
-        "err_linf_grad": 0.020000000000000004,
-        "err_lp": 0.005175746651566942,
+        "err_h1": 0.003393378795373335,
+        "err_h1_semi": 0.0033900266474887566,
+        "err_l2": 0.00015079448997071802,
+        "err_linf": 0.020390739006222822,
+        "err_linf_grad": 0.020390739006222822,
+        "err_lp": 0.005244202147770096,
         "margin": 1e-05,
         "time_steps": 1
     },
