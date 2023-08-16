@@ -188,3 +188,5 @@ contact/*.pdf
 **/*.bak
 
 multi-material/output
+
+contact/examples/2D/convergence/analysis.ipynb
