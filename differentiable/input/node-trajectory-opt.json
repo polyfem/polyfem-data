@@ -1,0 +1,19 @@
+{
+    "functionals": [
+
+    ],
+    "states": [
+        {
+            "path": "node-trajectory.json"
+        }
+    ],
+    "variable_to_simulation": [
+
+    ],
+    "parameters": [
+
+    ],
+    "solver": {
+        
+    }
+}

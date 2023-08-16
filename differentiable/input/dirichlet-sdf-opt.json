@@ -1,0 +1,27 @@
+{
+    "variable_to_simulation": [
+
+    ],
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "target",
+            "state": 0,
+            "matching": "sdf",
+            "transient_integral_type": "steps",
+            "steps": [
+                10
+            ],
+            "surface_selection": [
+                4
+            ]
+        }
+    ],
+    "states": [
+        {
+            "path": "dirichlet-sdf.json"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": []
+        }
+    ],
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "stress_norm",
+            "state": 0
+        }
+    ],
+    "solver": {
+
+    },
+    "states": [
+        {
+            "path": "shape-contact.json"
+        }
+    ]
+}

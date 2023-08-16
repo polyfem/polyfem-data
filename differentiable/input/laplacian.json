@@ -1,0 +1,34 @@
+{
+    "geometry": [
+        {
+            "mesh": "../circle2.msh",
+            "surface_selection": 1
+        }
+    ],
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "space": {
+        "discr_order": 1,
+        "advanced": {
+            "quadrature_order": 4
+        }
+    },
+    "boundary_conditions": {
+        "rhs": -20,
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": 0
+            }
+        ]
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "optimization": { 
+        "enabled": true
+    }
+}

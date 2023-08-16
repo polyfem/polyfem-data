@@ -1,0 +1,51 @@
+{
+    "output": {
+        "save_frequency": 100,
+        "solve_log_level": 3
+    },
+    "solver": {
+        "nonlinear": {
+            "first_grad_norm_tol": 1e-6,
+            "solver": "gradientdescent",
+            "min_step_size": 1e-5,
+            "max_step_size": 1,
+            "debug_fd": false,
+            "debug_fd_eps": 1e-7,
+            "max_iterations": 5,
+            "export_energy": "material-opt",
+            "grad_norm": 1e-9,
+            "f_delta": 0
+        }
+    },
+    "states": [
+        {
+            "path": "state.json"
+        },
+        {
+            "path": "target.json"
+        }
+    ],
+    "variable_to_simulation": [
+
+    ],
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "transient_integral",
+            "state": 0,
+            "integral_type": "uniform",
+            "static_objective": {
+                "type": "target",
+                "matching": "exact",
+                "state": 0,
+                "target_state": 1,
+                "reference_cached_body_ids": [],
+                "surface_selection": [],
+                "weight": 100
+            },
+            "weight": 1
+        }
+    ]
+}

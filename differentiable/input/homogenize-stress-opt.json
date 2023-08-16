@@ -1,0 +1,33 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": []
+        }
+    ],
+    "output": {
+        "solve_log_level": 3
+    },
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "stress",
+            "dimensions": [1, 1],
+            "state": 0
+        }
+    ],
+    "solver": {
+        "nonlinear": {
+            "debug_fd_eps": 1e-7,
+            "debug_fd": false
+        }
+    },
+    "states": [
+        {
+            "path": "homogenize-stress.json"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": []
+        }
+    ],
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "stress_norm",
+            "state": 0
+        }
+    ],
+    "states": [
+        {
+            "path": "laplacian-state.json",
+            "id": 0
+        }
+    ],
+    "solver": {
+
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "geometry": [
+        {
+            "mesh": "periodic_x.obj",
+            "n_refs": 0,
+            "surface_selection": {
+                "threshold": 1e-6
+            }
+        }
+    ],
+    "space": {
+        "discr_order": 1,
+        "advanced": {
+            "quadrature_order": 4,
+            "periodic_mesh": true
+        }
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 5e-3,
+        "periodic": true
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLLT",
+            "adjoint_solver": "Eigen::PardisoLDLT"
+        },
+        "nonlinear": {
+            "debug_fd": false,
+            "debug_fd_eps": 1e-9,
+            "f_delta": 1e-14,
+            "grad_norm": 1e-9,
+            "verify_hessian": false
+        },
+        "contact": {
+            "barrier_stiffness": 1e2
+        }
+    },
+    "optimization": {
+        "enabled": true
+    },
+    "boundary_conditions": {
+        "periodic_boundary": [true, true],
+        "linear_displacement_offset": [[0, 0],[0, -0.3]],
+        "fixed_macro_strain": [3]
+    },
+    "output": {
+        "log": {
+            "level": "warning"
+        },
+        "paraview": {
+            "file_name": "debug.vtu",
+            "high_order_mesh": false,
+            "vismesh_rel_area": 1
+        }
+    },
+    "materials": {
+        "type": "NeoHookean",
+        "E": 1e3,
+        "nu": 0.5
+    }
+}

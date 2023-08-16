@@ -1,0 +1,29 @@
+{
+    "variable_to_simulation": [
+
+    ],
+    "parameters": [
+
+    ],
+    "functionals": [
+        {
+            "type": "transient_integral",
+            "state": 0,
+            "static_objective": 
+            {
+                "type": "center-target",
+                "state": 0,
+                "target_state": 1,
+                "volume_selection": []
+            }
+        }
+    ],
+    "states": [
+        {
+            "path": "barycenter.json"
+        },
+        {
+            "path": "barycenter-target.json"
+        }
+    ]
+}
