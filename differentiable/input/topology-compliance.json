@@ -1,7 +1,7 @@
 {
     "geometry": [
         {
-            "mesh": "../data/contact/meshes/2D/simple/bar/bar198.obj",
+            "mesh": "../../contact/meshes/2D/simple/bar/bar198.obj",
             "surface_selection": {
                 "threshold": 1e-4
             },

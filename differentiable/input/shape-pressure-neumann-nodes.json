@@ -28,7 +28,7 @@
             "n_refs": 0
         },
         {
-            "mesh": "../data/contact/meshes/2D/simple/square.obj",
+            "mesh": "../../contact/meshes/2D/simple/square.obj",
             "transformation": {
                 "scale": [
                     3,

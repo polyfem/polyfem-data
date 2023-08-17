@@ -1,7 +1,7 @@
 {
     "geometry": [
         {
-            "mesh": "../data/contact/meshes/2D/simple/square.obj",
+            "mesh": "../../contact/meshes/2D/simple/square.obj",
             "transformation": {
                 "translation": [
                     0.4,
@@ -26,7 +26,7 @@
             "n_refs": 2
         },
         {
-            "mesh": "../data/contact/meshes/2D/simple/square.obj",
+            "mesh": "../../contact/meshes/2D/simple/square.obj",
             "surface_selection": [
                 {
                     "id": 2,

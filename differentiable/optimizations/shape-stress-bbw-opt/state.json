@@ -1,7 +1,7 @@
 {
     "geometry": [
         {
-            "mesh": "../../data/contact/meshes/3D/simple/bar/bar-2523.msh",
+            "mesh": "../../../contact/meshes/3D/simple/bar/bar-2523.msh",
             "volume_selection": 1,
             "n_refs": 0,
             "surface_selection": [
