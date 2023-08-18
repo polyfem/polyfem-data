@@ -6,7 +6,7 @@
     "solver": {
         "nonlinear": {
             "first_grad_norm_tol": 1e-6,
-            "solver": "gradientdescent",
+            "solver": "gradient_descent",
             "min_step_size": 1e-5,
             "max_step_size": 1,
             "debug_fd": false,
