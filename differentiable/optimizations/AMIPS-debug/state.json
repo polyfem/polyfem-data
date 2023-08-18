@@ -30,7 +30,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": "Eigen::LDLT"
         }
     },
     "boundary_conditions": {
