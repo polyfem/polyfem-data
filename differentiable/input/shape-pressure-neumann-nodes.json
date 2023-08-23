@@ -54,7 +54,10 @@
             "barrier_stiffness": 1e4
         },
         "nonlinear": {
-            "debug_fd": false
+            "f_delta": 1e-10,
+            "line_search": {
+                "use_grad_norm_tol": 1e-3
+            }
         }
     },
     "optimization": {
