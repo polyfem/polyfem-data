@@ -27,7 +27,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
         }
     },
     "space": {
