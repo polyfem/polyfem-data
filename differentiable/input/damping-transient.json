@@ -58,7 +58,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
             "f_delta": 1e-13,
