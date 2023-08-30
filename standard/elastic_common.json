@@ -33,7 +33,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
         },
         "nonlinear": {
             "line_search": {

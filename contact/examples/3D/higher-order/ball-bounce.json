@@ -1,0 +1,48 @@
+{
+    "common": "../../common.json",
+    "geometry": [{
+        "mesh": "../../../meshes/3D/simple/sphere/coarse/icosphere.msh",
+        "transformation": {
+            "scale": 0.11938
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/3D/obstacles/plane.obj",
+        "is_obstacle": true,
+        "transformation": {
+            "translation": [0, -0.2, 0],
+            "dimensions": [1, 0, 1]
+        }
+    }],
+    "space": {
+        "discr_order": 1
+    },
+    "time": {
+        "tend": 1,
+        "dt": 0.001,
+        "integrator": "BDF2"
+    },
+    "contact": {
+        "friction_coefficient": 0.2,
+        "collision_mesh": {
+            "enabled": false,
+            "max_edge_length": 0.01,
+            "tessellation_type": "irregular"
+        }
+    },
+    "output": {
+        "paraview": {
+            "skip_frame": 10
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [0, 9.81, 0]
+    },
+    "materials": [{
+        "id": 1,
+        "E": 591000,
+        "nu": 0.45,
+        "rho": 700,
+        "type": "NeoHookean"
+    }]
+}
