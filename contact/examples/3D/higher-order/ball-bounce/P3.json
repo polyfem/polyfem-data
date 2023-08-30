@@ -1,0 +1,12 @@
+{
+    "common": "P1.json",
+    "patch": [{
+        "op": "replace",
+        "path": "/geometry/0/mesh",
+        "value": "../../../../meshes/3D/simple/sphere/coarse/P3.msh"
+    }, {
+        "op": "replace",
+        "path": "/space/discr_order",
+        "value": 3
+    }]
+}

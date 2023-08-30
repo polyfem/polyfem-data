@@ -1,13 +1,13 @@
 {
-    "common": "common.json",
+    "common": "../common.json",
     "geometry": [{
-        "mesh": "../../../meshes/3D/simple/sphere/coarse/P2.msh",
+        "mesh": "../../../../meshes/3D/simple/sphere/coarse/P1.msh",
         "transformation": {
             "scale": 0.11938
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
+        "mesh": "../../../../meshes/3D/obstacles/plane.obj",
         "is_obstacle": true,
         "transformation": {
             "translation": [0, -0.2, 0],
@@ -15,7 +15,7 @@
         }
     }],
     "space": {
-        "discr_order": 2
+        "discr_order": 1
     },
     "time": {
         "tend": 1,
