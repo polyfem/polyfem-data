@@ -1,7 +1,7 @@
 {
-    "common": "../../common.json",
+    "common": "common.json",
     "geometry": [{
-        "mesh": "../../../meshes/3D/simple/sphere/coarse/icosphere.msh",
+        "mesh": "../../../meshes/3D/simple/sphere/coarse/P2.msh",
         "transformation": {
             "scale": 0.11938
         },
@@ -15,7 +15,7 @@
         }
     }],
     "space": {
-        "discr_order": 1
+        "discr_order": 2
     },
     "time": {
         "tend": 1,
@@ -25,14 +25,8 @@
     "contact": {
         "friction_coefficient": 0.2,
         "collision_mesh": {
-            "enabled": false,
             "max_edge_length": 0.01,
             "tessellation_type": "irregular"
-        }
-    },
-    "output": {
-        "paraview": {
-            "skip_frame": 10
         }
     },
     "boundary_conditions": {
@@ -44,5 +38,10 @@
         "nu": 0.45,
         "rho": 700,
         "type": "NeoHookean"
-    }]
+    }],
+    "output": {
+        "paraview": {
+            "skip_frame": 10
+        }
+    }
 }

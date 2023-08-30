@@ -1,5 +1,5 @@
 {
-    "common": "../../common.json",
+    "common": "common.json",
     "geometry": [{
         "mesh": "../../../meshes/3D/microstructure/P2.msh",
         "transformation": {
@@ -59,15 +59,9 @@
     },
     "materials": [{
         "id": 1,
-        "E": 6e4,
+        "E": 6e6,
         "nu": 0.48,
         "rho": 1.03,
         "type": "NeoHookean"
-    }],
-    "output": {
-        "paraview": {
-            "high_order_mesh": false,
-            "vismesh_rel_area": 1e-5
-        }
-    }
+    }]
 }
