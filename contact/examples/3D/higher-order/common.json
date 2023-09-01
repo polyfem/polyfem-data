@@ -1,0 +1,16 @@
+{
+    "common": "../../common.json",
+    "solver": {
+        "advanced": {
+            "lump_mass_matrix": false
+        }
+    },
+    "output": {
+        "paraview": {
+            "high_order_mesh": true,
+            "options": {
+                "contact_forces": true
+            }
+        }
+    }
+}
