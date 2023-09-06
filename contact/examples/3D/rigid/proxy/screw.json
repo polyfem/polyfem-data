@@ -1,0 +1,35 @@
+{
+    "common": "../screw.json",
+    "contact": {
+        "collision_mesh": {
+            "linear_map": "screw-coarse-to-screw.hdf5",
+            "mesh": "screw.ply"
+        }
+    },
+    "output": {
+        "paraview": {
+            "options": {
+                "contact_forces": true
+            }
+        }
+    },
+    "patch": [{
+        "op": "replace",
+        "path": "/geometry/0/mesh",
+        "value": "screw-coarse.msh"
+    }, {
+        "op": "replace",
+        "path": "/geometry/1/mesh",
+        "value": "../../../../meshes/3D/screw/nut.obj"
+    }],
+    "tests": {
+        "err_h1": 7.25465848150319e-05,
+        "err_h1_semi": 7.1823237172861e-05,
+        "err_l2": 1.0219078742018465e-05,
+        "err_linf": 0.0006565185117194613,
+        "err_linf_grad": 0.003774729362769392,
+        "err_lp": 0.0002042798142508479,
+        "margin": 1e-05,
+        "time_steps": 1
+    }
+}
