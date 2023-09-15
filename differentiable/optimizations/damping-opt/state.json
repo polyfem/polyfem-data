@@ -1,6 +1,5 @@
 {
-    "geometry": [
-        {
+    "geometry": [{
             "mesh": "wave.msh",
             "is_obstacle": true,
             "transformation": {
@@ -41,7 +40,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
         },
         "contact": {
             "barrier_stiffness": 1e4
@@ -52,15 +51,13 @@
             0,
             9.8
         ],
-        "dirichlet_boundary": [
-            {
-                "id": 3,
-                "value": [
-                    0,
-                    0
-                ]
-            }
-        ]
+        "dirichlet_boundary": [{
+            "id": 3,
+            "value": [
+                0,
+                0
+            ]
+        }]
     },
     "materials": {
         "type": "NeoHookean",
