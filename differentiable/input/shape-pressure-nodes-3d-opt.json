@@ -1,0 +1,30 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": []
+        }
+    ],
+    "parameters": [],
+    "functionals": [
+        {
+            "type": "transient_integral",
+            "integral_type": "final",
+            "state": 0,
+            "static_objective": {
+                "type": "stress_norm",
+                "state": 0,
+                "volume_selection": [
+                    1
+                ]
+            }
+        }
+    ],
+    "states": [
+        {
+            "path": "shape-pressure-nodes-3d.json"
+        }
+    ],
+    "solver": {}
+}
