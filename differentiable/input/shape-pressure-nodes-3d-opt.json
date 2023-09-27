@@ -13,9 +13,9 @@
             "integral_type": "final",
             "state": 0,
             "static_objective": {
-                "type": "stress_norm",
+                "type": "contact_force_norm",
                 "state": 0,
-                "volume_selection": [
+                "surface_selection": [
                     1
                 ]
             }
