@@ -99,7 +99,7 @@
     "time": {
         "t0": 0,
         "tend": 1.0,
-        "time_steps": 30,
+        "time_steps": 100,
         "integrator": {
             "type": "BDF",
             "steps": 1
