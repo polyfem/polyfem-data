@@ -57,7 +57,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "contact": {
-            "barrier_stiffness": 1e5,
+            "barrier_stiffness": 1e4,
             "friction_iterations": 1
         },
         "nonlinear": {
