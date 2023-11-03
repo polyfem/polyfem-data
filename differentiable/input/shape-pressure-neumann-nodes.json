@@ -120,7 +120,7 @@
             }
         },
         "advanced": {
-            "save_time_sequence": true
+            "save_time_sequence": false
         }
     }
 }
