@@ -78,7 +78,7 @@
         }
     ],
     "space": {
-        "discr_order": 1,
+        "discr_order": 2,
         "advanced": {
             "quadrature_order": 5,
             "n_boundary_samples": 5
@@ -92,7 +92,7 @@
             "barrier_stiffness": 1e4
         },
         "nonlinear": {
-            "f_delta": 1e-12,
+            "f_delta": 0,
             "line_search": {
                 "use_grad_norm_tol": 1e-7
             }
@@ -132,7 +132,7 @@
         "pressure_boundary": [
             {
                 "id": 2,
-                "value": "-200.0 * t"
+                "value": "-20.0 * t"
             }
         ]
     },
