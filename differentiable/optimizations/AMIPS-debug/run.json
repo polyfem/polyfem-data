@@ -1,10 +1,6 @@
 {
-    "variable_to_simulation": [
-
-    ],
-    "parameters": [
-
-    ],
+    "variable_to_simulation": [],
+    "parameters": [],
     "output": {
         "save_frequency": 1,
         "solve_log_level": 3
