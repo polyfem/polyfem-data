@@ -98,7 +98,7 @@
     },
     "states": [
         {
-            "path": "../3d-shape-layer-thickness/state.json"
+            "path": "state.json"
         }
     ]
 }
