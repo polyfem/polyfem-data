@@ -93,7 +93,8 @@
             "relative_gradient": false,
             "use_grad_norm": true,
             "solver_info_log": true,
-            "debug_fd": false
+            "debug_fd": false,
+	    "debug_fd_eps": 1e-8
         }
     },
     "states": [
