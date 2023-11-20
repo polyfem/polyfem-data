@@ -51,7 +51,7 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "backtracking"
+                "method": "Backtracking"
             },
             "solver": "newton",
             "grad_norm": 1e-05

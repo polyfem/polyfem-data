@@ -33,7 +33,7 @@
             "grad_norm": 1e-4,
             "f_delta": 0,
             "line_search": {
-                "method": "backtracking",
+                "method": "Backtracking",
                 "use_grad_norm_tol": 0
             },
             "export_energy": "shape-trajectory-surface-opt-new",

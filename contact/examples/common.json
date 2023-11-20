@@ -9,7 +9,7 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "backtracking"
+                "method": "Backtracking"
             },
             "solver": "newton",
             "x_delta": 1e-05

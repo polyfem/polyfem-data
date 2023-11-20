@@ -149,7 +149,7 @@
             "grad_norm": 1e-8,
             "f_delta": 0,
             "line_search": {
-                "method": "backtracking",
+                "method": "Backtracking",
                 "use_grad_norm_tol": 0
             },
             "export_energy": "2d-shape-traction-force",
