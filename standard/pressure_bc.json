@@ -46,7 +46,7 @@
             "line_search": {
                 "method": "Backtracking"
             },
-            "solver": "newton",
+            "solver": "Newton",
             "x_delta": 1e-05
         }
     },
