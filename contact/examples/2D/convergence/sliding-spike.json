@@ -16,7 +16,7 @@
         }],
         "transformation": {
             "rotation": 180,
-            "translation": [-5, 2.000001]
+            "translation": [-5, 2.0001]
         },
         "volume_selection": 1
     }, {
@@ -42,10 +42,15 @@
     },
     "time": {
         "time_steps": 400,
-        "tend": 1
+        "tend": 1,
+        "quasistatic": true
     },
     "solver": {
-        "ignore_inertia": true,
+        "nonlinear": {
+            "x_delta": 0,
+            "f_delta": 0,
+            "grad_norm": 1e-8
+        },
         "contact": {
             "barrier_stiffness": 1e4
         }

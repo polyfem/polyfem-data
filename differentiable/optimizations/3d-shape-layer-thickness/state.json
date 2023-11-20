@@ -1,16 +1,9 @@
 {
     "geometry": [
         {
-            "mesh": "box.msh",
-            "transformation": {
-                "scale": [
-                    2,
-                    2,
-                    2
-                ]
-            },
+            "mesh": "flat-box.msh",
             "volume_selection": 1,
-            "n_refs": 1,
+            "n_refs": 0,
             "advanced": {
                 "normalize_mesh": false
             },
@@ -18,30 +11,20 @@
                 {
                     "id": 1,
                     "axis": "-y",
-                    "position": 0,
-                    "relative": false
+                    "position": 0.01,
+                    "relative": true
                 },
                 {
                     "id": 2,
-                    "relative": false,
-                    "box": [
-                        [
-                            -1.1,
-                            0.99,
-                            -1.1
-                        ],
-                        [
-                            1.1,
-                            1.01,
-                            1.1
-                        ]
-                    ]
+                    "axis": "y",
+                    "position": 0.99,
+                    "relative": true
                 }
             ]
         }
     ],
     "space": {
-        "discr_order": 1,
+        "discr_order": 2,
         "advanced": {
             "n_boundary_samples": 5,
             "quadrature_order": 5
@@ -58,7 +41,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": "Eigen::PardisoLDLT"
         },
         "nonlinear": {
             "f_delta": 0,
@@ -66,21 +49,26 @@
             "max_iterations": 500
         },
         "contact": {
-            "barrier_stiffness": 100000000.0
+            "barrier_stiffness": 1000.0
         }
     },
     "materials": {
-        "E": 1000000000.0,
-        "nu": 0.47,
+        "E": 10000.0,
+        "nu": 0.4,
         "rho": 1000,
         "psi": 0,
         "phi": 0,
         "type": "NeoHookean"
     },
     "boundary_conditions": {
+        "rhs": [
+            0,
+            9.8,
+            0
+        ],
         "dirichlet_boundary": [
             {
-                "id": 1,
+                "id": 2,
                 "value": [
                     0,
                     0,
@@ -88,5 +76,17 @@
                 ]
             }
         ]
+    },
+    "output": {
+        "paraview": {
+            "vismesh_rel_area": 1,
+            "surface": true,
+            "options": {
+                "body_ids": false
+            }
+        },
+        "advanced": {
+            "save_time_sequence": false
+        }
     }
 }

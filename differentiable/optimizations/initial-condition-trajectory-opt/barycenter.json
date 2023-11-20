@@ -44,10 +44,13 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "f_delta": 1e-14
+            "f_delta": 0
         },
         "contact": {
             "barrier_stiffness": 1e5
@@ -73,7 +76,8 @@
             {
                 "id": 1,
                 "value": [
-                    4, 0
+                    4,
+                    0
                 ]
             }
         ]
@@ -89,7 +93,7 @@
             "vismesh_rel_area": 1
         },
         "advanced": {
-            "save_time_sequence": true
+            "save_time_sequence": false
         }
     }
 }

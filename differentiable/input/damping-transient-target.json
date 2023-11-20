@@ -61,7 +61,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
-            "f_delta": 1e-13,
+            "f_delta": 0,
             "line_search": {
                 "use_grad_norm_tol": 1e-3
             }
@@ -96,7 +96,7 @@
             }
         ]
     },
-    "optimization": { 
+    "optimization": {
         "enabled": true
     },
     "materials": {

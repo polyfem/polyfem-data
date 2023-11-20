@@ -57,7 +57,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "contact": {
-            "barrier_stiffness": 1e5,
+            "barrier_stiffness": 1e4,
             "friction_iterations": 1
         },
         "nonlinear": {
@@ -99,7 +99,7 @@
     "time": {
         "t0": 0,
         "tend": 1.0,
-        "time_steps": 30,
+        "time_steps": 100,
         "integrator": {
             "type": "BDF",
             "steps": 1
@@ -129,7 +129,7 @@
             }
         },
         "advanced": {
-            "save_time_sequence": true
+            "save_time_sequence": false
         }
     }
 }

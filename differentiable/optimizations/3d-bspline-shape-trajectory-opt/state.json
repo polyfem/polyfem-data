@@ -109,7 +109,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
-            "f_delta": 1e-12,
+            "f_delta": 0,
             "grad_norm": 1e-8,
             "max_iterations": 500
         },

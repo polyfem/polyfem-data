@@ -5,7 +5,10 @@
             "is_obstacle": true,
             "transformation": {
                 "rotation": 30,
-                "scale": [6, 3]
+                "scale": [
+                    6,
+                    3
+                ]
             },
             "volume_selection": 3,
             "surface_selection": 3
@@ -13,7 +16,10 @@
         {
             "mesh": "micro.msh",
             "transformation": {
-                "translation": [1, 1],
+                "translation": [
+                    1,
+                    1
+                ],
                 "rotation": 30,
                 "scale": 0.005
             },
@@ -41,10 +47,13 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "f_delta": 1e-14
+            "f_delta": 0
         },
         "contact": {
             "barrier_stiffness": 1e4

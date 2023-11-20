@@ -17,35 +17,26 @@
             "f_delta": 0
         }
     },
-    "states": [
-        {
-            "path": "state.json"
-        },
-        {
-            "path": "target.json"
-        }
-    ],
-    "variable_to_simulation": [
-
-    ],
-    "parameters": [
-
-    ],
-    "functionals": [
-        {
-            "type": "transient_integral",
+    "states": [{
+        "path": "state.json"
+    }, {
+        "path": "target.json"
+    }],
+    "variable_to_simulation": [],
+    "parameters": [],
+    "functionals": [{
+        "type": "transient_integral",
+        "state": 0,
+        "integral_type": "uniform",
+        "static_objective": {
+            "type": "target",
+            "matching": "exact",
             "state": 0,
-            "integral_type": "uniform",
-            "static_objective": {
-                "type": "target",
-                "matching": "exact",
-                "state": 0,
-                "target_state": 1,
-                "reference_cached_body_ids": [],
-                "surface_selection": [],
-                "weight": 100
-            },
-            "weight": 1
-        }
-    ]
+            "target_state": 1,
+            "reference_cached_body_ids": [],
+            "surface_selection": [],
+            "weight": 100
+        },
+        "weight": 1
+    }]
 }
