@@ -88,7 +88,7 @@
             "high_order_mesh": false,
             "vismesh_rel_area": 1
         },
-        "log": {"level": 2},
+        "log": {"level": 3},
         "advanced": {
             "save_time_sequence": true
         }
