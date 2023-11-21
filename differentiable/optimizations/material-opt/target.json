@@ -54,6 +54,8 @@
             ]
         },
         "nonlinear": {
+            "max_iterations": 200,
+            "grad_norm": 1e-3
         },
         "contact": {
             "barrier_stiffness": 1e4
