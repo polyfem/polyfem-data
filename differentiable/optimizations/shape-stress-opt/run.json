@@ -33,7 +33,6 @@
             "grad_norm": 1e-4,
             "debug_fd": false,
             "debug_fd_eps": 1e-6,
-            "f_delta": 0,
             "x_delta": 0,
             "export_energy": "shape-stress-opt",
             "export_energy_components": true,

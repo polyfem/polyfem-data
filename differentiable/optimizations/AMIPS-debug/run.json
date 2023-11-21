@@ -22,7 +22,6 @@
             "grad_norm": 1e-4,
             "debug_fd": true,
             "debug_fd_eps": 1e-5,
-            "f_delta": 0.001,
             "x_delta": 0,
             "export_energy": "AMIPS-debug",
             "export_energy_components": false,

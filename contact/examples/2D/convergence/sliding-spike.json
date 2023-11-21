@@ -48,7 +48,6 @@
     "solver": {
         "nonlinear": {
             "x_delta": 0,
-            "f_delta": 0,
             "grad_norm": 1e-8
         },
         "contact": {

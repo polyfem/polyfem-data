@@ -125,7 +125,6 @@
                 "solver": "lbfgs",
                 "max_iterations": 3,
                 "max_change": 1,
-                "f_delta": 0,
                 "export_energy": "initial-opt",
                 "grad_norm": 1e-6,
                 "min_step_size": 0

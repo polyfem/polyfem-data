@@ -46,7 +46,6 @@
             "debug_fd": false,
             "bounds": [1e-2, 1],
             "max_iterations": 21,
-            "f_delta": 0,
             "export_energy": "topology-opt",
             "solver_info_log": true
         }

@@ -86,13 +86,12 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "contact": {
             "barrier_stiffness": 1e4
         },
         "nonlinear": {
-            "f_delta": 1e-12,
             "line_search": {
                 "use_grad_norm_tol": 1e-7
             }

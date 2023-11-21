@@ -75,7 +75,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "contact": {
             "barrier_stiffness": 100000.0

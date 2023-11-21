@@ -7,7 +7,7 @@
     ],
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         }
     },
     "space": {

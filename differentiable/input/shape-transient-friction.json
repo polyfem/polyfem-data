@@ -45,10 +45,9 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
-            "f_delta": 1e-10,
             "line_search": {
                 "use_grad_norm_tol": 1e-3
             }

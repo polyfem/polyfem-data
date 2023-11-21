@@ -54,7 +54,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::SimplicialLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "contact": {
             "barrier_stiffness": 1e5,
@@ -62,8 +62,7 @@
         },
         "nonlinear": {
             "debug_fd": false,
-            "grad_norm": 1e-9,
-            "f_delta": 0
+            "grad_norm": 1e-9
         }
     },
     "optimization": {

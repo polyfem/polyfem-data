@@ -34,14 +34,14 @@
     },
     "contact": {
         "enabled": true,
-        "friction_coefficient": 1
+        "friction_coefficient": 1,
+        "use_convergent_formulation": true
     },
     "solver": {
         "linear": {
             "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
-            "f_delta": 1e-14
         },
         "contact": {
             "barrier_stiffness": 1e4
@@ -61,11 +61,14 @@
         "rho": 100
     },
     "output": {
+        "paraview": {
+            "file_name": "sim.pvd",
+            "high_order_mesh": false,
+            "vismesh_rel_area": 1
+        },
+        "log": {"level": 2},
         "advanced": {
             "save_time_sequence": false
         }
-    },
-    "optimization": {
-        "enabled": true
     }
 }
