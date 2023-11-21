@@ -1,5 +1,35 @@
 {
+    "boundary_conditions": {
+        "rhs": [0, 9.81]
+    },
     "common": "../../../common.json",
+    "geometry": [{
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "transformation": {
+            "rotation": 180,
+            "translation": [0, 3.0001]
+        },
+        "volume_selection": 1
+    }, {
+        "is_obstacle": true,
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+        "surface_selection": 0,
+        "transformation": {
+            "translation": [0, -3]
+        }
+    }],
+    "materials": [{
+        "E": 1000000.0,
+        "id": 1,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
+    "output": {
+        "paraview": {
+            "file_name": "spikes.pvd"
+        }
+    },
     "tests": {
         "err_h1": 0.05694387739968237,
         "err_h1_semi": 0.027457179384735728,
@@ -10,38 +40,8 @@
         "margin": 1e-05,
         "time_steps": "all"
     },
-    "geometry": [{
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "transformation": {
-            "translation": [0, 3.0001],
-            "rotation": 180
-        },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -3]
-        }
-    }],
     "time": {
-        "tend": 1.25,
-        "dt": 0.025
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81]
-    },
-    "materials": [{
-        "id": 1,
-        "E": 1e6,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
-    "output": {
-        "paraview": {
-            "file_name": "spikes.pvd"
-        }
+        "dt": 0.025,
+        "tend": 1.25
     }
 }

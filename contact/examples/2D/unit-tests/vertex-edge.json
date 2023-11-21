@@ -1,5 +1,46 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [{
+            "id": 1,
+            "value": [0, 0]
+        }],
+        "rhs": [0, 9.81]
+    },
     "common": "../../common.json",
+    "geometry": [{
+        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+        "transformation": {
+            "rotation": 180,
+            "translation": [0, 0.5, 0]
+        },
+        "volume_selection": 1
+    }, {
+        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+        "surface_selection": 1,
+        "transformation": {
+            "rotation": 180,
+            "translation": [0, -0.5, 0]
+        },
+        "volume_selection": 2
+    }],
+    "materials": [{
+        "E": 100000,
+        "id": 1,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }, {
+        "E": 100000,
+        "id": 2,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    }],
+    "output": {
+        "paraview": {
+            "file_name": "vertex-edge.pvd"
+        }
+    },
     "tests": {
         "err_h1": 0.11486518171327932,
         "err_h1_semi": 0.03844247377128291,
@@ -10,49 +51,8 @@
         "margin": 1e-05,
         "time_steps": "all"
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "transformation": {
-            "translation": [0, 0.5, 0],
-            "rotation": 180
-        },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "transformation": {
-            "translation": [0, -0.5, 0],
-            "rotation": 180
-        },
-        "volume_selection": 2,
-        "surface_selection": 1
-    }],
     "time": {
-        "tend": 5,
-        "dt": 0.025
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }]
-    },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
-    "output": {
-        "paraview": {
-            "file_name": "vertex-edge.pvd"
-        }
+        "dt": 0.025,
+        "tend": 5
     }
 }
