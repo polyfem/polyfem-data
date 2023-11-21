@@ -63,7 +63,7 @@
         "nu": 0.3,
         "rho": 1
     },
-    "optimization": { 
+    "optimization": {
         "enabled": true
     },
     "output": {

@@ -53,7 +53,7 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "backtracking"
+                "method": "Backtracking"
             },
             "x_delta": 1e-05
         }

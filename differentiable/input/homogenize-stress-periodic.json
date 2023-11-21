@@ -39,9 +39,23 @@
         "enabled": true
     },
     "boundary_conditions": {
-        "periodic_boundary": [true, true],
-        "linear_displacement_offset": [[0, 0],[0, -0.3]],
-        "fixed_macro_strain": [3]
+        "periodic_boundary": [
+            true,
+            true
+        ],
+        "linear_displacement_offset": [
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                -0.3
+            ]
+        ],
+        "fixed_macro_strain": [
+            3
+        ]
     },
     "output": {
         "log": {

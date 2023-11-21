@@ -1,15 +1,8 @@
 {
-    "common": "../../common.json",
-    "tests": {
-        "err_h1": 0.09460294625779099,
-        "err_h1_semi": 0.0062856466031474345,
-        "err_l2": 0.09439389857101375,
-        "err_linf": 0.2954688933779454,
-        "err_linf_grad": 0.2954688933779454,
-        "err_lp": 0.22213643873398145,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "rhs": [0, 9.81, 0]
     },
+    "common": "../../common.json",
     "geometry": [{
         "mesh": "../../../meshes/3D/simple/tet/tet-pyramid.msh",
         "transformation": {
@@ -17,23 +10,16 @@
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../meshes/3D/simple/tet/tet-pyramid.msh",
         "is_obstacle": true,
+        "mesh": "../../../meshes/3D/simple/tet/tet-pyramid.msh",
         "surface_selection": 0,
         "transformation": {
             "translation": [0, -0.5, 0]
         }
     }],
-    "time": {
-        "tend": 5,
-        "time_steps": 200
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
-    },
     "materials": [{
-        "id": 1,
         "E": 100000,
+        "id": 1,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -42,5 +28,19 @@
         "paraview": {
             "file_name": "face-vertex.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.09460335951585457,
+        "err_h1_semi": 0.006286063118029257,
+        "err_l2": 0.09439428500795048,
+        "err_linf": 0.29547010299102194,
+        "err_linf_grad": 0.29547010299102194,
+        "err_lp": 0.2221373481330657,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "tend": 5,
+        "time_steps": 200
     }
 }

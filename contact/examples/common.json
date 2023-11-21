@@ -5,13 +5,13 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
             "line_search": {
-                "method": "backtracking"
+                "method": "Backtracking"
             },
-            "solver": "newton",
+            "solver": "Newton",
             "x_delta": 1e-05
         },
         "advanced": {

@@ -250,7 +250,7 @@
             "vismesh_rel_area": 1
         },
         "advanced": {
-            "save_time_sequence": true
+            "save_time_sequence": false
         }
     }
 }

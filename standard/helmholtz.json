@@ -9,19 +9,19 @@
         "surface_selection": 1
     },
     "materials": {
-        "type": "Helmholtz",
-        "k": 1
+        "k": 1,
+        "type": "Helmholtz"
     },
     "preset_problem": {
         "type": "Franke"
     },
     "tests": {
-        "err_h1": 0.49161574246620626,
-        "err_h1_semi": 0.4420483530040666,
-        "err_l2": 0.21512622305751422,
-        "err_linf": 0.4095922639915758,
-        "err_linf_grad": 0.4095922639915758,
-        "err_lp": 0.31052564088040235,
+        "err_h1": 0.4555415088514371,
+        "err_h1_semi": 0.40587336411972685,
+        "err_l2": 0.20684505936758463,
+        "err_linf": 0.37938812615430506,
+        "err_linf_grad": 0.37938812615430506,
+        "err_lp": 0.2875176217766232,
         "margin": 1e-05,
         "time_steps": "static"
     }

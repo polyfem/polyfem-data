@@ -1,23 +1,32 @@
 {
-    "geometry": [{
-        "mesh": "wave.msh",
-        "is_obstacle": true,
-        "transformation": {
-            "rotation": 30,
-            "scale": [6, 3]
+    "geometry": [
+        {
+            "mesh": "wave.msh",
+            "is_obstacle": true,
+            "transformation": {
+                "rotation": 30,
+                "scale": [
+                    6,
+                    3
+                ]
+            },
+            "volume_selection": 3,
+            "surface_selection": 3
         },
-        "volume_selection": 3,
-        "surface_selection": 3
-    }, {
-        "mesh": "micro.msh",
-        "transformation": {
-            "translation": [1, 1],
-            "rotation": 30,
-            "scale": 0.005
-        },
-        "volume_selection": 1,
-        "surface_selection": 1
-    }],
+        {
+            "mesh": "micro.msh",
+            "transformation": {
+                "translation": [
+                    1,
+                    1
+                ],
+                "rotation": 30,
+                "scale": 0.005
+            },
+            "volume_selection": 1,
+            "surface_selection": 1
+        }
+    ],
     "space": {
         "discr_order": 1,
         "advanced": {
@@ -39,7 +48,10 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
         },
@@ -48,11 +60,19 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.8],
-        "dirichlet_boundary": [{
-            "id": 3,
-            "value": [0, 0]
-        }]
+        "rhs": [
+            0,
+            9.8
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "materials": {
         "type": "NeoHookean",

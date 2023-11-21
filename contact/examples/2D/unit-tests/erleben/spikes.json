@@ -1,40 +1,26 @@
 {
-    "common": "../../../common.json",
-    "tests": {
-        "err_h1": 0.05694387739968237,
-        "err_h1_semi": 0.027457179384735728,
-        "err_l2": 0.04988695694812923,
-        "err_linf": 0.040732529781036184,
-        "err_linf_grad": 0.040732529781036184,
-        "err_lp": 0.042850193862468376,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "boundary_conditions": {
+        "rhs": [0, 9.81]
     },
+    "common": "../../../common.json",
     "geometry": [{
         "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
         "transformation": {
-            "translation": [0, 3.0001],
-            "rotation": 180
+            "rotation": 180,
+            "translation": [0, 3.0001]
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
         "is_obstacle": true,
+        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [0, -3]
         }
     }],
-    "time": {
-        "tend": 1.25,
-        "dt": 0.025
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81]
-    },
     "materials": [{
+        "E": 1000000.0,
         "id": 1,
-        "E": 1e6,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -43,5 +29,19 @@
         "paraview": {
             "file_name": "spikes.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.056944551671271236,
+        "err_h1_semi": 0.027457495294210238,
+        "err_l2": 0.049887552728215705,
+        "err_linf": 0.04073301623343977,
+        "err_linf_grad": 0.04073301623343977,
+        "err_lp": 0.04285070560529188,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.025,
+        "tend": 1.25
     }
 }

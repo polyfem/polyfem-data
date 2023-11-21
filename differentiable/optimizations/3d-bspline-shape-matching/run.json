@@ -188,7 +188,7 @@
             "max_iterations": 4,
             "grad_norm": 1e-8,
             "line_search": {
-                "method": "backtracking",
+                "method": "Backtracking",
                 "use_grad_norm_tol": 0
             },
             "export_energy": "3d-bspline-shape-matching",

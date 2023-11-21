@@ -44,7 +44,10 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
         },
@@ -72,7 +75,8 @@
             {
                 "id": 1,
                 "value": [
-                    4, 0
+                    4,
+                    0
                 ]
             }
         ]
@@ -88,7 +92,7 @@
             "vismesh_rel_area": 1
         },
         "advanced": {
-            "save_time_sequence": true
+            "save_time_sequence": false
         }
     }
 }

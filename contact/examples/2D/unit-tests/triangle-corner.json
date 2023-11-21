@@ -1,14 +1,10 @@
 {
+    "boundary_conditions": {
+        "rhs": [0, 9.81]
+    },
     "common": "../../common.json",
-    "tests": {
-        "err_h1": 0.7843626722336551,
-        "err_h1_semi": 0.018950851723202416,
-        "err_l2": 0.7841337046782809,
-        "err_linf": 1.108932519869884,
-        "err_linf_grad": 1.108932519869884,
-        "err_lp": 1.016895604361828,
-        "margin": 1e-05,
-        "time_steps": "all"
+    "contact": {
+        "dhat": 1e-06
     },
     "geometry": [{
         "mesh": "../../../meshes/2D/simple/triangle/right.obj",
@@ -17,40 +13,30 @@
         },
         "volume_selection": 1
     }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
         "is_obstacle": true,
+        "mesh": "../../../meshes/2D/simple/square.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [-0.5000005, 0]
         }
     }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
         "is_obstacle": true,
+        "mesh": "../../../meshes/2D/simple/square.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [1.5000005, 0]
         }
     }, {
-        "mesh": "../../../meshes/2D/obstacles/line.obj",
         "is_obstacle": true,
+        "mesh": "../../../meshes/2D/obstacles/line.obj",
         "surface_selection": 0,
         "transformation": {
             "translation": [0.5, -0.5]
         }
     }],
-    "time": {
-        "tend": 5,
-        "dt": 0.025
-    },
-    "contact": {
-        "dhat": 1e-6
-    },
-    "boundary_conditions": {
-        "rhs": [0, 9.81]
-    },
     "materials": [{
-        "id": 1,
         "E": 100000,
+        "id": 1,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -59,5 +45,19 @@
         "paraview": {
             "file_name": "triangle-corner.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.7843629771686383,
+        "err_h1_semi": 0.018951704930358113,
+        "err_l2": 0.7841339890816381,
+        "err_linf": 1.108932922076969,
+        "err_linf_grad": 1.108932922076969,
+        "err_lp": 1.0168959731873513,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.025,
+        "tend": 5
     }
 }

@@ -71,7 +71,7 @@
             }
         ]
     },
-    "optimization": { 
+    "optimization": {
         "enabled": true
     },
     "materials": {
