@@ -5,7 +5,7 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
             "line_search": {
