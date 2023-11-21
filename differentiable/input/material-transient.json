@@ -53,6 +53,10 @@
         "linear": {
             "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
+        "nonlinear": {
+            "grad_norm": 3e-6,
+            "max_iterations": 100
+        },
         "contact": {
             "barrier_stiffness": 1e5
         }

@@ -27,7 +27,7 @@
     "solver": {
         "nonlinear": {
             "solver": "L-BFGS",
-            "max_iterations": 20,
+            "max_iterations": 9,
             "grad_norm": 1e-4,
             "x_delta": 0
         }
