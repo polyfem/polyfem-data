@@ -3,12 +3,8 @@
         "save_frequency": 100,
         "solve_log_level": 3
     },
-    "variable_to_simulation": [
-
-    ],
-    "parameters": [
-
-    ],
+    "variable_to_simulation": [],
+    "parameters": [],
     "functionals": [
         {
             "type": "trajectory",
@@ -27,7 +23,7 @@
     "solver": {
         "nonlinear": {
             "export_energy": "shape-trajectory-surface-opt-bspline",
-            "solver": "lbfgs",
+            "solver": "L-BFGS",
             "better_initial_guess": true,
             "min_step_size": 1e-8,
             "max_step_size": 1,

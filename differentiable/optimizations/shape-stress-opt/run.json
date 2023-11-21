@@ -26,7 +26,7 @@
     },
     "solver": {
         "nonlinear": {
-            "solver": "lbfgs",
+            "solver": "L-BFGS",
             "min_step_size": 1e-8,
             "max_step_size": 1,
             "max_iterations": 9,
@@ -59,7 +59,9 @@
             "objective": {
                 "type": "volume",
                 "state": 0,
-                "volume_selection": [1]
+                "volume_selection": [
+                    1
+                ]
             },
             "weight": 10,
             "soft_bound": [

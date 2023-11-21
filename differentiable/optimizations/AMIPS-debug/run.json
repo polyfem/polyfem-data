@@ -10,7 +10,7 @@
             "enabled": false
         },
         "nonlinear": {
-            "solver": "lbfgs",
+            "solver": "L-BFGS",
             "better_initial_guess": true,
             "min_step_size": 1e-8,
             "max_step_size": 1,

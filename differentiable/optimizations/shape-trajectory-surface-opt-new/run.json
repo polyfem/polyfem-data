@@ -3,12 +3,8 @@
         "save_frequency": 100,
         "solve_log_level": 3
     },
-    "variable_to_simulation": [
-
-    ],
-    "parameters": [
-
-    ],
+    "variable_to_simulation": [],
+    "parameters": [],
     "functionals": [
         {
             "type": "trajectory",
@@ -26,7 +22,7 @@
     ],
     "solver": {
         "nonlinear": {
-            "solver": "lbfgs",
+            "solver": "L-BFGS",
             "min_step_size": 1e-8,
             "max_step_size": 1.0,
             "max_iterations": 4,

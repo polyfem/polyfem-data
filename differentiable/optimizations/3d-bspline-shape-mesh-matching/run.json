@@ -81,7 +81,7 @@
     ],
     "solver": {
         "nonlinear": {
-            "solver": "lbfgs",
+            "solver": "L-BFGS",
             "min_step_size": 1e-8,
             "max_step_size": 1.0,
             "max_iterations": 4,
