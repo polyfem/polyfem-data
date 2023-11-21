@@ -7,12 +7,7 @@
         "nonlinear": {
             "first_grad_norm_tol": 100,
             "solver": "GradientDescent",
-            "min_step_size": 1e-5,
-            "max_step_size": 1,
-            "debug_fd": false,
-            "debug_fd_eps": 1e-7,
             "max_iterations": 5,
-            "export_energy": "material-opt",
             "grad_norm": 1e-9
         }
     },

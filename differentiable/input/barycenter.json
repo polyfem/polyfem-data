@@ -46,8 +46,11 @@
         "linear": {
             "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
+        "nonlinear": {
+            "max_iterations": 1000
+        },
         "contact": {
-            "barrier_stiffness": 1e5
+            "barrier_stiffness": 1e4
         }
     },
     "boundary_conditions": {
@@ -76,7 +79,7 @@
             }
         ]
     },
-    "optimization": { 
+    "optimization": {
         "enabled": true
     },
     "materials": {
