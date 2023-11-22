@@ -47,10 +47,11 @@
             "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
-            "max_iterations": 1000
+            "grad_norm": 1e-5,
+            "max_iterations": 200
         },
         "contact": {
-            "barrier_stiffness": 1e4
+            "barrier_stiffness": 1e5
         }
     },
     "boundary_conditions": {
@@ -89,6 +90,9 @@
         "rho": 1000
     },
     "output": {
+        "log": {
+            "level": "info"
+        },
         "paraview": {
             "vismesh_rel_area": 1
         },
