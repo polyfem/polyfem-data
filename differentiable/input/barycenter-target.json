@@ -91,7 +91,7 @@
     },
     "output": {
         "log": {
-            "level": "info"
+            "level": "warning"
         },
         "paraview": {
             "vismesh_rel_area": 1
