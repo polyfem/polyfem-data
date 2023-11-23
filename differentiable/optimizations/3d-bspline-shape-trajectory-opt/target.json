@@ -92,9 +92,6 @@
             "quadrature_order": 5
         }
     },
-    "optimization": {
-        "enabled": true
-    },
     "time": {
         "t0": 0,
         "tend": 0.5,

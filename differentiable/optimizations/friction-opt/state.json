@@ -76,8 +76,5 @@
         "advanced": {
             "save_time_sequence": false
         }
-    },
-    "optimization": {
-        "enabled": true
     }
 }

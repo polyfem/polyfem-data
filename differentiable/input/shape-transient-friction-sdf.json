@@ -70,9 +70,6 @@
         "dhat": 0.001,
         "friction_coefficient": 0.2
     },
-    "optimization": {
-        "enabled": true
-    },
     "solver": {
         "linear": {
             "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]

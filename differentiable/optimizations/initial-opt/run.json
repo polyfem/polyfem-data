@@ -98,39 +98,5 @@
         "advanced": {
             "save_time_sequence": false
         }
-    },
-    "optimization": {
-        "enabled": true,
-        "parameters": [
-            {
-                "type": "initial",
-                "restriction": "velocity",
-                "volume_selection": [
-                    1
-                ]
-            }
-        ],
-        "functionals": [
-            {
-                "type": "trajectory",
-                "matching": "exact",
-                "path": "target.json",
-                "weight": 1
-            }
-        ],
-        "output": {
-            "solve_log_level": 4,
-            "save_frequency": 100
-        },
-        "solver": {
-            "nonlinear": {
-                "solver": "L-BFGS",
-                "max_iterations": 3,
-                "max_change": 1,
-                "export_energy": "initial-opt",
-                "grad_norm": 1e-6,
-                "min_step_size": 0
-            }
-        }
     }
 }

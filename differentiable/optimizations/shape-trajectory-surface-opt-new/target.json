@@ -100,9 +100,6 @@
             "barrier_stiffness": 100000000.0
         }
     },
-    "optimization": {
-        "enabled": true
-    },
     "boundary_conditions": {
         "dirichlet_boundary": [
             {

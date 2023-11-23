@@ -80,9 +80,6 @@
             }
         ]
     },
-    "optimization": {
-        "enabled": true
-    },
     "materials": {
         "type": "NeoHookean",
         "E": 1000000.0,

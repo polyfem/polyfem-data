@@ -97,9 +97,6 @@
             }
         }
     },
-    "optimization": {
-        "enabled": true
-    },
     "contact": {
         "enabled": true,
         "dhat": 0.001

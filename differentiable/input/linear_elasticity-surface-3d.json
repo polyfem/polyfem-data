@@ -49,8 +49,5 @@
         "type": "LinearElasticity",
         "lambda": 17284000.0,
         "mu": 7407410.0
-    },
-    "optimization": { 
-        "enabled": true
     }
 }

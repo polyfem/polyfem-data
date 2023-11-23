@@ -65,9 +65,6 @@
             "grad_norm": 1e-9
         }
     },
-    "optimization": {
-        "enabled": true
-    },
     "contact": {
         "enabled": true,
         "dhat": 0.01,

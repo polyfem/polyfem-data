@@ -63,9 +63,6 @@
         "nu": 0.3,
         "rho": 1
     },
-    "optimization": {
-        "enabled": true
-    },
     "output": {
         "paraview": {
             "vismesh_rel_area": 1,

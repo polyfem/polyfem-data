@@ -27,8 +27,5 @@
     },
     "materials": {
         "type": "Laplacian"
-    },
-    "optimization": { 
-        "enabled": true
     }
 }

@@ -73,9 +73,6 @@
             ]
         }
     ],
-    "optimization": {
-        "enabled": true
-    },
     "space": {
         "discr_order": 1,
         "advanced": {

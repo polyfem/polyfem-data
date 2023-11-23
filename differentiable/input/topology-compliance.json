@@ -20,9 +20,6 @@
             "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         }
     },
-    "optimization": { 
-        "enabled": true
-    },
     "boundary_conditions": {
         "rhs": [
             10,

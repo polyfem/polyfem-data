@@ -39,8 +39,5 @@
         "E": 1e4,
         "nu": 0.5,
         "rho": 1
-    },
-    "optimization": {
-        "enabled": true
     }
 }

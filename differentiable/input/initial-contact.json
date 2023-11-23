@@ -76,9 +76,6 @@
             }
         ]
     },
-    "optimization": { 
-        "enabled": true
-    },
     "materials": {
         "type": "NeoHookean",
         "E": 1e5,
