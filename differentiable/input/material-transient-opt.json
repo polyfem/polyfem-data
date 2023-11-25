@@ -1,6 +1,10 @@
 {
     "variable_to_simulation": [
-
+        {
+            "type": "elastic",
+            "state": 0,
+            "composition": []
+        }
     ],
     "parameters": [
 
@@ -23,6 +27,9 @@
     "states": [
         {
             "path": "material-transient.json"
+        },
+        {
+            "path": "material-transient-target.json"
         }
     ],
     "solver": {

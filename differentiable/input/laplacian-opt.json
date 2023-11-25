@@ -12,12 +12,20 @@
     "functionals": [
         {
             "type": "stress_norm",
+            "weight": 1e4,
             "state": 0
+        },
+        {
+            "type": "boundary_smoothing",
+            "weight": 1,
+            "state": 0,
+            "scale_invariant": true,
+            "power": 3
         }
     ],
     "states": [
         {
-            "path": "laplacian-state.json",
+            "path": "laplacian.json",
             "id": 0
         }
     ],

@@ -1,6 +1,10 @@
 {
     "variable_to_simulation": [
-
+        {
+            "type": "initial",
+            "state": 0,
+            "composition": []
+        }
     ],
     "parameters": [
 

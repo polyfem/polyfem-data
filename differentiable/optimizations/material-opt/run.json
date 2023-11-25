@@ -19,8 +19,27 @@
             "path": "target.json"
         }
     ],
-    "variable_to_simulation": [],
-    "parameters": [],
+    "variable_to_simulation": [
+        {
+            "type": "elastic",
+            "state": 0,
+            "composition": [
+                {
+                    "type": "exp"
+                },
+                {
+                    "type": "per-body-to-per-elem",
+                    "state": 0
+                }
+            ]
+        }
+    ],
+    "parameters": [
+        {
+            "initial": [10.0088, 7.92941],
+            "number": 2
+        }
+    ],
     "functionals": [
         {
             "type": "transient_integral",
