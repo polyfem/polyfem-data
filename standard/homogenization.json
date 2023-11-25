@@ -1,0 +1,47 @@
+{
+    "tests": {
+        "err_h1": 1.8448625654604327,
+        "err_h1_semi": 1.2227283228073822,
+        "err_l2": 1.381467818677618,
+        "err_linf": 1.1714651468857102,
+        "err_linf_grad": 1.1714651468857102,
+        "err_lp": 1.0458512060904637
+    },
+    "geometry": [
+        {
+            "mesh": "periodic_x.obj"
+        }
+    ],
+    "space": {
+        "discr_order": 1
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 5e-3,
+        "periodic": true
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLLT"
+        },
+        "nonlinear": {
+            "grad_norm": 1e-7
+        },
+        "contact": {
+            "barrier_stiffness": 1e2
+        }
+    },
+    "boundary_conditions": {
+        "periodic_boundary": {
+            "enabled": true,
+            "linear_displacement_offset": [[0, 0],[0, -0.3]],
+            "fixed_macro_strain": [3]
+        }
+    },
+    "common": "common.json",
+    "materials": {
+        "type": "NeoHookean",
+        "E": 1e3,
+        "nu": 0.5
+    }
+}
