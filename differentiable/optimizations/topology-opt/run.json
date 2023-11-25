@@ -46,15 +46,17 @@
         "nonlinear": {
             "solver": "MMA",
             "grad_norm": 0.0255,
-            "debug_fd": false,
-            "debug_fd_eps": 1e-7,
-            "bounds": [
-                1e-2,
-                1
-            ],
-            "max_iterations": 21,
-            "export_energy": "topology-opt",
-            "solver_info_log": true
+            "box_constraints": {
+                "bounds": [
+                    1e-2,
+                    1
+                ],
+                "max_change": 1
+            },
+            "line_search": {
+                "method": "None"
+            },
+            "max_iterations": 21
         }
     },
     "functionals": [
