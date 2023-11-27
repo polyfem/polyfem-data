@@ -13,6 +13,14 @@
         {
             "type": "stress_norm",
             "state": 0
+        },
+        {
+            "type": "collision_barrier",
+            "state": 0
+        },
+        {
+            "type": "deformed_collision_barrier",
+            "state": 0
         }
     ],
     "solver": {
