@@ -1,0 +1,46 @@
+{
+    "tests": {
+        "err_h1": 0.3398329576725553,
+        "err_h1_semi": 0.31747426786800215,
+        "err_l2": 0.12122923889125406,
+        "err_linf": 0.32696761633028404,
+        "err_linf_grad": 0.32696761633028404,
+        "err_lp": 0.20309177198726008
+    },
+    "geometry": [
+        {
+            "mesh": "unit_cell.msh"
+        }
+    ],
+    "space": {
+        "discr_order": 1
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLDLT"
+        },
+        "nonlinear": {
+            "grad_norm": 1e-8,
+            "Newton": {
+                "use_psd_projection": true
+            }
+        },
+        "augmented_lagrangian": {
+            "initial_weight": 1e1,
+            "error": 1e-2
+        }
+    },
+    "boundary_conditions": {
+        "periodic_boundary": {
+            "enabled": true,
+            "linear_displacement_offset": [[0, 0, 0],[0, -0.2, 0],[0, 0, 0]],
+            "fixed_macro_strain": [4]
+        }
+    },
+    "common": "common.json",
+    "materials": {
+        "type": "NeoHookean",
+        "E": 1e3,
+        "nu": 0.3
+    }
+}
