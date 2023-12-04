@@ -44,7 +44,6 @@
             "solver": "Eigen::PardisoLDLT"
         },
         "nonlinear": {
-            "f_delta": 0,
             "grad_norm": 1e-8,
             "max_iterations": 500
         },
