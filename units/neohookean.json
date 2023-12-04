@@ -1,0 +1,22 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "E": {
+            "value": 20,
+            "unit": "kPa"
+        },
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "tests": {
+        "err_h1": 0.22614596282482594,
+        "err_h1_semi": 0.21798642314867062,
+        "err_l2": 0.06019896863581861,
+        "err_linf": 0.08992836526389017,
+        "err_linf_grad": 0.22054922928059184,
+        "err_lp": 0.07432569145134735,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
