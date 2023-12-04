@@ -1,7 +1,7 @@
 {
     "output": {
         "save_frequency": 1,
-        "solve_log_level": 3
+        "solve_log_level": 2
     },
     "variable_to_simulation": [
         {
@@ -66,35 +66,14 @@
                 1,
                 2
             ]
-        },
-        {
-            "type": "AMIPS",
-            "print_energy": "AMIPS",
-            "weight": 1e-8,
-            "state": 0,
-            "volume_selection": [
-                1
-            ]
         }
     ],
     "solver": {
         "nonlinear": {
             "solver": "L-BFGS",
-            "min_step_size": 1e-8,
-            "max_step_size": 1.0,
-            "max_iterations": 4,
-            "grad_norm": 1e-8,
-            "f_delta": 0,
-            "line_search": {
-                "method": "Backtracking",
-                "use_grad_norm_tol": 0
-            },
-            "export_energy": "3d-shape-layer-thickness",
-            "relative_gradient": false,
-            "use_grad_norm": true,
-            "solver_info_log": true,
-            "debug_fd": false,
-            "debug_fd_eps": 1e-8
+            "max_iterations": 10,
+            "grad_norm": 1e-4,
+            "x_delta": 0
         }
     },
     "states": [
