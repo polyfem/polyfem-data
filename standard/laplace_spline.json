@@ -1,0 +1,30 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../quad_test/quad.obj",
+        "n_refs": 5,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "space": {
+        "basis_type": "Spline"
+    },
+    "tests": {
+        "err_h1": 1.6532841993213463,
+        "err_h1_semi": 1.5764853496731641,
+        "err_l2": 0.498038739448556,
+        "err_linf": 1.2190785441251184,
+        "err_linf_grad": 1.442862724078799,
+        "err_lp": 0.8028930945683441,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
