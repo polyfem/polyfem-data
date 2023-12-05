@@ -1,0 +1,20 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "c1": 7692,
+        "c2": -5000,
+        "c3": 10,
+        "d1": 11540.0,
+        "type": "MooneyRivlin3Param"
+    },
+    "tests": {
+        "err_h1": 0.2443077297440453,
+        "err_h1_semi": 0.2358648997164281,
+        "err_l2": 0.06367115433576491,
+        "err_linf": 0.0931820522408618,
+        "err_linf_grad": 0.2414465238276038,
+        "err_lp": 0.07643553099146178,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
