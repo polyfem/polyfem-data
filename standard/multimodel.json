@@ -1,0 +1,165 @@
+{
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "common": "common.json",
+    "contact": {
+        "dhat": 0.001,
+        "enabled": true
+    },
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.2,
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../contact/meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.2,
+                "translation": [
+                    0,
+                    0.205,
+                    0
+                ]
+            },
+            "volume_selection": 2
+        },
+        {
+            "mesh": "../contact/meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.2,
+                "translation": [
+                    0,
+                    0.41,
+                    0
+                ]
+            },
+            "volume_selection": 3
+        },
+        {
+            "mesh": "../contact/meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.2,
+                "translation": [
+                    0,
+                    0.615,
+                    0
+                ]
+            },
+            "volume_selection": 4
+        },
+        {
+            "mesh": "../contact/meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.2,
+                "translation": [
+                    0,
+                    0.82,
+                    0
+                ]
+            },
+            "volume_selection": 5
+        },
+        {
+            "is_obstacle": true,
+            "mesh": "../contact/meshes/3D/obstacles/plane.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "dimensions": [
+                    2,
+                    0,
+                    2
+                ],
+                "translation": [
+                    0,
+                    -0.315,
+                    0
+                ]
+            }
+        }
+    ],
+    "materials": [
+        {
+            "E": 100000,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "E": 100000,
+            "id": 2,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "LinearElasticity"
+        },
+        {
+            "E": 100000,
+            "id": 3,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "SaintVenant"
+        },
+        {
+            "c1": 7692,
+            "c2": -5000,
+            "id": 4,
+            "k": 11540.0,
+            "rho": 1000,
+            "type": "MooneyRivlin"
+        },
+        {
+            "c": 32900,
+            "id": 5,
+            "k": 100000.0,
+            "m": 6.82,
+            "rho": 1000,
+            "type": "IncompressibleOgden"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "lump_mass_matrix": true
+        },
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "method": "Backtracking"
+            },
+            "solver": "Newton",
+            "x_delta": 1e-05
+        }
+    },
+    "tests": {
+        "err_h1": 0.0001962,
+        "err_h1_semi": 8.900919532882687e-19,
+        "err_l2": 0.0001962,
+        "err_linf": 0.0009810000000000005,
+        "err_linf_grad": 0.0009810000000000005,
+        "err_lp": 0.0006560342391818702,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "tend": 0.1,
+        "time_steps": 10
+    }
+}
