@@ -1,0 +1,98 @@
+{
+    "geometry": {
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 3,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ],
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "-4*t",
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    "4*t",
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 1e-5
+            }
+        }
+    },
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd",
+            "options": {
+                "material": true,
+                "body_ids": true
+            },
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": true
+        }
+    }
+}
