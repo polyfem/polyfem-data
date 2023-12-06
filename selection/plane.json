@@ -1,0 +1,44 @@
+{
+    "common": "main.json",
+    "geometry": {
+        "mesh": "../contact/meshes/3D/creatures/alien.msh",
+        "surface_selection": [
+            {
+                "id": 1,
+                "normal": [
+                    -1,
+                    -1,
+                    0
+                ],
+                "point": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "normal": [
+                    0.5,
+                    1,
+                    0
+                ],
+                "point": [
+                    0,
+                    2,
+                    0
+                ]
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 0.13396557392608405,
+        "err_h1_semi": 0.1085725863357185,
+        "err_l2": 0.07847782166776829,
+        "err_linf": 0.1,
+        "err_linf_grad": 0.29838852036784586,
+        "err_lp": 0.08702125840876548,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
