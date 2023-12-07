@@ -8,6 +8,7 @@
             "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
+            "iterations_per_strategy": 1,
             "line_search": {
                 "method": "Backtracking"
             },
