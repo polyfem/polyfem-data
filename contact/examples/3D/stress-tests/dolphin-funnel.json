@@ -47,7 +47,10 @@
     },
     "solver": {
         "augmented_lagrangian": {
-            "max_solver_iters": 100
+            "nonlinear": {
+                "max_iterations": 100,
+                "allow_out_of_iterations": true
+            }
         },
         "nonlinear": {
             "max_iterations": 10000
