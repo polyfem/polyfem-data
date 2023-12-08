@@ -61,7 +61,6 @@
             "friction_iterations": 1
         },
         "nonlinear": {
-            "debug_fd": false,
             "grad_norm": 1e-9
         }
     },
