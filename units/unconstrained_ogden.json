@@ -1,0 +1,26 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "Ds": {
+            "value": 2e-02,
+            "unit": "mPa"
+        },
+        "alphas": 6.82,
+        "id": 1,
+        "mus": {
+            "value": 32.9,
+            "unit": "kPa"
+        },
+        "type": "UnconstrainedOgden"
+    },
+    "tests": {
+        "err_h1": 0.23055766307897013,
+        "err_h1_semi": 0.22231416973291424,
+        "err_l2": 0.0611002941105925,
+        "err_linf": 0.0911145768286739,
+        "err_linf_grad": 0.22600035625426246,
+        "err_lp": 0.07492179874791555,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

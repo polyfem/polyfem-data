@@ -1,0 +1,42 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": 0
+            }
+        ],
+        "rhs": 10
+    },
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 3,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Bilaplacian"
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SparseLU"
+            ]
+        }
+    },
+    "tests": {
+        "err_h1": 0.007043825631527976,
+        "err_h1_semi": 0.006963505779693381,
+        "err_l2": 0.001060691653378756,
+        "err_linf": 0.00370511130192172,
+        "err_linf_grad": 0.00946916937395247,
+        "err_lp": 0.002181031395962224,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

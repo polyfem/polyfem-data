@@ -1,0 +1,18 @@
+{
+    "common": "main.json",
+    "tests": {
+        "err_h1": 0.8778674070800996,
+        "err_h1_semi": 0.8453817951782927,
+        "err_l2": 0.23660263057426972,
+        "err_linf": 0.3576812550611236,
+        "err_linf_grad": 0.8494200965569673,
+        "err_lp": 0.2956388702607306,
+        "margin": 1e-05,
+        "time_steps": 10
+    },
+    "time": {
+        "integrator": "BDF3",
+        "tend": 0.1,
+        "time_steps": 10
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/2D/simple/square1K.msh",
+            "surface_selection": [
+                {
+                    "box": [
+                        [
+                            -10,
+                            -10
+                        ],
+                        [
+                            10,
+                            10
+                        ]
+                    ],
+                    "id": 7
+                }
+            ]
+        }
+    ],
+    "materials": {
+        "type": "NavierStokes",
+        "viscosity": {
+            "value": 0.1,
+            "unit": "Pa s"
+        }
+    },
+    "output": {
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": false
+        },
+        "paraview": {
+            "file_name": "sol.vtu"
+        }
+    },
+    "preset_problem": {
+        "type": "Kovnaszy",
+        "viscosity": 0.1
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLU",
+                "Eigen::SparseLU"
+            ]
+        }
+    },
+    "space": {
+        "discr_order": 2,
+        "pressure_discr_order": 1
+    },
+    "tests": {
+        "err_h1": 0.011225252466484674,
+        "err_h1_semi": 0.011225130211934753,
+        "err_l2": 5.2389516412422145e-05,
+        "err_linf": 0.0002996079930360823,
+        "err_linf_grad": 0.0032762600407896724,
+        "err_lp": 0.00012725848571597232,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

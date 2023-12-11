@@ -1,0 +1,32 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "surface_selection": 1
+    },
+    "materials": {
+        "E": 20000,
+        "nu": 0.3,
+        "type": "LinearElasticity"
+    },
+    "preset_problem": {
+        "type": "ElasticExact"
+    },
+    "space": {
+        "use_p_ref": true
+    },
+    "tests": {
+        "err_h1": 0.12174092023968201,
+        "err_h1_semi": 0.10766249010909389,
+        "err_l2": 0.056829920678405664,
+        "err_linf": 0.1103684354635504,
+        "err_linf_grad": 0.11671515007254132,
+        "err_lp": 0.07221613054718601,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

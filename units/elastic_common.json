@@ -1,0 +1,88 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "unit": "m",
+        "n_refs": 2,
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 3,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ],
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    {
+                        "value": -0.1,
+                        "unit": "m"
+                    },
+                    {
+                        "value": 0,
+                        "unit": "mm"
+                    },
+                    {
+                        "value": 0,
+                        "unit": "ft"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0.1,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 1e-5
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/2D/simple/circle/circle14.obj",
+        "n_refs": 2,
+        "surface_selection": 1
+    },
+    "materials": {
+        "E": 20000,
+        "nu": 0.3,
+        "type": "LinearElasticity"
+    },
+    "preset_problem": {
+        "type": "ElasticExact"
+    },
+    "space": {
+        "use_p_ref": true
+    },
+    "tests": {
+        "err_h1": 0.09875565700528587,
+        "err_h1_semi": 0.09393352644394294,
+        "err_l2": 0.030482329313074794,
+        "err_linf": 0.08538535146232251,
+        "err_linf_grad": 0.12404791218069523,
+        "err_lp": 0.05417478943051744,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
