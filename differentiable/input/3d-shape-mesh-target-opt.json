@@ -1,0 +1,26 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": []
+        }
+    ],
+    "parameters": [],
+    "functionals": [
+        {
+            "type": "mesh-target",
+            "state": 0,
+            "surface_selection": [
+                6
+            ],
+            "mesh_path": "../data/contact/meshes/3D/mat_target.obj",
+            "delta": 0.05
+        }
+    ],
+    "states": [
+        {
+            "path": "3d-shape-mesh-target.json"
+        }
+    ]
+}
