@@ -3,10 +3,21 @@
         {
             "type": "shape",
             "state": 0,
+            "composite_map_type": "boundary_excluding_surface",
+            "surface_selection": [
+                1,
+                2,
+                3,
+                4
+            ],
             "composition": []
         }
     ],
-    "parameters": [],
+    "parameters": [
+        {
+            "number": 1944
+        }
+    ],
     "functionals": [
         {
             "type": "mesh-target",
@@ -16,7 +27,7 @@
             ],
             "mesh_path": "../data/contact/meshes/3D/mat_target.obj",
             "delta": 0.05,
-            "weight": 0
+            "weight": 1
         },
         {
             "type": "sdf-target",
