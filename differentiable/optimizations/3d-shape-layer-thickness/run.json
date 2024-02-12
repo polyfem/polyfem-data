@@ -56,7 +56,7 @@
     ],
     "functionals": [
         {
-            "type": "layer_thickness",
+            "type": "layer_thickness_log",
             "print_energy": "layer_thickness",
             "dmin": 0.02,
             "dhat": 0.02,
