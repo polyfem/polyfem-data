@@ -77,7 +77,7 @@
                 ]
             }
         ],
-        "pressure_boundary": [
+        "rest_pressure_boundary": [
             {
                 "id": 2,
                 "value": "-200.0 * t"
