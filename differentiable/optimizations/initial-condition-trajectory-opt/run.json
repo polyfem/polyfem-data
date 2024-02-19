@@ -18,12 +18,21 @@
         }
     ],
     "output": {
-        "solve_log_level": 3
+        "log": {
+            "level": "debug"
+        }
     },
     "solver": {
         "nonlinear": {
-            "history_size": 2,
-            "grad_norm": 1e-4
+            "line_search": {
+                "method": "Backtracking"
+            },
+            "solver": "L-BFGS",
+            "L-BFGS": {
+                "history_size": 2
+            },
+            "max_iterations": 5,
+            "grad_norm": 1e-5
         }
     },
     "parameters": [
