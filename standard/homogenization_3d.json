@@ -1,11 +1,11 @@
 {
     "tests": {
-        "err_h1": 0.3398329576725553,
-        "err_h1_semi": 0.31747426786800215,
-        "err_l2": 0.12122923889125406,
-        "err_linf": 0.32696761633028404,
-        "err_linf_grad": 0.32696761633028404,
-        "err_lp": 0.20309177198726008
+        "err_h1": 0.0365800269690348,
+        "err_h1_semi": 0.035546839952256826,
+        "err_l2": 0.008632528161781497,
+        "err_linf": 0.07348004895820204,
+        "err_linf_grad": 0.07348004895820204,
+        "err_lp": 0.037961121562742464
     },
     "geometry": [
         {
@@ -13,27 +13,35 @@
         }
     ],
     "space": {
-        "discr_order": 1
+        "discr_order": 2
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": "Eigen::PardisoLLT"
         },
         "nonlinear": {
-            "grad_norm": 1e-8,
+            "grad_norm": 1e-6,
             "Newton": {
-                "use_psd_projection": true
+                "use_psd_projection": false,
+                "use_psd_projection_in_regularized": false,
+                "reg_weight_inc": 1e2
+            },
+            "line_search": {
+                "method": "Backtracking"
             }
         },
         "augmented_lagrangian": {
             "initial_weight": 1e1,
-            "error": 1e-2
+            "nonlinear": {
+                "grad_norm": 1e-2
+            }
         }
     },
     "boundary_conditions": {
         "periodic_boundary": {
             "enabled": true,
-            "linear_displacement_offset": [[0, 0, 0],[0, -0.2, 0],[0, 0, 0]],
+            "linear_displacement_offset": [[0, 0, 0],[0, -0.15, 0],[0, 0, 0]],
+            "correspondence": [[1,0,0],[0,1,0],[0,0,1]],
             "fixed_macro_strain": [4]
         }
     },
