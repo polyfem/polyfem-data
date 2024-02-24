@@ -16,6 +16,12 @@
             "x_delta": 1e-12,
             "grad_norm": 1e-5
         },
+        "augmented_lagrangian": {
+            "nonlinear": {
+                "x_delta": 1e-12,
+                "grad_norm": 1e-5
+            }
+        },
         "advanced": {
             "lump_mass_matrix": true
         }
