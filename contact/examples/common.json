@@ -10,10 +10,17 @@
         "nonlinear": {
             "iterations_per_strategy": 1,
             "line_search": {
-                "method": "Backtracking"
+                "method": "RobustArmijo"
             },
             "solver": "Newton",
-            "x_delta": 1e-05
+            "x_delta": 1e-12,
+            "grad_norm": 1e-5
+        },
+        "augmented_lagrangian": {
+            "nonlinear": {
+                "x_delta": 1e-12,
+                "grad_norm": 1e-5
+            }
         },
         "advanced": {
             "lump_mass_matrix": true
@@ -25,7 +32,10 @@
             "file_name": "sim.pvd",
             "options": {
                 "material": true,
-                "body_ids": true
+                "body_ids": true,
+                "tensor_values": false,
+                "discretization_order": false,
+                "nodes": false
             },
             "vismesh_rel_area": 10000000
         },

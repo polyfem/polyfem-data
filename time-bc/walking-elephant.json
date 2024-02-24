@@ -53,9 +53,9 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking"
+                "method": "RobustArmijo"
             },
-            "x_delta": 1e-05
+            "grad_norm": 1e-5
         }
     },
     "boundary_conditions": {
