@@ -3,6 +3,7 @@
         {
             "type": "pressure",
             "state": 0,
+            "surface_selection": [],
             "composition": []
         }
     ],
