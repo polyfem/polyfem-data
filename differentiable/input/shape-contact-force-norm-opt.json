@@ -16,11 +16,13 @@
             ],
             "state": 0,
             "static_objective": {
-                "type": "contact_force_norm",
+                "type": "quadratic_contact_force_norm",
                 "state": 0,
                 "surface_selection": [
-                    3
-                ]
+                    3,
+                    4
+                ],
+                "dhat": 1e-1
             }
         }
     ],
