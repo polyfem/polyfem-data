@@ -86,7 +86,10 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "contact": {
             "barrier_stiffness": 1e4
@@ -164,7 +167,7 @@
             }
         },
         "advanced": {
-            "save_time_sequence": false
+            "save_time_sequence": true
         }
     }
 }

@@ -4,49 +4,61 @@
             "mesh": "../../contact/meshes/2D/simple/square.obj",
             "transformation": {
                 "translation": [
-                    0.4,
-                    1.02
+                    0,
+                    0.2015
+                ],
+                "scale": [
+                    1,
+                    0.3
                 ]
             },
             "surface_selection": [
                 {
-                    "id": 1,
-                    "axis": "y",
-                    "position": 1.5,
-                    "relative": false
+                    "id": 3,
+                    "axis": "-x",
+                    "position": 0.01,
+                    "relative": true
                 },
                 {
                     "id": 3,
+                    "axis": "x",
+                    "position": 0.99,
+                    "relative": true
+                },
+                {
+                    "id": 2,
+                    "axis": "y",
+                    "position": 0.99,
+                    "relative": true
+                },
+                {
+                    "id": 5,
                     "axis": "-y",
-                    "position": 1.0,
-                    "relative": false
+                    "position": 0.01,
+                    "relative": true
                 }
             ],
             "volume_selection": 1,
-            "n_refs": 2
+            "n_refs": 1
         },
         {
             "mesh": "../../contact/meshes/2D/simple/square.obj",
-            "surface_selection": [
-                {
-                    "id": 2,
-                    "axis": "-y",
-                    "position": -0.4,
-                    "relative": false
-                },
-                {
-                    "id": 4,
-                    "axis": "y",
-                    "position": 0.0,
-                    "relative": false
-                }
-            ],
-            "volume_selection": 2,
-            "n_refs": 2
+            "transformation": {
+                "translation": [
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    0.1
+                ]
+            },
+            "surface_selection": 1,
+            "volume_selection": 2
         }
     ],
     "space": {
-        "discr_order": 1,
+        "discr_order": 2,
         "advanced": {
             "quadrature_order": 5,
             "n_boundary_samples": 5
@@ -60,17 +72,18 @@
             ]
         },
         "contact": {
-            "barrier_stiffness": 1e4,
-            "friction_iterations": 1
+            "barrier_stiffness": 1e4
         },
         "nonlinear": {
-            "grad_norm": 1e-9
+            "grad_norm": 1e-8,
+            "line_search": {
+                "use_grad_norm_tol": 1e-7
+            }
         }
     },
     "contact": {
         "enabled": true,
-        "dhat": 0.01,
-        "friction_coefficient": 0.4000
+        "dhat": 0.001
     },
     "boundary_conditions": {
         "rhs": [
@@ -81,23 +94,32 @@
             {
                 "id": 1,
                 "value": [
-                    "-0.2 * t",
-                    "-0.1 * t"
+                    0.0,
+                    0.0
                 ]
             },
             {
-                "id": 2,
+                "id": 3,
                 "value": [
                     0.0,
                     0.0
+                ]
+            }
+        ],
+        "neumann_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    "0",
+                    "-200.0 * t"
                 ]
             }
         ]
     },
     "time": {
         "t0": 0,
-        "tend": 1.0,
-        "time_steps": 30,
+        "tend": 0.5,
+        "time_steps": 10,
         "integrator": {
             "type": "BDF",
             "steps": 1
@@ -122,12 +144,12 @@
             "vismesh_rel_area": 1,
             "surface": true,
             "options": {
-                "body_ids": false,
-                "contact_forces": true
+                "contact_forces": true,
+                "body_ids": false
             }
         },
         "advanced": {
-            "save_time_sequence": false
+            "save_time_sequence": true
         }
     }
 }
