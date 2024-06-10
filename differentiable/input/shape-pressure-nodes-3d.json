@@ -78,7 +78,7 @@
         }
     ],
     "space": {
-        "discr_order": 2,
+        "discr_order": 1,
         "advanced": {
             "quadrature_order": 5,
             "n_boundary_samples": 5
