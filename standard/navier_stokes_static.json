@@ -38,9 +38,7 @@
     },
     "solver": {
         "linear": {
-            "solver": "solver": [
-                "Eigen::PardisoLDLT",
-                "Eigen::AccelerateLDLT",
+            "solver": [
                 "Eigen::SparseLU"
             ]
         }
