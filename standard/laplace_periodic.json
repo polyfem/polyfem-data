@@ -1,11 +1,12 @@
 {
-    "common": "common.json",
-    "output": {
-        "reference": {
-            "solution": "-cos(2*pi*y)*sin(2*pi*x)",
-            "gradient": ["-2*pi*cos(2*pi*y)*cos(2*pi*x)", "2*pi*sin(2*pi*y)*sin(2*pi*x)"]
-        }
+    "boundary_conditions": {
+        "periodic_boundary": {
+            "enabled": true,
+            "force_zero_mean": true
+        },
+        "rhs": "8*pi^2*cos(2*pi*y)*sin(2*pi*x)"
     },
+    "common": "common.json",
     "geometry": {
         "advanced": {
             "normalize_mesh": true
@@ -14,31 +15,36 @@
         "n_refs": 4,
         "surface_selection": 1
     },
-    "space": {
-        "discr_order": 2
-    },
-    "solver": {
-        "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
-        }
-    },
     "materials": {
         "type": "Laplacian"
     },
-    "boundary_conditions": {
-        "rhs": "8*pi^2*cos(2*pi*y)*sin(2*pi*x)",
-        "periodic_boundary": {
-            "enabled": true,
-            "force_zero_mean": true
+    "output": {
+        "reference": {
+            "gradient": [
+                "-2*pi*cos(2*pi*y)*cos(2*pi*x)",
+                "2*pi*sin(2*pi*y)*sin(2*pi*x)"
+            ],
+            "solution": "-cos(2*pi*y)*sin(2*pi*x)"
         }
     },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        }
+    },
+    "space": {
+        "discr_order": 2
+    },
     "tests": {
-        "err_h1": 4.470416394483755,
-        "err_h1_semi": 4.4423826574554095,
-        "err_l2": 0.49985904494022126,
-        "err_linf": 0.9955242959892204,
-        "err_linf_grad": 5.193441780274719,
-        "err_lp": 0.7229230394154088,
+        "err_h1": 0.049822320184192644,
+        "err_h1_semi": 0.04981696003000299,
+        "err_l2": 0.000730809075816095,
+        "err_linf": 0.0014581127945629824,
+        "err_linf_grad": 0.0878428291028449,
+        "err_lp": 0.0010576009146277545,
         "margin": 1e-05,
         "time_steps": "static"
     }
