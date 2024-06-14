@@ -1,0 +1,26 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../sphere_p2.msh",
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "tests": {
+        "err_h1": 0.7750404410571681,
+        "err_h1_semi": 0.7524326586843408,
+        "err_l2": 0.1858299744909412,
+        "err_linf": 0.8621020416334289,
+        "err_linf_grad": 1.1119956541384457,
+        "err_lp": 0.43680864383201035,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
