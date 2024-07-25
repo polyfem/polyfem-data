@@ -4,6 +4,8 @@
         "paraview": {
             "file_name": "sim.vtu",
             "surface": true,
+            "wireframe": true,
+            "points": true,
             "options": {
                 "material": true
             },
