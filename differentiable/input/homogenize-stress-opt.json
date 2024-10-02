@@ -6,9 +6,6 @@
             "composition": []
         }
     ],
-    "output": {
-        "solve_log_level": 3
-    },
     "parameters": [
 
     ],
@@ -21,8 +18,7 @@
     ],
     "solver": {
         "nonlinear": {
-            "debug_fd_eps": 1e-7,
-            "debug_fd": false
+            "debug_fd_eps": 1e-7
         }
     },
     "states": [
