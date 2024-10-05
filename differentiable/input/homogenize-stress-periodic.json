@@ -11,8 +11,7 @@
     "space": {
         "discr_order": 1,
         "advanced": {
-            "quadrature_order": 4,
-            "periodic_mesh": true
+            "quadrature_order": 4
         }
     },
     "contact": {
@@ -22,37 +21,24 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLLT",
-            "adjoint_solver": "Eigen::PardisoLDLT"
+            "solver": "Eigen::PardisoLLT"
+        },
+        "adjoint_linear": {
+            "solver": "Eigen::PardisoLDLT"
         },
         "nonlinear": {
-            "debug_fd": false,
-            "debug_fd_eps": 1e-9,
-            "grad_norm": 1e-9,
-            "verify_hessian": false
+            "grad_norm": 1e-9
         },
         "contact": {
-            "barrier_stiffness": 1e2
+            "barrier_stiffness": 1
         }
     },
     "boundary_conditions": {
-        "periodic_boundary": [
-            true,
-            true
-        ],
-        "linear_displacement_offset": [
-            [
-                0,
-                0
-            ],
-            [
-                0,
-                -0.3
-            ]
-        ],
-        "fixed_macro_strain": [
-            3
-        ]
+        "periodic_boundary": {
+            "enabled": true,
+            "linear_displacement_offset": [[0, 0],[0, -0.3]],
+            "fixed_macro_strain": [3]
+        }
     },
     "output": {
         "log": {
