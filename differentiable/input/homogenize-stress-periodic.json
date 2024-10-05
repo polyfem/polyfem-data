@@ -21,10 +21,10 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::PardisoLLT"
+            "solver": ["Eigen::PardisoLLT","Eigen::CholmodSupernodalLLT"]
         },
         "adjoint_linear": {
-            "solver": "Eigen::PardisoLDLT"
+            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
             "grad_norm": 1e-9
