@@ -1,7 +1,7 @@
 {
     "geometry": [
         {
-            "mesh": "periodic_x.obj",
+            "mesh": "periodic105.msh",
             "n_refs": 0,
             "surface_selection": {
                 "threshold": 1e-6
