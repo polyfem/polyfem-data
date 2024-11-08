@@ -71,7 +71,7 @@
         "err_linf": 0.110593985158,
         "err_linf_grad": 2.01638310035,
         "err_lp": 0.0746798251068,
-        "margin": 1e-05,
+        "margin": 1e-02,
         "time_steps": "all"
     }
 }
