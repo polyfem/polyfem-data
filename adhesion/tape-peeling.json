@@ -1,0 +1,93 @@
+{
+    "geometry": [{
+        "mesh": "cube.msh",
+        "volume_selection": 1,
+        "transformation": {
+            "scale": [1, 0.5, 0.1],
+            "translation": [0, 0, -0.10125]
+        },
+        "surface_selection": {
+            "threshold": 1e-7
+        }
+    },
+    {
+        "mesh": "cube.msh",
+        "volume_selection": 2,
+        "transformation": {
+            "scale": [1, 0.5, 0.1]
+        },
+        "surface_selection": 11
+    }],
+    "materials": [{
+        "E": 100000,
+        "id": 1,
+        "nu": 0.0,
+        "rho": 100,
+        "type": "NeoHookean"
+    },
+    {
+        "E": 100000,
+        "id": 2,
+        "nu": 0.0,
+        "rho": 100,
+        "type": "NeoHookean"
+    }],
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 11,
+                "value": [0, 0, 0]
+            },
+            {
+                "id": 3,
+                "value": ["-t", 0, "-t"]
+            }
+        ]
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001,
+        "dhat_a": 0.002,
+        "dhat_p": 0.0005,
+        "use_convergent_formulation": false,
+        "adhesion_enabled": true,
+        "adhesion_strength": 1e-4,
+        "tangential_adhesion_coefficient": 0.1
+    },
+    "time": {
+        "dt": 0.01,
+        "tend": 2,
+        "integrator": "BDF2"
+    },
+    "solver": {
+        "linear": {
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+        },
+        "nonlinear": {
+            "iterations_per_strategy": 1,
+            "line_search": {
+                "method": "RobustArmijo"
+            },
+            "solver": "Newton",
+            "grad_norm": 1e-5
+        },
+        "contact": {
+            "barrier_stiffness": 10000000
+        }
+    },
+    "tests": {
+        "err_h1": 0.7157927180885432,
+        "err_h1_semi": 0.25257018384371943,
+        "err_l2": 0.6697518327722101,
+        "err_linf": 3.231875947986338,
+        "err_linf_grad": 3.231875947986338,
+        "err_lp": 2.0668688545461658
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd"
+        }
+    }
+}
+
