@@ -29,8 +29,9 @@
     "space": {
         "discr_order": 3,
         "advanced": {
-            "quadrature_order": 9,
-            "use_corner_quadrature": true
+            "quadrature_order": 5,
+            "use_corner_quadrature": true,
+            "count_flipped_els_continuous": true
         }
     },
     "boundary_conditions": {
@@ -76,12 +77,12 @@
         "type": "NeoHookean"
     },
     "tests": {
-        "err_h1": 5.05891141109559,
-        "err_h1_semi": 4.80402482307467,
-        "err_l2": 1.58553781556781,
-        "err_linf": 2.23606797578027,
-        "err_linf_grad": 3.47815033000521,
-        "err_lp": 1.3714746316447,
+        "err_h1": 5.06595597252694,
+        "err_h1_semi": 4.80940075976485,
+        "err_l2": 1.59172053060663,
+        "err_linf": 2.23606797749979,
+        "err_linf_grad": 3.53278874298157,
+        "err_lp": 1.37386720635654,
         "margin": 1e-02,
         "time_steps": "all"
     }
