@@ -29,7 +29,8 @@
         "discr_order": 2,
         "advanced": {
             "quadrature_order": 5,
-            "use_corner_quadrature": true
+            "use_corner_quadrature": true,
+            "count_flipped_els_continuous": true
         }
     },
     "boundary_conditions": {
