@@ -1,29 +1,45 @@
 {
-    "geometry": [{
-        "mesh": "cube.msh",
-        "volume_selection": 1,
-        "transformation": {
-            "scale": [1, 1, 1],
-            "translation": [0.52, 0, 0]
+    "geometry": [
+        {
+            "mesh": "cube.msh",
+            "volume_selection": 1,
+            "transformation": {
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0.52,
+                    0,
+                    0
+                ]
+            },
+            "surface_selection": {
+                "threshold": 1e-07
+            }
         },
-        "surface_selection": {
-            "threshold": 1e-07
+        {
+            "mesh": "plane.obj",
+            "is_obstacle": true
         }
-    },
-    {
-        "mesh": "plane.obj",
-        "is_obstacle": true
-    }],
-    "materials": [{
-        "E": 100000,
-        "id": 1,
-        "nu": 0.0,
-        "rho": 100,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 100000,
+            "id": 1,
+            "nu": 0.0,
+            "rho": 100,
+            "type": "NeoHookean"
+        }
+    ],
     "boundary_conditions": {
-        "rhs": [0, -1, 0]
-    },    
+        "rhs": [
+            0,
+            -1,
+            0
+        ]
+    },
     "contact": {
         "enabled": true,
         "dhat": 0.01,
@@ -37,12 +53,16 @@
     },
     "time": {
         "dt": 0.05,
-        "tend": 5,
+        "time_steps": 5,
         "integrator": "BDF2"
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
             "iterations_per_strategy": 1,
@@ -50,19 +70,20 @@
                 "method": "RobustArmijo"
             },
             "solver": "Newton",
-            "grad_norm": 1e-7
+            "grad_norm": 1e-07
         },
         "contact": {
             "barrier_stiffness": 100000
         }
     },
     "tests": {
-        "err_h1": 0.04858105042053411,
-        "err_h1_semi": 0.04470591192558559,
-        "err_l2": 0.019013150682205757,
-        "err_linf": 0.03774579967207143,
-        "err_linf_grad": 0.03774579967207143,
-        "err_lp": 0.019527096810886217
+        "err_h1": 0.05019904915401738,
+        "err_h1_semi": 0.04707431328473331,
+        "err_l2": 0.017434264100851322,
+        "err_linf": 0.038196108405162514,
+        "err_linf_grad": 0.038196108405162514,
+        "err_lp": 0.01836791203831413,
+        "time_steps": 5
     },
     "output": {
         "json": "sim.json",
