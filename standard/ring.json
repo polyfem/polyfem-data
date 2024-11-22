@@ -37,13 +37,13 @@
         "dirichlet_boundary": [{
             "id": 1,
             "value": [
-                "rotate_2D_x(x, y, -3 * pi * t) - x",
-                "rotate_2D_y(x, y, -3 * pi * t) - y"
+                "rotate_2D_x(x, y, -2.5 * pi * t) - x",
+                "rotate_2D_y(x, y, -2.5 * pi * t) - y"
             ]
         }]
     },
     "time": {
-        "tend": 1,
+        "tend": 0.7,
         "dt": 0.01
     },
     "geometry": [{
@@ -66,13 +66,13 @@
         "type": "NeoHookean"
     },
     "tests": {
-        "err_h1": 0.511268312961,
-        "err_h1_semi": 0.502313365725,
-        "err_l2": 0.0952710367962,
-        "err_linf": 0.110593985158,
-        "err_linf_grad": 2.01638310035,
-        "err_lp": 0.0746798251068,
-        "margin": 1e-02,
+        "err_h1": 5.29565605345573,
+        "err_h1_semi": 4.74227709521791,
+        "err_l2": 2.35685828777928,
+        "err_linf": 1.88577209452532,
+        "err_linf_grad": 3.7751596155191,
+        "err_lp": 1.77568802841361,
+        "margin": 1e-03,
         "time_steps": "all"
     }
 }
