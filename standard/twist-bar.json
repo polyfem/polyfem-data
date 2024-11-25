@@ -18,7 +18,8 @@
         "nonlinear": {
             "line_search": {
                 "use_grad_norm_tol": 1e-3
-            }
+            },
+            "grad_norm": 1e-3
         },
         "advanced": {
             "lump_mass_matrix": false,
@@ -26,7 +27,7 @@
         }
     },
     "space": {
-        "discr_order": 2,
+        "discr_order": 3,
         "advanced": {
             "quadrature_order": 5,
             "use_corner_quadrature": true,
@@ -37,25 +38,35 @@
         "dirichlet_boundary": [{
             "id": 1,
             "value": [
-                "rotate_2D_x(x, y, -2.5 * pi * t) - x",
-                "rotate_2D_y(x, y, -2.5 * pi * t) - y"
+                0,
+                "rotate_2D_y(z, y, -3 * pi * t) - y",
+                "rotate_2D_x(z, y, -3 * pi * t) - z"
+            ]
+        },
+        {
+            "id": 2,
+            "value": [
+                0,0,0
             ]
         }]
     },
+    "contact": {
+        "enabled": true
+    },
     "time": {
-        "tend": 0.7,
-        "dt": 0.01
+        "tend": 3,
+        "dt": 0.1
     },
     "geometry": [{
-        "mesh": "ring.msh",
+        "mesh": "../contact/meshes/3D/simple/bar/bar-186.msh",
         "volume_selection": 1,
         "surface_selection": [{
             "id": 1,
-            "box": [[0.4, 0.4], [0.6, 0.6]],
+            "box": [[0, 0, 0], [1e-3, 1, 1]],
             "relative": true
         },{
             "id": 2,
-            "box": [[-1, -1], [1, 1]],
+            "box": [[0.999, 0, 0], [1, 1, 1]],
             "relative": true
         }]
     }],
@@ -66,13 +77,13 @@
         "type": "NeoHookean"
     },
     "tests": {
-        "err_h1": 5.29565605345573,
-        "err_h1_semi": 4.74227709521791,
-        "err_l2": 2.35685828777928,
-        "err_linf": 1.88577209452532,
-        "err_linf_grad": 3.7751596155191,
-        "err_lp": 1.77568802841361,
-        "margin": 1e-03,
+        "err_h1": 5.06941859708919,
+        "err_h1_semi": 4.81046546115247,
+        "err_l2": 1.5995083493289,
+        "err_linf": 2.23606797749979,
+        "err_linf_grad": 3.53333530501018,
+        "err_lp": 1.37576121511575,
+        "margin": 1e-02,
         "time_steps": "all"
     }
 }
