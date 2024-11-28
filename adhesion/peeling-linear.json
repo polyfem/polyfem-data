@@ -73,14 +73,13 @@
     "contact": {
         "enabled": true,
         "use_convergent_formulation": false,
+        "dhat": 0.00025,
         "adhesion": {
-            "dhat": 0.00025,
             "dhat_a": 0.003,
             "dhat_p": 0.00075,
             "adhesion_enabled": true,
             "adhesion_strength": 1e-05,
             "tangential_adhesion_coefficient": 0.0
-        }
     },
     "time": {
         "dt": 0.01,
