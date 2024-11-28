@@ -56,10 +56,12 @@
     "contact": {
         "enabled": true,
         "dhat": 0.0005,
-        "adhesion_enabled": true,
-        "dhat_p": 0.0005,
-        "dhat_a": 0.001,
-        "adhesion_strength": 1e-3
+        "adhesion": {
+            "adhesion_enabled": true,
+            "dhat_p": 0.0005,
+            "dhat_a": 0.001,
+            "adhesion_strength": 1e-3
+        }
     },
     "solver": {
         "linear": {
