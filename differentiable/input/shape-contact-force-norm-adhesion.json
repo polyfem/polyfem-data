@@ -71,11 +71,13 @@
         "enabled": true,
         "dhat": 0.01,
         "friction_coefficient": 0.4000,
-        "adhesion_enabled": true,
-        "dhat_p": 0.01,
-        "dhat_a": 0.02,
-        "adhesion_strength": 1e-4,
-        "tangential_adhesion_coefficient": 0.1
+        "adhesion": {
+            "adhesion_enabled": true,
+            "dhat_p": 0.01,
+            "dhat_a": 0.02,
+            "adhesion_strength": 1e-4,
+            "tangential_adhesion_coefficient": 0.1
+        }
     },
     "boundary_conditions": {
         "rhs": [
