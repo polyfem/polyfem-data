@@ -80,6 +80,7 @@
             "adhesion_enabled": true,
             "adhesion_strength": 1e-05,
             "tangential_adhesion_coefficient": 0.0
+        }
     },
     "time": {
         "dt": 0.01,
