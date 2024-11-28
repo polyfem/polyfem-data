@@ -70,13 +70,15 @@
     },
     "contact": {
         "enabled": true,
-        "dhat": 0.001,
-        "dhat_a": 0.002,
-        "dhat_p": 0.0005,
         "use_convergent_formulation": false,
-        "adhesion_enabled": true,
-        "adhesion_strength": 0.0001,
-        "tangential_adhesion_coefficient": 0.1
+        "adhesion": {
+            "dhat": 0.001,
+            "dhat_a": 0.002,
+            "dhat_p": 0.0005,
+            "adhesion_enabled": true,
+            "adhesion_strength": 0.0001,
+            "tangential_adhesion_coefficient": 0.1
+        }
     },
     "time": {
         "dt": 0.01,

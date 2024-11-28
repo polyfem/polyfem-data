@@ -45,11 +45,13 @@
         "dhat": 0.01,
         "use_convergent_formulation": false,
         "friction_coefficient": 0.03,
-        "dhat_a": 0.03,
-        "dhat_p": 0.02,
-        "adhesion_enabled": true,
-        "adhesion_strength": 1,
-        "tangential_adhesion_coefficient": 0.01
+        "adhesion": {
+            "dhat_a": 0.03,
+            "dhat_p": 0.02,
+            "adhesion_enabled": true,
+            "adhesion_strength": 1,
+            "tangential_adhesion_coefficient": 0.01
+        }
     },
     "time": {
         "dt": 0.05,
