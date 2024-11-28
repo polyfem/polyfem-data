@@ -1,0 +1,88 @@
+{
+    "geometry": [{
+        "mesh": "sphere.msh",
+        "volume_selection": 1,
+        "transformation": {
+            "translation": [-2, 0, 0]
+        }
+    },
+    {
+        "mesh": "sphere.msh",
+        "volume_selection": 2,
+        "transformation": {
+            "translation": [2, 0, 0]
+        }
+    }],
+    "materials": [{
+        "E": 10000,
+        "id": 1,
+        "nu": 0.0,
+        "rho": 100,
+        "type": "NeoHookean"
+    },
+    {
+        "E": 10000,
+        "id": 2,
+        "nu": 0.0,
+        "rho": 100,
+        "type": "NeoHookean"
+    }],
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 1,
+                "value": [1, 0, 0]
+            },
+            {
+                "id": 2,
+                "value": [0, 0, 0]
+            }
+        ]
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.02,
+        "dhat_a": 0.005,
+        "dhat_p": 0.00125,
+        "use_convergent_formulation": false,
+        "adhesion_enabled": true,
+        "adhesion_strength": 1,
+        "tangential_adhesion_coefficient": 0.1
+    },
+    "time": {
+        "dt": 0.1,
+        "tend": 5,
+        "integrator": "BDF2"
+    },
+    "solver": {
+        "linear": {
+            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+        },
+        "nonlinear": {
+            "iterations_per_strategy": 1,
+            "line_search": {
+                "method": "RobustArmijo"
+            },
+            "solver": "Newton",
+            "grad_norm": 1e-5
+        },
+        "contact": {
+            "barrier_stiffness": 100000
+        }
+    },
+    "tests": {
+        "err_h1": 2.9785741756534985,
+        "err_h1_semi": 0.1086460693818171,
+        "err_l2": 2.9765920364534004,
+        "err_linf": 4.039484279306613,
+        "err_linf_grad": 4.039484279306613,
+        "err_lp": 3.6982622582501716
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd"
+        }
+    }
+}
+
