@@ -1,7 +1,7 @@
 {
     "geometry": [
         {
-            "mesh": "cube.msh",
+            "mesh": "../../contact/meshes/3D/simple/cube.msh",
             "volume_selection": 1,
             "n_refs": 0
         }
