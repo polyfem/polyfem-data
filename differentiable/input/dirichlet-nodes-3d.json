@@ -1,0 +1,43 @@
+{
+    "geometry": [
+        {
+            "mesh": "cube.msh",
+            "volume_selection": 1,
+            "n_refs": 0
+        }
+    ],
+    "contact": {
+        "enabled": false
+    },
+    "space": {
+        "discr_order": 1,
+        "advanced": {
+            "quadrature_order": 5,
+            "n_boundary_samples": 5
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            "dirichlet_constraints.txt"
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "type": "NeoHookean",
+            "E": 7.3e5,
+            "nu": 0.47,
+            "rho": 1000
+        }
+    ],
+    "output": {
+        "log": {
+            "level": "error"
+        }
+    }
+}
