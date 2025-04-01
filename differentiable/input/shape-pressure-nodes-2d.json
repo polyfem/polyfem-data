@@ -75,7 +75,7 @@
             "barrier_stiffness": 1e4
         },
         "nonlinear": {
-            "grad_norm": 1e-10,
+            "grad_norm": 1e-8,
             "line_search": {
                 "use_grad_norm_tol": 1e-7
             }
