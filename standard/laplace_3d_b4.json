@@ -1,0 +1,31 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 1,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "space": {
+        "basis_type": "Bernstein",
+        "discr_order": 4
+    },
+    "tests": {
+        "err_h1": 1.0350211277114887,
+        "err_h1_semi": 0.9987327270764457,
+        "err_l2": 0.2716646364096875,
+        "err_linf": 0.9887512083876293,
+        "err_linf_grad": 1.542311862451649,
+        "err_lp": 0.554859754318453,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
