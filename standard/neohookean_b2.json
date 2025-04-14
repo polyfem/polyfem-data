@@ -1,0 +1,23 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "space": {
+        "basis_type": "Bernstein",
+        "discr_order": 2
+    },
+    "tests": {
+        "err_h1": 0.22860156218243421,
+        "err_h1_semi": 0.2199650103086586,
+        "err_l2": 0.06224201532856293,
+        "err_linf": 0.09504367281507178,
+        "err_linf_grad": 0.22847028951329976,
+        "err_lp": 0.07757635848469036,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

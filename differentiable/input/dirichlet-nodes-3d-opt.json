@@ -1,0 +1,32 @@
+{
+    "variable_to_simulation": [
+        {
+            "type": "dirichlet-nodes",
+            "state": 0,
+            "composite_map_type": "indices",
+            "composite_map_indices": [
+                0,
+                1,
+                4,
+                6
+            ],
+            "composition": []
+        }
+    ],
+    "parameters": [],
+    "functionals": [
+        {
+            "type": "stress_norm",
+            "state": 0,
+            "volume_selection": [
+                1
+            ]
+        }
+    ],
+    "states": [
+        {
+            "path": "dirichlet-nodes-3d.json"
+        }
+    ],
+    "solver": {}
+}

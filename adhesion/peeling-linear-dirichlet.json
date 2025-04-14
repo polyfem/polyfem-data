@@ -1,0 +1,122 @@
+{
+    "geometry": [
+        {
+            "mesh": "cube.msh",
+            "volume_selection": 1,
+            "transformation": {
+                "scale": [
+                    1,
+                    0.5,
+                    0.1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    -0.1005
+                ]
+            },
+            "surface_selection": 5
+        },
+        {
+            "mesh": "cube.msh",
+            "volume_selection": 2,
+            "transformation": {
+                "scale": [
+                    1,
+                    0.5,
+                    0.1
+                ]
+            },
+            "surface_selection": 11
+        }
+    ],
+    "materials": [
+        {
+            "E": 1000000,
+            "id": 1,
+            "nu": 0.0,
+            "rho": 100,
+            "type": "NeoHookean"
+        },
+        {
+            "E": 1000000,
+            "id": 2,
+            "nu": 0.0,
+            "rho": 100,
+            "type": "NeoHookean"
+        }
+    ],
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 11,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 5,
+                "value": [
+                    0,
+                    0,
+                    "-0.003*t*abs(2*x)"
+                ]
+            }
+        ]
+    },
+    "contact": {
+        "enabled": true,
+        "use_convergent_formulation": false,
+        "dhat": 0.00025,
+        "adhesion": {
+            "dhat_a": 0.003,
+            "dhat_p": 0.00075,
+            "adhesion_enabled": true,
+            "adhesion_strength": 1e-05,
+            "tangential_adhesion_coefficient": 0.0
+        }
+    },
+    "time": {
+        "dt": 0.01,
+        "time_steps": 20,
+        "integrator": "BDF2"
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "iterations_per_strategy": 1,
+            "line_search": {
+                "method": "RobustArmijo"
+            },
+            "solver": "Newton",
+            "grad_norm": 1e-05,
+            "x_delta": 0
+        },
+        "contact": {
+            "barrier_stiffness": 10000000
+        }
+    },
+    "tests": {
+        "err_h1": 0.0003309192277929979,
+        "err_h1_semi": 0.0003218169921032929,
+        "err_l2": 7.708021092798809e-05,
+        "err_linf": 0.0005907846096908266,
+        "err_linf_grad": 0.0005907846096908266,
+        "err_lp": 0.0003120424323112339,
+        "time_steps": 20
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd"
+        }
+    }
+}
