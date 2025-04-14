@@ -1,0 +1,46 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 1,
+        "surface_selection": 1
+    },
+    "materials": {
+        "E": 20000,
+        "fiber_direction": [
+            [
+                0,
+                -1,
+                0
+            ],
+            [
+                1,
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                1
+            ]
+        ],
+        "nu": 0.3,
+        "type": "SaintVenant"
+    },
+    "preset_problem": {
+        "type": "ElasticExact"
+    },
+    "tests": {
+        "err_h1": 0.12271067636723039,
+        "err_h1_semi": 0.10814463385671826,
+        "err_l2": 0.057988345919671676,
+        "err_linf": 0.0877377226229886,
+        "err_linf_grad": 0.1270718004222793,
+        "err_lp": 0.06915945293595728,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
