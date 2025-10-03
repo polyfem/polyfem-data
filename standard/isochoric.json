@@ -1,0 +1,100 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "dimension": [
+                    true,
+                    false,
+                    false
+                ],
+                "id": 1,
+                "value": [
+                    "0.5*0.001*(t/4)",
+                    0,
+                    0
+                ]
+            },
+            {
+                "dimension": [
+                    true,
+                    false,
+                    false
+                ],
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "common": "common.json",
+    "geometry": [
+        {
+            "mesh": "../cube.msh",
+            "n_refs": 0,
+            "surface_selection": [
+                {
+                    "axis": "x",
+                    "id": 1,
+                    "position": 0.99,
+                    "relative": true
+                },
+                {
+                    "axis": "-x",
+                    "id": 2,
+                    "position": 0.01,
+                    "relative": true
+                }
+            ],
+            "transformation": {
+                "scale": 0.001
+            },
+            "volume_selection": 1
+        }
+    ],
+    "materials": {
+        "id": 1,
+        "models": [
+            {
+                "E": 5000.0,
+                "nu": 0.3,
+                "type": "IsochoricNeoHookean"
+            },
+            {
+                "fiber_direction": [
+                    1,
+                    0,
+                    0
+                ],
+                "k1": 100,
+                "k2": 5,
+                "type": "HGOFiber"
+            },
+            {
+                "k": 10000000000.0,
+                "type": "VolumePenalty"
+            }
+        ],
+        "type": "MaterialSum"
+    },
+    "space": {
+        "discr_order": 2
+    },
+    "tests": {
+        "err_h1": 1.7813867083532782e-05,
+        "err_h1_semi": 1.7813845987277736e-05,
+        "err_l2": 2.7415530664912934e-08,
+        "err_linf": 0.0009593364282960515,
+        "err_linf_grad": 0.5633232720725082,
+        "err_lp": 6.605401870840467e-05,
+        "margin": 1e-05,
+        "time_steps": 20
+    },
+    "time": {
+        "t0": 0,
+        "tend": 4,
+        "time_steps": 20
+    }
+}
