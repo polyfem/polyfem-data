@@ -161,5 +161,21 @@
     "time": {
         "tend": 0.1,
         "time_steps": 10
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.vtu",
+            "surface": true,
+            "options": {
+                "material": true
+            },
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": true,
+            "curved_mesh_size": true
+        }
     }
 }
