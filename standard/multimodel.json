@@ -165,7 +165,7 @@
     "output": {
         "json": "sim.json",
         "paraview": {
-            "file_name": "sim.vtu",
+            "file_name": "sim.pvd",
             "surface": true,
             "options": {
                 "material": true
