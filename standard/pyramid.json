@@ -1,0 +1,52 @@
+{
+    "geometry": {
+        "mesh": "pyramid.msh",
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 1e-5
+            }
+        }
+    },
+    "materials": {
+        "E": 100000000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "LinearElasticity"
+    },
+    "preset_problem": {
+        "type": "LinearElasticExact"
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.vtu",
+            "surface": true,
+            "wireframe": true,
+            "points": true,
+            "options": {
+                "material": true
+            },
+            "vismesh_rel_area": 1e-6,
+            "high_order_mesh": true
+        }
+    },
+    "space": {
+        "discr_order": 2,
+        "discr_orderq": 2,
+        "advanced": {
+            "bc_method": "lsq"
+        }
+    }
+}
