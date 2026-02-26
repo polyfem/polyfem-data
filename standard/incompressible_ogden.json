@@ -3,7 +3,7 @@
     "materials": {
         "c": 32900,
         "id": 1,
-        "k": 1e5,
+        "k": 100000.0,
         "m": 6.82,
         "type": "IncompressibleOgden"
     },
@@ -16,5 +16,24 @@
         "err_lp": 0.0765870307403943,
         "margin": 1e-05,
         "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
     }
 }

@@ -1,14 +1,24 @@
 {
-    "geometry": [{
-        "mesh": "../contact/meshes/2D/simple/square1K.msh",
-        "surface_selection": [{
-            "box": [
-                [-10, -10],
-                [10, 10]
-            ],
-            "id": 7
-        }]
-    }],
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/2D/simple/square1K.msh",
+            "surface_selection": [
+                {
+                    "box": [
+                        [
+                            -10,
+                            -10
+                        ],
+                        [
+                            10,
+                            10
+                        ]
+                    ],
+                    "id": 7
+                }
+            ]
+        }
+    ],
     "materials": {
         "type": "Stokes",
         "viscosity": 100
@@ -27,7 +37,27 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT"
+            ]
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
         }
     },
     "space": {

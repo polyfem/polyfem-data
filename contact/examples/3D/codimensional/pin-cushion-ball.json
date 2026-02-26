@@ -1,55 +1,114 @@
 {
     "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
-        "transformation": {
-            "translation": [10, 4, 10],
-            "scale": 4
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
+            "transformation": {
+                "translation": [
+                    10,
+                    4,
+                    10
+                ],
+                "scale": 4
+            },
+            "volume_selection": 1,
+            "surface_selection": 0
         },
-        "volume_selection": 1,
-        "surface_selection": 0
-    }, {
-        "type": "mesh_array",
-        "mesh": "../../../meshes/2D/codimensional/edge.obj",
-        "array": {
-            "offset": 1,
-            "size": [21, 1, 21]
+        {
+            "type": "mesh_array",
+            "mesh": "../../../meshes/2D/codimensional/edge.obj",
+            "array": {
+                "offset": 1,
+                "size": [
+                    21,
+                    1,
+                    21
+                ]
+            },
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            },
+            "is_obstacle": true,
+            "surface_selection": 1
         },
-        "transformation": {
-            "rotation": [0, 0, 90]
-        },
-        "is_obstacle": true,
-        "surface_selection": 1
-    }, {
-        "type": "mesh_array",
-        "mesh": "../../../meshes/2D/codimensional/edge.obj",
-        "array": {
-            "offset": 1,
-            "size": [21, 1, 21]
-        },
-        "transformation": {
-            "rotation": [0, 0, 90],
-            "translation": [0, 10, 0]
-        },
-        "is_obstacle": true,
-        "surface_selection": 2
-    }],
+        {
+            "type": "mesh_array",
+            "mesh": "../../../meshes/2D/codimensional/edge.obj",
+            "array": {
+                "offset": 1,
+                "size": [
+                    21,
+                    1,
+                    21
+                ]
+            },
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "translation": [
+                    0,
+                    10,
+                    0
+                ]
+            },
+            "is_obstacle": true,
+            "surface_selection": 2
+        }
+    ],
     "time": {
         "tend": 8,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 2,
-            "value": [0, "max(-8.9 / 7 * t, -8.9)", 0]
-        }]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    "max(-8.9 / 7 * t, -8.9)",
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4.0000000000000003e-07,
+            "x_delta_tol": 4e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
+        }
+    }
 }

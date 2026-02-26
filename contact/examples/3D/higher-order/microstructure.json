@@ -1,33 +1,63 @@
 {
     "common": "common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/3D/microstructure/P4.msh",
-        "transformation": {
-            "scale": 6
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/microstructure/P4.msh",
+            "transformation": {
+                "scale": 6
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [3, 6.12, 3],
-            "dimensions": [9, 0.2, 9]
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    3,
+                    6.12,
+                    3
+                ],
+                "dimensions": [
+                    9,
+                    0.2,
+                    9
+                ]
+            },
+            "surface_selection": 1000
         },
-        "surface_selection": 1000
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [3, -0.12, 3],
-            "dimensions": [9, 0.2, 9]
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    3,
+                    -0.12,
+                    3
+                ],
+                "dimensions": [
+                    9,
+                    0.2,
+                    9
+                ]
+            }
         }
-    }],
+    ],
     "boundary_conditions": {
-        "obstacle_displacements": [{
-            "id": 1000,
-            "value": [0, "4.5 * smooth_abs(t - 1, 5) - 4.5", 0]
-        }],
-        "rhs": [0, 9800, 0]
+        "obstacle_displacements": [
+            {
+                "id": 1000,
+                "value": [
+                    0,
+                    "4.5 * smooth_abs(t - 1, 5) - 4.5",
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9800,
+            0
+        ]
     },
     "space": {
         "discr_order": 2
@@ -38,18 +68,39 @@
     },
     "contact": {
         "enabled": true,
-        "dhat": 1e-3,
+        "dhat": 0.001,
         "friction_coefficient": 0.3,
         "collision_mesh": {
             "max_edge_length": 0.1,
             "tessellation_type": "irregular"
         }
     },
-    "materials": [{
-        "id": 1,
-        "E": 6000000.0,
-        "nu": 0.48,
-        "rho": 1.03,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 6000000.0,
+            "nu": 0.48,
+            "rho": 1.03,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        }
+    }
 }

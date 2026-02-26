@@ -89,12 +89,31 @@
         "err_linf": 2.581245234138448e-05,
         "err_linf_grad": 0.0304329896738928,
         "err_lp": 1.575754744501623e-06,
-        "margin": 1e-03,
+        "margin": 0.001,
         "time_steps": 1
     },
     "time": {
         "t0": 0,
         "tend": 4,
         "time_steps": 20
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.0000000000000002e-11,
+            "grad_norm_tol": 2e-09,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2e-07
+            }
+        }
     }
 }

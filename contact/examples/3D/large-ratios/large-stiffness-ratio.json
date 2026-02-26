@@ -8,33 +8,61 @@
         "err_linf_grad": 0.006131250000000015,
         "err_lp": 0.003656486906133098
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "transformation": {
-            "translation": [0, 1.01, 0],
-            "rotation": [90, 0, -45],
-            "rotation_mode": "zyx",
-            "scale": 1
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    1.01,
+                    0
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    -45
+                ],
+                "rotation_mode": "zyx",
+                "scale": 1
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "transformation": {
-            "translation": [0, 0, 0],
-            "rotation": [90, 0, 45],
-            "rotation_mode": "zyx",
-            "scale": 1
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    45
+                ],
+                "rotation_mode": "zyx",
+                "scale": 1
+            },
+            "volume_selection": 2
         },
-        "volume_selection": 2
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, -0.56, 0],
-            "scale": [2, 0.01, 2]
-        },
-        "volume_selection": 3,
-        "surface_selection": 1
-    }],
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.56,
+                    0
+                ],
+                "scale": [
+                    2,
+                    0.01,
+                    2
+                ]
+            },
+            "volume_selection": 3,
+            "surface_selection": 1
+        }
+    ],
     "time": {
         "tend": 3,
         "time_steps": 120
@@ -43,29 +71,62 @@
         "friction_coefficient": 0.1
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 10000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 1e8,
-        "nu": 0.4,
-        "rho": 2000,
-        "type": "NeoHookean"
-    }, {
-        "id": 3,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 100000000.0,
+            "nu": 0.4,
+            "rho": 2000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 3,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
+    }
 }

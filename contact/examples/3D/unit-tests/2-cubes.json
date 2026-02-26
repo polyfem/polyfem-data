@@ -1,43 +1,83 @@
 {
     "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/cube-denser.msh",
-        "transformation": {
-            "translation": [0, 1.025, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube-denser.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    1.025,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube-denser.msh",
-        "transformation": {
-            "translation": [0, 0, 0]
-        },
-        "volume_selection": 1,
-        "surface_selection": {
-            "id": 1,
-            "axis": "-y",
-            "position": 1e-5,
-            "relative": true
+        {
+            "mesh": "../../../meshes/3D/simple/cube-denser.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1,
+            "surface_selection": {
+                "id": 1,
+                "axis": "-y",
+                "position": 1e-05,
+                "relative": true
+            }
         }
-    }],
+    ],
     "contact": {
-        "dhat": 1e-3
+        "dhat": 0.001
     },
     "time": {
         "tend": 1.0,
         "time_steps": 10
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
         "dirichlet_boundary": {
             "id": 1,
-            "value": [0, 0, 0]
+            "value": [
+                0,
+                0,
+                0
+            ]
         }
     },
-    "materials": [{
-        "id": 1,
-        "E": 5e4,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 50000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1.0000000000000001e-11,
+            "grad_norm_tol": 1.0000000000000002e-06,
+            "x_delta_tol": 1e-13,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-07
+            }
+        }
+    }
 }

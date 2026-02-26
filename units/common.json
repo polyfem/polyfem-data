@@ -18,5 +18,14 @@
             "save_solve_sequence_debug": false,
             "save_time_sequence": false
         }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean"
+        }
     }
 }

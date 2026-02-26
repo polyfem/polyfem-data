@@ -10,47 +10,87 @@
         "margin": 1e-05,
         "time_steps": "all"
     },
-    "geometry": [{
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "transformation": {
-            "translation": [0, 2.0001],
-            "rotation": 180
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    2.0001
+                ],
+                "rotation": 180
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 2,
+                    "position": 2
+                }
+            ]
         },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "axis": 2,
-            "position": 2
-        }]
-    }, {
-        "mesh": "../../../../meshes/2D/simple/erleben/crack.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1]
+        {
+            "mesh": "../../../../meshes/2D/simple/erleben/crack.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1
+                ]
+            }
         }
-    }],
+    ],
     "time": {
         "tend": 5,
         "dt": 0.025
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["t", 0]
-        }]
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "t",
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 1e6,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 1000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "spike-in-crack.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
         }
     }
 }

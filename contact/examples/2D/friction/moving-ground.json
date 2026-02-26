@@ -10,23 +10,35 @@
         "margin": 1e-05,
         "time_steps": 1
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "enabled": true,
-        "transformation": {
-            "translation": [0, 0.5075]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5075
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "enabled": true,
-        "transformation": {
-            "translation": [0, 0],
-            "scale": [4, 0.01]
-        },
-        "volume_selection": 2,
-        "surface_selection": 1
-    }],
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0
+                ],
+                "scale": [
+                    4,
+                    0.01
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 1
+        }
+    ],
     "time": {
         "tend": 1,
         "dt": 0.01
@@ -40,34 +52,67 @@
     "solver": {
         "contact": {
             "friction_iterations": 10
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["4 * t^2", 0]
-        }]
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "4 * t^2",
+                    0
+                ]
+            }
+        ]
     },
     "initial_conditions": {
-        "velocity": [{
-            "id": 1,
-            "value": [0, 0]
-        }]
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "options": {

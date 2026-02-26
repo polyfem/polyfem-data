@@ -1,39 +1,68 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["-10*t", 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "-10*t",
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../../common.json",
-    "geometry": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",
-        "surface_selection": [{
-            "axis": 2,
-            "id": 1,
-            "position": 2
-        }],
-        "transformation": {
-            "rotation": [0, 0, 180],
-            "translation": [4.9, 2.0001, 0]
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/3D/simple/erleben/wedge.msh",
+            "surface_selection": [
+                {
+                    "axis": 2,
+                    "id": 1,
+                    "position": 2
+                }
+            ],
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    180
+                ],
+                "translation": [
+                    4.9,
+                    2.0001,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../../meshes/3D/obstacles/plane.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1, 0]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../../meshes/3D/obstacles/plane.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1,
+                    0
+                ]
+            }
         }
-    }],
-    "materials": [{
-        "E": 200000000000.0,
-        "id": 1,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 200000000000.0,
+            "id": 1,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "sliding-wedge.pvd"
@@ -41,8 +70,21 @@
     },
     "solver": {
         "nonlinear": {
-            "x_delta": 1e-15,
-            "grad_norm": 1e-4
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5e-06,
+            "x_delta_tol": 2.5000000000000003e-17,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "tests": {

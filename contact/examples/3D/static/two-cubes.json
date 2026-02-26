@@ -10,24 +10,37 @@
         "margin": 1e-05,
         "time_steps": "static"
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "n_refs": 2,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": -2,
+                    "position": -0.499
+                }
+            ]
         },
-        "n_refs": 2,
-        "surface_selection": [{
-            "id": 1,
-            "axis": -2,
-            "position": -0.499
-        }]
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 1.2, 0]
-        },
-        "n_refs": 2
-    }],
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    1.2,
+                    0
+                ]
+            },
+            "n_refs": 2
+        }
+    ],
     "contact": {
         "friction_coefficient": 0.5
     },
@@ -36,23 +49,46 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
-            "use_grad_norm": 1e-5
+            "use_grad_norm": 1e-05,
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-05,
+            "x_delta_tol": 1e-12,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
         },
         "contact": {
             "friction_iterations": -1,
-            "barrier_stiffness": 1e9
+            "barrier_stiffness": 1000000000.0
         },
         "advanced": {
             "lagged_regularization_weight": 500,
-            "lagged_regularization_iterations": 2
+            "lagged_regularization_iterations": 2,
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0, 0]
-        }]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "materials": {
         "type": "NeoHookean",

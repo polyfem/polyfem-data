@@ -8,41 +8,61 @@
         "err_linf_grad": 0.005964273278623088,
         "err_lp": 0.004370632626860944
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
-        "enabled": true,
-        "transformation": {
-            "translation": [0, 0.5],
-            "scale": 2
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5
+                ],
+                "scale": 2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
-        "transformation": {
-            "translation": [-0.5, -1],
-            "scale": 0.8
+        {
+            "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
+            "transformation": {
+                "translation": [
+                    -0.5,
+                    -1
+                ],
+                "scale": 0.8
+            },
+            "volume_selection": 2,
+            "surface_selection": 1
         },
-        "volume_selection": 2,
-        "surface_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
-        "enabled": true,
-        "transformation": {
-            "translation": [0.5, -1],
-            "scale": 0.8
+        {
+            "mesh": "../../../meshes/2D/simple/circle/circle14.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -1
+                ],
+                "scale": 0.8
+            },
+            "volume_selection": 3,
+            "surface_selection": 2
         },
-        "volume_selection": 3,
-        "surface_selection": 2
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "enabled": true,
-        "transformation": {
-            "translation": [0, -4.01],
-            "scale": [8, 0.02]
-        },
-        "volume_selection": 4,
-        "surface_selection": 3
-    }],
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    -4.01
+                ],
+                "scale": [
+                    8,
+                    0.02
+                ]
+            },
+            "volume_selection": 4,
+            "surface_selection": 3
+        }
+    ],
     "time": {
         "tend": 10,
         "dt": 0.01
@@ -56,46 +76,84 @@
     "solver": {
         "contact": {
             "friction_iterations": 1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["rotate_2D_x(x + 0.5, y + 1, -t * pi / 2) - (x + 0.5)", "rotate_2D_y(x + 0.5, y + 1, -t * pi / 2) - (y + 1)"]
-        }, {
-            "id": 2,
-            "value": ["rotate_2D_x(x - 0.5, y + 1, t * pi / 2) - (x - 0.5)", "rotate_2D_y(x - 0.5, y + 1, t * pi / 2) - (y + 1)"]
-        }, {
-            "id": 3,
-            "value": [0, 0]
-        }]
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "rotate_2D_x(x + 0.5, y + 1, -t * pi / 2) - (x + 0.5)",
+                    "rotate_2D_y(x + 0.5, y + 1, -t * pi / 2) - (y + 1)"
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    "rotate_2D_x(x - 0.5, y + 1, t * pi / 2) - (x - 0.5)",
+                    "rotate_2D_y(x - 0.5, y + 1, t * pi / 2) - (y + 1)"
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 10000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }, {
-        "id": 3,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }, {
-        "id": 4,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 3,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 4,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "advanced": {
             "save_solve_sequence_debug": true

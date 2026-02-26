@@ -1,24 +1,39 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../common.json",
-    "geometry": [{
-        "array": {
-            "offset": 1.01,
-            "relative": true,
-            "size": [4, 4, 4]
+    "geometry": [
+        {
+            "array": {
+                "offset": 1.01,
+                "relative": true,
+                "size": [
+                    4,
+                    4,
+                    4
+                ]
+            },
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.25,
+                "translation": [
+                    -0.375,
+                    0,
+                    -0.375
+                ]
+            },
+            "type": "mesh_array"
         },
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "scale": 0.25,
-            "translation": [-0.375, 0, -0.375]
-        },
-        "type": "mesh_array"
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../meshes/3D/obstacles/bowl.obj"
-    }],
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/obstacles/bowl.obj"
+        }
+    ],
     "materials": {
         "E": 100000.0,
         "nu": 0.4,
@@ -35,7 +50,21 @@
             "Newton": {
                 "force_psd_projection": true
             },
-            "x_delta": 0.01
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 0.0001,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "tests": {

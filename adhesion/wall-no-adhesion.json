@@ -69,13 +69,25 @@
         "nonlinear": {
             "iterations_per_strategy": 1,
             "line_search": {
-                "method": "RobustArmijo"
+                "method": "RobustArmijo",
+                "use_grad_norm_tol": 5e-08
             },
             "solver": "Newton",
-            "grad_norm": 1e-07
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 5.0000000000000005e-12,
+            "grad_norm_tol": 5e-09,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
         },
         "contact": {
             "barrier_stiffness": 100000
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "tests": {

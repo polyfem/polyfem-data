@@ -3,32 +3,65 @@
         "dirichlet_boundary": [
             {
                 "id": 12,
-                "value": [0, 0]
+                "value": [
+                    0,
+                    0
+                ]
             },
             {
                 "id": 1,
-                "value": [0, 0],
-                "dimension": [true, false]
+                "value": [
+                    0,
+                    0
+                ],
+                "dimension": [
+                    true,
+                    false
+                ]
             },
             {
                 "id": 2,
-                "value": [0, 0],
-                "dimension": [true, false]
+                "value": [
+                    0,
+                    0
+                ],
+                "dimension": [
+                    true,
+                    false
+                ]
             },
             {
                 "id": 3,
-                "value": [0, 0],
-                "dimension": [true, false]
+                "value": [
+                    0,
+                    0
+                ],
+                "dimension": [
+                    true,
+                    false
+                ]
             },
             {
                 "id": 4,
-                "value": [0, -0.02],
-                "dimension": [true, true]
+                "value": [
+                    0,
+                    -0.02
+                ],
+                "dimension": [
+                    true,
+                    true
+                ]
             },
             {
                 "id": 7,
-                "value": [0, 0],
-                "dimension": [true, false]
+                "value": [
+                    0,
+                    0
+                ],
+                "dimension": [
+                    true,
+                    false
+                ]
             }
         ]
     },
@@ -55,7 +88,7 @@
             "enabled": true,
             "volume_selection": 3,
             "surface_selection": {
-                "threshold": 1e-3
+                "threshold": 0.001
             },
             "n_refs": 0
         }
@@ -65,38 +98,56 @@
         "dhat": 0.05,
         "use_gcp_formulation": true,
         "alpha_t": 0.3,
-        "alpha_n": 1e-1
+        "alpha_n": 0.1
     },
     "common": "../common.json",
-    "materials": 
-    [{
-        "id": 1,
-        "E": 1e4,
-        "nu": 0.49,
-        "rho": 100,
-        "type": "NeoHookean"
-    },
-    {
-        "id": 2,
-        "E": 1e4,
-        "nu": 0.49,
-        "rho": 100,
-        "type": "NeoHookean"
-    },
-    {
-        "id": 3,
-        "E": 1e4,
-        "nu": 0.49,
-        "rho": 100,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000.0,
+            "nu": 0.49,
+            "rho": 100,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 10000.0,
+            "nu": 0.49,
+            "rho": 100,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 3,
+            "E": 10000.0,
+            "nu": 0.49,
+            "rho": 100,
+            "type": "NeoHookean"
+        }
+    ],
     "time": {
-        "tend": 1e-2,
+        "tend": 0.01,
         "time_steps": 20
     },
     "solver": {
         "contact": {
-            "barrier_stiffness": 1e5
+            "barrier_stiffness": 100000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 5e-14,
+            "grad_norm_tol": 5.0000000000000004e-08,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 5e-10
+            }
         }
     },
     "tests": {
@@ -106,7 +157,7 @@
         "err_linf": 0.02685618747744666,
         "err_linf_grad": 0.044776826906414144,
         "err_lp": 0.0170066405391911,
-        "margin": 1e-02,
+        "margin": 0.01,
         "time_steps": "all"
     }
 }

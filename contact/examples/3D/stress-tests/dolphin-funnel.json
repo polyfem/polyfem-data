@@ -1,39 +1,82 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "dimension": [true, false, false],
-            "id": 1,
-            "value": ["min(0.5*t, 10)", 0, 0]
-        }],
-        "rhs": [0, 0, 0]
+        "dirichlet_boundary": [
+            {
+                "dimension": [
+                    true,
+                    false,
+                    false
+                ],
+                "id": 1,
+                "value": [
+                    "min(0.5*t, 10)",
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            0,
+            0
+        ]
     },
     "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/3D/creatures/dolphin.msh",
-        "surface_selection": [{
-            "box": [
-                [0.97, 0, 0],
-                [1, 1, 1]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/creatures/dolphin.msh",
+            "surface_selection": [
+                {
+                    "box": [
+                        [
+                            0.97,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            1
+                        ]
+                    ],
+                    "id": 1,
+                    "relative": true
+                }
             ],
-            "id": 1,
-            "relative": true
-        }],
-        "transformation": {
-            "rotation": [0, 0, 40],
-            "scale": 0.008394050297,
-            "translation": [0.4547526249, 0.5227239301, -0.02286748313]
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    40
+                ],
+                "scale": 0.008394050297,
+                "translation": [
+                    0.4547526249,
+                    0.5227239301,
+                    -0.02286748313
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../meshes/3D/obstacles/funnel.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "rotation": [0, 0, 90],
-            "scale": 1.5,
-            "translation": [1.76, 0.86, 0.42]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/obstacles/funnel.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ],
+                "scale": 1.5,
+                "translation": [
+                    1.76,
+                    0.86,
+                    0.42
+                ]
+            }
         }
-    }],
+    ],
     "materials": {
         "E": 10000,
         "nu": 0.4,
@@ -53,7 +96,22 @@
             }
         },
         "nonlinear": {
-            "max_iterations": 10000
+            "max_iterations": 10000,
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4.0000000000000003e-07,
+            "x_delta_tol": 4e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "tests": {

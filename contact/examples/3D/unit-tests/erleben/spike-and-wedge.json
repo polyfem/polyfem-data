@@ -10,38 +10,78 @@
         "margin": 1e-05,
         "time_steps": "all"
     },
-    "geometry": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
-        "transformation": {
-            "translation": [0, 3.0001, 0],
-            "rotation": [0, 0, 180]
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    3.0001,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    180
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../../meshes/3D/obstacles/erleben/wedge.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -3, 0]
+        {
+            "mesh": "../../../../meshes/3D/obstacles/erleben/wedge.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -3,
+                    0
+                ]
+            }
         }
-    }],
+    ],
     "time": {
         "tend": 1.25,
         "dt": 0.025
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 1e6,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 1000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "spike-and-wedge.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
         }
     }
 }

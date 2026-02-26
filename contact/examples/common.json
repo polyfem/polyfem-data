@@ -18,11 +18,12 @@
                 "method": "RobustArmijo"
             },
             "solver": "Newton",
-            "x_delta": 1e-12,
-            "grad_norm": 1e-5
+            "norm_type": "Euclidean"
         },
         "advanced": {
-            "lump_mass_matrix": true
+            "lump_mass_matrix": true,
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "output": {

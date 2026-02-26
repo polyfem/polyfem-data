@@ -7,35 +7,60 @@
         "err_linf_grad": 0.008905684614059712,
         "err_lp": 0.003958554862104012
     },
-    "geometry": [{
-        "mesh": "cubes_v41.msh",
-        "surface_selection": [{
-            "id": 1,
-            "box": [
-                [0, 0, 0],
-                [0.001, 1, 1]
-            ],
-            "relative": true
-        }, {
-            "id": 3,
-            "box": [
-                [0.999, 0, 0],
-                [1, 1, 1]
-            ],
-            "relative": true
-        }]
-    }],
+    "geometry": [
+        {
+            "mesh": "cubes_v41.msh",
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0.001,
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                },
+                {
+                    "id": 3,
+                    "box": [
+                        [
+                            0.999,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                }
+            ]
+        }
+    ],
     "space": {
-        "discr_order": [{
-            "id": 1,
-            "order": 1
-        }, {
-            "id": 2,
-            "order": 2
-        }, {
-            "id": 3,
-            "order": 1
-        }]
+        "discr_order": [
+            {
+                "id": 1,
+                "order": 1
+            },
+            {
+                "id": 2,
+                "order": 2
+            },
+            {
+                "id": 3,
+                "order": 1
+            }
+        ]
     },
     "time": {
         "dt": 0.0025,
@@ -47,48 +72,80 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking"
+                "method": "Backtracking",
+                "use_grad_norm_tol": 2.5e-09
             },
             "solver": "Newton",
-            "grad_norm": 1e-05
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5e-13,
+            "grad_norm_tol": 2.5000000000000002e-08,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
         },
         "advanced": {
-            "lump_mass_matrix": true
+            "lump_mass_matrix": true,
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 0, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["-t", 0, 0]
-        }, {
-            "id": 3,
-            "value": ["t", 0, 0]
-        }]
+        "rhs": [
+            0,
+            0,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "-t",
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    "t",
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 2.55e7,
-        "nu": 0.48,
-        "rho": 1700,
-        "type": "NeoHookean"
-    }, {
-        "id": 3,
-        "E": 2e11,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 25500000.0,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 3,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "json": "sim.json",
         "paraview": {
@@ -97,7 +154,7 @@
                 "material": true,
                 "body_ids": true
             },
-            "vismesh_rel_area": 1e8
+            "vismesh_rel_area": 100000000.0
         },
         "advanced": {
             "save_solve_sequence_debug": false,

@@ -2,34 +2,42 @@
     "contact": {
         "enabled": true,
         "dhat": 0.01,
-        "alpha_t": 1e-1,
-        "alpha_n": 1e-1,
+        "alpha_t": 0.1,
+        "alpha_n": 0.1,
         "use_gcp_formulation": true
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
                 "method": "Backtracking",
-                "use_grad_norm_tol": 1e-6
+                "use_grad_norm_tol": 1e-06
             },
             "Newton": {
                 "use_psd_projection": false,
                 "use_psd_projection_in_regularized": false
             },
             "solver": "Newton",
-            "grad_norm": 1e-4,
             "advanced": {
                 "derivative_along_delta_x_tol": 1e-18
-            }
+            },
+            "norm_type": "Euclidean"
         },
         "contact": {
-            "barrier_stiffness": 1e6,
+            "barrier_stiffness": 1000000.0,
             "CCD": {
                 "broad_phase": "BVH"
             }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     }
 }

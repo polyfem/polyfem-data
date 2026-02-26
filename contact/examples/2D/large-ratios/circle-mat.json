@@ -8,62 +8,108 @@
         "err_linf_grad": 0.009831667237282014,
         "err_lp": 0.004477396123517282
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
-        "transformation": {
-            "translation": [0, 1]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    1
+                ]
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": -1,
+                    "position": -1
+                },
+                {
+                    "id": 2,
+                    "axis": 1,
+                    "position": 1
+                }
+            ]
         },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "axis": -1,
-            "position": -1
-        }, {
-            "id": 2,
-            "axis": 1,
-            "position": 1
-        }]
-    }, {
-        "mesh": "../../../meshes/2D/simple/bar/bar198.obj",
-        "transformation": {
-            "scale": 2
-        },
-        "volume_selection": 2,
-        "surface_selection": [{
-            "id": 1,
-            "axis": -1,
-            "position": -1
-        }, {
-            "id": 2,
-            "axis": 1,
-            "position": 1
-        }]
-    }],
+        {
+            "mesh": "../../../meshes/2D/simple/bar/bar198.obj",
+            "transformation": {
+                "scale": 2
+            },
+            "volume_selection": 2,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": -1,
+                    "position": -1
+                },
+                {
+                    "id": 2,
+                    "axis": 1,
+                    "position": 1
+                }
+            ]
+        }
+    ],
     "time": {
         "tend": 2.5,
         "dt": 0.01
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["-min(t, 0.28)", 0]
-        }, {
-            "id": 2,
-            "value": ["min(t, 0.28)", 0]
-        }]
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "-min(t, 0.28)",
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    "min(t, 0.28)",
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 1e8,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 1e6,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 1000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        }
+    }
 }

@@ -1,32 +1,41 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../common.json",
     "contact": {
         "dhat": 0.0001
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/screw/screw.msh",
-        "transformation": {
-            "scale": 0.01
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/screw/screw.msh",
+            "transformation": {
+                "scale": 0.01
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../meshes/3D/screw/nut.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "scale": 0.01
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/screw/nut.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "scale": 0.01
+            }
         }
-    }],
-    "materials": [{
-        "E": 200e9,
-        "id": 1,
-        "nu": 0.28,
-        "rho": 8050,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 200000000000.0,
+            "id": 1,
+            "nu": 0.28,
+            "rho": 8050,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "screw.pvd"
@@ -39,11 +48,30 @@
         "err_linf": 0.0006815158133276469,
         "err_linf_grad": 0.003534990306592999,
         "err_lp": 0.00021289959581939015,
-        "margin": 1e-04,
+        "margin": 0.0001,
         "time_steps": 1
     },
     "time": {
         "dt": 0.01,
         "tend": 5
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        }
     }
 }

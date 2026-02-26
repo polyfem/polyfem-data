@@ -1,43 +1,85 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["t", 0, 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "t",
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../../common.json",
-    "geometry": [{
-        "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
-        "surface_selection": [{
-            "axis": 2,
-            "id": 11,
-            "position": 2
-        }],
-        "point_selection": [{
-            "box": [[0.1,2,-10],[1,10,10]],
-            "id": 1
-        }],
-        "transformation": {
-            "rotation": [0, 0, 180],
-            "translation": [0, 2.0001, 0]
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/3D/simple/erleben/spike.msh",
+            "surface_selection": [
+                {
+                    "axis": 2,
+                    "id": 11,
+                    "position": 2
+                }
+            ],
+            "point_selection": [
+                {
+                    "box": [
+                        [
+                            0.1,
+                            2,
+                            -10
+                        ],
+                        [
+                            1,
+                            10,
+                            10
+                        ]
+                    ],
+                    "id": 1
+                }
+            ],
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    180
+                ],
+                "translation": [
+                    0,
+                    2.0001,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../../meshes/3D/obstacles/erleben/hole.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1, 0]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../../meshes/3D/obstacles/erleben/hole.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1,
+                    0
+                ]
+            }
         }
-    }],
-    "materials": [{
-        "E": 1000000.0,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 1000000.0,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "spike-in-hole.pvd"
@@ -56,5 +98,24 @@
     "time": {
         "dt": 0.025,
         "tend": 5
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
     }
 }

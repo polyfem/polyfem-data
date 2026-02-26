@@ -10,15 +10,15 @@
     },
     "materials": {
         "elasticity_tensor": [
-            2e7,
-            1e7,
-            1e7,
+            20000000.0,
+            10000000.0,
+            10000000.0,
             0.28,
             0.28,
             0.5,
-            6e6,
-            6e6,
-            6e6
+            6000000.0,
+            6000000.0,
+            6000000.0
         ],
         "type": "HookeLinearElasticity",
         "fiber_direction": [
@@ -51,5 +51,24 @@
         "err_lp": 0.06943368446886596,
         "margin": 1e-05,
         "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
+        }
     }
 }

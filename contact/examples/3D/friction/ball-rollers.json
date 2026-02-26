@@ -8,75 +8,139 @@
         "err_linf_grad": 0.0009810000000000005,
         "err_lp": 0.001173094695167541
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
-        "transformation": {
-            "translation": [0, 0.5, 0],
-            "scale": 2
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/sphere/sphere5K.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5,
+                    0
+                ],
+                "scale": 2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1, -0.5],
-            "scale": 4
+        {
+            "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
+            "is_obstacle": true,
+            "surface_selection": 1000,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1,
+                    -0.5
+                ],
+                "scale": 4
+            }
         },
-        "surface_selection": 1000
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1, 0.5],
-            "scale": 4
+        {
+            "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
+            "is_obstacle": true,
+            "surface_selection": 1001,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1,
+                    0.5
+                ],
+                "scale": 4
+            }
         },
-        "surface_selection": 1001
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [-0.5, -2, 0],
-            "rotation": [0, 90, 0],
-            "scale": 4
+        {
+            "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
+            "is_obstacle": true,
+            "surface_selection": 1002,
+            "transformation": {
+                "translation": [
+                    -0.5,
+                    -2,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": 4
+            }
         },
-        "surface_selection": 1002
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.5, -2, 0],
-            "rotation": [0, 90, 0],
-            "scale": 4
+        {
+            "mesh": "../../../meshes/3D/obstacles/cylinder.obj",
+            "is_obstacle": true,
+            "surface_selection": 1003,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -2,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    90,
+                    0
+                ],
+                "scale": 4
+            }
         },
-        "surface_selection": 1003
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -5, 0],
-            "dimensions": [8, 0, 8]
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -5,
+                    0
+                ],
+                "dimensions": [
+                    8,
+                    0,
+                    8
+                ]
+            }
         }
-    }],
+    ],
     "boundary_conditions": {
-        "obstacle_displacements": [{
-            "id": 1000,
-            "value": [0, "rotate_2D_x(y + 1, z + 0.5, t * pi / 2) - (y + 1)", "rotate_2D_y(y + 1, z + 0.5, t * pi / 2) - (z + 0.5)"]
-        }, {
-            "id": 1001,
-            "value": [0, "rotate_2D_x(y + 1, z - 0.5, -t * pi / 2) - (y + 1)", "rotate_2D_y(y + 1, z - 0.5, -t * pi / 2) - (z - 0.5)"]
-        }, {
-            "id": 1002,
-            "value": ["rotate_2D_x(x + 0.5, y + 2, -t * pi / 2) - (x + 0.5)", "rotate_2D_y(x + 0.5, y + 2, -t * pi / 2) - (y + 2)", 0]
-        }, {
-            "id": 1003,
-            "value": ["rotate_2D_x(x - 0.5, y + 2, t * pi / 2) - (x - 0.5)", "rotate_2D_y(x - 0.5, y + 2, t * pi / 2) - (y + 2)", 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        "obstacle_displacements": [
+            {
+                "id": 1000,
+                "value": [
+                    0,
+                    "rotate_2D_x(y + 1, z + 0.5, t * pi / 2) - (y + 1)",
+                    "rotate_2D_y(y + 1, z + 0.5, t * pi / 2) - (z + 0.5)"
+                ]
+            },
+            {
+                "id": 1001,
+                "value": [
+                    0,
+                    "rotate_2D_x(y + 1, z - 0.5, -t * pi / 2) - (y + 1)",
+                    "rotate_2D_y(y + 1, z - 0.5, -t * pi / 2) - (z - 0.5)"
+                ]
+            },
+            {
+                "id": 1002,
+                "value": [
+                    "rotate_2D_x(x + 0.5, y + 2, -t * pi / 2) - (x + 0.5)",
+                    "rotate_2D_y(x + 0.5, y + 2, -t * pi / 2) - (y + 2)",
+                    0
+                ]
+            },
+            {
+                "id": 1003,
+                "value": [
+                    "rotate_2D_x(x - 0.5, y + 2, t * pi / 2) - (x - 0.5)",
+                    "rotate_2D_y(x - 0.5, y + 2, t * pi / 2) - (y + 2)",
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "time": {
         "tend": 10,
@@ -91,15 +155,34 @@
     "solver": {
         "contact": {
             "friction_iterations": 1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     },
-    "materials": [{
-        "id": 1,
-        "E": 10000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "ball-rollers.pvd"

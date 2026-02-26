@@ -1,47 +1,76 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-        "transformation": {
-            "translation": [0, 1.1, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/right.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    1.1,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/triangle/right.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "translation": [0, 0, 0]
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/right.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 2
         },
-        "volume_selection": 2
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "scale": [5, 0.01],
-            "translation": [0.5, -0.006]
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "scale": [
+                    5,
+                    0.01
+                ],
+                "translation": [
+                    0.5,
+                    -0.006
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "materials": [
+        {
+            "E": 100000,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
         },
-        "volume_selection": 2
-    }],
-    "materials": [{
-        "E": 100000,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "E": 200000000000.0,
-        "id": 2,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+        {
+            "E": 200000000000.0,
+            "id": 2,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "vertex-vertex.pvd"
@@ -60,5 +89,24 @@
     "time": {
         "dt": 0.025,
         "tend": 3
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
     }
 }

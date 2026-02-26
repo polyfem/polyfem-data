@@ -1,10 +1,18 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x", "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "rotate_2D_x(x, y, max(-t * pi / 2, deg2rad(-45))) - x",
+                    "rotate_2D_y(x, y, max(-t * pi / 2, deg2rad(-45))) - y"
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../common.json",
     "contact": {
@@ -13,36 +21,51 @@
         "epsv": 0.004,
         "friction_coefficient": 0.5
     },
-    "geometry": [{
-        "enabled": true,
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "transformation": {
-            "translation": [0, 0.5055]
+    "geometry": [
+        {
+            "enabled": true,
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5055
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "enabled": true,
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "scale": [4, 0.01],
-            "translation": [0, 0]
+        {
+            "enabled": true,
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "scale": [
+                    4,
+                    0.01
+                ],
+                "translation": [
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "materials": [
+        {
+            "E": 200000000000.0,
+            "id": 1,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
         },
-        "volume_selection": 2
-    }],
-    "materials": [{
-        "E": 200000000000.0,
-        "id": 1,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }, {
-        "E": 200000000000.0,
-        "id": 2,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+        {
+            "E": 200000000000.0,
+            "id": 2,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "advanced": {
             "save_solve_sequence_debug": true
@@ -51,6 +74,23 @@
     "solver": {
         "contact": {
             "friction_iterations": 10
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     },
     "tests": {

@@ -2,7 +2,12 @@
     "common": "../../common.json",
     "solver": {
         "advanced": {
-            "lump_mass_matrix": false
+            "lump_mass_matrix": false,
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean"
         }
     },
     "output": {

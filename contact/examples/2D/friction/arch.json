@@ -8,205 +8,348 @@
         "err_linf_grad": 0.0009810000000000003,
         "err_lp": 0.0023756273251121372
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/arch/largeArch.01.obj",
-        "transformation": {
-            "translation": [-1.2, -1.2]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.01.obj",
+            "transformation": {
+                "translation": [
+                    -1.2,
+                    -1.2
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.02.obj",
-        "transformation": {
-            "translation": [-1.1, -1.1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.02.obj",
+            "transformation": {
+                "translation": [
+                    -1.1,
+                    -1.1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.03.obj",
-        "transformation": {
-            "translation": [-1, -1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.03.obj",
+            "transformation": {
+                "translation": [
+                    -1,
+                    -1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.04.obj",
-        "transformation": {
-            "translation": [-0.9, -0.9]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.04.obj",
+            "transformation": {
+                "translation": [
+                    -0.9,
+                    -0.9
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.05.obj",
-        "transformation": {
-            "translation": [-0.8, -0.8]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.05.obj",
+            "transformation": {
+                "translation": [
+                    -0.8,
+                    -0.8
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.06.obj",
-        "transformation": {
-            "translation": [-0.7, -0.7]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.06.obj",
+            "transformation": {
+                "translation": [
+                    -0.7,
+                    -0.7
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.07.obj",
-        "transformation": {
-            "translation": [-0.6, -0.6]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.07.obj",
+            "transformation": {
+                "translation": [
+                    -0.6,
+                    -0.6
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.08.obj",
-        "transformation": {
-            "translation": [-0.5, -0.5]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.08.obj",
+            "transformation": {
+                "translation": [
+                    -0.5,
+                    -0.5
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.09.obj",
-        "transformation": {
-            "translation": [-0.4, -0.4]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.09.obj",
+            "transformation": {
+                "translation": [
+                    -0.4,
+                    -0.4
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.10.obj",
-        "transformation": {
-            "translation": [-0.3, -0.3]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.10.obj",
+            "transformation": {
+                "translation": [
+                    -0.3,
+                    -0.3
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.11.obj",
-        "transformation": {
-            "translation": [-0.2, -0.2]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.11.obj",
+            "transformation": {
+                "translation": [
+                    -0.2,
+                    -0.2
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.12.obj",
-        "transformation": {
-            "translation": [-0.1, -0.1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.12.obj",
+            "transformation": {
+                "translation": [
+                    -0.1,
+                    -0.1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.13.obj",
-        "transformation": {
-            "translation": [0, 0]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.13.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.14.obj",
-        "transformation": {
-            "translation": [0.1, -0.1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.14.obj",
+            "transformation": {
+                "translation": [
+                    0.1,
+                    -0.1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.15.obj",
-        "transformation": {
-            "translation": [0.2, -0.2]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.15.obj",
+            "transformation": {
+                "translation": [
+                    0.2,
+                    -0.2
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.16.obj",
-        "transformation": {
-            "translation": [0.3, -0.3]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.16.obj",
+            "transformation": {
+                "translation": [
+                    0.3,
+                    -0.3
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.17.obj",
-        "transformation": {
-            "translation": [0.4, -0.4]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.17.obj",
+            "transformation": {
+                "translation": [
+                    0.4,
+                    -0.4
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.18.obj",
-        "transformation": {
-            "translation": [0.5, -0.5]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.18.obj",
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.5
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.19.obj",
-        "transformation": {
-            "translation": [0.6, -0.6]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.19.obj",
+            "transformation": {
+                "translation": [
+                    0.6,
+                    -0.6
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.20.obj",
-        "transformation": {
-            "translation": [0.7, -0.7]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.20.obj",
+            "transformation": {
+                "translation": [
+                    0.7,
+                    -0.7
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.21.obj",
-        "transformation": {
-            "translation": [0.8, -0.8]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.21.obj",
+            "transformation": {
+                "translation": [
+                    0.8,
+                    -0.8
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.22.obj",
-        "transformation": {
-            "translation": [0.9, -0.9]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.22.obj",
+            "transformation": {
+                "translation": [
+                    0.9,
+                    -0.9
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.23.obj",
-        "transformation": {
-            "translation": [1, -1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.23.obj",
+            "transformation": {
+                "translation": [
+                    1,
+                    -1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.24.obj",
-        "transformation": {
-            "translation": [1.1, -1.1]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.24.obj",
+            "transformation": {
+                "translation": [
+                    1.1,
+                    -1.1
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/arch/largeArch.25.obj",
-        "transformation": {
-            "translation": [1.2, -1.2]
+        {
+            "mesh": "../../../meshes/2D/arch/largeArch.25.obj",
+            "transformation": {
+                "translation": [
+                    1.2,
+                    -1.2
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "transformation": {
-            "translation": [-36, -6.4],
-            "scale": [10, 10]
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    -36,
+                    -6.4
+                ],
+                "scale": [
+                    10,
+                    10
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 2
         },
-        "volume_selection": 2,
-        "surface_selection": 2
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "transformation": {
-            "translation": [36, -6.4],
-            "scale": [10, 10]
-        },
-        "volume_selection": 2,
-        "surface_selection": 2
-    }],
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    36,
+                    -6.4
+                ],
+                "scale": [
+                    10,
+                    10
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 2
+        }
+    ],
     "time": {
         "tend": 20,
         "dt": 0.01
     },
     "contact": {
         "dhat": 0.001,
-        "epsv": 1e-5,
+        "epsv": 1e-05,
         "friction_coefficient": 0.5
     },
     "solver": {
         "contact": {
             "friction_iterations": 1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81],
-        "dirichlet_boundary": [{
-            "id": 2,
-            "value": [0, 0]
-        }]
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 2e10,
-        "nu": 0.2,
-        "rho": 2300,
-        "type": "NeoHookean"
-    }, {
-        "id": 2,
-        "E": 2e10,
-        "nu": 0.2,
-        "rho": 2300,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 20000000000.0,
+            "nu": 0.2,
+            "rho": 2300,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 20000000000.0,
+            "nu": 0.2,
+            "rho": 2300,
+            "type": "NeoHookean"
+        }
+    ]
 }

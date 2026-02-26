@@ -1,19 +1,30 @@
 {
     "common": "../common.json",
-    "geometry": [{
-        "mesh": "../../../../meshes/3D/simple/sphere/coarse/P1.msh",
-        "transformation": {
-            "scale": 0.11938
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/3D/simple/sphere/coarse/P1.msh",
+            "transformation": {
+                "scale": 0.11938
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../../meshes/3D/obstacles/plane.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0, -0.2, 0],
-            "dimensions": [1, 0, 1]
+        {
+            "mesh": "../../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.2,
+                    0
+                ],
+                "dimensions": [
+                    1,
+                    0,
+                    1
+                ]
+            }
         }
-    }],
+    ],
     "space": {
         "discr_order": 1
     },
@@ -30,18 +41,43 @@
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 591000,
-        "nu": 0.45,
-        "rho": 700,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 591000,
+            "nu": 0.45,
+            "rho": 700,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "skip_frame": 10
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-13,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 1e-15,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-09
+            }
         }
     }
 }

@@ -10,63 +10,118 @@
         "margin": 1e-05,
         "time_steps": 1
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
-        "transformation": {
-            "translation": [2.5e-7, 0.6, 2.5e-7],
-            "scale": 0.9999995
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/tet/tet-corner.msh",
+            "transformation": {
+                "translation": [
+                    2.5e-07,
+                    0.6,
+                    2.5e-07
+                ],
+                "scale": 0.9999995
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [-0.5, 0, 0.5]
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    -0.5,
+                    0,
+                    0.5
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    0,
+                    -0.5
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    1.5,
+                    0,
+                    0.5
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.5,
+                    0.5
+                ],
+                "dimensions": [
+                    5,
+                    0,
+                    5
+                ]
+            }
         }
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.5, 0, -0.5]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [1.5, 0, 0.5]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.5, -0.5, 0.5],
-            "dimensions": [5, 0, 5]
-        }
-    }],
+    ],
     "time": {
         "tend": 5,
         "time_steps": 200
     },
     "contact": {
-        "dhat": 1e-6
+        "dhat": 1e-06
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "tet-corner.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
         }
     }
 }

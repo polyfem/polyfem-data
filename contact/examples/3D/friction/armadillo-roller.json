@@ -8,66 +8,122 @@
         "err_linf_grad": 0.006131250000000008,
         "err_lp": 0.00478347039564773
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/creatures/armadillo/armadillo_verschoor.msh",
-        "transformation": {
-            "translation": [0, 0, 0],
-            "scale": 1
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/creatures/armadillo/armadillo_verschoor.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": 1
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller0.obj",
-        "is_obstacle": true,
-        "surface_selection": 1000
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller1.obj",
-        "is_obstacle": true,
-        "surface_selection": 1001
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller2.obj",
-        "is_obstacle": true,
-        "surface_selection": 1002
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller3.obj",
-        "is_obstacle": true,
-        "surface_selection": 1003
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller4.obj",
-        "is_obstacle": true,
-        "surface_selection": 1004
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/verschoor/roller5.obj",
-        "is_obstacle": true,
-        "surface_selection": 1005
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0, 0.2, 0],
-            "dimensions": [8, 0, 8]
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller0.obj",
+            "is_obstacle": true,
+            "surface_selection": 1000
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller1.obj",
+            "is_obstacle": true,
+            "surface_selection": 1001
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller2.obj",
+            "is_obstacle": true,
+            "surface_selection": 1002
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller3.obj",
+            "is_obstacle": true,
+            "surface_selection": 1003
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller4.obj",
+            "is_obstacle": true,
+            "surface_selection": 1004
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/verschoor/roller5.obj",
+            "is_obstacle": true,
+            "surface_selection": 1005
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0.2,
+                    0
+                ],
+                "dimensions": [
+                    8,
+                    0,
+                    8
+                ]
+            }
         }
-    }],
+    ],
     "boundary_conditions": {
-        "obstacle_displacements": [{
-            "id": 1000,
-            "value": ["rotate_2D_x(x + 2.0/3.0, y - 1, -4 * t) - 2.0/3.0 - x", "rotate_2D_y(x + 2.0/3.0, y - 1, -4 * t) + 1 - y", 0]
-        }, {
-            "id": 1001,
-            "value": ["rotate_2D_x(x + 13.0/60.0, y - 1, -2 * t) - 13.0/60.0 - x", "rotate_2D_y(x + 13.0/60.0, y - 1, -2 * t) + 1 - y", 0]
-        }, {
-            "id": 1002,
-            "value": ["rotate_2D_x(x - 13.0/60.0, y - 1, 2 * t) + 13.0/60.0 - x", "rotate_2D_y(x - 13.0/60.0, y - 1, 2 * t) + 1 - y", 0]
-        }, {
-            "id": 1003,
-            "value": ["rotate_2D_x(x - 2.0/3.0, y - 1, 4 * t) + 2.0/3.0 - x", "rotate_2D_y(x - 2.0/3.0, y - 1, 4 * t) + 1 - y", 0]
-        }, {
-            "id": 1004,
-            "value": [0, "rotate_2D_x(y - 19.0/30.0, z + 13.0/60.0, 2 * t) + 19.0/30.0 - y", "rotate_2D_y(y - 19.0/30.0, z + 13.0/60.0, 2 * t) - 13.0/60.0 - z"]
-        }, {
-            "id": 1005,
-            "value": [0, "rotate_2D_x(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 19.0/30.0 - y", "rotate_2D_y(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 13.0/60.0 - z"]
-        }],
-        "rhs": [0, 9.81, 0]
+        "obstacle_displacements": [
+            {
+                "id": 1000,
+                "value": [
+                    "rotate_2D_x(x + 2.0/3.0, y - 1, -4 * t) - 2.0/3.0 - x",
+                    "rotate_2D_y(x + 2.0/3.0, y - 1, -4 * t) + 1 - y",
+                    0
+                ]
+            },
+            {
+                "id": 1001,
+                "value": [
+                    "rotate_2D_x(x + 13.0/60.0, y - 1, -2 * t) - 13.0/60.0 - x",
+                    "rotate_2D_y(x + 13.0/60.0, y - 1, -2 * t) + 1 - y",
+                    0
+                ]
+            },
+            {
+                "id": 1002,
+                "value": [
+                    "rotate_2D_x(x - 13.0/60.0, y - 1, 2 * t) + 13.0/60.0 - x",
+                    "rotate_2D_y(x - 13.0/60.0, y - 1, 2 * t) + 1 - y",
+                    0
+                ]
+            },
+            {
+                "id": 1003,
+                "value": [
+                    "rotate_2D_x(x - 2.0/3.0, y - 1, 4 * t) + 2.0/3.0 - x",
+                    "rotate_2D_y(x - 2.0/3.0, y - 1, 4 * t) + 1 - y",
+                    0
+                ]
+            },
+            {
+                "id": 1004,
+                "value": [
+                    0,
+                    "rotate_2D_x(y - 19.0/30.0, z + 13.0/60.0, 2 * t) + 19.0/30.0 - y",
+                    "rotate_2D_y(y - 19.0/30.0, z + 13.0/60.0, 2 * t) - 13.0/60.0 - z"
+                ]
+            },
+            {
+                "id": 1005,
+                "value": [
+                    0,
+                    "rotate_2D_x(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 19.0/30.0 - y",
+                    "rotate_2D_y(y - 19.0/30.0, z - 13.0/60.0, -2 * t) + 13.0/60.0 - z"
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "time": {
         "tend": 10,
@@ -82,15 +138,34 @@
     "solver": {
         "contact": {
             "friction_iterations": 1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
         }
     },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.2,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.2,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "armadillo-rollers.pvd",

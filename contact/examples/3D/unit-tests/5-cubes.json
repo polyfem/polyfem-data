@@ -8,70 +8,130 @@
         "err_linf_grad": 0.006131250000000003,
         "err_lp": 0.004100213994886689
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0, 0],
-            "scale": 0.2
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0.205, 0],
-            "scale": 0.2
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.205,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0.41, 0],
-            "scale": 0.2
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.41,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0.615, 0],
-            "scale": 0.2
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.615,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "translation": [0, 0.82, 0],
-            "scale": 0.2
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.82,
+                    0
+                ],
+                "scale": 0.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -0.315, 0],
-            "dimensions": [2, 0, 2]
+        {
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.315,
+                    0
+                ],
+                "dimensions": [
+                    2,
+                    0,
+                    2
+                ]
+            }
         }
-    }],
+    ],
     "time": {
         "tend": 5,
         "time_steps": 200
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 100000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 100000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "5-cubes.pvd",
             "options": {
                 "velocity": true,
                 "acceleration": true
+            }
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
             }
         }
     }

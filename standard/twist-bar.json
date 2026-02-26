@@ -10,20 +10,29 @@
         "augmented_lagrangian": {
             "nonlinear": {
                 "line_search": {
-                    "use_grad_norm_tol": 1e-3
+                    "use_grad_norm_tol": 0.0001
                 },
-                "grad_norm": 1e-1
+                "grad_norm_tol": 0.010000000000000002
             }
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-3
+                "use_grad_norm_tol": 0.0001
             },
-            "grad_norm": 1e-3
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1.0000000000000001e-11,
+            "grad_norm_tol": 0.0001,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
         },
         "advanced": {
             "lump_mass_matrix": false,
-            "check_inversion": "Conservative"
+            "check_inversion": "Conservative",
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "space": {
@@ -35,20 +44,24 @@
         }
     },
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [
-                0,
-                "rotate_2D_y(z, y, -3 * pi * t) - y",
-                "rotate_2D_x(z, y, -3 * pi * t) - z"
-            ]
-        },
-        {
-            "id": 2,
-            "value": [
-                0,0,0
-            ]
-        }]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    "rotate_2D_y(z, y, -3 * pi * t) - y",
+                    "rotate_2D_x(z, y, -3 * pi * t) - z"
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "contact": {
         "enabled": true
@@ -57,21 +70,48 @@
         "tend": 3,
         "dt": 0.1
     },
-    "geometry": [{
-        "mesh": "../contact/meshes/3D/simple/bar/bar-186.msh",
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "box": [[0, 0, 0], [1e-3, 1, 1]],
-            "relative": true
-        },{
-            "id": 2,
-            "box": [[0.999, 0, 0], [1, 1, 1]],
-            "relative": true
-        }]
-    }],
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/3D/simple/bar/bar-186.msh",
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            0.001,
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                },
+                {
+                    "id": 2,
+                    "box": [
+                        [
+                            0.999,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                }
+            ]
+        }
+    ],
     "materials": {
-        "E": 1e6,
+        "E": 1000000.0,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -83,7 +123,7 @@
         "err_linf": 2.23606797749979,
         "err_linf_grad": 3.53333530501018,
         "err_lp": 1.37576121511575,
-        "margin": 1e-02,
+        "margin": 0.01,
         "time_steps": "all"
     }
 }

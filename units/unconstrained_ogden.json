@@ -2,7 +2,7 @@
     "common": "elastic_common.json",
     "materials": {
         "Ds": {
-            "value": 2e-02,
+            "value": 0.02,
             "unit": "mPa"
         },
         "alphas": 6.82,
@@ -22,5 +22,24 @@
         "err_lp": 0.07492179874791555,
         "margin": 1e-05,
         "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
     }
 }

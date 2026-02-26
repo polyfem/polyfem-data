@@ -8,109 +8,225 @@
         "err_linf_grad": 0.01569600000000001,
         "err_lp": 0.009191115118749404
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "transformation": {
-            "translation": [0.5, 1, 0.1],
-            "rotation": [0, 0, 0.05],
-            "scale": 1.2
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0.5,
+                    1,
+                    0.1
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0.05
+                ],
+                "scale": 1.2
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.2, -0.1, -0.7],
-            "rotation": [0, 0, 90]
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.2,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.4,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.6,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.8,
+                    -0.1,
+                    -0.7
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    90
+                ]
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.1,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.3,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.5,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.7,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
+        },
+        {
+            "mesh": "../../../meshes/3D/obstacles/triangle.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0.9,
+                    -0.1,
+                    0.3
+                ],
+                "rotation": [
+                    0,
+                    180,
+                    90
+                ],
+                "rotation_mode": "zyx"
+            }
         }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.4, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.6, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.8, -0.1, -0.7],
-            "rotation": [0, 0, 90]
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.1, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.3, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.5, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.7, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/triangle.obj",
-        "is_obstacle": true,
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0.9, -0.1, 0.3],
-            "rotation": [0, 180, 90],
-            "rotation_mode": "zyx"
-        }
-    }],
+    ],
     "time": {
         "tend": 6,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 20000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 20000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "mat-knives.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4.0000000000000003e-07,
+            "x_delta_tol": 4e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
         }
     }
 }

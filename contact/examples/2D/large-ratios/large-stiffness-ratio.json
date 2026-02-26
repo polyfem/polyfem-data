@@ -1,62 +1,92 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../common.json",
     "contact": {
         "friction_coefficient": 0.1
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
-        "transformation": {
-            "rotation": 0,
-            "scale": 1,
-            "translation": [0, 0.51]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
+            "transformation": {
+                "rotation": 0,
+                "scale": 1,
+                "translation": [
+                    0,
+                    0.51
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
-        "transformation": {
-            "rotation": 90,
-            "scale": 1,
-            "translation": [0, 0, 0]
+        {
+            "mesh": "../../../meshes/2D/simple/bar/bar792.obj",
+            "transformation": {
+                "rotation": 90,
+                "scale": 1,
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 2
         },
-        "volume_selection": 2
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "scale": [2, 0.01],
-            "translation": [0, -0.56, 0]
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "scale": [
+                    2,
+                    0.01
+                ],
+                "translation": [
+                    0,
+                    -0.56,
+                    0
+                ]
+            },
+            "volume_selection": 3
+        }
+    ],
+    "materials": [
+        {
+            "E": 10000,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
         },
-        "volume_selection": 3
-    }],
-    "materials": [{
-        "E": 10000,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "E": 100000000.0,
-        "id": 2,
-        "nu": 0.4,
-        "rho": 2000,
-        "type": "NeoHookean"
-    }, {
-        "E": 200000000000.0,
-        "id": 3,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+        {
+            "E": 100000000.0,
+            "id": 2,
+            "nu": 0.4,
+            "rho": 2000,
+            "type": "NeoHookean"
+        },
+        {
+            "E": 200000000000.0,
+            "id": 3,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "tests": {
         "err_h1": 0.000867089690416706,
-        "err_h1_semi": 3.5823706740348453e-14,
+        "err_h1_semi": 3.582370674034845e-14,
         "err_l2": 0.000867089690416706,
         "err_linf": 0.006131250000000452,
         "err_linf_grad": 0.006131250000000452,
@@ -65,5 +95,24 @@
     "time": {
         "tend": 3,
         "time_steps": 120
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
     }
 }

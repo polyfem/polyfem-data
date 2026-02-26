@@ -1,51 +1,91 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../common.json",
     "contact": {
         "epsv": 1e-05,
         "friction_coefficient": 0.49
     },
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "transformation": {
-            "rotation": -26.565,
-            "scale": 1,
-            "translation": [0, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "rotation": -26.565,
+                "scale": 1,
+                "translation": [
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/square.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "dimensions": [10, 0.01],
-            "rotation": -26.565,
-            "translation": [2, -1.566]
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "dimensions": [
+                    10,
+                    0.01
+                ],
+                "rotation": -26.565,
+                "translation": [
+                    2,
+                    -1.566
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "materials": [
+        {
+            "E": 1000000000.0,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
         },
-        "volume_selection": 2
-    }],
-    "materials": [{
-        "E": 1000000000.0,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "E": 200000000000.0,
-        "id": 2,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+        {
+            "E": 200000000000.0,
+            "id": 2,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "solver": {
         "contact": {
             "friction_convergence_tol": 0.01,
             "friction_iterations": -1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
         }
     },
     "tests": {

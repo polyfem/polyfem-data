@@ -2,15 +2,21 @@
     "geometry": {
         "mesh": "balloon.msh",
         "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "axis": "-y",
-            "position": -1
-        }, {
-            "id": 2,
-            "center": [0, 0],
-            "radius": 1
-        }]
+        "surface_selection": [
+            {
+                "id": 1,
+                "axis": "-y",
+                "position": -1
+            },
+            {
+                "id": 2,
+                "center": [
+                    0,
+                    0
+                ],
+                "radius": 1
+            }
+        ]
     },
     "time": {
         "tend": 1,
@@ -20,34 +26,57 @@
     "boundary_conditions": {
         "dirichlet_boundary": {
             "id": 1,
-            "value": [0, 0, 0]
+            "value": [
+                0,
+                0,
+                0
+            ]
         },
-        "pressure_boundary": [{
-            "id": 2,
-            "value": "2e5 * if(0.5 - t, t, 0)"
-        }]
+        "pressure_boundary": [
+            {
+                "id": 2,
+                "value": "2e5 * if(0.5 - t, t, 0)"
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 5e4,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 50000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "contact": {
         "enabled": true,
-        "dhat": 1e-3
+        "dhat": 0.001
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking"
+                "method": "Backtracking",
+                "use_grad_norm_tol": 5e-08
             },
             "solver": "Newton",
-            "x_delta": 1e-05
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 5.0000000000000005e-12,
+            "grad_norm_tol": 5e-10,
+            "x_delta_tol": 5.000000000000001e-07,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "output": {

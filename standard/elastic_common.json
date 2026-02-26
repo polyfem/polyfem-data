@@ -3,33 +3,63 @@
     "geometry": {
         "mesh": "../contact/meshes/3D/simple/cube.msh",
         "n_refs": 2,
-        "surface_selection": [{
-            "id": 1,
-            "box": [
-                [0, 0, 0],
-                [0.001, 1, 1]
-            ],
-            "relative": true
-        }, {
-            "id": 3,
-            "box": [
-                [0.999, 0, 0],
-                [1, 1, 1]
-            ],
-            "relative": true
-        }],
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 3,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ],
         "advanced": {
             "normalize_mesh": true
         }
     },
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [-0.1, 0, 0]
-        }, {
-            "id": 3,
-            "value": [0.1, 0, 0]
-        }]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    -0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0.1,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "solver": {
         "linear": {
@@ -41,8 +71,20 @@
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-5
+                "use_grad_norm_tol": 1e-05
+            },
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
             }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     }
 }

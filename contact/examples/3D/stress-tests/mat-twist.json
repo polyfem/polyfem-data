@@ -8,42 +8,91 @@
         "err_linf_grad": 0.2689484814720979,
         "err_lp": 0.006623505526544393
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-        "transformation": {
-            "translation": [0, 0, 0],
-            "rotation": [90, 0, 0]
-        },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "axis": 1,
-            "position": 0.5
-        }, {
-            "id": 3,
-            "axis": -1,
-            "position": -0.5
-        }]
-    }],
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 1,
+                    "position": 0.5
+                },
+                {
+                    "id": 3,
+                    "axis": -1,
+                    "position": -0.5
+                }
+            ]
+        }
+    ],
     "time": {
         "tend": 100,
         "dt": 0.04
     },
     "boundary_conditions": {
-        "rhs": [0, 0, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, "y*cos((-0.4*pi)*t)-z*sin((-0.4*pi)*t)-y", "y*sin((-0.4*pi)*t)+z*cos((-0.4*pi)*t)-z"]
-        }, {
-            "id": 3,
-            "value": [0, "y*cos((0.4*pi)*t)-z*sin((0.4*pi)*t)-y", "y*sin((0.4*pi)*t)+z*cos((0.4*pi)*t)-z"]
-        }]
+        "rhs": [
+            0,
+            0,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    "y*cos((-0.4*pi)*t)-z*sin((-0.4*pi)*t)-y",
+                    "y*sin((-0.4*pi)*t)+z*cos((-0.4*pi)*t)-z"
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    "y*cos((0.4*pi)*t)-z*sin((0.4*pi)*t)-y",
+                    "y*sin((0.4*pi)*t)+z*cos((0.4*pi)*t)-z"
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 20000,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }]
+    "materials": [
+        {
+            "id": 1,
+            "E": 20000,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4.0000000000000003e-07,
+            "x_delta_tol": 4e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
+        }
+    }
 }

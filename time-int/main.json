@@ -70,8 +70,13 @@
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-5
-            }
+                "use_grad_norm_tol": 1e-05
+            },
+            "norm_type": "Euclidean"
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "materials": {

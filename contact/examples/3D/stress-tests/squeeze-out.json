@@ -8,62 +8,127 @@
         "err_linf_grad": 0.0013483144375194076,
         "err_lp": 0.0008815621507002471
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/creatures/alien.msh",
-        "transformation": {
-            "translation": [0, -1.05, 0],
-            "rotation": [0, 0, 0],
-            "scale": 0.45
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/creatures/alien.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    -1.05,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": 0.45
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/3D/creatures/gargoyle.msh",
-        "transformation": {
-            "translation": [1.2, 0.2, -0.1],
-            "rotation": [-90, 0, 0],
-            "scale": 0.22
+        {
+            "mesh": "../../../meshes/3D/creatures/gargoyle.msh",
+            "transformation": {
+                "translation": [
+                    1.2,
+                    0.2,
+                    -0.1
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": 0.22
+            },
+            "volume_selection": 2
         },
-        "volume_selection": 2
-    }, {
-        "mesh": "../../../meshes/3D/creatures/monkey.msh",
-        "transformation": {
-            "translation": [-0.03, 1.05, 0],
-            "rotation": [-90, 0, 0],
-            "scale": 0.012
+        {
+            "mesh": "../../../meshes/3D/creatures/monkey.msh",
+            "transformation": {
+                "translation": [
+                    -0.03,
+                    1.05,
+                    0
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": 0.012
+            },
+            "volume_selection": 3
         },
-        "volume_selection": 3
-    }, {
-        "mesh": "../../../meshes/3D/creatures/octocat.msh",
-        "transformation": {
-            "translation": [0, 1.9, 0],
-            "rotation": [-90, 0, 0],
-            "scale": 0.01
+        {
+            "mesh": "../../../meshes/3D/creatures/octocat.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    1.9,
+                    0
+                ],
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": 0.01
+            },
+            "volume_selection": 4
         },
-        "volume_selection": 4
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [-1, 2.25, -1],
-            "rotation": [0, 0, 0],
-            "scale": 2
+        {
+            "mesh": "../../../meshes/3D/obstacles/unit-plane.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    -1,
+                    2.25,
+                    -1
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": 2
+            },
+            "surface_selection": 1000
         },
-        "surface_selection": 1000
-    }, {
-        "mesh": "../../../meshes/3D/obstacles/coneBox.obj",
-        "is_obstacle": true,
-        "transformation": {
-            "translation": [0, -2, 0],
-            "rotation": [0, 0, -90],
-            "scale": 1.15
+        {
+            "mesh": "../../../meshes/3D/obstacles/coneBox.obj",
+            "is_obstacle": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    -2,
+                    0
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -90
+                ],
+                "scale": 1.15
+            }
         }
-    }],
+    ],
     "boundary_conditions": {
-        "obstacle_displacements": [{
-            "id": 1000,
-            "value": [0, "max(-0.3 * t, -3.79)", 0]
-        }],
-        "rhs": [0, 9.81, 0]
+        "obstacle_displacements": [
+            {
+                "id": 1000,
+                "value": [
+                    0,
+                    "max(-0.3 * t, -3.79)",
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "time": {
         "tend": 15,
@@ -78,6 +143,25 @@
     "output": {
         "paraview": {
             "file_name": "squeeze-out.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         }
     }
 }

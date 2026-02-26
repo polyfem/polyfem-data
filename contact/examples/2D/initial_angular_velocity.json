@@ -1,25 +1,37 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 0]
+        "rhs": [
+            0,
+            0
+        ]
     },
     "common": "../common.json",
-    "geometry": [{
-        "mesh": "../../meshes/2D/simple/square.obj",
-        "volume_selection": 1
-    }],
+    "geometry": [
+        {
+            "mesh": "../../meshes/2D/simple/square.obj",
+            "volume_selection": 1
+        }
+    ],
     "initial_conditions": {
-        "velocity": [{
-            "id": 1,
-            "value": ["deg2rad(180) * y", "-deg2rad(180) * x"]
-        }]
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    "deg2rad(180) * y",
+                    "-deg2rad(180) * x"
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "E": 25500000.0,
-        "id": 1,
-        "nu": 0.48,
-        "rho": 1700,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "E": 25500000.0,
+            "id": 1,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        }
+    ],
     "tests": {
         "err_h1": 2.829988079706551,
         "err_h1_semi": 2.791483669816329,
@@ -33,5 +45,24 @@
     "time": {
         "dt": 0.04,
         "tend": 5
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4.0000000000000003e-07,
+            "x_delta_tol": 4e-14,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
+        }
     }
 }

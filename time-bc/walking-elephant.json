@@ -7,38 +7,81 @@
         "err_linf_grad": 0.07857729802470823,
         "err_lp": 0.06450829416626931
     },
-    "geometry": [{
-        "mesh": "little-elephant.msh",
-        "transformation": {
-            "rotation": [0, -90, 0]
-        },
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "box": [
-                [-0.7, -0.02, 0.15],
-                [0.3, 0.02, 1.15]
+    "geometry": [
+        {
+            "mesh": "little-elephant.msh",
+            "transformation": {
+                "rotation": [
+                    0,
+                    -90,
+                    0
+                ]
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            -0.7,
+                            -0.02,
+                            0.15
+                        ],
+                        [
+                            0.3,
+                            0.02,
+                            1.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 2,
+                    "box": [
+                        [
+                            -0.7,
+                            -0.02,
+                            -1.15
+                        ],
+                        [
+                            0.3,
+                            0.02,
+                            -0.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 3,
+                    "box": [
+                        [
+                            1.05,
+                            -0.02,
+                            0.15
+                        ],
+                        [
+                            2.05,
+                            0.03,
+                            1.15
+                        ]
+                    ]
+                },
+                {
+                    "id": 4,
+                    "box": [
+                        [
+                            1.05,
+                            -0.02,
+                            -1.15
+                        ],
+                        [
+                            2.05,
+                            0.03,
+                            -0.15
+                        ]
+                    ]
+                }
             ]
-        }, {
-            "id": 2,
-            "box": [
-                [-0.7, -0.02, -1.15],
-                [0.3, 0.02, -0.15]
-            ]
-        }, {
-            "id": 3,
-            "box": [
-                [1.05, -0.02, 0.15],
-                [2.05, 0.03, 1.15]
-            ]
-        }, {
-            "id": 4,
-            "box": [
-                [1.05, -0.02, -1.15],
-                [2.05, 0.03, -0.15]
-            ]
-        }]
-    }],
+        }
+    ],
     "time": {
         "tend": 5,
         "dt": 0.025
@@ -53,34 +96,73 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "RobustArmijo"
+                "method": "RobustArmijo",
+                "use_grad_norm_tol": 2.5e-08
             },
-            "grad_norm": 1e-5
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["0.5*cos((2*pi)*t)-0.5", "max(0,0.5*sin((2*pi)*t))", 0]
-        }, {
-            "id": 2,
-            "value": [0, 0, 0]
-        }, {
-            "id": 3,
-            "value": [0, 0, 0]
-        }, {
-            "id": 4,
-            "value": [0, 0, 0]
-        }]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "0.5*cos((2*pi)*t)-0.5",
+                    "max(0,0.5*sin((2*pi)*t))",
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 4,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "id": 1,
-        "E": 2.55e7,
-        "nu": 0.48,
-        "rho": 1700,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "id": 1,
+            "E": 25500000.0,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "sim.pvd",
@@ -88,7 +170,7 @@
                 "material": true,
                 "body_ids": true
             },
-            "vismesh_rel_area": 1e8
+            "vismesh_rel_area": 100000000.0
         },
         "advanced": {
             "save_solve_sequence_debug": false,
