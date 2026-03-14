@@ -1,0 +1,78 @@
+{
+    "geometry": {
+        "mesh": "pyramid.msh",
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 1.0000000000000002e-06
+            },
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1.0000000000000001e-11,
+            "grad_norm_tol": 1e-09,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "time": {
+        "tend": 1,
+        "dt": 0.1
+    },
+    "materials": {
+        "E": 100000000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "LinearElasticity"
+    },
+    "preset_problem": {
+        "type": "ElasticExact"
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.vtu",
+            "surface": true,
+            "wireframe": true,
+            "points": true,
+            "options": {
+                "material": true
+            },
+            "vismesh_rel_area": 1e-06,
+            "high_order_mesh": true
+        }
+    },
+    "space": {
+        "discr_order": 2,
+        "discr_orderq": 2,
+        "advanced": {
+            "bc_method": "lsq"
+        }
+    },
+    "tests": {
+        "err_h1": 0.04123630312610125,
+        "err_h1_semi": 0.03979702650437529,
+        "err_l2": 0.010799508179438462,
+        "err_linf": 0.05890315016953391,
+        "err_linf_grad": 0.15399864000153454,
+        "err_lp": 0.029139055385613694,
+        "margin": 1e-05,
+        "time_steps": 1
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "geometry": {
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "volume_selection": 1
+    },
+    "materials": {
+        "id": 1,
+        "models": [
+            {
+                "k": {
+                    "unit": "MPa",
+                    "value": 0.05
+                },
+                "type": "VolumePenalty"
+            },
+            {
+                "E": {
+                    "unit": "MPa",
+                    "value": 0.05
+                },
+                "nu": 0.45,
+                "type": "NeoHookean"
+            },
+            {
+                "Tmax": {
+                    "unit": "mN/mm^2",
+                    "value": 4
+                },
+                "activation": "0.5*(1+sin(2*pi*(t - z/3)))",
+                "fiber_direction": [
+                    0,
+                    1,
+                    0
+                ],
+                "type": "ActiveFiber"
+            }
+        ],
+        "rho": 1000,
+        "type": "MaterialSum"
+    },
+    "output": {
+        "paraview": {
+            "file_name": "sim.pvd",
+            "options": {
+                "contact_forces": false,
+                "friction_forces": false,
+                "material": false,
+                "scalar_values": false,
+                "tensor_values": false
+            },
+            "surface": false,
+            "vismesh_rel_area": 10000000
+        }
+    },
+    "solver": {
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "tests": {
+        "err_h1": 0.005951529081561117,
+        "err_h1_semi": 0.005914434091175176,
+        "err_l2": 0.0006634514223457341,
+        "err_linf": 0.002586289763507843,
+        "err_linf_grad": 0.0029414195670070045,
+        "err_lp": 0.0014884412011490656,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.01,
+        "t0": 0,
+        "tend": 0.1
+    }
+}
