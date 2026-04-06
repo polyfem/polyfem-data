@@ -66,7 +66,7 @@
     ],
     "solver": {
         "advanced": {
-            "characteristic_force_density": 1,
+            "characteristic_force_density": 10000,
             "characteristic_length": 1
         },
         "nonlinear": {
@@ -74,13 +74,14 @@
                 "derivative_along_delta_x_tol": 0.0,
                 "f_delta_tol": 0.0
             },
-            "first_grad_norm_tol": 4e-12,
-            "grad_norm_tol": 4.0000000000000003e-07,
+            "first_grad_norm_tol": 1e-12,
+            "grad_norm_tol": 1e-10,
+            "rel_grad_norm_tol": 1e-10,
             "line_search": {
-                "use_grad_norm_tol": 4e-08
+                "use_grad_norm_tol": 1e-08
             },
             "norm_type": "Linf",
-            "x_delta_tol": 4e-14
+            "x_delta_tol": 0
         }
     },
     "tests": {
