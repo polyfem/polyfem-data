@@ -26,27 +26,12 @@
                 "reg_weight_inc": 100.0
             },
             "line_search": {
-                "method": "Backtracking",
-                "use_grad_norm_tol": 1e-06
-            },
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 1e-10,
-            "grad_norm_tol": 1e-06,
-            "x_delta_tol": 0,
-            "advanced": {
-                "f_delta_tol": 0,
-                "derivative_along_delta_x_tol": 0
+                "method": "Backtracking"
             }
         },
         "augmented_lagrangian": {
             "initial_weight": 10.0,
-            "nonlinear": {
-                "grad_norm_tol": 0.01
-            }
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "nonlinear": {}
         }
     },
     "boundary_conditions": {

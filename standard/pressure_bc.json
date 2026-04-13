@@ -61,22 +61,9 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking",
-                "use_grad_norm_tol": 5e-08
+                "method": "Backtracking"
             },
-            "solver": "Newton",
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 5.0000000000000005e-12,
-            "grad_norm_tol": 5e-10,
-            "x_delta_tol": 5.000000000000001e-07,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            }
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "solver": "Newton"
         }
     },
     "output": {

@@ -26,18 +26,13 @@
             "solver": "Newton",
             "advanced": {
                 "derivative_along_delta_x_tol": 1e-18
-            },
-            "norm_type": "Euclidean"
+            }
         },
         "contact": {
             "barrier_stiffness": 1000000.0,
             "CCD": {
                 "broad_phase": "BVH"
             }
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
         }
     }
 }

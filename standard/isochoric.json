@@ -96,24 +96,5 @@
         "t0": 0,
         "tend": 4,
         "time_steps": 20
-    },
-    "solver": {
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        },
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 2.0000000000000002e-11,
-            "grad_norm_tol": 2e-09,
-            "x_delta_tol": 0.0,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            },
-            "line_search": {
-                "use_grad_norm_tol": 2e-07
-            }
-        }
     }
 }

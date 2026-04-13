@@ -49,24 +49,5 @@
         "paraview": {
             "file_name": "disk-codim-points.pvd"
         }
-    },
-    "solver": {
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        },
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 4e-12,
-            "grad_norm_tol": 4.0000000000000003e-07,
-            "x_delta_tol": 4e-14,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            },
-            "line_search": {
-                "use_grad_norm_tol": 4e-08
-            }
-        }
     }
 }

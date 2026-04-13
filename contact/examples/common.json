@@ -17,13 +17,10 @@
             "line_search": {
                 "method": "RobustArmijo"
             },
-            "solver": "Newton",
-            "norm_type": "Euclidean"
+            "solver": "Newton"
         },
         "advanced": {
-            "lump_mass_matrix": true,
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "lump_mass_matrix": true
         }
     },
     "output": {

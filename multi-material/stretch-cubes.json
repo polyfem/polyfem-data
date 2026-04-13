@@ -79,23 +79,12 @@
         },
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking",
-                "use_grad_norm_tol": 2.5e-09
+                "method": "Backtracking"
             },
-            "solver": "Newton",
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 2.5e-13,
-            "grad_norm_tol": 2.5000000000000002e-08,
-            "x_delta_tol": 0.0,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            }
+            "solver": "Newton"
         },
         "advanced": {
-            "lump_mass_matrix": true,
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "lump_mass_matrix": true
         }
     },
     "boundary_conditions": {

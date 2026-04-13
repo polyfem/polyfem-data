@@ -1,163 +1,117 @@
 {
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 12,
-                "value": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 1,
-                "value": [
-                    0,
-                    0
-                ],
-                "dimension": [
-                    true,
-                    false
-                ]
-            },
-            {
-                "id": 2,
-                "value": [
-                    0,
-                    0
-                ],
-                "dimension": [
-                    true,
-                    false
-                ]
-            },
-            {
-                "id": 3,
-                "value": [
-                    0,
-                    0
-                ],
-                "dimension": [
-                    true,
-                    false
-                ]
-            },
-            {
-                "id": 4,
-                "value": [
-                    0,
-                    -0.02
-                ],
-                "dimension": [
-                    true,
-                    true
-                ]
-            },
-            {
-                "id": 7,
-                "value": [
-                    0,
-                    0
-                ],
-                "dimension": [
-                    true,
-                    false
-                ]
-            }
-        ]
+  "boundary_conditions": {
+    "dirichlet_boundary": [
+      {
+        "id": 12,
+        "value": [0, 0]
+      },
+      {
+        "dimension": [true, false],
+        "id": 1,
+        "value": [0, 0]
+      },
+      {
+        "dimension": [true, false],
+        "id": 2,
+        "value": [0, 0]
+      },
+      {
+        "dimension": [true, false],
+        "id": 3,
+        "value": [0, 0]
+      },
+      {
+        "dimension": [true, true],
+        "id": 4,
+        "value": [0, -0.02]
+      },
+      {
+        "dimension": [true, false],
+        "id": 7,
+        "value": [0, 0]
+      }
+    ]
+  },
+  "common": "../common.json",
+  "contact": {
+    "alpha_n": 0.1,
+    "alpha_t": 0.3,
+    "dhat": 0.05,
+    "enabled": true,
+    "use_gcp_formulation": true
+  },
+  "geometry": [
+    {
+      "enabled": true,
+      "mesh": "cube.obj",
+      "n_refs": 0,
+      "surface_selection": 11,
+      "volume_selection": 1
     },
-    "space": {
-        "discr_order": 1
+    {
+      "enabled": true,
+      "mesh": "floor.obj",
+      "n_refs": 0,
+      "surface_selection": 12,
+      "volume_selection": 2
     },
-    "geometry": [
-        {
-            "mesh": "cube.obj",
-            "enabled": true,
-            "volume_selection": 1,
-            "surface_selection": 11,
-            "n_refs": 0
-        },
-        {
-            "mesh": "floor.obj",
-            "enabled": true,
-            "volume_selection": 2,
-            "surface_selection": 12,
-            "n_refs": 0
-        },
-        {
-            "mesh": "top.obj",
-            "enabled": true,
-            "volume_selection": 3,
-            "surface_selection": {
-                "threshold": 0.001
-            },
-            "n_refs": 0
-        }
-    ],
-    "contact": {
-        "enabled": true,
-        "dhat": 0.05,
-        "use_gcp_formulation": true,
-        "alpha_t": 0.3,
-        "alpha_n": 0.1
-    },
-    "common": "../common.json",
-    "materials": [
-        {
-            "id": 1,
-            "E": 10000.0,
-            "nu": 0.49,
-            "rho": 100,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 2,
-            "E": 10000.0,
-            "nu": 0.49,
-            "rho": 100,
-            "type": "NeoHookean"
-        },
-        {
-            "id": 3,
-            "E": 10000.0,
-            "nu": 0.49,
-            "rho": 100,
-            "type": "NeoHookean"
-        }
-    ],
-    "time": {
-        "tend": 0.01,
-        "time_steps": 20
-    },
-    "solver": {
-        "contact": {
-            "barrier_stiffness": 100000.0
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        },
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 5e-14,
-            "grad_norm_tol": 5.0000000000000004e-08,
-            "x_delta_tol": 0.0,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            },
-            "line_search": {
-                "use_grad_norm_tol": 5e-10
-            }
-        }
-    },
-    "tests": {
-        "err_h1": 0.09780137487132666,
-        "err_h1_semi": 0.09730343999131283,
-        "err_l2": 0.009856444215778226,
-        "err_linf": 0.02685618747744666,
-        "err_linf_grad": 0.044776826906414144,
-        "err_lp": 0.0170066405391911,
-        "margin": 0.01,
-        "time_steps": "all"
+    {
+      "enabled": true,
+      "mesh": "top.obj",
+      "n_refs": 0,
+      "surface_selection": {
+        "threshold": 0.001
+      },
+      "volume_selection": 3
     }
+  ],
+  "materials": [
+    {
+      "E": 10000.0,
+      "id": 1,
+      "nu": 0.49,
+      "rho": 100,
+      "type": "NeoHookean"
+    },
+    {
+      "E": 10000.0,
+      "id": 2,
+      "nu": 0.49,
+      "rho": 100,
+      "type": "NeoHookean"
+    },
+    {
+      "E": 10000.0,
+      "id": 3,
+      "nu": 0.49,
+      "rho": 100,
+      "type": "NeoHookean"
+    }
+  ],
+  "solver": {
+    "contact": {
+      "barrier_stiffness": 100000.0
+    },
+    "nonlinear": {
+      "first_grad_norm_tol": 1e-14,
+      "grad_norm_tol": 1e-07
+    }
+  },
+  "space": {
+    "discr_order": 1
+  },
+  "tests": {
+    "err_h1": 0.09881319455550931,
+    "err_h1_semi": 0.0983232623925236,
+    "err_l2": 0.009827690001006802,
+    "err_linf": 0.02572930405859209,
+    "err_linf_grad": 0.044732657488330614,
+    "err_lp": 0.016938155138014152,
+    "margin": 1e-05,
+    "time_steps": "all"
+  },
+  "time": {
+    "tend": 0.01,
+    "time_steps": 20
+  }
 }

@@ -10,29 +10,18 @@
         "augmented_lagrangian": {
             "nonlinear": {
                 "line_search": {
-                    "use_grad_norm_tol": 1e-05
-                },
-                "grad_norm_tol": 0.001
+                    "use_grad_norm_tol": 0.001
+                }
             }
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-05
-            },
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 1e-12,
-            "grad_norm_tol": 1e-10,
-            "x_delta_tol": 0.0,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
+                "use_grad_norm_tol": 0.001
             }
         },
         "advanced": {
             "lump_mass_matrix": false,
-            "check_inversion": "Conservative",
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "check_inversion": "Conservative"
         }
     },
     "space": {

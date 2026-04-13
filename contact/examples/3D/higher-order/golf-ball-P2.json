@@ -99,23 +99,7 @@
         }
     ],
     "solver": {
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "first_grad_norm_tol": 2e-15,
-            "grad_norm_tol": 2e-12,
-            "x_delta_tol": 2e-17,
-            "advanced": {
-                "f_delta_tol": 2.0000000000000002e-20,
-                "derivative_along_delta_x_tol": 0.0
-            },
-            "line_search": {
-                "use_grad_norm_tol": 2.0000000000000002e-11
-            }
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        }
+        "nonlinear": {}
     },
     "output": {
         "paraview": {
