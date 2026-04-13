@@ -1,0 +1,93 @@
+{
+    "common": "../../../common.json",
+    "tests": {
+        "err_h1": 6.1735210751407195,
+        "err_h1_semi": 0.05061146584231329,
+        "err_l2": 6.173313611402867,
+        "err_linf": 5.040489456705034,
+        "err_linf_grad": 5.040489456705034,
+        "err_lp": 5.3025420110806625,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    2.0001
+                ],
+                "rotation": 180
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 2,
+                    "position": 2
+                }
+            ]
+        },
+        {
+            "mesh": "../../../../meshes/2D/simple/erleben/crack.obj",
+            "is_obstacle": true,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1
+                ]
+            }
+        }
+    ],
+    "time": {
+        "tend": 5,
+        "dt": 0.025
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "t",
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 1000000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "spike-in-crack.pvd"
+        }
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
+    }
+}

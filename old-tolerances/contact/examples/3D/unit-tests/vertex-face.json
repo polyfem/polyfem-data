@@ -1,0 +1,89 @@
+{
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "common": "../../common.json",
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/tet/tet-pyramid.msh",
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    180
+                ],
+                "translation": [
+                    0,
+                    0.5,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/simple/tet/tet-pyramid.msh",
+            "surface_selection": 0,
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    180
+                ],
+                "translation": [
+                    0,
+                    -0.5,
+                    0
+                ]
+            }
+        }
+    ],
+    "materials": [
+        {
+            "E": 100000,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "vertex-face.pvd"
+        }
+    },
+    "tests": {
+        "err_h1": 0.10350055029113871,
+        "err_h1_semi": 0.01839154365729592,
+        "err_l2": 0.10185339970992775,
+        "err_linf": 0.3188183956236685,
+        "err_linf_grad": 0.3188183956236685,
+        "err_lp": 0.23969082564685834,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "tend": 5,
+        "time_steps": 200
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
+    }
+}

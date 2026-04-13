@@ -1,0 +1,51 @@
+{
+    "common": "../screw.json",
+    "contact": {
+        "collision_mesh": {
+            "linear_map": "screw-coarse-to-screw.hdf5",
+            "mesh": "screw.ply"
+        }
+    },
+    "output": {
+        "paraview": {
+            "options": {
+                "contact_forces": true
+            }
+        }
+    },
+    "patch": [
+        {
+            "op": "replace",
+            "path": "/geometry/0/mesh",
+            "value": "screw-coarse.msh"
+        },
+        {
+            "op": "replace",
+            "path": "/geometry/1/mesh",
+            "value": "../../../../meshes/3D/screw/nut.obj"
+        }
+    ],
+    "tests": {
+        "err_h1": 7.254736819723837e-05,
+        "err_h1_semi": 7.182402822225394e-05,
+        "err_l2": 1.0219080304731091e-05,
+        "err_linf": 0.0006565181229407786,
+        "err_linf_grad": 0.003774770936135249,
+        "err_lp": 0.00020427981009026505,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-05,
+            "x_delta_tol": 1e-12
+        }
+    }
+}

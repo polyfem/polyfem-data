@@ -1,0 +1,39 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../quad_test/quad.obj",
+        "n_refs": 5,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "tests": {
+        "err_h1": 1.6496024154159694,
+        "err_h1_semi": 1.5727296768077084,
+        "err_l2": 0.49770422203807124,
+        "err_linf": 1.2155220615239941,
+        "err_linf_grad": 1.343206575289127,
+        "err_lp": 0.8015599679770353,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
+        }
+    }
+}

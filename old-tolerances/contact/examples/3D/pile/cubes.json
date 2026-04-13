@@ -1,0 +1,80 @@
+{
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "common": "../../common.json",
+    "geometry": [
+        {
+            "array": {
+                "offset": 1.01,
+                "relative": true,
+                "size": [
+                    4,
+                    4,
+                    4
+                ]
+            },
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.25,
+                "translation": [
+                    -0.375,
+                    0,
+                    -0.375
+                ]
+            },
+            "type": "mesh_array"
+        },
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/obstacles/bowl.obj"
+        }
+    ],
+    "materials": {
+        "E": 100000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    },
+    "output": {
+        "paraview": {
+            "skip_frame": 5
+        }
+    },
+    "solver": {
+        "nonlinear": {
+            "Newton": {
+                "force_psd_projection": true
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 0.0001,
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "tests": {
+        "err_h1": 0.0009809999999999984,
+        "err_h1_semi": 3.0252704643787895e-18,
+        "err_l2": 0.0009809999999999984,
+        "err_linf": 0.000981,
+        "err_linf_grad": 0.000981,
+        "err_lp": 0.0009810000000000008,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.01,
+        "tend": 5.0
+    }
+}

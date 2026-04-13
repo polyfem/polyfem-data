@@ -1,0 +1,34 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "c1": 7692,
+        "c2": -5000,
+        "k": 11540.0,
+        "type": "MooneyRivlin"
+    },
+    "tests": {
+        "err_h1": 0.21897484187164773,
+        "err_h1_semi": 0.21098323315010037,
+        "err_l2": 0.05861788722091161,
+        "err_linf": 0.08902061771284299,
+        "err_linf_grad": 0.21290820501980048,
+        "err_lp": 0.07355739070532011,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
+    }
+}

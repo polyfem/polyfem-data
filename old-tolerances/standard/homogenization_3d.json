@@ -1,0 +1,96 @@
+{
+    "tests": {
+        "err_h1": 0.0365800269690348,
+        "err_h1_semi": 0.035546839952256826,
+        "err_l2": 0.008632528161781497,
+        "err_linf": 0.07348004895820204,
+        "err_linf_grad": 0.07348004895820204,
+        "err_lp": 0.037961121562742464
+    },
+    "geometry": [
+        {
+            "mesh": "unit_cell.msh"
+        }
+    ],
+    "space": {
+        "discr_order": 2
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::PardisoLLT"
+        },
+        "nonlinear": {
+            "Newton": {
+                "use_psd_projection": false,
+                "use_psd_projection_in_regularized": false,
+                "reg_weight_inc": 100.0
+            },
+            "line_search": {
+                "method": "Backtracking"
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-06
+        },
+        "augmented_lagrangian": {
+            "initial_weight": 10.0,
+            "nonlinear": {
+                "grad_norm_tol": 0.01
+            },
+            "rel_grad_norm_tol": 0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "boundary_conditions": {
+        "periodic_boundary": {
+            "enabled": true,
+            "linear_displacement_offset": [
+                [
+                    0,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    -0.15,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    0
+                ]
+            ],
+            "correspondence": [
+                [
+                    1,
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    1,
+                    0
+                ],
+                [
+                    0,
+                    0,
+                    1
+                ]
+            ],
+            "fixed_macro_strain": [
+                4
+            ]
+        }
+    },
+    "common": "common.json",
+    "materials": {
+        "type": "NeoHookean",
+        "E": 1000.0,
+        "nu": 0.3
+    }
+}

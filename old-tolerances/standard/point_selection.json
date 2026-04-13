@@ -1,0 +1,40 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "E": 20000,
+        "nu": 0.4,
+        "type": "LinearElasticity"
+    },
+    "patch": [
+        {
+            "from": "/geometry/surface_selection",
+            "op": "move",
+            "path": "/geometry/point_selection"
+        }
+    ],
+    "tests": {
+        "err_h1": 0.26074180684349124,
+        "err_h1_semi": 0.25216787640623484,
+        "err_l2": 0.06631479431302151,
+        "err_linf": 0.09359774151614587,
+        "err_linf_grad": 0.25537694534475,
+        "err_lp": 0.07736183749953159,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
+    }
+}
