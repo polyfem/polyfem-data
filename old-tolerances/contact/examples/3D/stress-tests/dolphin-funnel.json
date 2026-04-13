@@ -92,9 +92,9 @@
         "augmented_lagrangian": {
             "nonlinear": {
                 "max_iterations": 100,
-                "allow_out_of_iterations": true
-            },
-            "rel_grad_norm_tol": 0
+                "allow_out_of_iterations": true,
+                "rel_grad_norm_tol": 0
+            }
         },
         "nonlinear": {
             "max_iterations": 10000,
