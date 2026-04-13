@@ -12,9 +12,9 @@
                 "line_search": {
                     "use_grad_norm_tol": 0.0001
                 },
-                "grad_norm_tol": 0.010000000000000002
-            },
-            "rel_grad_norm_tol": 0
+                "grad_norm_tol": 0.010000000000000002,
+                "rel_grad_norm_tol": 0
+            }
         },
         "nonlinear": {
             "line_search": {

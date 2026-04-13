@@ -36,9 +36,9 @@
         "augmented_lagrangian": {
             "initial_weight": 10.0,
             "nonlinear": {
-                "grad_norm_tol": 0.01
-            },
-            "rel_grad_norm_tol": 0
+                "grad_norm_tol": 0.01,
+                "rel_grad_norm_tol": 0
+            }
         },
         "advanced": {
             "characteristic_force_density": 1,
