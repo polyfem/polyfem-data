@@ -42,7 +42,7 @@
             "options": {
                 "material": true
             },
-            "vismesh_rel_area": 1e-06,
+            "vismesh_rel_area": 1e-6,
             "high_order_mesh": true
         }
     },
