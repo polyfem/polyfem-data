@@ -1,5 +1,53 @@
 {
+    "common": "../../common.json",
+    "tests": {
+        "err_h1": 0.007133678232766632,
+        "err_h1_semi": 0.0071244835257094265,
+        "err_l2": 0.00036207681580493627,
+        "err_linf": 0.023712280682136825,
+        "err_linf_grad": 0.2689484814720979,
+        "err_lp": 0.006623505526544393
+    },
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0,
+                    0
+                ],
+                "rotation": [
+                    90,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 1,
+                    "position": 0.5
+                },
+                {
+                    "id": 3,
+                    "axis": -1,
+                    "position": -0.5
+                }
+            ]
+        }
+    ],
+    "time": {
+        "tend": 100,
+        "dt": 0.04
+    },
     "boundary_conditions": {
+        "rhs": [
+            0,
+            0,
+            0
+        ],
         "dirichlet_boundary": [
             {
                 "id": 1,
@@ -17,85 +65,20 @@
                     "y*sin((0.4*pi)*t)+z*cos((0.4*pi)*t)-z"
                 ]
             }
-        ],
-        "rhs": [
-            0,
-            0,
-            0
         ]
     },
-    "common": "../../common.json",
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/mat/mat40x40.msh",
-            "surface_selection": [
-                {
-                    "axis": 1,
-                    "id": 1,
-                    "position": 0.5
-                },
-                {
-                    "axis": -1,
-                    "id": 3,
-                    "position": -0.5
-                }
-            ],
-            "transformation": {
-                "rotation": [
-                    90,
-                    0,
-                    0
-                ],
-                "translation": [
-                    0,
-                    0,
-                    0
-                ]
-            },
-            "volume_selection": 1
-        }
-    ],
     "materials": [
         {
-            "E": 20000,
             "id": 1,
+            "E": 20000,
             "nu": 0.4,
             "rho": 1000,
             "type": "NeoHookean"
         }
     ],
     "solver": {
-        "advanced": {
-            "characteristic_force_density": 10000,
-            "characteristic_length": 1
-        },
         "nonlinear": {
-            "advanced": {
-                "derivative_along_delta_x_tol": 0.0,
-                "f_delta_tol": 0.0
-            },
-            "first_grad_norm_tol": 1e-12,
-            "grad_norm_tol": 1e-10,
-            "rel_grad_norm_tol": 1e-10,
-            "line_search": {
-                "use_grad_norm_tol": 1e-08
-            },
-            "norm_type": "Linf",
-            "x_delta_tol": 0
+            "norm_type": "Linf"
         }
-    },
-    "tests": {
-        "err_h1": 0.007133678232766635,
-        "err_h1_semi": 0.007124483525709429,
-        "err_l2": 0.00036207681580493627,
-        "err_linf": 0.023712280682136825,
-        "err_linf_grad": 0.26894848147209777,
-        "err_lp": 0.006623505526544393,
-        "margin": 1e-05,
-        "time_steps": 1
-    },
-    "time": {
-        "dt": 0.04,
-        "tend": 100
     }
 }
