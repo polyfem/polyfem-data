@@ -5,11 +5,13 @@
         "nu": 0.4,
         "type": "LinearElasticity"
     },
-    "patch": [{
-        "from": "/geometry/surface_selection",
-        "op": "move",
-        "path": "/geometry/point_selection"
-    }],
+    "patch": [
+        {
+            "from": "/geometry/surface_selection",
+            "op": "move",
+            "path": "/geometry/point_selection"
+        }
+    ],
     "tests": {
         "err_h1": 0.26074180684349124,
         "err_h1_semi": 0.25216787640623484,

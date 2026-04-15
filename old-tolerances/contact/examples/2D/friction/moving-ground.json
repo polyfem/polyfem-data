@@ -1,0 +1,122 @@
+{
+    "common": "../../common.json",
+    "tests": {
+        "err_h1": 0.000984256572241202,
+        "err_h1_semi": 2.2051740476094693e-18,
+        "err_l2": 0.000984256572241202,
+        "err_linf": 0.0009810000000000003,
+        "err_linf_grad": 0.0009810000000000003,
+        "err_lp": 0.0009810037476677064,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5075
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/2D/simple/square.obj",
+            "enabled": true,
+            "transformation": {
+                "translation": [
+                    0,
+                    0
+                ],
+                "scale": [
+                    4,
+                    0.01
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": 1
+        }
+    ],
+    "time": {
+        "tend": 1,
+        "dt": 0.01
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001,
+        "epsv": 0.004,
+        "friction_coefficient": 0.5
+    },
+    "solver": {
+        "contact": {
+            "friction_iterations": 10
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 1.0000000000000001e-07,
+            "x_delta_tol": 1e-14,
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "4 * t^2",
+                    0
+                ]
+            }
+        ]
+    },
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "options": {
+                "contact_forces": true
+            }
+        },
+        "advanced": {
+            "save_solve_sequence_debug": true
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "plate_hole.obj",
+        "surface_selection": {
+            "threshold": 1e-07
+        }
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "output": {
+        "json": "stats.json",
+        "paraview": {
+            "file_name": "result.vtu"
+        }
+    },
+    "preset_problem": {
+        "type": "Franke"
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
+        }
+    },
+    "tests": {
+        "err_h1": 1.441185048819956,
+        "err_h1_semi": 1.3678317420680939,
+        "err_l2": 0.4539280453256245,
+        "err_linf": 1.2195153639938738,
+        "err_linf_grad": 2.1078530253928984,
+        "err_lp": 0.8016030867533753,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

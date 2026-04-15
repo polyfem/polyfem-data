@@ -1,0 +1,8 @@
+{
+    "js": {
+        "allowed_file_extensions": ["json", "jsbeautifyrc"],
+        "brace_style": "collapse",
+        "indent_char": " ",
+        "indent_size": 4
+    }
+}

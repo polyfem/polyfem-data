@@ -3,7 +3,7 @@
     "materials": {
         "c": 32900,
         "id": 1,
-        "k": 1e5,
+        "k": 100000.0,
         "m": 6.82,
         "type": "IncompressibleOgden"
     },

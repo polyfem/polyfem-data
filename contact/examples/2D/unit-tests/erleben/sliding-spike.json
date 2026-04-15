@@ -1,39 +1,60 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": ["10*t", 0]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "10*t",
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../../common.json",
-    "geometry": [{
-        "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
-        "surface_selection": [{
-            "axis": 2,
-            "id": 1,
-            "position": 2
-        }],
-        "transformation": {
-            "rotation": 180,
-            "translation": [-4.9, 2.0001]
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/2D/simple/erleben/spike.obj",
+            "surface_selection": [
+                {
+                    "axis": 2,
+                    "id": 1,
+                    "position": 2
+                }
+            ],
+            "transformation": {
+                "rotation": 180,
+                "translation": [
+                    -4.9,
+                    2.0001
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../../meshes/2D/obstacles/line.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../../meshes/2D/obstacles/line.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1
+                ]
+            }
         }
-    }],
-    "materials": [{
-        "E": 200000000000.0,
-        "id": 1,
-        "nu": 0.3,
-        "rho": 7750,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 200000000000.0,
+            "id": 1,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "sliding-spike.pvd"

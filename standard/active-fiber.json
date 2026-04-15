@@ -54,9 +54,7 @@
         }
     },
     "solver": {
-        "nonlinear": {
-            "grad_norm": 1e-05
-        }
+        "nonlinear": {}
     },
     "tests": {
         "err_h1": 0.005951529081561117,

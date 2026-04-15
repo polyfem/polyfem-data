@@ -1,24 +1,39 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../common.json",
-    "geometry": [{
-        "array": {
-            "offset": 1.01,
-            "relative": true,
-            "size": [4, 4, 4]
+    "geometry": [
+        {
+            "array": {
+                "offset": 1.01,
+                "relative": true,
+                "size": [
+                    4,
+                    4,
+                    4
+                ]
+            },
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.25,
+                "translation": [
+                    -0.375,
+                    0,
+                    -0.375
+                ]
+            },
+            "type": "mesh_array"
         },
-        "mesh": "../../../meshes/3D/simple/cube.msh",
-        "transformation": {
-            "scale": 0.25,
-            "translation": [-0.375, 0, -0.375]
-        },
-        "type": "mesh_array"
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../meshes/3D/obstacles/bowl.obj"
-    }],
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/obstacles/bowl.obj"
+        }
+    ],
     "materials": {
         "E": 100000.0,
         "nu": 0.4,
@@ -34,8 +49,7 @@
         "nonlinear": {
             "Newton": {
                 "force_psd_projection": true
-            },
-            "x_delta": 0.01
+            }
         }
     },
     "tests": {

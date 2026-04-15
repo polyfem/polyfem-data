@@ -1,25 +1,37 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 0]
+        "rhs": [
+            0,
+            0
+        ]
     },
     "common": "../common.json",
-    "geometry": [{
-        "mesh": "../../meshes/2D/simple/square.obj",
-        "volume_selection": 1
-    }],
+    "geometry": [
+        {
+            "mesh": "../../meshes/2D/simple/square.obj",
+            "volume_selection": 1
+        }
+    ],
     "initial_conditions": {
-        "velocity": [{
-            "id": 1,
-            "value": ["deg2rad(180) * y", "-deg2rad(180) * x"]
-        }]
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    "deg2rad(180) * y",
+                    "-deg2rad(180) * x"
+                ]
+            }
+        ]
     },
-    "materials": [{
-        "E": 25500000.0,
-        "id": 1,
-        "nu": 0.48,
-        "rho": 1700,
-        "type": "NeoHookean"
-    }],
+    "materials": [
+        {
+            "E": 25500000.0,
+            "id": 1,
+            "nu": 0.48,
+            "rho": 1700,
+            "type": "NeoHookean"
+        }
+    ],
     "tests": {
         "err_h1": 2.829988079706551,
         "err_h1_semi": 2.791483669816329,

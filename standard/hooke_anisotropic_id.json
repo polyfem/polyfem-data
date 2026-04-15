@@ -10,15 +10,15 @@
     },
     "materials": {
         "elasticity_tensor": [
-            2e7,
-            1e7,
-            1e7,
+            20000000.0,
+            10000000.0,
+            10000000.0,
             0.28,
             0.28,
             0.5,
-            6e6,
-            6e6,
-            6e6
+            6000000.0,
+            6000000.0,
+            6000000.0
         ],
         "type": "HookeLinearElasticity",
         "fiber_direction": [

@@ -144,8 +144,7 @@
             "line_search": {
                 "method": "Backtracking"
             },
-            "solver": "Newton",
-            "x_delta": 1e-05
+            "solver": "Newton"
         }
     },
     "tests": {

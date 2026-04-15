@@ -81,7 +81,7 @@
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-5
+                "use_grad_norm_tol": 1e-05
             }
         }
     }

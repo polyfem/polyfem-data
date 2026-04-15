@@ -1,29 +1,43 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 9.81]
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../../common.json",
-    "geometry": [{
-        "mesh": "../../../../meshes/2D/simple/square.obj",
-        "transformation": {
-            "translation": [0, 0.05]
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/2D/simple/square.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.05
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../../meshes/2D/simple/erleben/cliff.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "translation": [0, -1]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../../meshes/2D/simple/erleben/cliff.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1
+                ]
+            }
         }
-    }],
-    "materials": [{
-        "E": 1000000.0,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 1000000.0,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "cliff-edges.pvd"

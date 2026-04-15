@@ -1,0 +1,34 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "tests": {
+        "err_h1": 0.22614596282482594,
+        "err_h1_semi": 0.21798642314867062,
+        "err_l2": 0.06019896863581861,
+        "err_linf": 0.08992836526389017,
+        "err_linf_grad": 0.22054922928059184,
+        "err_lp": 0.07432569145134735,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
+    }
+}
