@@ -1,0 +1,72 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    {
+                        "file_name": "bc.py",
+                        "function_name": "left_x"
+                    },
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    {
+                        "file_name": "bc.py",
+                        "function_name": "right_x"
+                    },
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "geometry": [
+        {
+            "mesh": "../cube.msh",
+            "n_refs": 0,
+            "surface_selection": [
+                {
+                    "axis": "x",
+                    "id": 1,
+                    "position": 0.99,
+                    "relative": true
+                },
+                {
+                    "axis": "-x",
+                    "id": 2,
+                    "position": 0.01,
+                    "relative": true
+                }
+            ],
+            "transformation": {
+                "scale": 0.001
+            },
+            "volume_selection": 1
+        }
+    ],
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "space": {
+        "discr_order": 2
+    },
+    "time": {
+        "t0": 0,
+        "tend": 4,
+        "time_steps": 20
+    },
+    "output": {
+        "paraview": {
+            "file_name": "sim.pvd",
+            "vismesh_rel_area": 10000000
+        }
+    }
+}
