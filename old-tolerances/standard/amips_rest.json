@@ -1,0 +1,47 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": {
+            "id": 1,
+            "value": [
+                "x/10",
+                0,
+                0
+            ]
+        }
+    },
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "surface_selection": 1
+    },
+    "materials": {
+        "type": "AMIPS",
+        "use_rest_pose": true
+    },
+    "tests": {
+        "err_h1": 0.1153272489438569,
+        "err_h1_semi": 0.10000000000000005,
+        "err_l2": 0.05744888466243999,
+        "err_linf": 0.09375000000000001,
+        "err_linf_grad": 0.10000000000000153,
+        "err_lp": 0.07499660341389702,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
+        }
+    }
+}

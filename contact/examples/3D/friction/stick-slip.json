@@ -1,37 +1,66 @@
 {
     "boundary_conditions": {
-        "rhs": [0, 9.81, 0]
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
     },
     "common": "../../common.json",
     "contact": {
         "epsv": 1e-05,
         "friction_coefficient": 0.15
     },
-    "geometry": [{
-        "mesh": "../../../meshes/3D/table.msh",
-        "transformation": {
-            "rotation": [0, 0, -10],
-            "scale": 1,
-            "translation": [-3.4468271355, 0.6087686218, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/table.msh",
+            "transformation": {
+                "rotation": [
+                    0,
+                    0,
+                    -10
+                ],
+                "scale": 1,
+                "translation": [
+                    -3.4468271355,
+                    0.6087686218,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "is_obstacle": true,
-        "mesh": "../../../meshes/3D/obstacles/plane.obj",
-        "surface_selection": 0,
-        "transformation": {
-            "dimensions": [10, 0, 10],
-            "rotation": [0, 0, -10],
-            "translation": [0, 0, 0]
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/3D/obstacles/plane.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "dimensions": [
+                    10,
+                    0,
+                    10
+                ],
+                "rotation": [
+                    0,
+                    0,
+                    -10
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
         }
-    }],
-    "materials": [{
-        "E": 10000000.0,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+    ],
+    "materials": [
+        {
+            "E": 10000000.0,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "stick-slip.pvd"

@@ -13,15 +13,18 @@
             }
         }
     },
-    "patch": [{
-        "op": "replace",
-        "path": "/geometry/0/mesh",
-        "value": "screw-coarse.msh"
-    }, {
-        "op": "replace",
-        "path": "/geometry/1/mesh",
-        "value": "../../../../meshes/3D/screw/nut.obj"
-    }],
+    "patch": [
+        {
+            "op": "replace",
+            "path": "/geometry/0/mesh",
+            "value": "screw-coarse.msh"
+        },
+        {
+            "op": "replace",
+            "path": "/geometry/1/mesh",
+            "value": "../../../../meshes/3D/screw/nut.obj"
+        }
+    ],
     "tests": {
         "err_h1": 7.254736819723837e-05,
         "err_h1_semi": 7.182402822225394e-05,

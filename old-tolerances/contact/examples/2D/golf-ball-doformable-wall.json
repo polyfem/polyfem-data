@@ -1,0 +1,114 @@
+{
+    "common": "../common.json",
+    "tests": {
+        "err_h1": 4.749937865604092e-05,
+        "err_h1_semi": 1.447961371827133e-17,
+        "err_l2": 4.749937865604092e-05,
+        "err_linf": 0.0013400000000000003,
+        "err_linf_grad": 0.0013400000000000003,
+        "err_lp": 0.0005814342100541386
+    },
+    "geometry": [
+        {
+            "mesh": "../../meshes/2D/simple/circle/circle9K.obj",
+            "transformation": {
+                "scale": 0.04
+            },
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 1,
+                    "position": 0.1025
+                }
+            ]
+        },
+        {
+            "mesh": "../../meshes/2D/simple/bar/bar792.obj",
+            "transformation": {
+                "translation": [
+                    0.10125,
+                    0
+                ],
+                "rotation": 90,
+                "dimensions": [
+                    0.2,
+                    0.0025
+                ]
+            },
+            "volume_selection": 2,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": 1,
+                    "position": 0.1025
+                }
+            ]
+        }
+    ],
+    "time": {
+        "tend": 0.004,
+        "dt": 2e-05
+    },
+    "contact": {
+        "dhat": 6.92820323e-05
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            0
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 1,
+                "value": [
+                    67,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 10000000.0,
+            "nu": 0.45,
+            "rho": 1150,
+            "type": "NeoHookean"
+        },
+        {
+            "id": 2,
+            "E": 200000000000.0,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 2e-15,
+            "grad_norm_tol": 2.0000000000000003e-10,
+            "x_delta_tol": 2e-17,
+            "line_search": {
+                "use_grad_norm_tol": 2.0000000000000002e-11
+            }
+        }
+    }
+}

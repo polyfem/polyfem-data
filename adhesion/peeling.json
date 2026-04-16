@@ -100,9 +100,7 @@
             "line_search": {
                 "method": "RobustArmijo"
             },
-            "solver": "Newton",
-            "grad_norm": 1e-05,
-            "x_delta": 0
+            "solver": "Newton"
         },
         "contact": {
             "barrier_stiffness": 10000000

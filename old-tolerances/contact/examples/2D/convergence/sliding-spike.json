@@ -1,0 +1,91 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "10*t",
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
+    },
+    "common": "../../common.json",
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/erleben/spike.obj",
+            "surface_selection": [
+                {
+                    "axis": 2,
+                    "id": 1,
+                    "position": 2
+                }
+            ],
+            "transformation": {
+                "rotation": 180,
+                "translation": [
+                    -5,
+                    2.0001
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "is_obstacle": true,
+            "mesh": "../../../meshes/2D/obstacles/line.obj",
+            "n_refs": 6,
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1
+                ]
+            }
+        }
+    ],
+    "materials": [
+        {
+            "E": 100000.0,
+            "id": 1,
+            "nu": 0.3,
+            "rho": 7750,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "sliding-spike.pvd"
+        }
+    },
+    "time": {
+        "time_steps": 400,
+        "tend": 1,
+        "quasistatic": true
+    },
+    "solver": {
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 2.5e-13,
+            "grad_norm_tol": 2.5e-11,
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-09
+            }
+        },
+        "contact": {
+            "barrier_stiffness": 10000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "contact": {
+        "dhat": 0.001,
+        "use_convergent_formulation": true
+    }
+}

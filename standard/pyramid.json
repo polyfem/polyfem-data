@@ -15,13 +15,13 @@
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-5
+                "use_grad_norm_tol": 1e-05
             }
         }
     },
     "time": {
-            "tend": 1,
-            "dt": 0.1
+        "tend": 1,
+        "dt": 0.1
     },
     "materials": {
         "E": 100000000,

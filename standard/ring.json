@@ -10,14 +10,13 @@
         "augmented_lagrangian": {
             "nonlinear": {
                 "line_search": {
-                    "use_grad_norm_tol": 1e-3
-                },
-                "grad_norm": 1e-1
+                    "use_grad_norm_tol": 0.001
+                }
             }
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-3
+                "use_grad_norm_tol": 0.001
             }
         },
         "advanced": {
@@ -34,33 +33,58 @@
         }
     },
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [
-                "rotate_2D_x(x, y, -2.5 * pi * t) - x",
-                "rotate_2D_y(x, y, -2.5 * pi * t) - y"
-            ]
-        }]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "rotate_2D_x(x, y, -2.5 * pi * t) - x",
+                    "rotate_2D_y(x, y, -2.5 * pi * t) - y"
+                ]
+            }
+        ]
     },
     "time": {
         "tend": 0.7,
         "dt": 0.01
     },
-    "geometry": [{
-        "mesh": "ring.msh",
-        "volume_selection": 1,
-        "surface_selection": [{
-            "id": 1,
-            "box": [[0.4, 0.4], [0.6, 0.6]],
-            "relative": true
-        },{
-            "id": 2,
-            "box": [[-1, -1], [1, 1]],
-            "relative": true
-        }]
-    }],
+    "geometry": [
+        {
+            "mesh": "ring.msh",
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            0.4,
+                            0.4
+                        ],
+                        [
+                            0.6,
+                            0.6
+                        ]
+                    ],
+                    "relative": true
+                },
+                {
+                    "id": 2,
+                    "box": [
+                        [
+                            -1,
+                            -1
+                        ],
+                        [
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                }
+            ]
+        }
+    ],
     "materials": {
-        "E": 1e6,
+        "E": 1000000.0,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
@@ -72,7 +96,7 @@
         "err_linf": 1.88577209452532,
         "err_linf_grad": 3.7751596155191,
         "err_lp": 1.77568802841361,
-        "margin": 1e-03,
+        "margin": 0.001,
         "time_steps": "all"
     }
 }

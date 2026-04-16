@@ -1,0 +1,108 @@
+{
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "augmented_lagrangian": {
+            "nonlinear": {
+                "line_search": {
+                    "use_grad_norm_tol": 1e-05
+                },
+                "grad_norm_tol": 0.001,
+                "rel_grad_norm_tol": 0
+            }
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0
+        },
+        "advanced": {
+            "lump_mass_matrix": false,
+            "check_inversion": "Conservative",
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "space": {
+        "discr_order": 2,
+        "advanced": {
+            "quadrature_order": 5,
+            "use_corner_quadrature": true,
+            "count_flipped_els_continuous": true
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    "rotate_2D_x(x, y, -2.5 * pi * t) - x",
+                    "rotate_2D_y(x, y, -2.5 * pi * t) - y"
+                ]
+            }
+        ]
+    },
+    "time": {
+        "tend": 0.7,
+        "dt": 0.01
+    },
+    "geometry": [
+        {
+            "mesh": "ring.msh",
+            "volume_selection": 1,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [
+                        [
+                            0.4,
+                            0.4
+                        ],
+                        [
+                            0.6,
+                            0.6
+                        ]
+                    ],
+                    "relative": true
+                },
+                {
+                    "id": 2,
+                    "box": [
+                        [
+                            -1,
+                            -1
+                        ],
+                        [
+                            1,
+                            1
+                        ]
+                    ],
+                    "relative": true
+                }
+            ]
+        }
+    ],
+    "materials": {
+        "E": 1000000.0,
+        "nu": 0.4,
+        "rho": 1000,
+        "type": "NeoHookean"
+    },
+    "tests": {
+        "err_h1": 5.29565605345573,
+        "err_h1_semi": 4.74227709521791,
+        "err_l2": 2.35685828777928,
+        "err_linf": 1.88577209452532,
+        "err_linf_grad": 3.7751596155191,
+        "err_lp": 1.77568802841361,
+        "margin": 0.001,
+        "time_steps": "all"
+    }
+}

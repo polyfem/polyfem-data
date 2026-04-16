@@ -1,0 +1,34 @@
+{
+    "common": "elastic_common.json",
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.499,
+        "type": "IncompressibleLinearElasticity"
+    },
+    "tests": {
+        "err_h1": 0.38071122413301406,
+        "err_h1_semi": 0.3710652926954885,
+        "err_l2": 0.08515623722117789,
+        "err_linf": 0.12414198400327536,
+        "err_linf_grad": 0.41076178649198497,
+        "err_lp": 0.09227079664325287,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "line_search": {
+                "use_grad_norm_tol": 1e-05
+            }
+        }
+    }
+}

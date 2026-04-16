@@ -1,0 +1,79 @@
+{
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
+    "common": "../../../common.json",
+    "geometry": [
+        {
+            "mesh": "../../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.05,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "is_obstacle": true,
+            "mesh": "../../../../meshes/3D/obstacles/erleben/internal-edges.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "translation": [
+                    0,
+                    -1,
+                    0
+                ]
+            }
+        }
+    ],
+    "materials": [
+        {
+            "E": 1000000.0,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "internal-edges.pvd"
+        }
+    },
+    "tests": {
+        "err_h1": 0.11835140197204999,
+        "err_h1_semi": 0.10415506884617384,
+        "err_l2": 0.05620298908775713,
+        "err_linf": 0.05841067072923322,
+        "err_linf_grad": 0.10441248261821355,
+        "err_lp": 0.0564142022615566,
+        "margin": 1e-05,
+        "time_steps": "all"
+    },
+    "time": {
+        "dt": 0.025,
+        "tend": 5
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 2.5000000000000003e-12,
+            "grad_norm_tol": 2.5000000000000004e-07,
+            "x_delta_tol": 2.5e-14,
+            "line_search": {
+                "use_grad_norm_tol": 2.5e-08
+            }
+        }
+    }
+}

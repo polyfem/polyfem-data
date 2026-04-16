@@ -1,39 +1,61 @@
 {
     "boundary_conditions": {
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [0, 0]
-        }],
-        "rhs": [0, 9.81]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            9.81
+        ]
     },
     "common": "../../common.json",
-    "geometry": [{
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "transformation": {
-            "translation": [0, 0.5, 0]
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+            "transformation": {
+                "translation": [
+                    0,
+                    0.5,
+                    0
+                ]
+            },
+            "volume_selection": 1
         },
-        "volume_selection": 1
-    }, {
-        "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
-        "surface_selection": 1,
-        "transformation": {
-            "translation": [0, -0.5, 0]
+        {
+            "mesh": "../../../meshes/2D/simple/triangle/equilateral.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "translation": [
+                    0,
+                    -0.5,
+                    0
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "materials": [
+        {
+            "E": 100000,
+            "id": 1,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
         },
-        "volume_selection": 2
-    }],
-    "materials": [{
-        "E": 100000,
-        "id": 1,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }, {
-        "E": 100000,
-        "id": 2,
-        "nu": 0.4,
-        "rho": 1000,
-        "type": "NeoHookean"
-    }],
+        {
+            "E": 100000,
+            "id": 2,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
     "output": {
         "paraview": {
             "file_name": "edge-vertex.pvd"

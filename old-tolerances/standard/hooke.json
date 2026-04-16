@@ -1,0 +1,41 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 1,
+        "surface_selection": 1
+    },
+    "materials": {
+        "E": 20000,
+        "nu": 0.3,
+        "type": "HookeLinearElasticity"
+    },
+    "preset_problem": {
+        "type": "ElasticExact"
+    },
+    "tests": {
+        "err_h1": 0.12276277719066081,
+        "err_h1_semi": 0.10807193859720568,
+        "err_l2": 0.0582336290420375,
+        "err_linf": 0.08826962093919935,
+        "err_linf_grad": 0.12963119142546495,
+        "err_lp": 0.0694452700363609,
+        "margin": 1e-05,
+        "time_steps": "static"
+    },
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
+        }
+    }
+}

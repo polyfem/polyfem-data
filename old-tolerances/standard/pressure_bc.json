@@ -1,0 +1,90 @@
+{
+    "geometry": {
+        "mesh": "balloon.msh",
+        "volume_selection": 1,
+        "surface_selection": [
+            {
+                "id": 1,
+                "axis": "-y",
+                "position": -1
+            },
+            {
+                "id": 2,
+                "center": [
+                    0,
+                    0
+                ],
+                "radius": 1
+            }
+        ]
+    },
+    "time": {
+        "tend": 1,
+        "time_steps": 20,
+        "quasistatic": false
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": {
+            "id": 1,
+            "value": [
+                0,
+                0,
+                0
+            ]
+        },
+        "pressure_boundary": [
+            {
+                "id": 2,
+                "value": "2e5 * if(0.5 - t, t, 0)"
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "E": 50000.0,
+            "nu": 0.4,
+            "rho": 1000,
+            "type": "NeoHookean"
+        }
+    ],
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "method": "Backtracking",
+                "use_grad_norm_tol": 5e-08
+            },
+            "solver": "Newton",
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 5.0000000000000005e-12,
+            "grad_norm_tol": 5e-10,
+            "x_delta_tol": 5.000000000000001e-07
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        }
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd",
+            "surface": true,
+            "vismesh_rel_area": 10000000
+        },
+        "advanced": {
+            "save_time_sequence": true
+        }
+    }
+}
