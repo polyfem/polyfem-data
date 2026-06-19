@@ -21,7 +21,9 @@
     ],
     "materials": {
         "type": "OperatorSplitting",
-        "viscosity": 0.1
+        "viscosity": 0.1,
+        "velocity_space_id": 0,
+        "pressure_space_id": 1
     },
     "output": {
         "advanced": {
