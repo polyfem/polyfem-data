@@ -21,7 +21,9 @@
     ],
     "materials": {
         "type": "NavierStokes",
-        "viscosity": 0.1
+        "viscosity": 0.1,
+        "velocity_space_id": 0,
+        "pressure_space_id": 1
     },
     "output": {
         "advanced": {
@@ -41,8 +43,16 @@
         }
     },
     "space": {
-        "discr_order": 2,
-        "pressure_discr_order": 1
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 2
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
     },
     "tests": {
         "err_h1": 0.009737530668657898,

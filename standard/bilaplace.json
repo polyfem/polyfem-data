@@ -18,7 +18,9 @@
         "surface_selection": 1
     },
     "materials": {
-        "type": "Bilaplacian"
+        "type": "Bilaplacian",
+        "solution_space_id": 0,
+        "auxiliary_space_id": 1
     },
     "solver": {
         "linear": {

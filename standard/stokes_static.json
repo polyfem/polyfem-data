@@ -21,7 +21,9 @@
     ],
     "materials": {
         "type": "Stokes",
-        "viscosity": 100
+        "viscosity": 100,
+        "velocity_space_id": 0,
+        "pressure_space_id": 1
     },
     "output": {
         "advanced": {
@@ -47,8 +49,16 @@
         "advanced": {
             "bc_method": "sample"
         },
-        "discr_order": 2,
-        "pressure_discr_order": 1
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 2
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
     },
     "tests": {
         "err_h1": 0.08731529385594967,
