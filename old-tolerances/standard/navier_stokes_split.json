@@ -54,8 +54,7 @@
         }
     },
     "space": {
-        "discr_order": 1,
-        "pressure_discr_order": 1
+        "discr_order": 1
     },
     "tests": {
         "err_h1": 0.12107567389064748,
