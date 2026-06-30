@@ -1,0 +1,110 @@
+{
+    "geometry": {
+        "mesh": "bar.msh",
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 2,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ]
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "fe_space": 0,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "fe_space": 0,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 1,
+                "fe_space": 1,
+                "value": 330
+            },
+            {
+                "id": 2,
+                "fe_space": 1,
+                "value": 330
+            }
+        ]
+    },
+    "materials": {
+        "type": "ThermoElasticity",
+        "id": 0,
+        "rho": 1000,
+        "displacement_space_id": 0,
+        "temperature_space_id": 1,
+        "alpha": 1e-4,
+        "T0": 300,
+        "elastic_material": {
+            "type": "NeoHookean",
+            "E": 20000,
+            "nu": 0.3
+        }
+    },
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 1
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_heated_clamped_bar_static.vtu",
+            "options": {
+                "material": true
+            }
+        }
+    }
+}

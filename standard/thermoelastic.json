@@ -1,0 +1,114 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 3,
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            },
+            {
+                "id": 3,
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "relative": true
+            }
+        ],
+        "advanced": {
+            "normalize_mesh": true
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "fe_space": 0,
+                "value": [
+                    -0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 3,
+                "fe_space": 0,
+                "value": [
+                    0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 1,
+                "fe_space": 1,
+                "value": 300
+            },
+            {
+                "id": 3,
+                "fe_space": 1,
+                "value": 310
+            }
+        ]
+    },
+    "materials": [
+        {
+            "type": "ThermoElasticity",
+            "id": 0,
+            "rho": 1000,
+            "displacement_space_id": 0,
+            "temperature_space_id": 1,
+            "alpha": 1e-3,
+            "T0": 300,
+            "elastic_material": {
+                "type": "NeoHookean",
+                "E": 20000,
+                "nu": 0.3
+            }
+        }
+    ],
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 1
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_uncoupled.vtu"
+        }
+    }
+}
