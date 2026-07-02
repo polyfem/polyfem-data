@@ -1,10 +1,44 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "fe_space": 0,
+                "id": 1,
+                "value": [
+                    -0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "fe_space": 0,
+                "id": 3,
+                "value": [
+                    0.1,
+                    0,
+                    0
+                ]
+            },
+            {
+                "fe_space": 1,
+                "id": 1,
+                "value": 300
+            },
+            {
+                "fe_space": 1,
+                "id": 3,
+                "value": 310
+            }
+        ]
+    },
     "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
         "mesh": "../contact/meshes/3D/simple/cube.msh",
         "n_refs": 3,
         "surface_selection": [
             {
-                "id": 1,
                 "box": [
                     [
                         0,
@@ -17,10 +51,10 @@
                         1
                     ]
                 ],
+                "id": 1,
                 "relative": true
             },
             {
-                "id": 3,
                 "box": [
                     [
                         0.999,
@@ -33,61 +67,37 @@
                         1
                     ]
                 ],
+                "id": 3,
                 "relative": true
-            }
-        ],
-        "advanced": {
-            "normalize_mesh": true
-        }
-    },
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 1,
-                "fe_space": 0,
-                "value": [
-                    -0.1,
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 3,
-                "fe_space": 0,
-                "value": [
-                    0.1,
-                    0,
-                    0
-                ]
-            },
-            {
-                "id": 1,
-                "fe_space": 1,
-                "value": 300
-            },
-            {
-                "id": 3,
-                "fe_space": 1,
-                "value": 310
             }
         ]
     },
     "materials": [
         {
-            "type": "ThermoElasticity",
+            "T0": 300,
+            "alpha": 0.001,
+            "displacement_space_id": 0,
+            "elastic_material": {
+                "E": 20000,
+                "nu": 0.3,
+                "type": "NeoHookean"
+            },
             "id": 0,
             "rho": 1000,
-            "displacement_space_id": 0,
             "temperature_space_id": 1,
-            "alpha": 1e-3,
-            "T0": 300,
-            "elastic_material": {
-                "type": "NeoHookean",
-                "E": 20000,
-                "nu": 0.3
-            }
+            "type": "ThermoElasticity"
         }
     ],
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_uncoupled.vtu"
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
     "space": {
         "discr_order": [
             {
@@ -100,14 +110,14 @@
             }
         ]
     },
-    "solver": {
-        "linear": {
-            "solver": "Eigen::SparseLU"
-        }
-    },
-    "output": {
-        "paraview": {
-            "file_name": "thermoelastic_uncoupled.vtu"
-        }
+    "tests": {
+        "err_h1": 0.22333359090569455,
+        "err_h1_semi": 0.21492025506666743,
+        "err_l2": 0.06072212767114419,
+        "err_linf": 0.09505873661893446,
+        "err_linf_grad": 0.22400377848137012,
+        "err_lp": 0.07633768472649637,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }

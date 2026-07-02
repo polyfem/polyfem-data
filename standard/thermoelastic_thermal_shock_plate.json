@@ -1,22 +1,73 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "dimension": [
+                    true,
+                    true,
+                    true
+                ],
+                "fe_space": 0,
+                "id": 10,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "dimension": [
+                    false,
+                    true,
+                    true
+                ],
+                "fe_space": 0,
+                "id": 11,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "dimension": [
+                    false,
+                    false,
+                    true
+                ],
+                "fe_space": 0,
+                "id": 12,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "fe_space": 1,
+                "id": 20,
+                "value": "300 + 20 * min(t/2.5, 1)"
+            }
+        ]
+    },
     "geometry": {
         "mesh": "shock.msh",
         "surface_selection": [
             {
-                "id": 10,
                 "axis": -1,
+                "id": 10,
                 "position": 0.0001,
                 "relative": true
             },
             {
-                "id": 11,
                 "axis": -2,
+                "id": 11,
                 "position": 0.0001,
                 "relative": true
             },
             {
-                "id": 12,
                 "axis": 1,
+                "id": 12,
                 "position": 0.9999,
                 "relative": true
             },
@@ -36,80 +87,47 @@
             }
         ]
     },
-    "boundary_conditions": {
-        "dirichlet_boundary": [
-            {
-                "id": 10,
-                "fe_space": 0,
-                "value": [
-                    0,
-                    0,
-                    0
-                ],
-                "dimension": [
-                    true,
-                    true,
-                    true
-                ]
-            },
-            {
-                "id": 11,
-                "fe_space": 0,
-                "value": [
-                    0,
-                    0,
-                    0
-                ],
-                "dimension": [
-                    false,
-                    true,
-                    true
-                ]
-            },
-            {
-                "id": 12,
-                "fe_space": 0,
-                "value": [
-                    0,
-                    0,
-                    0
-                ],
-                "dimension": [
-                    false,
-                    false,
-                    true
-                ]
-            },
-            {
-                "id": 20,
-                "fe_space": 1,
-                "value": "300 + 20 * min(t/2.5, 1)"
-            }
-        ]
-    },
     "initial_conditions": {
         "solution": [
             {
-                "id": 1,
                 "fe_space": 1,
+                "id": 1,
                 "value": 300
             }
         ]
     },
     "materials": {
-        "type": "ThermoElasticity",
+        "T0": 300,
+        "alpha": 0.0001,
+        "conductivity": 100000.0,
+        "displacement_space_id": 0,
+        "elastic_material": {
+            "E": 1000000,
+            "nu": 0.3,
+            "type": "NeoHookean"
+        },
+        "heat_capacity": 1000,
         "id": 1,
         "rho": 1000,
-        "heat_capacity": 1000,
-        "conductivity": 1e5,
-        "displacement_space_id": 0,
         "temperature_space_id": 1,
-        "alpha": 1e-4,
-        "T0": 300,
-        "elastic_material": {
-            "type": "NeoHookean",
-            "E": 1000000,
-            "nu": 0.3
+        "type": "ThermoElasticity"
+    },
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_thermal_shock_plate.pvd",
+            "options": {
+                "body_ids": true,
+                "material": true
+            },
+            "surface": true
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "nonlinear": {
+            "grad_norm_tol": 1e-07
         }
     },
     "space": {
@@ -124,10 +142,18 @@
             }
         ]
     },
+    "tests": {
+        "err_h1": 0.00016631383587032127,
+        "err_h1_semi": 0.00015218635897551973,
+        "err_l2": 6.707908872125805e-05,
+        "err_linf": 3.19903075785405e-05,
+        "err_linf_grad": 3.19903075785405e-05,
+        "err_lp": 2.9453354432999542e-05,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
     "time": {
-        "t0": 0,
         "dt": 0.1,
-        "tend": 5,
         "integrator": [
             {
                 "fe_space": 0,
@@ -137,24 +163,8 @@
                 "fe_space": 1,
                 "type": "ImplicitEuler"
             }
-        ]
-    },
-    "solver": {
-        "linear": {
-            "solver": "Eigen::SparseLU"
-        },
-        "nonlinear": {
-            "grad_norm_tol": 1e-7
-        }
-    },
-    "output": {
-        "paraview": {
-            "file_name": "thermoelastic_thermal_shock_plate.pvd",
-            "surface": true,
-            "options": {
-                "material": true,
-                "body_ids": true
-            }
-        }
+        ],
+        "t0": 0,
+        "tend": 5
     }
 }
