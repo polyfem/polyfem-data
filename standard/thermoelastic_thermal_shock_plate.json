@@ -1,0 +1,160 @@
+{
+    "geometry": {
+        "mesh": "shock.msh",
+        "surface_selection": [
+            {
+                "id": 10,
+                "axis": -1,
+                "position": 0.0001,
+                "relative": true
+            },
+            {
+                "id": 11,
+                "axis": -2,
+                "position": 0.0001,
+                "relative": true
+            },
+            {
+                "id": 12,
+                "axis": 1,
+                "position": 0.9999,
+                "relative": true
+            },
+            {
+                "id": 20,
+                "p1": [
+                    5,
+                    5,
+                    0.49
+                ],
+                "p2": [
+                    5,
+                    5,
+                    0.51
+                ],
+                "radius": 1.5
+            }
+        ]
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 10,
+                "fe_space": 0,
+                "value": [
+                    0,
+                    0,
+                    0
+                ],
+                "dimension": [
+                    true,
+                    true,
+                    true
+                ]
+            },
+            {
+                "id": 11,
+                "fe_space": 0,
+                "value": [
+                    0,
+                    0,
+                    0
+                ],
+                "dimension": [
+                    false,
+                    true,
+                    true
+                ]
+            },
+            {
+                "id": 12,
+                "fe_space": 0,
+                "value": [
+                    0,
+                    0,
+                    0
+                ],
+                "dimension": [
+                    false,
+                    false,
+                    true
+                ]
+            },
+            {
+                "id": 20,
+                "fe_space": 1,
+                "value": "300 + 20 * min(t/2.5, 1)"
+            }
+        ]
+    },
+    "initial_conditions": {
+        "solution": [
+            {
+                "id": 1,
+                "fe_space": 1,
+                "value": 300
+            }
+        ]
+    },
+    "materials": {
+        "type": "ThermoElasticity",
+        "id": 1,
+        "rho": 1000,
+        "heat_capacity": 1000,
+        "conductivity": 1e5,
+        "displacement_space_id": 0,
+        "temperature_space_id": 1,
+        "alpha": 1e-4,
+        "T0": 300,
+        "elastic_material": {
+            "type": "NeoHookean",
+            "E": 1000000,
+            "nu": 0.3
+        }
+    },
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 1
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
+    },
+    "time": {
+        "t0": 0,
+        "dt": 0.1,
+        "tend": 5,
+        "integrator": [
+            {
+                "fe_space": 0,
+                "type": "ImplicitNewmark"
+            },
+            {
+                "fe_space": 1,
+                "type": "ImplicitEuler"
+            }
+        ]
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "nonlinear": {
+            "grad_norm_tol": 1e-7
+        }
+    },
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_thermal_shock_plate.pvd",
+            "surface": true,
+            "options": {
+                "material": true,
+                "body_ids": true
+            }
+        }
+    }
+}

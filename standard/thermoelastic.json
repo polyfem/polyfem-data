@@ -1,5 +1,4 @@
 {
-    "common": "common.json",
     "geometry": {
         "mesh": "../contact/meshes/3D/simple/cube.msh",
         "n_refs": 3,
