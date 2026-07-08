@@ -1,0 +1,152 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "fe_space": 0,
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "fe_space": 0,
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            {
+                "fe_space": 1,
+                "value": "-5e6 * min(t/2, 1)"
+            }
+        ]
+    },
+    "geometry": {
+        "mesh": "bar.msh",
+        "surface_selection": [
+            {
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 1,
+                "relative": true
+            },
+            {
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 2,
+                "relative": true
+            }
+        ]
+    },
+    "initial_conditions": {
+        "solution": [
+            {
+                "fe_space": 1,
+                "id": 0,
+                "value": 300
+            }
+        ]
+    },
+    "materials": {
+        "T0": 300,
+        "alpha": 0.0001,
+        "conductivity": 1,
+        "displacement_space_id": 0,
+        "elastic_material": {
+            "E": 1000000.0,
+            "nu": 0.3,
+            "type": "NeoHookean"
+        },
+        "heat_capacity": 1000,
+        "id": 0,
+        "rho": 1000,
+        "temperature_space_id": 1,
+        "type": "ThermoElasticity"
+    },
+    "output": {
+        "advanced": {
+            "timestep_prefix": "thermoelastic_heated_clamped_bar_step"
+        },
+        "paraview": {
+            "file_name": "thermoelastic_heated_clamped_bar.pvd",
+            "options": {
+                "material": true
+            }
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "nonlinear": {
+            "line_search": {
+                "method": "ResidualBacktracking"
+            }
+        }
+    },
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 1
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 1.5050811391492592e-05,
+        "err_h1_semi": 1.4504420631795214e-05,
+        "err_l2": 4.018545219135465e-06,
+        "err_linf": 2.15511990403564e-06,
+        "err_linf_grad": 5.189976768605398e-06,
+        "err_lp": 2.0318390214646553e-06,
+        "margin": 1e-05,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.1,
+        "integrator": [
+            {
+                "beta": 0.3025,
+                "fe_space": 0,
+                "gamma": 0.6,
+                "type": "ImplicitNewmark"
+            },
+            {
+                "fe_space": 1,
+                "type": "ImplicitEuler"
+            }
+        ],
+        "t0": 0,
+        "tend": 5
+    }
+}

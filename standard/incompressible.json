@@ -4,7 +4,9 @@
         "E": 20000,
         "id": 1,
         "nu": 0.499,
-        "type": "IncompressibleLinearElasticity"
+        "type": "IncompressibleLinearElasticity",
+        "displacement_space_id": 0,
+        "pressure_space_id": 1
     },
     "tests": {
         "err_h1": 0.38071122413301406,
