@@ -1,0 +1,142 @@
+{
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "fe_space": 0,
+                "id": 10,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "fe_space": 1,
+                "id": 10,
+                "value": 330
+            },
+            {
+                "fe_space": 1,
+                "id": 11,
+                "value": 330
+            }
+        ]
+    },
+    "geometry": {
+        "mesh": "bimetal.msh",
+        "surface_selection": [
+            {
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 10,
+                "relative": true
+            },
+            {
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 11,
+                "relative": true
+            }
+        ]
+    },
+    "initial_conditions": {
+        "solution": [
+            {
+                "fe_space": 1,
+                "id": 1,
+                "value": 300
+            },
+            {
+                "fe_space": 1,
+                "id": 2,
+                "value": 300
+            }
+        ]
+    },
+    "materials": [
+        {
+            "T0": 300,
+            "alpha": 5e-05,
+            "displacement_space_id": 0,
+            "elastic_material": {
+                "E": 20000,
+                "nu": 0.3,
+                "type": "NeoHookean"
+            },
+            "id": 1,
+            "rho": 1000,
+            "temperature_space_id": 1,
+            "type": "ThermoElasticity"
+        },
+        {
+            "T0": 300,
+            "alpha": 0.0002,
+            "displacement_space_id": 0,
+            "elastic_material": {
+                "E": 20000,
+                "nu": 0.3,
+                "type": "NeoHookean"
+            },
+            "id": 2,
+            "rho": 1000,
+            "temperature_space_id": 1,
+            "type": "ThermoElasticity"
+        }
+    ],
+    "output": {
+        "paraview": {
+            "file_name": "thermoelastic_bimetal_strip.vtu",
+            "options": {
+                "body_ids": true,
+                "material": true
+            }
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 1
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 0.5019673548206186,
+        "err_h1_semi": 0.1702811024490217,
+        "err_l2": 0.47220289225538903,
+        "err_linf": 0.3311903184760037,
+        "err_linf_grad": 0.3311903184760037,
+        "err_lp": 0.30985737579618844,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
