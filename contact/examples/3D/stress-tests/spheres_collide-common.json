@@ -1,0 +1,98 @@
+{
+    "common": "../../common.json",
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001
+    },
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/sphere/coarse/icosphere.msh",
+            "transformation": {
+                "scale": 1.0,
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../../../meshes/3D/simple/sphere/coarse/icosphere.msh",
+            "transformation": {
+                "scale": 0.3,
+                "translation": [
+                    -1.6,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "time": {
+        "tend": 1,
+        "dt": 1e-2
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            0,
+            0
+        ]
+    },
+    "initial_conditions": {
+        "velocity": [
+            {
+                "id": 2,
+                "value": [
+                    10,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "type": "MaterialSum",
+            "models": [
+                {
+                    "type": "NeoHookean",
+                    "E": 10000.0,
+                    "nu": 0.45
+                },
+                {
+                    "type": "InversionBarrier",
+                    "E": 10000.0,
+                    "nu": 0.45
+                }
+            ],
+            "rho": 1000
+        },
+        {
+            "id": 2,
+            "type": "MaterialSum",
+            "models": [
+                {
+                    "type": "NeoHookean",
+                    "E": 1e7,
+                    "nu": 0.3
+                },
+                {
+                    "type": "InversionBarrier",
+                    "E": 1e8,
+                    "nu": 0.3
+                }
+            ],
+            "rho": 8000
+        }
+    ],
+    "solver": {
+        "advanced": {
+            "check_inversion": "Conservative",
+            "lump_mass_matrix": false
+        }
+    }
+}
