@@ -1,0 +1,94 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 1,
+        "volume_selection": 1,
+        "surface_selection": [
+            {
+                "axis": "-x",
+                "id": 1,
+                "position": 0.01,
+                "relative": true
+            },
+            {
+                "axis": "x",
+                "id": 2,
+                "position": 0.99,
+                "relative": true
+            },
+            {
+                "axis": "y",
+                "id": 3,
+                "position": 0.99,
+                "relative": true
+            }
+        ],
+        "point_selection": {
+            "axis": "z",
+            "boundary_only": true,
+            "id": 4,
+            "position": 0.99,
+            "relative": true
+        }
+    },
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "HookeLinearElasticity"
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            0,
+            0
+        ],
+        "dirichlet_boundary": {
+            "id": 1,
+            "value": [
+                0,
+                0,
+                0
+            ]
+        },
+        "neumann_boundary": {
+            "id": 2,
+            "value": [
+                0.05,
+                0,
+                0
+            ]
+        },
+        "normal_aligned_neumann_boundary": {
+            "id": 3,
+            "value": 0.02
+        },
+        "nodal_neumann_boundary": {
+            "id": 4,
+            "value": [
+                "0.01*x",
+                "0.02*y",
+                "0.03*z"
+            ]
+        }
+    },
+    "tests": {
+        "err_h1": 3.409576295205873e-05,
+        "err_h1_semi": 3.024033153426022e-05,
+        "err_l2": 1.574939363851853e-05,
+        "err_linf": 2.8577688926190927e-05,
+        "err_linf_grad": 2.8577688926190927e-05,
+        "err_lp": 2.0586729862572048e-05,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}

@@ -1,0 +1,95 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "mesh": "../multi-material/cubes_v41.msh",
+        "surface_selection": [
+            {
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 1,
+                "relative": true
+            },
+            {
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 3,
+                "relative": true
+            }
+        ]
+    },
+    "materials": [
+        {
+            "id": 1,
+            "type": "Laplacian"
+        },
+        {
+            "id": 2,
+            "type": "Laplacian"
+        },
+        {
+            "id": 3,
+            "type": "Laplacian"
+        }
+    ],
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            {
+                "id": 1,
+                "value": "1 + x"
+            },
+            {
+                "id": 2,
+                "value": "2 + y"
+            },
+            {
+                "id": 3,
+                "value": "3 + z"
+            }
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": 0
+            },
+            {
+                "id": 3,
+                "value": 0
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 1.986131427571271,
+        "err_h1_semi": 1.6756457488956804,
+        "err_l2": 1.066268902197813,
+        "err_linf": 1.0949343967205674,
+        "err_linf_grad": 1.0949343967205674,
+        "err_lp": 0.9832331629822487,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
