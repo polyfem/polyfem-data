@@ -1,0 +1,98 @@
+{
+    "common": "common.json",
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/3D/simple/sphere/coarse/P1.msh",
+            "surface_selection": 1,
+            "transformation": {
+                "scale": 0.4,
+                "translation": [
+                    -0.6,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "mesh": "../contact/meshes/3D/simple/sphere/coarse/P1.msh",
+            "surface_selection": 2,
+            "transformation": {
+                "scale": 0.4,
+                "translation": [
+                    0.6,
+                    0,
+                    0
+                ]
+            },
+            "volume_selection": 2
+        }
+    ],
+    "materials": [
+        {
+            "E": 20000,
+            "id": 1,
+            "nu": 0.3,
+            "type": "HookeLinearElasticity"
+        },
+        {
+            "E": 20000,
+            "id": 2,
+            "nu": 0.3,
+            "type": "HookeLinearElasticity"
+        }
+    ],
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "boundary_conditions": {
+        "rhs": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    -9.81,
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    -3.71,
+                    0
+                ]
+            }
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "id": 2,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 0.000026867638917880332,
+        "err_h1_semi": 0.000026774719227028318,
+        "err_l2": 0.0000022325840041078027,
+        "err_linf": 0.000004879199093826229,
+        "err_linf_grad": 0.000020929033332240436,
+        "err_lp": 0.0000039466547450829985,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
