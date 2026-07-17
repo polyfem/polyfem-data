@@ -1,0 +1,1 @@
+{"common":"spheres_collide-common.json","space":{"discr_order":2},"tests":{"err_h1":0.03143011918506149,"err_h1_semi":3.234410223399346e-15,"err_l2":0.03143011918506149,"err_linf":0.10000000000000153,"err_linf_grad":0.10000000000000153,"err_lp":0.0748749433777434,"margin":1e-05,"time_steps":1}}
