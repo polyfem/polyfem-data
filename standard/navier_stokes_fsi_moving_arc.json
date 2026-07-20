@@ -1,0 +1,144 @@
+{
+    "geometry": [
+        {
+            "mesh": "../contact/meshes/2D/simple/square.obj",
+            "n_refs": 3,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "box": [[-0.51, -0.51], [-0.49, 0.51]]
+                },
+                {
+                    "id": 2,
+                    "box": [[0.49, -0.51], [0.51, 0.51]]
+                },
+                {
+                    "id": 3,
+                    "box": [[-0.51, -0.51], [0.51, -0.49]]
+                },
+                {
+                    "id": 4,
+                    "box": [[-0.51, 0.49], [0.51, 0.51]]
+                }
+            ]
+        }
+    ],
+    "materials": {
+        "type": "NavierStokesFSI",
+        "viscosity": 0.02,
+        "rho": 1,
+        "velocity_space_id": 0,
+        "pressure_space_id": 1,
+        "mesh_displacement_space_id": 2,
+        "mesh_material": {
+            "type": "MaterialSum",
+            "models": [
+                {
+                    "type": "AMIPS",
+                    "use_rest_pose": true,
+                    "weight": 1
+                },
+                {
+                    "type": "VolumePenalty",
+                    "k": 1000
+                }
+            ]
+        }
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "fe_space": 0,
+                "value": ["0.1*pi*sin(2*pi*t)*(1-4*y*y)", 0]
+            },
+            {
+                "id": 3,
+                "fe_space": 0,
+                "value": [0, 0]
+            },
+            {
+                "id": 4,
+                "fe_space": 0,
+                "value": [0, 0]
+            },
+            {
+                "id": 1,
+                "fe_space": 2,
+                "value": ["0.1*sin(pi*t)*sin(pi*t)*(1-4*y*y)", 0]
+            },
+            {
+                "id": 3,
+                "fe_space": 2,
+                "value": [0, 0]
+            },
+            {
+                "id": 4,
+                "fe_space": 2,
+                "value": [0, 0]
+            }
+        ],
+        "neumann_boundary": [
+            {
+                "id": 2,
+                "fe_space": 0,
+                "value": [0, 0]
+            },
+            {
+                "id": 2,
+                "fe_space": 2,
+                "value": [0, 0]
+            }
+        ]
+    },
+    "space": {
+        "discr_order": [
+            {
+                "fe_space": 0,
+                "order": 2
+            },
+            {
+                "fe_space": 1,
+                "order": 1
+            },
+            {
+                "fe_space": 2,
+                "order": 1
+            }
+        ]
+    },
+    "time": {
+        "t0": 0,
+        "tend": 1,
+        "time_steps": 40,
+        "integrator": {
+            "type": "ImplicitEuler"
+        }
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "nonlinear": {
+            "max_iterations": 100
+        }
+    },
+    "output": {
+        "advanced": {
+            "save_time_sequence": true
+        },
+        "paraview": {
+            "file_name": "navier_stokes_fsi_moving_arc.pvd"
+        }
+    },
+    "tests": {
+        "err_l2": 0.0666431558997415,
+        "err_h1": 0.38962028771323554,
+        "err_h1_semi": 0.38387844217859796,
+        "err_linf": 0.09832885628843148,
+        "err_linf_grad": 0.09832885628843148,
+        "err_lp": 0.07133930145141187,
+        "margin": 1e-5,
+        "time_steps": 2
+    }
+}
