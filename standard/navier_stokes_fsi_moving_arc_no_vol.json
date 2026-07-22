@@ -39,18 +39,8 @@
         "pressure_space_id": 1,
         "mesh_displacement_space_id": 2,
         "mesh_material": {
-            "type": "MaterialSum",
-            "models": [
-                {
-                    "type": "AMIPS",
-                    "use_rest_pose": true,
-                    "weight": 1
-                },
-                {
-                    "type": "VolumePenalty",
-                    "k": 1000
-                }
-            ]
+            "type": "AMIPS",
+            "use_rest_pose": true
         }
     },
     "boundary_conditions": {
@@ -139,17 +129,17 @@
     },
     "output": {
         "paraview": {
-            "file_name": "navier_stokes_fsi_moving_arc.pvd",
+            "file_name": "navier_stokes_fsi_moving_arc_no.pvd",
             "surface": true
         }
     },
     "tests": {
-        "err_l2": 0.06653353235767939,
-        "err_h1": 0.39404554955879684,
-        "err_h1_semi": 0.38838793003787314,
-        "err_linf": 0.0974874525192499,
-        "err_linf_grad": 0.0974874525192499,
-        "err_lp": 0.07082195090218833,
+        "err_l2": 0.0666431558997415,
+        "err_h1": 0.38962028771323554,
+        "err_h1_semi": 0.38387844217859796,
+        "err_linf": 0.09832885628843148,
+        "err_linf_grad": 0.09832885628843148,
+        "err_lp": 0.07133930145141187,
         "margin": 1e-5,
         "time_steps": 2
     }
