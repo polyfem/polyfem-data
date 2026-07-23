@@ -1,0 +1,50 @@
+{
+    "common": "common.json",
+    "geometry": {
+        "mesh": "periodic_rectangle.msh"
+    },
+    "materials": {
+        "E": 1000,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "boundary_conditions": {
+        "rhs": [
+            10,
+            -10
+        ],
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        "periodic": [
+            {
+                "boundary_ids": [
+                    1,
+                    3
+                ]
+            },
+            {
+                "boundary_ids": [
+                    2,
+                    4
+                ]
+            }
+        ]
+    },
+    "tests": {
+        "err_h1": 0.04601631123316569,
+        "err_h1_semi": 0.038907876051241304,
+        "err_l2": 0.024569861226486692,
+        "err_linf": 0.01372755369709658,
+        "err_linf_grad": 0.026156711776721558,
+        "err_lp": 0.01478545155595725,
+        "margin": 1e-05,
+        "time_steps": "static"
+    }
+}
