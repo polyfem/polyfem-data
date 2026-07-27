@@ -1,15 +1,18 @@
 {
     "tests": {
-        "err_h1": 0.0365800269690348,
-        "err_h1_semi": 0.035546839952256826,
-        "err_l2": 0.008632528161781497,
-        "err_linf": 0.07348004895820204,
-        "err_linf_grad": 0.07348004895820204,
-        "err_lp": 0.037961121562742464
+        "err_h1": 0.03655751653608582,
+        "err_h1_semi": 0.03554683992810072,
+        "err_l2": 0.008536637886906803,
+        "err_linf": 0.07307261897514009,
+        "err_linf_grad": 0.07307261897514009,
+        "err_lp": 0.0378888280835914
     },
     "geometry": [
         {
-            "mesh": "unit_cell.msh"
+            "mesh": "unit_cell.msh",
+            "surface_selection": {
+                "threshold": 1e-05
+            }
         }
     ],
     "space": {
@@ -35,9 +38,31 @@
         }
     },
     "boundary_conditions": {
-        "periodic_boundary": {
-            "enabled": true,
-            "linear_displacement_offset": [
+        "periodic": [
+            {
+                "boundary_ids": [
+                    1,
+                    3
+                ]
+            },
+            {
+                "boundary_ids": [
+                    2,
+                    4
+                ]
+            },
+            {
+                "boundary_ids": [
+                    5,
+                    6
+                ]
+            }
+        ]
+    },
+    "constraints": {
+        "zero_mean": true,
+        "macro_displacement_gradient": {
+            "value": [
                 [
                     0,
                     0,
@@ -54,24 +79,7 @@
                     0
                 ]
             ],
-            "correspondence": [
-                [
-                    1,
-                    0,
-                    0
-                ],
-                [
-                    0,
-                    1,
-                    0
-                ],
-                [
-                    0,
-                    0,
-                    1
-                ]
-            ],
-            "fixed_macro_strain": [
+            "fixed_components": [
                 4
             ]
         }
