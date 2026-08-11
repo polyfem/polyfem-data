@@ -9,7 +9,10 @@
     },
     "geometry": [
         {
-            "mesh": "periodic_x.obj"
+            "mesh": "periodic_x.obj",
+            "surface_selection": {
+                "threshold": 1e-05
+            }
         }
     ],
     "space": {
@@ -39,9 +42,25 @@
         }
     },
     "boundary_conditions": {
-        "periodic_boundary": {
-            "enabled": true,
-            "linear_displacement_offset": [
+        "periodic": [
+            {
+                "boundary_ids": [
+                    1,
+                    3
+                ]
+            },
+            {
+                "boundary_ids": [
+                    2,
+                    4
+                ]
+            }
+        ]
+    },
+    "constraints": {
+        "zero_mean": true,
+        "macro_displacement_gradient": {
+            "value": [
                 [
                     0,
                     0
@@ -51,7 +70,7 @@
                     -0.3
                 ]
             ],
-            "fixed_macro_strain": [
+            "fixed_components": [
                 3
             ]
         }
