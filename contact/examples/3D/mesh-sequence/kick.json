@@ -1,28 +1,4 @@
 {
-    "common": "../../common.json",
-    "geometry": [
-        {
-            "mesh": "../../../meshes/3D/simple/cube.msh",
-            "transformation": {
-                "translation": [
-                    0.9,
-                    1.25,
-                    1.8
-                ],
-                "scale": 0.15
-            }
-        },
-        {
-            "type": "mesh_sequence",
-            "mesh_sequence": "../../../meshes/3D/obstacles/kick-sequence/",
-            "fps": 24,
-            "is_obstacle": true
-        }
-    ],
-    "time": {
-        "tend": 5,
-        "dt": 0.02
-    },
     "boundary_conditions": {
         "rhs": [
             0,
@@ -30,10 +6,44 @@
             0
         ]
     },
+    "common": "../../common.json",
+    "geometry": [
+        {
+            "mesh": "../../../meshes/3D/simple/cube.msh",
+            "transformation": {
+                "scale": 0.15,
+                "translation": [
+                    0.9,
+                    1.25,
+                    1.8
+                ]
+            }
+        },
+        {
+            "fps": 24,
+            "is_obstacle": true,
+            "mesh_sequence": "../../../meshes/3D/obstacles/kick-sequence/",
+            "type": "mesh_sequence"
+        }
+    ],
     "materials": {
         "E": 20000.0,
         "nu": 0.4,
         "rho": 1000,
         "type": "NeoHookean"
+    },
+    "tests": {
+        "err_h1": 0.0,
+        "err_h1_semi": 0.0,
+        "err_l2": 0.0,
+        "err_linf": 0.0,
+        "err_linf_grad": 0.0,
+        "err_lp": 0.0,
+        "margin": 0.00001,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.02,
+        "tend": 5
     }
 }

@@ -1,64 +1,5 @@
 {
-    "common": "../../common.json",
-    "geometry": [
-        {
-            "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
-            "transformation": {
-                "translation": [
-                    10,
-                    4
-                ],
-                "scale": 4
-            },
-            "volume_selection": 1,
-            "surface_selection": 0
-        },
-        {
-            "type": "mesh_array",
-            "mesh": "../../../meshes/2D/codimensional/edge.obj",
-            "array": {
-                "offset": 1,
-                "size": [
-                    21,
-                    1
-                ]
-            },
-            "transformation": {
-                "rotation": 90
-            },
-            "is_obstacle": true,
-            "surface_selection": 1
-        },
-        {
-            "type": "mesh_array",
-            "mesh": "../../../meshes/2D/codimensional/edge.obj",
-            "array": {
-                "offset": 1,
-                "size": [
-                    21,
-                    1
-                ]
-            },
-            "transformation": {
-                "rotation": 90,
-                "translation": [
-                    0,
-                    10
-                ]
-            },
-            "is_obstacle": true,
-            "surface_selection": 2
-        }
-    ],
-    "time": {
-        "tend": 8,
-        "dt": 0.04
-    },
     "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81
-        ],
         "dirichlet_boundary": [
             {
                 "id": 2,
@@ -67,15 +8,84 @@
                     "max(-8.9 / 7 * t, -8.9)"
                 ]
             }
+        ],
+        "rhs": [
+            0,
+            9.81
         ]
     },
+    "common": "../../common.json",
+    "geometry": [
+        {
+            "mesh": "../../../meshes/2D/simple/circle/circle2K.obj",
+            "surface_selection": 0,
+            "transformation": {
+                "scale": 4,
+                "translation": [
+                    10,
+                    4
+                ]
+            },
+            "volume_selection": 1
+        },
+        {
+            "array": {
+                "offset": 1,
+                "size": [
+                    21,
+                    1
+                ]
+            },
+            "is_obstacle": true,
+            "mesh": "../../../meshes/2D/codimensional/edge.obj",
+            "surface_selection": 1,
+            "transformation": {
+                "rotation": 90
+            },
+            "type": "mesh_array"
+        },
+        {
+            "array": {
+                "offset": 1,
+                "size": [
+                    21,
+                    1
+                ]
+            },
+            "is_obstacle": true,
+            "mesh": "../../../meshes/2D/codimensional/edge.obj",
+            "surface_selection": 2,
+            "transformation": {
+                "rotation": 90,
+                "translation": [
+                    0,
+                    10
+                ]
+            },
+            "type": "mesh_array"
+        }
+    ],
     "materials": [
         {
-            "id": 1,
             "E": 100000,
+            "id": 1,
             "nu": 0.4,
             "rho": 1000,
             "type": "NeoHookean"
         }
-    ]
+    ],
+    "tests": {
+        "err_h1": 0.05562969895765255,
+        "err_h1_semi": 5.008608678550519E-16,
+        "err_l2": 0.05562969895765255,
+        "err_linf": 0.015696000000000057,
+        "err_linf_grad": 0.015696000000000057,
+        "err_lp": 0.02153616748171634,
+        "margin": 0.00001,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.04,
+        "tend": 8
+    }
 }

@@ -1,45 +1,4 @@
 {
-    "geometry": {
-        "mesh": "../contact/meshes/3D/simple/cube.msh",
-        "n_refs": 2,
-        "surface_selection": [
-            {
-                "id": 1,
-                "box": [
-                    [
-                        0,
-                        0,
-                        0
-                    ],
-                    [
-                        0.001,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            },
-            {
-                "id": 3,
-                "box": [
-                    [
-                        0.999,
-                        0,
-                        0
-                    ],
-                    [
-                        1,
-                        1,
-                        1
-                    ]
-                ],
-                "relative": true
-            }
-        ],
-        "advanced": {
-            "normalize_mesh": true
-        }
-    },
     "boundary_conditions": {
         "dirichlet_boundary": [
             {
@@ -60,6 +19,68 @@
             }
         ]
     },
+    "geometry": {
+        "advanced": {
+            "normalize_mesh": true
+        },
+        "mesh": "../contact/meshes/3D/simple/cube.msh",
+        "n_refs": 2,
+        "surface_selection": [
+            {
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        0.001,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 1,
+                "relative": true
+            },
+            {
+                "box": [
+                    [
+                        0.999,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        1
+                    ]
+                ],
+                "id": 3,
+                "relative": true
+            }
+        ]
+    },
+    "materials": {
+        "E": 20000,
+        "id": 1,
+        "nu": 0.3,
+        "type": "NeoHookean"
+    },
+    "output": {
+        "advanced": {
+            "save_solve_sequence_debug": false,
+            "save_time_sequence": true
+        },
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd",
+            "options": {
+                "body_ids": true,
+                "material": true
+            },
+            "vismesh_rel_area": 10000000
+        }
+    },
     "solver": {
         "linear": {
             "solver": [
@@ -70,30 +91,19 @@
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-05
+                "use_grad_norm_tol": 0.00001
             }
         }
     },
-    "materials": {
-        "E": 20000,
-        "id": 1,
-        "nu": 0.3,
-        "type": "NeoHookean"
-    },
-    "output": {
-        "json": "sim.json",
-        "paraview": {
-            "file_name": "sim.pvd",
-            "options": {
-                "material": true,
-                "body_ids": true
-            },
-            "vismesh_rel_area": 10000000
-        },
-        "advanced": {
-            "save_solve_sequence_debug": false,
-            "save_time_sequence": true
-        }
+    "tests": {
+        "err_h1": 8.364518560613298,
+        "err_h1_semi": 8.05722192742606,
+        "err_l2": 2.2464072567210613,
+        "err_linf": 3.4914632746336824,
+        "err_linf_grad": 7.973877149870019,
+        "err_lp": 2.8880228155699115,
+        "margin": 0.00001,
+        "time_steps": 1
     },
     "time": {
         "integrator": "BDF1",

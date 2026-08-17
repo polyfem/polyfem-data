@@ -1,7 +1,4 @@
 {
-    "geometry": {
-        "mesh": "../contact/meshes/3D/creatures/alien.msh"
-    },
     "boundary_conditions": {
         "dirichlet_boundary": [
             {
@@ -22,19 +19,8 @@
             }
         ]
     },
-    "solver": {
-        "linear": {
-            "solver": [
-                "Eigen::PardisoLDLT",
-                "Eigen::CholmodSupernodalLLT",
-                "Eigen::SimplicialLDLT"
-            ]
-        },
-        "nonlinear": {
-            "line_search": {
-                "use_grad_norm_tol": 1e-05
-            }
-        }
+    "geometry": {
+        "mesh": "../contact/meshes/3D/creatures/alien.msh"
     },
     "materials": {
         "E": 20000,
@@ -46,13 +32,37 @@
         "json": "sim.json",
         "paraview": {
             "file_name": "sim.vtu",
-            "volume": false,
-            "surface": true,
             "options": {
-                "material": true,
-                "body_ids": true
+                "body_ids": true,
+                "material": true
             },
-            "vismesh_rel_area": 10000000
+            "surface": true,
+            "vismesh_rel_area": 10000000,
+            "volume": false
         }
+    },
+    "solver": {
+        "linear": {
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "nonlinear": {
+            "line_search": {
+                "use_grad_norm_tol": 0.00001
+            }
+        }
+    },
+    "tests": {
+        "err_h1": 0.0,
+        "err_h1_semi": 0.0,
+        "err_l2": 0.0,
+        "err_linf": 0.0,
+        "err_linf_grad": 0.0,
+        "err_lp": 0.0,
+        "margin": 0.00001,
+        "time_steps": "static"
     }
 }
