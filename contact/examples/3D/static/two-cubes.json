@@ -49,7 +49,7 @@
             "solver": "Eigen::SimplicialLDLT"
         },
         "nonlinear": {
-            "use_grad_norm": 1e-05
+            "grad_norm_tol": 1e-05
         },
         "contact": {
             "friction_iterations": -1,
