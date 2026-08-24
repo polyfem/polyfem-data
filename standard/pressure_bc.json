@@ -1,28 +1,4 @@
 {
-    "geometry": {
-        "mesh": "balloon.msh",
-        "volume_selection": 1,
-        "surface_selection": [
-            {
-                "id": 1,
-                "axis": "-y",
-                "position": -1
-            },
-            {
-                "id": 2,
-                "center": [
-                    0,
-                    0
-                ],
-                "radius": 1
-            }
-        ]
-    },
-    "time": {
-        "tend": 1,
-        "time_steps": 20,
-        "quasistatic": false
-    },
     "boundary_conditions": {
         "dirichlet_boundary": {
             "id": 1,
@@ -39,18 +15,48 @@
             }
         ]
     },
+    "contact": {
+        "dhat": 0.001,
+        "enabled": true
+    },
+    "geometry": {
+        "mesh": "balloon.msh",
+        "surface_selection": [
+            {
+                "axis": "-y",
+                "id": 1,
+                "position": -1
+            },
+            {
+                "center": [
+                    0,
+                    0
+                ],
+                "id": 2,
+                "radius": 1
+            }
+        ],
+        "volume_selection": 1
+    },
     "materials": [
         {
-            "id": 1,
             "E": 50000.0,
+            "id": 1,
             "nu": 0.4,
             "rho": 1000,
             "type": "NeoHookean"
         }
     ],
-    "contact": {
-        "enabled": true,
-        "dhat": 0.001
+    "output": {
+        "advanced": {
+            "save_time_sequence": true
+        },
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd",
+            "surface": true,
+            "vismesh_rel_area": 10000000
+        }
     },
     "solver": {
         "linear": {
@@ -66,15 +72,19 @@
             "solver": "Newton"
         }
     },
-    "output": {
-        "json": "sim.json",
-        "paraview": {
-            "file_name": "sim.pvd",
-            "surface": true,
-            "vismesh_rel_area": 10000000
-        },
-        "advanced": {
-            "save_time_sequence": true
-        }
+    "tests": {
+        "err_h1": 0.21464897858325716,
+        "err_h1_semi": 0.20433577942427775,
+        "err_l2": 0.06573487091269366,
+        "err_linf": 0.06667727749701925,
+        "err_linf_grad": 0.17361769350821799,
+        "err_lp": 0.05791816484006573,
+        "margin": 0.00001,
+        "time_steps": 1
+    },
+    "time": {
+        "quasistatic": false,
+        "tend": 1,
+        "time_steps": 20
     }
 }

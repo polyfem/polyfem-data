@@ -1,4 +1,11 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": {
+            "id": 1,
+            "value": 0
+        },
+        "rhs": 1
+    },
     "common": "common.json",
     "geometry": {
         "advanced": {
@@ -11,21 +18,14 @@
     "materials": {
         "type": "Laplacian"
     },
-    "boundary_conditions": {
-        "rhs": 1,
-        "dirichlet_boundary": {
-            "id": 1,
-            "value": 0
-        }
-    },
     "tests": {
-        "err_h1": 0.49182801369492474,
-        "err_h1_semi": 0.44222417930173,
-        "err_l2": 0.21525001810918956,
-        "err_linf": 0.40982966305969876,
-        "err_linf_grad": 0.40982966305969876,
-        "err_lp": 0.3107089007731162,
-        "margin": 1e-05,
+        "err_h1": 0.07254368894366724,
+        "err_h1_semi": 0.07216878364870317,
+        "err_l2": 0.007365695637359865,
+        "err_linf": 0.010416666666666661,
+        "err_linf_grad": 0.11785113019775786,
+        "err_lp": 0.009552125450048653,
+        "margin": 0.00001,
         "time_steps": "static"
     }
 }

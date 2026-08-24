@@ -1,5 +1,23 @@
 {
+    "boundary_conditions": {
+        "dirichlet_boundary": {
+            "id": 1,
+            "value": [
+                0,
+                0,
+                0
+            ]
+        },
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
     "common": "../../common.json",
+    "contact": {
+        "dhat": 0.001
+    },
     "geometry": [
         {
             "mesh": "../../../meshes/3D/simple/cube-denser.msh",
@@ -14,6 +32,12 @@
         },
         {
             "mesh": "../../../meshes/3D/simple/cube-denser.msh",
+            "surface_selection": {
+                "axis": "-y",
+                "id": 1,
+                "position": 0.00001,
+                "relative": true
+            },
             "transformation": {
                 "translation": [
                     0,
@@ -21,44 +45,30 @@
                     0
                 ]
             },
-            "volume_selection": 1,
-            "surface_selection": {
-                "id": 1,
-                "axis": "-y",
-                "position": 1e-05,
-                "relative": true
-            }
+            "volume_selection": 1
         }
     ],
-    "contact": {
-        "dhat": 0.001
-    },
-    "time": {
-        "tend": 1.0,
-        "time_steps": 10
-    },
-    "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ],
-        "dirichlet_boundary": {
-            "id": 1,
-            "value": [
-                0,
-                0,
-                0
-            ]
-        }
-    },
     "materials": [
         {
-            "id": 1,
             "E": 50000.0,
+            "id": 1,
             "nu": 0.4,
             "rho": 1000,
             "type": "NeoHookean"
         }
-    ]
+    ],
+    "tests": {
+        "err_h1": 0.1209219660317042,
+        "err_h1_semi": 0.0737541671884396,
+        "err_l2": 0.09582507339580974,
+        "err_linf": 0.09062931345213843,
+        "err_linf_grad": 0.09062931345213843,
+        "err_lp": 0.08788670648515749,
+        "margin": 0.0002,
+        "time_steps": 1
+    },
+    "time": {
+        "tend": 1.0,
+        "time_steps": 10
+    }
 }

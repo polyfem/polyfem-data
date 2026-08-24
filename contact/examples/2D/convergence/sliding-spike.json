@@ -15,6 +15,10 @@
         ]
     },
     "common": "../../common.json",
+    "contact": {
+        "dhat": 0.001,
+        "use_convergent_formulation": true
+    },
     "geometry": [
         {
             "mesh": "../../../meshes/2D/simple/erleben/spike.obj",
@@ -61,19 +65,25 @@
             "file_name": "sliding-spike.pvd"
         }
     },
-    "time": {
-        "time_steps": 400,
-        "tend": 1,
-        "quasistatic": true
-    },
     "solver": {
-        "nonlinear": {},
         "contact": {
             "barrier_stiffness": 10000.0
-        }
+        },
+        "nonlinear": {}
     },
-    "contact": {
-        "dhat": 0.001,
-        "use_convergent_formulation": true
+    "tests": {
+        "err_h1": 1.9532008175757734,
+        "err_h1_semi": 1.3837038681711957,
+        "err_l2": 1.3785343807779111,
+        "err_linf": 1.1255686085964844,
+        "err_linf_grad": 1.1297894773782504,
+        "err_lp": 1.1840863639734682,
+        "margin": 0.00001,
+        "time_steps": 1
+    },
+    "time": {
+        "quasistatic": true,
+        "tend": 1,
+        "time_steps": 400
     }
 }
