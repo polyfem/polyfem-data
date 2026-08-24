@@ -1,0 +1,31 @@
+{
+    "geometry": {
+        "mesh": "reordered-local-vertices.msh",
+        "surface_selection": 1
+    },
+    "space": {
+        "discr_order": 1
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": 0
+            }
+        ]
+    },
+    "materials": {
+        "type": "Laplacian"
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        }
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd"
+        }
+    }
+}

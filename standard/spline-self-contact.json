@@ -1,0 +1,94 @@
+{
+    "geometry": {
+        "mesh": "../quad_test/hex.HYBRID",
+        "transformation": {
+            "scale": 0.001
+        },
+        "surface_selection": [
+            {
+                "id": 1,
+                "box": [
+                    [
+                        0,
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        1,
+                        0.001
+                    ]
+                ],
+                "relative": true
+            }
+        ]
+    },
+    "space": {
+        "basis_type": "Spline",
+        "discr_order": 1,
+        "use_p_ref": true
+    },
+    "time": {
+        "integrator": "ImplicitEuler",
+        "dt": 0.01,
+        "time_steps": 1
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        "rhs": [
+            0,
+            -9.81,
+            0
+        ]
+    },
+    "materials": {
+        "id": 1,
+        "type": "NeoHookean",
+        "E": 1250000,
+        "nu": 0.48,
+        "rho": 1160
+    },
+    "contact": {
+        "enabled": true,
+        "dhat_percentage": 0.01,
+        "friction_coefficient": 0.32,
+        "epsv": 1e-6
+    },
+    "solver": {
+        "linear": {
+            "solver": "Eigen::SparseLU"
+        },
+        "nonlinear": {
+            "solver": "Newton",
+            "max_iterations": 20,
+            "allow_out_of_iterations": true,
+            "grad_norm_tol": 1e-11,
+            "line_search": {
+                "method": "Backtracking"
+            }
+        },
+        "contact": {
+            "friction_iterations": 1,
+            "friction_convergence_tol": 1e-8
+        }
+    },
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd",
+            "options": {
+                "contact_forces": true,
+                "friction_forces": true
+            }
+        }
+    }
+}
