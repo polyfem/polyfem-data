@@ -1,42 +1,38 @@
 {
+    "contact": {
+        "adhesion": {
+            "adhesion_enabled": true,
+            "adhesion_strength": 1,
+            "dhat_a": 0.005,
+            "dhat_p": 0.00125,
+            "tangential_adhesion_coefficient": 0.1
+        },
+        "dhat": 0.02,
+        "enabled": true,
+        "use_convergent_formulation": false
+    },
     "geometry": [
         {
             "mesh": "sphere.msh",
-            "volume_selection": 1,
             "transformation": {
                 "translation": [
                     -2,
                     0,
                     0
                 ]
-            }
+            },
+            "volume_selection": 1
         },
         {
             "mesh": "sphere.msh",
-            "volume_selection": 2,
             "transformation": {
                 "translation": [
                     2,
                     0,
                     0
                 ]
-            }
-        }
-    ],
-    "materials": [
-        {
-            "E": 10000,
-            "id": 1,
-            "nu": 0.0,
-            "rho": 100,
-            "type": "NeoHookean"
-        },
-        {
-            "E": 10000,
-            "id": 2,
-            "nu": 0.0,
-            "rho": 100,
-            "type": "NeoHookean"
+            },
+            "volume_selection": 2
         }
     ],
     "initial_conditions": {
@@ -59,24 +55,32 @@
             }
         ]
     },
-    "contact": {
-        "enabled": true,
-        "use_convergent_formulation": false,
-        "adhesion": {
-            "dhat": 0.02,
-            "dhat_a": 0.005,
-            "dhat_p": 0.00125,
-            "adhesion_enabled": true,
-            "adhesion_strength": 1,
-            "tangential_adhesion_coefficient": 0.1
+    "materials": [
+        {
+            "E": 10000,
+            "id": 1,
+            "nu": 0.0,
+            "rho": 100,
+            "type": "NeoHookean"
+        },
+        {
+            "E": 10000,
+            "id": 2,
+            "nu": 0.0,
+            "rho": 100,
+            "type": "NeoHookean"
+        }
+    ],
+    "output": {
+        "json": "sim.json",
+        "paraview": {
+            "file_name": "sim.pvd"
         }
     },
-    "time": {
-        "dt": 0.1,
-        "tend": 5,
-        "integrator": "BDF2"
-    },
     "solver": {
+        "contact": {
+            "barrier_stiffness": 100000
+        },
         "linear": {
             "solver": [
                 "Eigen::PardisoLDLT",
@@ -90,23 +94,21 @@
                 "method": "RobustArmijo"
             },
             "solver": "Newton"
-        },
-        "contact": {
-            "barrier_stiffness": 100000
         }
     },
     "tests": {
-        "err_h1": 2.9785741756534985,
-        "err_h1_semi": 0.1086460693818171,
-        "err_l2": 2.9765920364534004,
-        "err_linf": 4.039484279306613,
-        "err_linf_grad": 4.039484279306613,
-        "err_lp": 3.6982622582501716
+        "err_h1": 0.07201562372557699,
+        "err_h1_semi": 0.0012166204832437428,
+        "err_l2": 0.0720053462958386,
+        "err_linf": 0.10030452802737501,
+        "err_linf_grad": 0.10030452802737501,
+        "err_lp": 0.09211729870824871,
+        "margin": 0.00001,
+        "time_steps": 1
     },
-    "output": {
-        "json": "sim.json",
-        "paraview": {
-            "file_name": "sim.pvd"
-        }
+    "time": {
+        "dt": 0.1,
+        "integrator": "BDF2",
+        "tend": 5
     }
 }

@@ -1,5 +1,19 @@
 {
+    "boundary_conditions": {
+        "rhs": [
+            0,
+            9.81,
+            0
+        ]
+    },
     "common": "../common.json",
+    "contact": {
+        "collision_mesh": {
+            "max_edge_length": 0.01,
+            "tessellation_type": "irregular"
+        },
+        "friction_coefficient": 0.2
+    },
     "geometry": [
         {
             "mesh": "../../../../meshes/3D/simple/sphere/coarse/P1.msh",
@@ -9,48 +23,26 @@
             "volume_selection": 1
         },
         {
-            "mesh": "../../../../meshes/3D/obstacles/plane.obj",
             "is_obstacle": true,
+            "mesh": "../../../../meshes/3D/obstacles/plane.obj",
             "transformation": {
-                "translation": [
-                    0,
-                    -0.2,
-                    0
-                ],
                 "dimensions": [
                     1,
                     0,
                     1
+                ],
+                "translation": [
+                    0,
+                    -0.2,
+                    0
                 ]
             }
         }
     ],
-    "space": {
-        "discr_order": 1
-    },
-    "time": {
-        "tend": 1,
-        "dt": 0.001,
-        "integrator": "BDF2"
-    },
-    "contact": {
-        "friction_coefficient": 0.2,
-        "collision_mesh": {
-            "max_edge_length": 0.01,
-            "tessellation_type": "irregular"
-        }
-    },
-    "boundary_conditions": {
-        "rhs": [
-            0,
-            9.81,
-            0
-        ]
-    },
     "materials": [
         {
-            "id": 1,
             "E": 591000,
+            "id": 1,
             "nu": 0.45,
             "rho": 700,
             "type": "NeoHookean"
@@ -60,5 +52,23 @@
         "paraview": {
             "skip_frame": 10
         }
+    },
+    "space": {
+        "discr_order": 1
+    },
+    "tests": {
+        "err_h1": 6.845543291911038E-7,
+        "err_h1_semi": 7.766431498618734E-21,
+        "err_l2": 6.845543291911038E-7,
+        "err_linf": 0.000009810000000000003,
+        "err_linf_grad": 0.000009810000000000003,
+        "err_lp": 0.0000050420103851291345,
+        "margin": 0.00001,
+        "time_steps": 1
+    },
+    "time": {
+        "dt": 0.001,
+        "integrator": "BDF2",
+        "tend": 1
     }
 }
