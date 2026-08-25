@@ -27,5 +27,15 @@
         "paraview": {
             "file_name": "sim.pvd"
         }
+    },
+    "tests": {
+        "err_h1": 0.0,
+        "err_h1_semi": 0.0,
+        "err_l2": 0.0,
+        "err_linf": 0.0,
+        "err_linf_grad": 0.0,
+        "err_lp": 0.0,
+        "margin": 1e-05,
+        "time_steps": "static"
     }
 }
