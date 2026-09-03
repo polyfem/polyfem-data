@@ -1,0 +1,11 @@
+{
+  "description": "Quick checkpoint equivalence scenes for normal CI",
+  "scenes": [
+    { "path": "time-int/bdf1.json", "steps": 4, "checkpoint_step": 2, "family": "elastic-bdf" },
+    { "path": "time-int/newmark.json", "steps": 4, "checkpoint_step": 2, "family": "elastic-newmark" },
+    { "path": "standard/navier_stokes_transient.json", "steps": 4, "checkpoint_step": 2, "family": "fluid" },
+    { "path": "standard/navier_stokes_split.json", "steps": 4, "checkpoint_step": 2, "family": "operator-splitting" },
+    { "path": "standard/thermoelastic_heated_clamped_bar.json", "steps": 4, "checkpoint_step": 2, "family": "thermoelastic" },
+    { "path": "standard/navier_stokes_fsi_moving_arc.json", "steps": 4, "checkpoint_step": 2, "family": "fsi" }
+  ]
+}
