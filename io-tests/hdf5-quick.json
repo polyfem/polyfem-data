@@ -15,7 +15,7 @@
     { "path": "standard/neohookean.json", "category": "nonlinear-elastic" },
     { "path": "standard/saint_venant.json", "category": "saint-venant" },
     { "path": "standard/mooney_rivlin.json", "category": "mooney-rivlin" },
-    { "path": "standard/multimodel.json", "category": "multiple-materials" },
+    { "path": "standard/per-element-materials-multiple-bodies.json", "category": "multiple-materials-and-fields" },
     { "path": "standard/incompressible.json", "category": "mixed-incompressible" },
     { "path": "standard/active-fiber.json", "category": "fiber-resource" },
     { "path": "standard/point_selection.json", "category": "point-selection" },
@@ -29,7 +29,7 @@
     { "path": "selection/file.json", "category": "selection-resource" },
     { "path": "selection/plane.json", "category": "selection-plane" },
     { "path": "units/neohookean.json", "category": "units" },
-    { "path": "hybrid/patch_hybrid_p1q2.json", "category": "hybrid-stream" },
+    { "path": "hybrid/patch_prism_p1q2.json", "category": "hybrid-prism-stream" },
     { "path": "standard/thermoelastic_heated_clamped_bar_static.json", "category": "thermoelastic" }
   ]
 }
