@@ -1,0 +1,62 @@
+{
+    "geometry": [
+        {
+            "mesh": "cube.mesh",
+            "surface_selection": [
+                {
+                    "id": 2,
+                    "axis": "+z",
+                    "position": 0.99
+                }
+            ]
+        },
+        {
+            "mesh": "slab.obj",
+            "is_obstacle": true
+        }
+    ],
+    "materials": {
+        "type": "NeoHookean",
+        "E": 10000000.0,
+        "nu": 0.45,
+        "rho": 1000
+    },
+    "time": {
+        "tend": 1.0,
+        "dt": 0.25,
+        "quasistatic": true
+    },
+    "contact": {
+        "enabled": true,
+        "dhat": 0.001,
+        "friction_coefficient": 0.3
+    },
+    "boundary_conditions": {
+        "dirichlet_boundary": [
+            {
+                "id": 2,
+                "value": [
+                    "0",
+                    "0",
+                    "-0.25*t"
+                ]
+            }
+        ]
+    },
+    "solver": {
+        "contact": {
+            "barrier_stiffness": "semi_implicit"
+        },
+        "linear": {
+            "solver": "Eigen::SimplicialLDLT"
+        }
+    },
+    "output": {
+        "log": {
+            "level": "debug"
+        },
+        "paraview": {
+            "file_name": "quasistatic-semi-friction.pvd"
+        }
+    }
+}
