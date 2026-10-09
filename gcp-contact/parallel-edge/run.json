@@ -32,6 +32,10 @@
   ],
   "solver": {
     "nonlinear": {
+      "Newton": {
+        "use_psd_projection": true,
+        "use_psd_projection_in_regularized": true
+      },
       "grad_norm_tol": 1e-08,
       "rel_grad_norm_tol": 1e-08
     }
