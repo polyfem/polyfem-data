@@ -21,7 +21,7 @@
         },
         "advanced": {
             "lump_mass_matrix": false,
-            "check_inversion": "Conservative"
+            "check_inversion": "ConservativeContinuous"
         }
     },
     "space": {
