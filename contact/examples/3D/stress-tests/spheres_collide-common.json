@@ -91,7 +91,7 @@
     ],
     "solver": {
         "advanced": {
-            "check_inversion": "Conservative",
+            "check_inversion": "ConservativeContinuous",
             "lump_mass_matrix": false
         }
     }
