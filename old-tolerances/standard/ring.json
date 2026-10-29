@@ -25,7 +25,7 @@
         },
         "advanced": {
             "lump_mass_matrix": false,
-            "check_inversion": "Conservative",
+            "check_inversion": "ConservativeContinuous",
             "characteristic_force_density": 1,
             "characteristic_length": 1
         }
